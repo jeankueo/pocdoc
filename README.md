@@ -2,9 +2,9 @@
 
 Steps to set up Openui5 Version.
 
-1. Checkout [openui5](https://github.com/SAP/openui5) instruction for bower installation. Basically this command is needed: 
+ * Checkout [openui5](https://github.com/SAP/openui5) instruction for bower installation. Basically this command is needed: 
 ```sh
 bower install openui5/packaged-sap.m
 ```
 
-2. start up a web server (e.g. tomcat)
+ * start up a web server (e.g. tomcat)
