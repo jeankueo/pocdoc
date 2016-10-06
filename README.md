@@ -6,4 +6,5 @@ Steps to set up Openui5 Version.
 ```sh
 bower install openui5/packaged-sap.m
 ```
+
 2. start up a web server (e.g. tomcat)
