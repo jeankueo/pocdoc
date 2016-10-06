@@ -1,6 +1,6 @@
 # pipeline-ui-poc
 
-Steps to set up Openui5 Version.
+Steps to set up Openui5 Environment
 --------------
 
  * Checkout [openui5](https://github.com/SAP/openui5) instruction for bower installation. Basically this command is needed: 
