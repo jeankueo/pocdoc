@@ -1,7 +1,7 @@
 sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/model/json/JSONModel"], function (Controller, JSONModel) {
 	"use strict";
 	
-	return Controller.extend("sap.ciconnect.repositories", {
+	return Controller.extend("sap.ciconnect.view.repositories", {
 		onInit: function() {
 			var oModel = new JSONModel();
 			oModel.loadData("../data/repo.json");

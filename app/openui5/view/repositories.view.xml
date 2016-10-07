@@ -1,5 +1,5 @@
 <core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
-		controllerName="sap.ciconnect.repositories" xmlns:html="http://www.w3.org/1999/xhtml">
+		controllerName="sap.ciconnect.view.repositories" xmlns:html="http://www.w3.org/1999/xhtml">
 	<FlexBox direction="Column" alignItems="SpaceBetween" >
 		<items>
 			<Toolbar>

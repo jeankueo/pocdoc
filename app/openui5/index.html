@@ -15,7 +15,7 @@
 	data-sap-ui-preload='async'
 	data-sap-ui-resourceroots='{
 		"sap.m": "../bower_components/openui5-sap.m/resources/sap/m",
-		"sap.ciconnect": "./pages"
+		"sap.ciconnect.view": "./view"
 	}'>
 </script>
 
@@ -24,19 +24,19 @@
 		
 		var oPipelinesView = sap.ui.view({
 			id:"pipelines",
-			viewName:"sap.ciconnect.pipelines",
+			viewName:"sap.ciconnect.view.pipelines",
 			type:sap.ui.core.mvc.ViewType.XML
 		});
 		
 		var oRepositoryView = sap.ui.view({
 			id:"repositories",
-			viewName:"sap.ciconnect.repositories",
+			viewName:"sap.ciconnect.view.repositories",
 			type:sap.ui.core.mvc.ViewType.XML
 		});
 		
 		var oSummaryView = sap.ui.view({
 			id:"summary",
-			viewName:"sap.ciconnect.summary",
+			viewName:"sap.ciconnect.view.summary",
 			type:sap.ui.core.mvc.ViewType.XML
 		});
 		
@@ -45,13 +45,13 @@
 			backgroundDesign: "Transparent",
 			applyContentPadding: false,
 			items: [new sap.m.IconTabFilter({
-				text: "Repositories",
-				count: 5,
-				content: oRepositoryView
-			}), new sap.m.IconTabFilter({
 				text: "Pipelines",
 				count: 3,
 				content: oPipelinesView
+			}), new sap.m.IconTabFilter({
+				text: "Repositories",
+				count: 5,
+				content: oRepositoryView
 			}), new sap.m.IconTabFilter({
 				text: "Summary",
 				content: oSummaryView

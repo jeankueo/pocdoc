@@ -1,4 +1,4 @@
-sap.ui.controller("sap.ciconnect.pipelines", {
+sap.ui.controller("sap.ciconnect.view.pipelines", {
 	
 	onShowHello: function () {
 		alert("Hello Pipeline!")
