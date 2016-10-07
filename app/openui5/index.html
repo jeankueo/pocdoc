@@ -21,6 +21,7 @@
 
 <script>
 	sap.ui.getCore().attachInit(function () {
+		
 		var oPipelinesView = sap.ui.view({
 			id:"pipelines",
 			viewName:"sap.ciconnect.pipelines",
@@ -44,13 +45,13 @@
 			backgroundDesign: "Transparent",
 			applyContentPadding: false,
 			items: [new sap.m.IconTabFilter({
-				text: "Pipelines",
-				count: 5,
-				content: oPipelinesView
-			}), new sap.m.IconTabFilter({
 				text: "Repositories",
-				count: 3,
+				count: 5,
 				content: oRepositoryView
+			}), new sap.m.IconTabFilter({
+				text: "Pipelines",
+				count: 3,
+				content: oPipelinesView
 			}), new sap.m.IconTabFilter({
 				text: "Summary",
 				content: oSummaryView
