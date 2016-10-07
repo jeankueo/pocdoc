@@ -9,7 +9,7 @@
 			</Toolbar>
 			<List
 				id="github"
-				items="{/}"
+				items="{github>/}"
 				includeItemInSelection="true" >
 				<headerToolbar>
 					<Toolbar>
@@ -20,8 +20,8 @@
 					</Toolbar>
 				</headerToolbar>
 				<StandardListItem
-					title="{full_name}"
-					description="{description}"
+					title="{github>full_name}"
+					description="{github>description}"
 					icon="sap-icon://tree"
 					iconDensityAware="false"
 					iconInset="false"
