@@ -1,9 +1,5 @@
-/**
- * Pipeline types
- *
- * @enum {string}
- * @public
- */
+sap.ciconnect.control = sap.ciconnect.control || {};
+
 sap.ciconnect.control.PipelineType = {
 	CentralOnly: "central service only",
 	LocalOnly: "local team Jenkins only",
@@ -20,7 +16,8 @@ sap.ui.define([
 				type: {type: "string", defaultValue: sap.ciconnect.control.PipelineType.CentralOnly}
 			},
 			aggregations: {
-				jobs: {type: "sap.ciconnect.control.Job", multiple: true, bindable: true, visibility: "public"}
+				//jobs: {type: "sap.ciconnect.control.Job", multiple: true, visibility: "public",
+					//singularName: "job", bindable: "bindable"}
 			}
 		}
 	});

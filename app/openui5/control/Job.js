@@ -3,6 +3,8 @@ sap.ciconnect.control.JobType = {
 	Local: "local team Jenkins"
 };
 
+sap.ciconnect.control = sap.ciconnect.control || {};
+
 sap.ciconnect.control.JobGoal = {
 	Build: "Build",
 	Validate: "Validate",

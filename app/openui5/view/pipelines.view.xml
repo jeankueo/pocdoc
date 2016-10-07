@@ -1,10 +1,10 @@
-<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:ci="sap.ciconnect.control"
 		controllerName="sap.ciconnect.view.pipelines" xmlns:html="http://www.w3.org/1999/xhtml">
 		
-	<FlexBox direction="Column" alignItems="SpaceBetween" >
-		<items>
+	<FlexBox direction="Column" alignItems="Start" items="{/}">
+		<ci:Pipeline type="{type}" class="pipelineItem">
 			
-		</items>
+		</ci:Pipeline>
 	</FlexBox>
 
 </core:View>
