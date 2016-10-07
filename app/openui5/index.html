@@ -58,14 +58,13 @@
 		}).addStyleClass("sapUiResponsiveContentPadding"); 
 		
 		var oPage = new sap.m.Page({
+			id: "ciconnect",
 			title: "CI-Connect PoC",
 			content: oIconTabBar
 		});
 		
 		var oApp = new sap.m.App({initialPage:"ciconnect"});
 		oApp.addPage(oPage);
-		oApp.placeAt("content");
-		
 		oApp.placeAt("content");
 	});
 </script>
