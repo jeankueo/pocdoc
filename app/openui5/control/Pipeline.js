@@ -16,8 +16,8 @@ sap.ui.define([
 				type: {type: "string", defaultValue: sap.ciconnect.control.PipelineType.CentralOnly}
 			},
 			aggregations: {
-				//jobs: {type: "sap.ciconnect.control.Job", multiple: true, visibility: "public",
-					//singularName: "job", bindable: "bindable"}
+				jobs: {type: "sap.ciconnect.control.Job", multiple: true, visibility: "public",
+					singularName: "job", bindable: "bindable"}
 			}
 		}
 	});

@@ -2,9 +2,16 @@
 		controllerName="sap.ciconnect.view.pipelines" xmlns:html="http://www.w3.org/1999/xhtml">
 		
 	<FlexBox direction="Column" alignItems="Start" items="{/}">
-		<ci:Pipeline type="{type}" class="pipelineItem">
-			
-		</ci:Pipeline>
+		<items>
+			<ci:Pipeline type="{type}" >
+				
+			</ci:Pipeline>
+		</items>
 	</FlexBox>
 
 </core:View>
+
+<!--	jobs="{jobs}"
+	 			<jobs>
+					<ci:Job type="{type}" goal="{goal}" status="Finished" />
+				</jobs> -->
