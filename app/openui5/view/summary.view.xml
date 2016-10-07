@@ -1,4 +1,45 @@
 <core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
 		controllerName="sap.ciconnect.view.summary" xmlns:html="http://www.w3.org/1999/xhtml">
-	<Text text="summary"/>
+	<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Status Loaded - no press event"
+		subheader="Subheader">
+		<tileContent>
+			<TileContent unit="Unit" footer="Footer">
+				<content>
+					<ImageContent src="sap-icon://line-charts"/>
+				</content>
+			</TileContent>
+		</tileContent>
+	</GenericTile>
+	<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Status Loaded - with press event"
+		subheader="Subheader" press="press">
+		<tileContent>
+			<TileContent unit="Unit" footer="Footer">
+				<content>
+					<ImageContent src="sap-icon://home-share"/>
+				</content>
+			</TileContent>
+		</tileContent>
+	</GenericTile>
+	<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Status Loading - no press event"
+		subheader="Subheader" frameType="OneByOne" state="Loading">
+		<tileContent>
+			<TileContent unit="Unit" footer="Footer">
+				<content>
+					<NumericContent scale="M" value="2.1"
+						valueColor="Good" indicator="Up" />
+				</content>
+			</TileContent>
+		</tileContent>
+	</GenericTile>
+	<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Status Loading - with press event"
+		subheader="Subheader" frameType="OneByOne" state="Loading" press="press">
+		<tileContent>
+			<TileContent unit="Unit" footer="Footer">
+				<content>
+					<NumericContent scale="M" value="1.96"
+						valueColor="Error" indicator="Down" />
+				</content>
+			</TileContent>
+		</tileContent>
+	</GenericTile>
 </core:View>

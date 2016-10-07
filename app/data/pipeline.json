@@ -1,3 +1,22 @@
-{
-	
-}
+[{
+	"id": "pipeline1",
+	"type": "mixed",
+	"jobs": [{
+		"type": "local",
+		"goal": "build"
+	}]
+}, {
+	"id": "pipeline2",
+	"type": "centralOnly",
+	"jobs": [{
+		"type": "central",
+		"goal": "build"
+	}]
+}, {
+	"id": "pipeline3",
+	"type": "localOnly",
+	"jobs": [{
+		"type": "local",
+		"goal": "build"
+	}]
+}]
