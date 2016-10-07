@@ -21,10 +21,52 @@
 
 <script>
 	sap.ui.getCore().attachInit(function () {
-		var app = new sap.m.App({initialPage:"pipelines"});
-		var page = sap.ui.view({id:"pipelines", viewName:"sap.ciconnect.pipelines", type:sap.ui.core.mvc.ViewType.XML});
-		app.addPage(page);
-		app.placeAt("content");
+		var oPipelinesView = sap.ui.view({
+			id:"pipelines",
+			viewName:"sap.ciconnect.pipelines",
+			type:sap.ui.core.mvc.ViewType.XML
+		});
+		
+		var oRepositoryView = sap.ui.view({
+			id:"repositories",
+			viewName:"sap.ciconnect.repositories",
+			type:sap.ui.core.mvc.ViewType.XML
+		});
+		
+		var oSummaryView = sap.ui.view({
+			id:"summary",
+			viewName:"sap.ciconnect.summary",
+			type:sap.ui.core.mvc.ViewType.XML
+		});
+		
+		var oIconTabBar = new sap.m.IconTabBar({
+			stretchContentHeight: true,
+			backgroundDesign: "Transparent",
+			applyContentPadding: false,
+			items: [new sap.m.IconTabFilter({
+				text: "Pipelines",
+				count: 5,
+				content: oPipelinesView
+			}), new sap.m.IconTabFilter({
+				text: "Repositories",
+				count: 3,
+				content: oRepositoryView
+			}), new sap.m.IconTabFilter({
+				text: "Summary",
+				content: oSummaryView
+			})]
+		}).addStyleClass("sapUiResponsiveContentPadding"); 
+		
+		var oPage = new sap.m.Page({
+			title: "CI-Connect PoC",
+			content: oIconTabBar
+		});
+		
+		var oApp = new sap.m.App({initialPage:"ciconnect"});
+		oApp.addPage(oPage);
+		oApp.placeAt("content");
+		
+		oApp.placeAt("content");
 	});
 </script>
 
