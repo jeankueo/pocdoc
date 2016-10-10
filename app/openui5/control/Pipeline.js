@@ -12,8 +12,8 @@ sap.ui.define([
 	var Pipeline = Control.extend("sap.ciconnect.control.Pipeline", {
 		metadata: {
 			properties: {
-				tileWidth: {type: "int", defaultValue: 80},
-				tileHeight: {type: "int", defaultValue: 50},
+				tileWidth: {type: "int", defaultValue: 50},
+				tileHeight: {type: "int", defaultValue: 25},
 				jobStyle: {type: "string", defaultValue: sap.ciconnect.control.JobStyle.Chevron},
 				type: {type: "string", defaultValue: sap.ciconnect.control.PipelineType.CentralOnly}
 			},

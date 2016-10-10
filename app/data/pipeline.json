@@ -6,6 +6,9 @@
 		"goal": "BLD"
 	}, {
 		"type": "central",
+		"goal": "VER"
+	}, {
+		"type": "central",
 		"goal": "VAL"
 	}, {
 		"type": "local",
@@ -17,6 +20,9 @@
 	"jobs": [{
 		"type": "central",
 		"goal": "BLD"
+	}, {
+		"type": "central",
+		"goal": "DEP"
 	}]
 }, {
 	"id": "pipeline3",
@@ -24,5 +30,8 @@
 	"jobs": [{
 		"type": "local",
 		"goal": "BLD"
+	}, {
+		"type": "local",
+		"goal": "DEP"
 	}]
 }]

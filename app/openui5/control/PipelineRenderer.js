@@ -22,12 +22,10 @@ sap.ui.define([], function () {
 		
 		oRenderManager.write("<svg id='" + oPipeline.getId() + "-svg' width='100%' height='100%'>");
 		
-		// TODO remove
 		oRenderManager.write("<rect");
 		oRenderManager.addClass("ciconnectPipelineSvgFrame");
 		oRenderManager.writeClasses();
 		oRenderManager.write("></rect>");
-		// TODO remove
 		
 		oRenderManager.write("</svg>");
 		
