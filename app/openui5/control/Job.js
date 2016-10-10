@@ -6,10 +6,13 @@ sap.ciconnect.control.JobType = {
 };
 
 sap.ciconnect.control.JobGoal = {
-	Build: "Build",
-	Validate: "Validate",
-	Deploy: "Deploy",
-	Other: "Other"
+	Build: "BLD",
+	Versioning: "VER",
+	Validate: "VAL",
+	Staging: "STG",
+	Promote: "PRM",
+	Deploy: "DEP",
+	Other: "OTH"
 };
 
 sap.ciconnect.control.JobStatus = {

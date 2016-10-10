@@ -7,17 +7,29 @@ sap.ui.define([], function () {
 		var aJobs = oPipeline.getJobs();
 		
 		var nWidthSpan = aJobs ? aJobs.length : 1,
-			nHeightSpan = oPipeline.getType() === sap.ciconnect.control.PipelineType.Mixed ? 2 : 1;
+			nHeightSpan = oPipeline.getType() === sap.ciconnect.control.PipelineType.Mixed ? 2 : 1,
+			sJobHeight = oPipeline.getJobHeight(),
+			sJobWidth = oPipeline.getJobWidth();
 		
 		oRenderManager.write("<div");
 		oRenderManager.writeControlData(oPipeline);
-		oRenderManager.addStyle("width",  nWidthSpan * 80 + "px");
-		oRenderManager.addStyle("height", nHeightSpan * 50 + "px");
+		oRenderManager.addStyle("width", "calc( "+ nWidthSpan + " * " + sJobWidth + " )");
+		oRenderManager.addStyle("height", "calc( "+ nHeightSpan + " * " + sJobHeight + " )");
 		oRenderManager.writeStyles();
-		oRenderManager.addClass("ciconnectPipeline");
+		oRenderManager.addClass("ciconnectPipelineDiv");
 		oRenderManager.writeClasses();
 		oRenderManager.write(">");
 		
+		oRenderManager.write("<svg id='" + oPipeline.getId() + "-svg' width='100%' height='100%'>");
+		
+		// TODO remove
+		oRenderManager.write("<rect");
+		oRenderManager.addClass("ciconnectPipelineSvgFrame");
+		oRenderManager.writeClasses();
+		oRenderManager.write("></rect>");
+		// TODO remove
+		
+		oRenderManager.write("</svg>");
 		
 		oRenderManager.write("</div>");
 	};

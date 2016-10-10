@@ -3,26 +3,26 @@
 	"type": "mixed",
 	"jobs": [{
 		"type": "local",
-		"goal": "build"
+		"goal": "BLD"
 	}, {
 		"type": "central",
-		"goal": "validate"
+		"goal": "VAL"
 	}, {
 		"type": "central",
-		"goal": "deploy"
+		"goal": "DEP"
 	}]
 }, {
 	"id": "pipeline2",
 	"type": "centralOnly",
 	"jobs": [{
 		"type": "central",
-		"goal": "build"
+		"goal": "BLD"
 	}]
 }, {
 	"id": "pipeline3",
 	"type": "localOnly",
 	"jobs": [{
 		"type": "local",
-		"goal": "build"
+		"goal": "BLD"
 	}]
 }]
