@@ -6,7 +6,6 @@ sap.ciconnect.control.PipelineType = {
 	Mixed: "across local Jenkins and central services"
 };
 
-
 sap.ui.define([
 	"sap/ui/core/Control"
 ], function (Control) {

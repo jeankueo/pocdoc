@@ -4,6 +4,9 @@
 	"jobs": [{
 		"type": "local",
 		"goal": "build"
+	}, {
+		"type": "central",
+		"goal": "deploy"
 	}]
 }, {
 	"id": "pipeline2",

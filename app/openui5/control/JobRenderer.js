@@ -3,9 +3,9 @@ sap.ui.define([], function () {
 
 	var JobRenderer = {};
 
-	JobRenderer.render = function (oRenderManager, oPipeline) {
+	JobRenderer.render = function (oRenderManager, oJob) {
 		oRenderManager.write("<div");
-		oRenderManager.writeControlData(oPipeline);
+		oRenderManager.writeControlData(oJob);
 		oRenderManager.addStyle("width", "90px");
 		oRenderManager.addStyle("height", "90px");
 		oRenderManager.addStyle("background-color", "#000");
@@ -14,7 +14,7 @@ sap.ui.define([], function () {
 		oRenderManager.writeClasses();
 		oRenderManager.write(">");
 		
-		// TODO
+		oRenderManager.write("<p>" + oJob.getId() + "</p>");
 		
 		oRenderManager.write("</div>");
 	};
