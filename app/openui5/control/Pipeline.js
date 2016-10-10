@@ -7,13 +7,13 @@ sap.ciconnect.control.PipelineType = {
 };
 
 sap.ui.define([
-	"sap/ui/core/Control", "sap/ui/thirdparty/d3"
-], function (Control) {
+	"sap/ui/core/Control", "./Job", "sap/ui/thirdparty/d3"
+], function (Control, Job) {
 	var Pipeline = Control.extend("sap.ciconnect.control.Pipeline", {
 		metadata: {
 			properties: {
-				jobWidth: {type: "sap.ui.core.CSSSize", defaultValue: "80px"},
-				jobHeight: {type: "sap.ui.core.CSSSize", defaultValue: "50px"},
+				jobWidth: {type: "int", defaultValue: "80"},
+				jobHeight: {type: "int", defaultValue: "50"},
 				type: {type: "string", defaultValue: sap.ciconnect.control.PipelineType.CentralOnly}
 			},
 			aggregations: {
@@ -35,7 +35,9 @@ sap.ui.define([
 	};
 	
 	Pipeline.prototype._drawJobs = function ($svg) {
-		var aJobData = this._genData(this.getJobs());
+		var aJobData = this._genData(this.getJobs()),
+			iJobWidth = this.getJobWidth(),
+			iJobHeight = this.getJobHeight();
 		
 		$jobs = $svg.selectAll(".ciconnectJobChevron")
 			.data(aJobData);
@@ -50,9 +52,10 @@ sap.ui.define([
 			.classed("ciconnectJobStatusWaiting", function (d) {
 				return d.status === "Waiting";
 			})
-			.attr("d", "M 6 5 h 15 l 7 5 l -7 5 h -15 l 4 -5 z")
+			.attr("d", "M 0 0 h 15 l 5 5 l -5 5 h -15 l 5 -5 z") // w20h10
 			.attr("transform", function (d, i) {
-				return "";
+				var sRetVal = "translate(" + i * iJobWidth + ",0)";
+				return sRetVal;
 			});
 		
 		$jobs.exit().remove();

@@ -13,8 +13,8 @@ sap.ui.define([], function () {
 		
 		oRenderManager.write("<div");
 		oRenderManager.writeControlData(oPipeline);
-		oRenderManager.addStyle("width", "calc( "+ nWidthSpan + " * " + sJobWidth + " )");
-		oRenderManager.addStyle("height", "calc( "+ nHeightSpan + " * " + sJobHeight + " )");
+		oRenderManager.addStyle("width", nWidthSpan * sJobWidth + "px");
+		oRenderManager.addStyle("height", nHeightSpan * sJobHeight + "px");
 		oRenderManager.writeStyles();
 		oRenderManager.addClass("ciconnectPipelineDiv");
 		oRenderManager.writeClasses();
