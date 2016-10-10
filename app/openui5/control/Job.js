@@ -19,9 +19,9 @@ sap.ciconnect.control.JobStatus = {
 };
 
 sap.ui.define([
-	"sap/ui/core/Control"
-], function (Control) {
-	var Job = Control.extend("sap.ciconnect.control.Job", {
+	"sap/ui/core/Element"
+], function (Element) {
+	var Job = Element.extend("sap.ciconnect.control.Job", {
 		metadata: {
 			properties: {
 				type: {type: "string", defaultValue: sap.ciconnect.control.JobType.Central},

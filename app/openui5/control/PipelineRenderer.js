@@ -14,12 +14,6 @@ sap.ui.define([], function () {
 		oRenderManager.write(">");
 		
 		oRenderManager.write("<p>" + oPipeline.getId() + "</p>");
-		var aJob = oPipeline.getJobs();
-		if (aJob) {
-			for (var i = 0; i < aJob.length; i++) {
-				oRenderManager.renderControl(aJob[i]);
-			}
-		}
 		
 		oRenderManager.write("</div>");
 	};

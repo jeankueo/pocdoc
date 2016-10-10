@@ -21,5 +21,9 @@ sap.ui.define([
 		}
 	});
 	
+	Pipeline.prototype.onAfterRendering = function () {
+		var that = this;
+	};
+	
 	return Pipeline;
 }, true);
