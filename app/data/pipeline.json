@@ -8,7 +8,7 @@
 		"type": "central",
 		"goal": "VAL"
 	}, {
-		"type": "central",
+		"type": "local",
 		"goal": "DEP"
 	}]
 }, {

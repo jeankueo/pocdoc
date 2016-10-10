@@ -1,8 +1,8 @@
 sap.ciconnect.control = sap.ciconnect.control || {};
 
 sap.ciconnect.control.JobType = {
-	Central: "central service",
-	Local: "local team Jenkins"
+	Central: "central",
+	Local: "local"
 };
 
 sap.ciconnect.control.JobGoal = {

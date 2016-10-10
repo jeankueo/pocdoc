@@ -12,8 +12,8 @@ sap.ui.define([
 	var Pipeline = Control.extend("sap.ciconnect.control.Pipeline", {
 		metadata: {
 			properties: {
-				jobWidth: {type: "int", defaultValue: "80"},
-				jobHeight: {type: "int", defaultValue: "50"},
+				jobWidth: {type: "int", defaultValue: 80},
+				jobHeight: {type: "int", defaultValue: 50},
 				type: {type: "string", defaultValue: sap.ciconnect.control.PipelineType.CentralOnly}
 			},
 			aggregations: {
@@ -37,7 +37,8 @@ sap.ui.define([
 	Pipeline.prototype._drawJobs = function ($svg) {
 		var aJobData = this._genData(this.getJobs()),
 			iJobWidth = this.getJobWidth(),
-			iJobHeight = this.getJobHeight();
+			iJobHeight = this.getJobHeight(),
+			bMixed = this.getType() === sap.ciconnect.control.PipelineType.Mixed;
 		
 		$jobs = $svg.selectAll(".ciconnectJobChevron")
 			.data(aJobData);
@@ -52,9 +53,17 @@ sap.ui.define([
 			.classed("ciconnectJobStatusWaiting", function (d) {
 				return d.status === "Waiting";
 			})
+			.classed("ciConnectJobTypeCentral", function (d) {
+				return d.type === sap.ciconnect.control.JobType.Central;
+			})
+			.classed("ciConnectJobTypeLocal", function (d) {
+				return d.type === sap.ciconnect.control.JobType.Local;
+			})
 			.attr("d", "M 0 0 h 15 l 5 5 l -5 5 h -15 l 5 -5 z") // w20h10
 			.attr("transform", function (d, i) {
-				var sRetVal = "translate(" + i * iJobWidth + ",0)";
+				var tx = i * iJobWidth,
+					ty = bMixed && (d.type === sap.ciconnect.control.JobType.Local) ? iJobHeight : 0;
+				var sRetVal = "translate(" + tx + "," + ty + ")";
 				return sRetVal;
 			});
 		
