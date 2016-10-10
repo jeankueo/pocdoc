@@ -21,11 +21,11 @@
 }
 
 .ciConnectJobTypeCentral {
-	fill: #1C75BC;
+	fill: none;
 	stroke: #1C75BC;
 }
 
 .ciConnectJobTypeLocal {
-	fill: #e09d00;
+	fill: none;
 	stroke: #e09d00;
 }

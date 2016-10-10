@@ -35,55 +35,20 @@ sap.ui.define([
 	};
 	
 	Pipeline.prototype._drawDefs = function ($svg) {
-		//$svg.append("<def>");
+		//TODO
 	};
 	
 	Pipeline.prototype._drawJobs = function ($svg) {
-		var aJobData = this._genData(this.getJobs()),
-			iTileWidth = this.getTileWidth(),
-			iTileHeight = this.getTileHeight(),
-			iPadding = this.getPadding(),
-			bMixed = this.getType() === sap.ciconnect.control.PipelineType.Mixed,
-			oJobStyle = this.getJobStyle(),
-			fScaleFactor = Math.min(iTileWidth/oJobStyle.width, iTileHeight/oJobStyle.height);
+		var aJobData = this._genData(this.getJobs());
 		
-		$jobs = $svg.selectAll(".ciconnectJobChevron")
+		var $jobGroup = $svg.selectAll("g")
 			.data(aJobData);
+		$jobGroup.enter().append("g");
 		
-		$jobs.enter().append("path")
-			.classed("ciconnectJobStatusFinished", function (d) {
-				return !d.status ||
-					d.status === sap.ciconnect.control.JobStatus.Succeeded ||
-					d.status === sap.ciconnect.control.JobStatus.Failed;
-			})
-			.classed("ciconnectJobStatusInprocess", function (d) {
-				return d.status === sap.ciconnect.control.JobStatus.Processing;
-			})
-			.classed("ciconnectJobStatusWaiting", function (d) {
-				return d.status === sap.ciconnect.control.JobStatus.Waiting;
-			})
-			.classed("ciConnectJobTypeCentral", function (d) {
-				return d.type === sap.ciconnect.control.JobType.Central;
-			})
-			.classed("ciConnectJobTypeLocal", function (d) {
-				return d.type === sap.ciconnect.control.JobType.Local;
-			})
-			.attr("d", oJobStyle.d)
-			.attr("transform", function (d, i) {
-				var sRetVal = "",
-					tx = i * iTileWidth + iPadding,
-					ty = (bMixed && (d.type === sap.ciconnect.control.JobType.Local) ? iTileHeight : 0) + iPadding;
-				
-				sRetVal += "translate(" + tx + "," + ty + ")";
-				sRetVal += " scale(" + fScaleFactor + ")";
-				return sRetVal;
-			});
+		this._drawJobPath($jobGroup);
+		this._drawJobText($jobGroup);
 		
-		$jobs.exit().remove();
-	};
-	
-	Pipeline.prototype._drawConnection = function ($svg) {
-		//$svg.append("<path>");
+		$jobGroup.exit().remove();
 	};
 	
 	Pipeline.prototype._genData = function (aData) {
@@ -100,6 +65,55 @@ sap.ui.define([
 			}
 		}
 		return aRetVal;
+	};
+	
+	Pipeline.prototype._drawJobPath = function ($jobGroup) {
+		var iTileWidth = this.getTileWidth(),
+			iTileHeight = this.getTileHeight(),
+			iPadding = this.getPadding(),
+			bMixed = this.getType() === sap.ciconnect.control.PipelineType.Mixed,
+			oJobStyle = this.getJobStyle(),
+			fScaleFactor = Math.min(iTileWidth/oJobStyle.width, iTileHeight/oJobStyle.height);
+		
+		var $jobPath = $jobGroup.selectAll("path").data(function(d, i){
+			return [{data: d, index: i}];
+		});
+		$jobPath.enter().append("path");
+		$jobPath.classed("ciconnectJobStatusFinished", function (d) {
+				return !d.data.status ||
+					d.data.status === sap.ciconnect.control.JobStatus.Succeeded ||
+					d.data.status === sap.ciconnect.control.JobStatus.Failed;
+			})
+			.classed("ciconnectJobStatusInprocess", function (d) {
+				return d.data.status === sap.ciconnect.control.JobStatus.Processing;
+			})
+			.classed("ciconnectJobStatusWaiting", function (d) {
+				return d.data.status === sap.ciconnect.control.JobStatus.Waiting;
+			})
+			.classed("ciConnectJobTypeCentral", function (d) {
+				return d.data.type === sap.ciconnect.control.JobType.Central;
+			})
+			.classed("ciConnectJobTypeLocal", function (d) {
+				return d.data.type === sap.ciconnect.control.JobType.Local;
+			})
+			.attr("d", oJobStyle.d)
+			.attr("transform", function (d) {
+				var sRetVal = "",
+					tx = d.index * iTileWidth + iPadding,
+					ty = (bMixed && (d.data.type === sap.ciconnect.control.JobType.Local) ? iTileHeight : 0) + iPadding;
+				
+				sRetVal += "translate(" + tx + "," + ty + ")";
+				sRetVal += " scale(" + fScaleFactor + ")";
+				return sRetVal;
+			});
+	};
+	
+	Pipeline.prototyp._drawJobText = function ($jobGroup) {
+		//TODO
+	};
+	
+	Pipeline.prototype._drawConnection = function ($svg) {
+		//TODO
 	};
 	
 	return Pipeline;
