@@ -10,22 +10,22 @@
 	fill:none;
 }
 
-.ciconnectJobStatusFinished .ciconnectJobStatusInprocess {
+.ciconnectJobPathStatusFinished .ciconnectJobPathStatusInprocess {
 	stroke-width:2;
 	stroke-dasharray:1;
 }
 
-.ciconnectJobStatusWaiting {
+.ciconnectJobPathStatusWaiting {
 	stroke-width:2;
 	stroke-dasharray:3,4;
 }
 
-.ciConnectJobTypeCentral {
+.ciConnectJobPathTypeCentral {
 	fill: none;
 	stroke: #1C75BC;
 }
 
-.ciConnectJobTypeLocal {
+.ciConnectJobPathTypeLocal {
 	fill: none;
 	stroke: #e09d00;
 }

@@ -79,21 +79,21 @@ sap.ui.define([
 			return [{data: d, index: i}];
 		});
 		$jobPath.enter().append("path");
-		$jobPath.classed("ciconnectJobStatusFinished", function (d) {
+		$jobPath.classed("ciconnectJobPathStatusFinished", function (d) {
 				return !d.data.status ||
 					d.data.status === sap.ciconnect.control.JobStatus.Succeeded ||
 					d.data.status === sap.ciconnect.control.JobStatus.Failed;
 			})
-			.classed("ciconnectJobStatusInprocess", function (d) {
+			.classed("ciconnectJobPathStatusInprocess", function (d) {
 				return d.data.status === sap.ciconnect.control.JobStatus.Processing;
 			})
-			.classed("ciconnectJobStatusWaiting", function (d) {
+			.classed("ciconnectJobPathStatusWaiting", function (d) {
 				return d.data.status === sap.ciconnect.control.JobStatus.Waiting;
 			})
-			.classed("ciConnectJobTypeCentral", function (d) {
+			.classed("ciConnectJobPathTypeCentral", function (d) {
 				return d.data.type === sap.ciconnect.control.JobType.Central;
 			})
-			.classed("ciConnectJobTypeLocal", function (d) {
+			.classed("ciConnectJobPathTypeLocal", function (d) {
 				return d.data.type === sap.ciconnect.control.JobType.Local;
 			})
 			.attr("d", oJobStyle.d)
@@ -108,7 +108,7 @@ sap.ui.define([
 			});
 	};
 	
-	Pipeline.prototyp._drawJobText = function ($jobGroup) {
+	Pipeline.prototype._drawJobText = function ($jobGroup) {
 		//TODO
 	};
 	
