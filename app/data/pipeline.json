@@ -6,6 +6,9 @@
 		"goal": "build"
 	}, {
 		"type": "central",
+		"goal": "validate"
+	}, {
+		"type": "central",
 		"goal": "deploy"
 	}]
 }, {

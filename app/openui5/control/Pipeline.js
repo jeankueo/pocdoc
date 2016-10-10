@@ -1,9 +1,9 @@
 sap.ciconnect.control = sap.ciconnect.control || {};
 
 sap.ciconnect.control.PipelineType = {
-	CentralOnly: "central service only",
-	LocalOnly: "local team Jenkins only",
-	Mixed: "across local Jenkins and central services"
+	CentralOnly: "centralOnly",
+	LocalOnly: "localOnly",
+	Mixed: "mixed"
 };
 
 sap.ui.define([
@@ -23,6 +23,7 @@ sap.ui.define([
 	
 	Pipeline.prototype.onAfterRendering = function () {
 		var that = this;
+		
 	};
 	
 	return Pipeline;
