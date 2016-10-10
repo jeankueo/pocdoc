@@ -18,7 +18,16 @@ sap.ciconnect.control.JobGoal = {
 sap.ciconnect.control.JobStatus = {
 	Waiting: "Waiting",
 	Processing: "Processing",
-	Finished: "Finished"
+	Succeeded: "Succeeded",
+	Failed: "Failed"
+};
+
+sap.ciconnect.control.JobStyle = {
+	Chevron: {
+		d: "M 0 0 h 15 l 5 5 l -5 5 h -15 l 5 -5 z",
+		height: 10,
+		width: 20
+	}
 };
 
 sap.ui.define([

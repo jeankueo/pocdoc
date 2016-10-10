@@ -4,9 +4,9 @@
 .ciconnectPipelineSvgFrame {
 	width:100%;
 	height:100%;
-	stroke:#1C75BC;
-	stroke-width:2;
-	stroke-dasharray:1,2;
+	stroke:#666666;
+	stroke-width:1;
+	stroke-dasharray:3,4;
 	fill:none;
 }
 

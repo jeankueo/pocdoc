@@ -8,13 +8,13 @@ sap.ui.define([], function () {
 		
 		var nWidthSpan = aJobs ? aJobs.length : 1,
 			nHeightSpan = oPipeline.getType() === sap.ciconnect.control.PipelineType.Mixed ? 2 : 1,
-			sJobHeight = oPipeline.getJobHeight(),
-			sJobWidth = oPipeline.getJobWidth();
+			sTileHeight = oPipeline.getTileHeight(),
+			sTileWidth = oPipeline.getTileWidth();
 		
 		oRenderManager.write("<div");
 		oRenderManager.writeControlData(oPipeline);
-		oRenderManager.addStyle("width", nWidthSpan * sJobWidth + "px");
-		oRenderManager.addStyle("height", nHeightSpan * sJobHeight + "px");
+		oRenderManager.addStyle("width", nWidthSpan * sTileWidth + "px");
+		oRenderManager.addStyle("height", nHeightSpan * sTileHeight + "px");
 		oRenderManager.writeStyles();
 		oRenderManager.addClass("ciconnectPipelineDiv");
 		oRenderManager.writeClasses();
