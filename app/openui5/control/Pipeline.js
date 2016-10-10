@@ -14,7 +14,10 @@ sap.ui.define([
 			properties: {
 				tileWidth: {type: "int", defaultValue: 50},
 				tileHeight: {type: "int", defaultValue: 25},
+				padding: {type: "int", defaultValue: 5},
+				
 				jobStyle: {type: "string", defaultValue: sap.ciconnect.control.JobStyle.Chevron},
+				
 				type: {type: "string", defaultValue: sap.ciconnect.control.PipelineType.CentralOnly}
 			},
 			aggregations: {
@@ -39,6 +42,7 @@ sap.ui.define([
 		var aJobData = this._genData(this.getJobs()),
 			iTileWidth = this.getTileWidth(),
 			iTileHeight = this.getTileHeight(),
+			iPadding = this.getPadding(),
 			bMixed = this.getType() === sap.ciconnect.control.PipelineType.Mixed,
 			oJobStyle = this.getJobStyle(),
 			fScaleFactor = Math.min(iTileWidth/oJobStyle.width, iTileHeight/oJobStyle.height);
@@ -67,8 +71,8 @@ sap.ui.define([
 			.attr("d", oJobStyle.d)
 			.attr("transform", function (d, i) {
 				var sRetVal = "",
-					tx = i * iTileWidth,
-					ty = bMixed && (d.type === sap.ciconnect.control.JobType.Local) ? iTileHeight : 0;
+					tx = i * iTileWidth + iPadding,
+					ty = (bMixed && (d.type === sap.ciconnect.control.JobType.Local) ? iTileHeight : 0) + iPadding;
 				
 				sRetVal += "translate(" + tx + "," + ty + ")";
 				sRetVal += " scale(" + fScaleFactor + ")";
