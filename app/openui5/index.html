@@ -25,7 +25,7 @@
 <script>
 	sap.ui.getCore().attachInit(function () {
 		
-		registerOctIcons();
+		registerIcons();
 		
 		var oPipelinesView = sap.ui.view({
 			id:"pipelines",
@@ -73,27 +73,37 @@
 		oApp.addPage(oPage);
 		oApp.placeAt("content");
 		
-		function registerOctIcons() {
+		function registerIcons() {
 			jQuery.sap.require("sap.ui.core.IconPool");
-			var oOctIcons = {
-					fontFamily: "oct",
-					collectionName: "oct",
-					icons : [
-						["octicon-repo-forked", "f002"], ["octicon-repo", "f001"], 
-						["octicon-octoface", "f008"], ["octicon-mark-github", "f00a"],
-						["octicon-shield", "f0e1"]
-					]
-				};
-
-				for (var i = 0; i < oOctIcons.icons.length; i++) {
-					sap.ui.core.IconPool.addIcon(
-						oOctIcons.icons[i][0], 
-						oOctIcons.collectionName, 
-						oOctIcons.fontFamily, 
-						oOctIcons.icons[i][1],
-						false,
-						true);
-				}
+			registerPerLib({
+				fontFamily: "oct",
+				collectionName: "oct",
+				icons : [
+					["octicon-repo-forked", "f002"], ["octicon-repo", "f001"], 
+					["octicon-octoface", "f008"], ["octicon-mark-github", "f00a"],
+					["octicon-shield", "f0e1"]
+				]
+			});
+			
+			registerPerLib({
+				fontFamily: "awesome",
+				collectionName: "awesome",
+				icons : [
+					["fa-git-square", "f1d2"]
+				]
+			});
+		};
+		
+		function registerPerLib (oIcons) {
+			for (var i = 0; i < oIcons.icons.length; i++) {
+				sap.ui.core.IconPool.addIcon(
+					oIcons.icons[i][0], 
+					oIcons.collectionName, 
+					oIcons.fontFamily, 
+					oIcons.icons[i][1],
+					false,
+					true);
+			}
 		};
 	});
 </script>

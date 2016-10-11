@@ -1,7 +1,15 @@
 @font-face {
 	font-family: 'oct';
 	src: url('../../bower_components/octicons/build/font/octicons.ttf'),
-		url('../../bower_components/octicons/build/font/octicons.eot'); /* IE9+ */
+		 url('../../bower_components/octicons/build/font/octicons.eot'); /* IE9+ */
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'awesome';
+	src: url('../../bower_components/font-awesome/fonts/fontawesome-webfont.ttf'),
+		 url('../../bower_components/font-awesome/fonts/fontawesome-webfont.eot'); /* IE9+ */
 	font-weight: normal;
 	font-style: normal;
 }

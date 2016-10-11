@@ -14,7 +14,7 @@ bower install openui5/packaged-themelib_sap_bluecrystal
 bower install octicons
 ```
 
- * [fontawesome](https://github.com/FortAwesome/Font-Awesome). Look up [here](http://fontawesome.io/icons/) for icons you want to register. Run this command, 1 font-awesome module is download:
+ * [fontawesome](https://github.com/FortAwesome/Font-Awesome). Look up [here](http://fontawesome.io/cheatsheet/) for icons you want to register. Run this command, 1 font-awesome module is download:
 ```sh
 bower install FortAwesome/Font-Awesome
 ```
