@@ -196,7 +196,7 @@
 			"status": "Succeeded"
 		}]
 	},
-    "private": false,
+    "private": true,
     "html_url": "https://github.wdf.sap.corp/I037379/cc-devops-coursematerial",
     "description": "Trainer guide and exercises for Cloud Curriculum M4 - CD + DevOps",
     "fork": true,
@@ -309,7 +309,7 @@
     "private": false,
     "html_url": "https://github.wdf.sap.corp/I037379/helloworld",
     "description": "",
-    "fork": true,
+    "fork": false,
     "url": "https://github.wdf.sap.corp/api/v3/repos/I037379/helloworld",
     "forks_url": "https://github.wdf.sap.corp/api/v3/repos/I037379/helloworld/forks",
     "keys_url": "https://github.wdf.sap.corp/api/v3/repos/I037379/helloworld/keys{/key_id}",

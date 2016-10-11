@@ -22,16 +22,6 @@
       "type": "User",
       "site_admin": false
     },
-    "pipeline": {
-    	"id": "pipeline4",
-		"name": "Central Build Service (xmake)",
-		"type": "mixed",
-		"jobs": [{
-			"type": "local",
-			"goal": "BLD",
-			"status": "None"
-		}]
-    },
     "private": false,
     "html_url": "https://github.wdf.sap.corp/I037379/hello_keisha",
     "description": "",
@@ -176,7 +166,7 @@
 		"type": "mixed",
 		"jobs": [{
 			"type": "local",
-			"goal": "DEP",
+			"goal": "BLD",
 			"status": "None"
 		}]
     },

@@ -14,6 +14,7 @@
 				<headerToolbar>
 					<Toolbar>
 						<content>
+							<core:Icon size="1.5rem" src="sap-icon://oct/octicon-mark-github"/>
 							<Title text="Github" level="H2"/>
 							<ToolbarSpacer />
 						</content>
@@ -22,7 +23,7 @@
 				<CustomListItem>
 					<HBox alignItems="Start" justifyContent="SpaceBetween">
 						<HBox>
-							<core:Icon size="2rem" src="sap-icon://oct/git-merge" class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" />
+							<core:Icon size="2rem" src="sap-icon://oct/octicon-repo-forked" class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" />
 							<VBox  class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" >
 								<Link text="{github>full_name}" target="_blank" href="{github>html_url}"/>
 								<Text text="{github>description}"/>
