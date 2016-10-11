@@ -4,6 +4,9 @@
 	<m:FlexBox direction="Column" alignItems="Start" items="{/}">
 		<m:items>
 			<Pipeline type="{type}" jobs="{path:'jobs', templateShareable: true}">
+				<title>
+					<m:Text text="{name}:" />
+				</title>
 				<jobs>
 					<Job goal="{goal}" type="{type}" status="{status}"/>
 				</jobs>

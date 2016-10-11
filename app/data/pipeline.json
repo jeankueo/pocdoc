@@ -1,5 +1,6 @@
 [{
 	"id": "pipeline1",
+	"name": "Central Build Service (xmake)",
 	"type": "mixed",
 	"jobs": [{
 		"type": "local",
@@ -20,6 +21,7 @@
 	}]
 }, {
 	"id": "pipeline2",
+	"name": "John's Pipeline",
 	"type": "centralOnly",
 	"jobs": [{
 		"type": "central",
@@ -30,6 +32,7 @@
 	}]
 }, {
 	"id": "pipeline3",
+	"name": "Jane's Pipeline",
 	"type": "localOnly",
 	"jobs": [{
 		"type": "local",

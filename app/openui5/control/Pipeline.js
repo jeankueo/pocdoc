@@ -15,12 +15,11 @@ sap.ui.define([
 				tileWidth: {type: "int", defaultValue: 50},
 				tileHeight: {type: "int", defaultValue: 25},
 				padding: {type: "int", defaultValue: 10},
-				
-				jobStyle: {type: "string", defaultValue: sap.ciconnect.control.JobStyle.Chevron},
-				
+				jobStyle: {type: "object", defaultValue: sap.ciconnect.control.JobStyle.Chevron},
 				type: {type: "string", defaultValue: sap.ciconnect.control.PipelineType.CentralOnly}
 			},
 			aggregations: {
+				title: {type: "sap.m.Text", multiple: false, visibility: "public", bindable: "bindable"},
 				jobs: {type: "sap.ciconnect.control.Job", multiple: true, visibility: "public",
 					singularName: "job", bindable: "bindable"}
 			}
