@@ -16,7 +16,8 @@ sap.ui.define([
 				tileHeight: {type: "int", defaultValue: 25},
 				padding: {type: "int", defaultValue: 10},
 				jobStyle: {type: "object", defaultValue: sap.ciconnect.control.JobStyle.ChevronWithTextAbove},
-				type: {type: "string", defaultValue: sap.ciconnect.control.PipelineType.CentralOnly}
+				type: {type: "string", defaultValue: sap.ciconnect.control.PipelineType.CentralOnly},
+				enableTwoRow: {type: "boolean", defaultValue: false}
 			},
 			aggregations: {
 				title: {type: "sap.m.Text", multiple: false, visibility: "public", bindable: "bindable"},
@@ -103,7 +104,7 @@ sap.ui.define([
 		var iTileWidth = this.getTileWidth(),
 			iTileHeight = this.getTileHeight(),
 			iPadding = this.getPadding(),
-			bMixed = this.getType() === sap.ciconnect.control.PipelineType.Mixed,
+			bTwoRow = (this.getType() === sap.ciconnect.control.PipelineType.Mixed) && this.getEnableTwoRow(),
 			oJobStyle = this.getJobStyle(),
 			fScaleFactor = Math.min(iTileWidth/oJobStyle.width, iTileHeight/oJobStyle.height);
 		
@@ -139,7 +140,7 @@ sap.ui.define([
 			.attr("transform", function (d) {
 				var sRetVal = "",
 					tx = d.index * iTileWidth + iPadding + oJobStyle.xBias,
-					ty = (bMixed && (d.data.type === sap.ciconnect.control.JobType.Local) ? iTileHeight : 0) +
+					ty = (bTwoRow && (d.data.type === sap.ciconnect.control.JobType.Local) ? iTileHeight : 0) +
 						iPadding + oJobStyle.yBias;
 				
 				sRetVal += "translate(" + tx + "," + ty + ")";
@@ -152,7 +153,7 @@ sap.ui.define([
 		var iTileWidth = this.getTileWidth(),
 			iTileHeight = this.getTileHeight(),
 			iPadding = this.getPadding(),
-			bMixed = this.getType() === sap.ciconnect.control.PipelineType.Mixed,
+			bTwoRow = (this.getType() === sap.ciconnect.control.PipelineType.Mixed) && this.getEnableTwoRow(),
 			oJobStyle = this.getJobStyle();
 		
 		var $jobText = $jobGroup.selectAll("text").data(function(d, i){
@@ -172,7 +173,7 @@ sap.ui.define([
 			.attr("transform", function (d) {
 				var sRetVal = "",
 					tx = d.index * iTileWidth + iPadding + oJobStyle.fontXBias,
-					ty = (bMixed && (d.data.type === sap.ciconnect.control.JobType.Local) ? iTileHeight : 0) +
+					ty = (bTwoRow && (d.data.type === sap.ciconnect.control.JobType.Local) ? iTileHeight : 0) +
 						iPadding + oJobStyle.fontYBias;
 				
 				sRetVal += "translate(" + tx + "," + ty + ")";

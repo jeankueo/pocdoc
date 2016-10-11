@@ -21,7 +21,7 @@ sap.ui.define([], function () {
 	PipelineRenderer.renderSvg = function (oRenderManager, oPipeline) {
 		var aJobs = oPipeline.getJobs(),
 			iWidthSpan = aJobs ? aJobs.length : 1,
-			iHeightSpan = oPipeline.getType() === sap.ciconnect.control.PipelineType.Mixed ? 2 : 1,
+			iHeightSpan = (oPipeline.getType() === sap.ciconnect.control.PipelineType.Mixed) && oPipeline.getEnableTwoRow() ? 2 : 1,
 			iTileHeight = oPipeline.getTileHeight(),
 			iTileWidth = oPipeline.getTileWidth(),
 			iPadding = oPipeline.getPadding();
