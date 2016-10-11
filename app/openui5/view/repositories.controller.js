@@ -4,8 +4,12 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/model/json/JSONModel"], fun
 	return Controller.extend("sap.ciconnect.view.repositories", {
 		onInit: function() {
 			var oModel = new JSONModel();
-			oModel.loadData("../data/repo.json");
+			oModel.loadData("../data/githubrepo.json");
 			this.getView().setModel(oModel, "github");
+			
+			oModel = new JSONModel();
+			oModel.loadData("../data/gitrepo.json");
+			this.getView().setModel(oModel, "git");
 		},
 		
 		handlePress: function (oEvent) {
