@@ -56,7 +56,7 @@ sap.ui.define([
 				type: {type: "string", defaultValue: sap.ciconnect.control.JobType.Central},
 				goal: {type: "string", defaultValue: sap.ciconnect.control.JobGoal.Build},
 				status: {type: "string", defaultValue: sap.ciconnect.control.JobStatus.None},
-				tooltip: {type: "string"}
+				shortTooltip: {type: "string", defaultValue: "hello"}
 			}
 		}
 	});

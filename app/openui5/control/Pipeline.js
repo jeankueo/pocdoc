@@ -107,7 +107,7 @@ sap.ui.define([
 	Pipeline.prototype._drawTooltip = function ($jobGroup) {
 		$jobGroup.append("title")
 			.text(function(d) {
-				return "hell";
+				return d.shortTooltip;
 			});
 	};
 	

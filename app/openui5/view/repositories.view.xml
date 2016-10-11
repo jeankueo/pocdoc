@@ -30,7 +30,7 @@
 						</HBox>
 						<ci:Pipeline type="{type}" jobs="{path:'github>pipeline/jobs', templateShareable: true}">
 							<ci:jobs>
-								<ci:Job goal="{github>goal}" type="{github>type}" status="{github>status}" tooltip="status: {github>status}"/>
+								<ci:Job goal="{github>goal}" type="{github>type}" status="{github>status}" shortTooltip="status: {github>status}"/>
 							</ci:jobs>
 						</ci:Pipeline>
 					</HBox>
@@ -60,7 +60,7 @@
 						</HBox>
 						<ci:Pipeline type="{type}" jobs="{path:'git>pipeline/jobs', templateShareable: true}">
 							<ci:jobs>
-								<ci:Job goal="{git>goal}" type="{git>type}" status="{git>status}" tooltip="status: {git>status}"/>
+								<ci:Job goal="{git>goal}" type="{git>type}" status="{git>status}" shortTooltip="status: {git>status}"/>
 							</ci:jobs>
 						</ci:Pipeline>
 					</HBox>
