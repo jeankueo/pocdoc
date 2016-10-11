@@ -20,13 +20,18 @@
 					</Toolbar>
 				</headerToolbar>
 				<CustomListItem>
-					<HBox>
-						<core:Icon size="2rem" src="sap-icon://tree" class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" />
-						<VBox  class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" >
-							<Link text="{github>full_name}" target="_blank" href="{github>html_url}"/>
-							<Text text="{github>description}"/>
-						</VBox>
-						<ci:Pipeline>
+					<HBox alignItems="Start" justifyContent="SpaceBetween">
+						<HBox>
+							<core:Icon size="2rem" src="sap-icon://tree" class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" />
+							<VBox  class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" >
+								<Link text="{github>full_name}" target="_blank" href="{github>html_url}"/>
+								<Text text="{github>description}"/>
+							</VBox>
+						</HBox>
+						<ci:Pipeline type="{type}" jobs="{path:'github>pipeline/jobs', templateShareable: true}">
+							<ci:jobs>
+								<ci:Job goal="{github>goal}" type="{github>type}" status="{github>status}" tooltip="status: {github>status}"/>
+							</ci:jobs>
 						</ci:Pipeline>
 					</HBox>
 				</CustomListItem>
@@ -45,13 +50,18 @@
 					</Toolbar>
 				</headerToolbar>
 				<CustomListItem>
-					<HBox>
-						<core:Icon size="2rem" src="sap-icon://tree" class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" />
-						<VBox  class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" >
-							<Link text="{git>full_name}" target="_blank" href="{git>html_url}"/>
-							<Text text="{git>description}"/>
-						</VBox>
-						<ci:Pipeline>
+					<HBox alignItems="Start" justifyContent="SpaceBetween">
+						<HBox>
+							<core:Icon size="2rem" src="sap-icon://tree" class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" />
+							<VBox  class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" >
+								<Link text="{git>full_name}" target="_blank" href="{git>html_url}"/>
+								<Text text="{git>description}"/>
+							</VBox>
+						</HBox>
+						<ci:Pipeline type="{type}" jobs="{path:'git>pipeline/jobs', templateShareable: true}">
+							<ci:jobs>
+								<ci:Job goal="{git>goal}" type="{git>type}" status="{git>status}" tooltip="status: {git>status}"/>
+							</ci:jobs>
 						</ci:Pipeline>
 					</HBox>
 				</CustomListItem>

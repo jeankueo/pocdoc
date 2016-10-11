@@ -22,6 +22,16 @@
       "type": "User",
       "site_admin": false
     },
+    "pipeline": {
+    	"id": "pipeline4",
+		"name": "Central Build Service (xmake)",
+		"type": "mixed",
+		"jobs": [{
+			"type": "local",
+			"goal": "BLD",
+			"status": "None"
+		}]
+    },
     "private": false,
     "html_url": "https://github.wdf.sap.corp/I037379/hello_keisha",
     "description": "",
@@ -159,6 +169,16 @@
       "received_events_url": "https://github.wdf.sap.corp/api/v3/users/I037379/received_events",
       "type": "User",
       "site_admin": false
+    },
+    "pipeline": {
+    	"id": "pipeline4",
+		"name": "Central Build Service (xmake)",
+		"type": "mixed",
+		"jobs": [{
+			"type": "local",
+			"goal": "DEP",
+			"status": "None"
+		}]
     },
     "private": false,
     "html_url": "https://github.wdf.sap.corp/I037379/hello_zhangsan",

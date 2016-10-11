@@ -22,6 +22,28 @@
       "type": "User",
       "site_admin": false
     },
+    "pipeline": {
+		"id": "pipeline1",
+		"name": "Central Build Service (xmake)",
+		"type": "mixed",
+		"jobs": [{
+			"type": "local",
+			"goal": "BLD",
+			"status": "Succeeded"
+		}, {
+			"type": "central",
+			"goal": "VER",
+			"status": "Failed"
+		}, {
+			"type": "central",
+			"goal": "VAL",
+			"status": "Processing"
+		}, {
+			"type": "local",
+			"goal": "DEP",
+			"status": "Waiting"
+		}]
+	},
     "private": false,
     "html_url": "https://github.wdf.sap.corp/I037379/bulletinboard-ads",
     "description": "This service manages the advertisements for the bulletinboard - used for the \"Implement Continuous Delivery & DevOps\" training",
@@ -160,6 +182,20 @@
       "type": "User",
       "site_admin": false
     },
+    "pipeline": {
+		"id": "pipeline2",
+		"name": "John's Pipeline",
+		"type": "centralOnly",
+		"jobs": [{
+			"type": "central",
+			"goal": "BLD",
+			"status": "Succeeded"
+		}, {
+			"type": "central",
+			"goal": "DEP",
+			"status": "Succeeded"
+		}]
+	},
     "private": false,
     "html_url": "https://github.wdf.sap.corp/I037379/cc-devops-coursematerial",
     "description": "Trainer guide and exercises for Cloud Curriculum M4 - CD + DevOps",
@@ -256,6 +292,20 @@
       "type": "User",
       "site_admin": false
     },
+    "pipeline": {
+		"id": "pipeline3",
+		"name": "Jane's Pipeline",
+		"type": "localOnly",
+		"jobs": [{
+			"type": "local",
+			"goal": "BLD",
+			"status": "Succeeded"
+		}, {
+			"type": "local",
+			"goal": "DEP",
+			"status": "Processing"
+		}]
+	},
     "private": false,
     "html_url": "https://github.wdf.sap.corp/I037379/helloworld",
     "description": "",

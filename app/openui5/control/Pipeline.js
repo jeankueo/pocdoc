@@ -81,6 +81,7 @@ sap.ui.define([
 			.data(aJobData);
 		$jobGroup.enter().append("g");
 		
+		this._drawTooltip($jobGroup);
 		this._drawJobPath($jobGroup);
 		this._drawJobText($jobGroup);
 		
@@ -101,6 +102,10 @@ sap.ui.define([
 			}
 		}
 		return aRetVal;
+	};
+	
+	Pipeline.prototype._drawTooltip = function ($jobGroup) {
+		
 	};
 	
 	Pipeline.prototype._drawJobPath = function ($jobGroup) {

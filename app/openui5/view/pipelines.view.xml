@@ -8,7 +8,7 @@
 					<m:Text text="{name}:" />
 				</title>
 				<jobs>
-					<Job goal="{goal}" type="{type}" status="{status}"/>
+					<Job goal="{goal}" type="{type}" status="{status}" tooltip="{short_desc}"/>
 				</jobs>
 			</Pipeline>
 		</m:items>

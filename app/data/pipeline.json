@@ -5,19 +5,19 @@
 	"jobs": [{
 		"type": "local",
 		"goal": "BLD",
-		"status": "Succeeded"
+		"short_desc": "Short description for build job. Should be at most 2 sentences."
 	}, {
 		"type": "central",
 		"goal": "VER",
-		"status": "Failed"
+		"short_desc": "Short description for versioning job. Should be at most 2 sentences."
 	}, {
 		"type": "central",
 		"goal": "VAL",
-		"status": "Processing"
+		"short_desc": "Short description for validation job. Should be at most 2 sentences."
 	}, {
 		"type": "local",
 		"goal": "DEP",
-		"status": "Waiting"
+		"short_desc": "Short description for deploy job. Should be at most 2 sentences."
 	}]
 }, {
 	"id": "pipeline2",
@@ -25,10 +25,12 @@
 	"type": "centralOnly",
 	"jobs": [{
 		"type": "central",
-		"goal": "BLD"
+		"goal": "BLD",
+		"short_desc": "Short description for build job. Should be at most 2 sentences."
 	}, {
 		"type": "central",
-		"goal": "DEP"
+		"goal": "DEP",
+		"short_desc": "Short description for deploy job. Should be at most 2 sentences."
 	}]
 }, {
 	"id": "pipeline3",
@@ -36,9 +38,11 @@
 	"type": "localOnly",
 	"jobs": [{
 		"type": "local",
-		"goal": "BLD"
+		"goal": "BLD",
+		"short_desc": "Short description for build job. Should be at most 2 sentences."
 	}, {
 		"type": "local",
-		"goal": "DEP"
+		"goal": "DEP",
+		"short_desc": "Short description for deploy job. Should be at most 2 sentences."
 	}]
 }]
