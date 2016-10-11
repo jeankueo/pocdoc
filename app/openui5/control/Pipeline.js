@@ -14,7 +14,7 @@ sap.ui.define([
 			properties: {
 				tileWidth: {type: "int", defaultValue: 50},
 				tileHeight: {type: "int", defaultValue: 25},
-				padding: {type: "int", defaultValue: 5},
+				padding: {type: "int", defaultValue: 10},
 				
 				jobStyle: {type: "string", defaultValue: sap.ciconnect.control.JobStyle.Chevron},
 				
