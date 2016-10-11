@@ -34,7 +34,7 @@
 }
 
 .ciconnectJobPathStatusNone {
-	fill: none;
+	fill-opacity: 0;
 	stroke-width:1;
 }
 
