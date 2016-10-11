@@ -3,7 +3,7 @@
 Steps to set up this PoC
 --------------
 
- * [openui5](https://github.com/SAP/openui5). Run this command, 3 openui5 modules will be downloaded:
+ * [openui5](https://github.com/SAP/openui5). Run this command, 3 openui5 modules are downloaded:
 ```sh
 bower install openui5/packaged-sap.m
 bower install openui5/packaged-themelib_sap_bluecrystal
