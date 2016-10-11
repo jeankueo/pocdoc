@@ -9,12 +9,12 @@ bower install openui5/packaged-sap.m
 bower install openui5/packaged-themelib_sap_bluecrystal
 ```
 
- * [octicon](https://github.com/primer/octicons). Run this command, 1 octicons module is download:
+ * [octicon](https://github.com/primer/octicons). Look up [here](https://octicons.github.com/) for icons you want to register. Run this command, 1 octicons module is download:
 ```sh
 bower install octicons
 ```
 
- * [fontawesome](https://github.com/FortAwesome/Font-Awesome). Run this command, 1 font-awesome module is download:
+ * [fontawesome](https://github.com/FortAwesome/Font-Awesome). Look up [here](http://fontawesome.io/icons/) for icons you want to register. Run this command, 1 font-awesome module is download:
 ```sh
 bower install FortAwesome/Font-Awesome
 ```
