@@ -15,7 +15,7 @@ sap.ui.define([
 				tileWidth: {type: "int", defaultValue: 50},
 				tileHeight: {type: "int", defaultValue: 25},
 				padding: {type: "int", defaultValue: 10},
-				jobStyle: {type: "object", defaultValue: sap.ciconnect.control.JobStyle.Chevron},
+				jobStyle: {type: "object", defaultValue: sap.ciconnect.control.JobStyle.ChevronWithTextAbove},
 				type: {type: "string", defaultValue: sap.ciconnect.control.PipelineType.CentralOnly}
 			},
 			aggregations: {
@@ -78,7 +78,7 @@ sap.ui.define([
 		$jobGroup.enter().append("g");
 		
 		this._drawJobPath($jobGroup);
-		//this._drawJobText($jobGroup);
+		this._drawJobText($jobGroup);
 		
 		$jobGroup.exit().remove();
 	};
@@ -138,8 +138,9 @@ sap.ui.define([
 			.attr("d", oJobStyle.d)
 			.attr("transform", function (d) {
 				var sRetVal = "",
-					tx = d.index * iTileWidth + iPadding,
-					ty = (bMixed && (d.data.type === sap.ciconnect.control.JobType.Local) ? iTileHeight : 0) + iPadding;
+					tx = d.index * iTileWidth + iPadding + oJobStyle.xBias,
+					ty = (bMixed && (d.data.type === sap.ciconnect.control.JobType.Local) ? iTileHeight : 0) +
+						iPadding + oJobStyle.yBias;
 				
 				sRetVal += "translate(" + tx + "," + ty + ")";
 				sRetVal += " scale(" + fScaleFactor + ")";
@@ -151,37 +152,30 @@ sap.ui.define([
 		var iTileWidth = this.getTileWidth(),
 			iTileHeight = this.getTileHeight(),
 			iPadding = this.getPadding(),
-			bMixed = this.getType() === sap.ciconnect.control.PipelineType.Mixed;
+			bMixed = this.getType() === sap.ciconnect.control.PipelineType.Mixed,
+			oJobStyle = this.getJobStyle();
 		
 		var $jobText = $jobGroup.selectAll("text").data(function(d, i){
 			return [{data: d, index: i}];
 		});
 		$jobText.enter().append("text");
-		$jobText.classed("ciconnectJobPathStatusFinished", function (d) {
-				return !d.data.status ||
-					d.data.status === sap.ciconnect.control.JobStatus.Succeeded ||
-					d.data.status === sap.ciconnect.control.JobStatus.Failed;
-			})
-			.classed("ciconnectJobPathStatusInprocess", function (d) {
-				return d.data.status === sap.ciconnect.control.JobStatus.Processing;
-			})
-			.classed("ciconnectJobPathStatusWaiting", function (d) {
-				return d.data.status === sap.ciconnect.control.JobStatus.Waiting;
-			})
+		$jobText.classed("ciConnectJobText", true)
 			.classed("ciConnectJobPathTypeCentral", function (d) {
 				return d.data.type === sap.ciconnect.control.JobType.Central;
 			})
 			.classed("ciConnectJobPathTypeLocal", function (d) {
 				return d.data.type === sap.ciconnect.control.JobType.Local;
 			})
-			.attr("d", oJobStyle.d)
+			.text(function (d) {
+				return d.data.goal;
+			})
 			.attr("transform", function (d) {
 				var sRetVal = "",
-					tx = d.index * iTileWidth + iPadding,
-					ty = (bMixed && (d.data.type === sap.ciconnect.control.JobType.Local) ? iTileHeight : 0) + iPadding;
+					tx = d.index * iTileWidth + iPadding + oJobStyle.fontXBias,
+					ty = (bMixed && (d.data.type === sap.ciconnect.control.JobType.Local) ? iTileHeight : 0) +
+						iPadding + oJobStyle.fontYBias;
 				
 				sRetVal += "translate(" + tx + "," + ty + ")";
-				sRetVal += " scale(" + fScaleFactor + ")";
 				return sRetVal;
 			});
 	};

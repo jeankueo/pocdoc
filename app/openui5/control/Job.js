@@ -33,10 +33,14 @@ sap.ciconnect.control.JobStyle = {
 		height: 4,
 		width: 4
 	},
-	Chevron: {
+	ChevronWithTextAbove: {
 		d: "M 0 0 h 15 l 5 5 l -5 5 h -15 l 5 -5 z",
 		height: 10,
-		width: 20
+		width: 20,
+		xBias: 0,
+		yBias: 6,
+		fontXBias: 5,
+		fontYBias: 2
 	}
 };
 
