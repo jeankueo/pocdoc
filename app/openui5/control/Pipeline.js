@@ -9,6 +9,8 @@ sap.ciconnect.control.PipelineType = {
 sap.ui.define([
 	"sap/ui/core/Control", "./Job", "sap/ui/thirdparty/d3"
 ], function (Control, Job) {
+	"use strict";
+	
 	var Pipeline = Control.extend("sap.ciconnect.control.Pipeline", {
 		metadata: {
 			properties: {

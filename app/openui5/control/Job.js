@@ -47,6 +47,8 @@ sap.ciconnect.control.JobStyle = {
 sap.ui.define([
 	"sap/ui/core/Element"
 ], function (Element) {
+	"use strict";
+	
 	var Job = Element.extend("sap.ciconnect.control.Job", {
 		metadata: {
 			properties: {
