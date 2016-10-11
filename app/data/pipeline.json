@@ -36,8 +36,7 @@
 	"type": "localOnly",
 	"jobs": [{
 		"type": "local",
-		"goal": "BLD",
-		"status": "Processing"
+		"goal": "BLD"
 	}, {
 		"type": "local",
 		"goal": "DEP"

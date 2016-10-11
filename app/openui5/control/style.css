@@ -33,6 +33,11 @@
 	stroke-width:1;
 }
 
+.ciconnectJobPathStatusNone {
+	fill: none;
+	stroke-width:1;
+}
+
 .ciconnectJobPathStatusInprocessCentral {
 	fill: url(#inProcessCentral);
 	stroke-width:1;

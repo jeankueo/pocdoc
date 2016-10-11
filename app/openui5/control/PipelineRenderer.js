@@ -37,10 +37,12 @@ sap.ui.define([], function () {
 		oRenderManager.write(">");
 		
 		oRenderManager.write("<svg id='" + oPipeline.getId() + "-svg' width='100%' height='100%'>");
-		oRenderManager.write("<rect");
-		oRenderManager.addClass("ciconnectPipelineSvgFrame");
-		oRenderManager.writeClasses();
-		oRenderManager.write("></rect>");
+		if (oPipeline.getEnableBackground()) {
+			oRenderManager.write("<rect");
+			oRenderManager.addClass("ciconnectPipelineSvgFrame");
+			oRenderManager.writeClasses();
+			oRenderManager.write("></rect>");
+		}
 		oRenderManager.write("</svg>");
 		
 		oRenderManager.write("</div>");

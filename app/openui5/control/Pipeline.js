@@ -19,7 +19,8 @@ sap.ui.define([
 				padding: {type: "int", defaultValue: 10},
 				jobStyle: {type: "object", defaultValue: sap.ciconnect.control.JobStyle.ChevronWithTextAbove},
 				type: {type: "string", defaultValue: sap.ciconnect.control.PipelineType.CentralOnly},
-				enableTwoRow: {type: "boolean", defaultValue: false}
+				enableTwoRow: {type: "boolean", defaultValue: false},
+				enableBackground: {type: "boolean", defaultValue: false}
 			},
 			aggregations: {
 				title: {type: "sap.m.Text", multiple: false, visibility: "public", bindable: "bindable"},
@@ -115,17 +116,6 @@ sap.ui.define([
 		});
 		$jobPath.enter().append("path");
 		$jobPath
-			.classed("ciConnectJobPathTypeCentral", function (d) {
-				return d.data.type === sap.ciconnect.control.JobType.Central;
-			})
-			.classed("ciConnectJobPathTypeLocal", function (d) {
-				return d.data.type === sap.ciconnect.control.JobType.Local;
-			})
-			.classed("ciconnectJobPathStatusFinished", function (d) {
-				return !d.data.status ||
-					d.data.status === sap.ciconnect.control.JobStatus.Succeeded ||
-					d.data.status === sap.ciconnect.control.JobStatus.Failed;
-			})
 			.classed("ciconnectJobPathStatusInprocessCentral", function (d) {
 				return d.data.status === sap.ciconnect.control.JobStatus.Processing
 					&& d.data.type === sap.ciconnect.control.JobType.Central;
@@ -133,6 +123,20 @@ sap.ui.define([
 			.classed("ciconnectJobPathStatusInprocessLocal", function (d) {
 				return d.data.status === sap.ciconnect.control.JobStatus.Processing
 					&& d.data.type === sap.ciconnect.control.JobType.Local;
+			})
+			.classed("ciConnectJobPathTypeCentral", function (d) {
+				return d.data.type === sap.ciconnect.control.JobType.Central;
+			})
+			.classed("ciConnectJobPathTypeLocal", function (d) {
+				return d.data.type === sap.ciconnect.control.JobType.Local;
+			})
+			.classed("ciconnectJobPathStatusFinished", function (d) {
+				return d.data.status === sap.ciconnect.control.JobStatus.Succeeded ||
+					d.data.status === sap.ciconnect.control.JobStatus.Failed;
+			})
+			.classed("ciconnectJobPathStatusNone", function (d) {
+				return !d.data.status ||
+					d.data.status === sap.ciconnect.control.JobStatus.None;
 			})
 			.classed("ciconnectJobPathStatusWaiting", function (d) {
 				return d.data.status === sap.ciconnect.control.JobStatus.Waiting;

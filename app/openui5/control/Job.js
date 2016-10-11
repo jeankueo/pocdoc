@@ -19,7 +19,8 @@ sap.ciconnect.control.JobStatus = {
 	Waiting: "Waiting",
 	Processing: "Processing",
 	Succeeded: "Succeeded",
-	Failed: "Failed"
+	Failed: "Failed",
+	None: "None"
 };
 
 sap.ciconnect.control.JobStyle = {
@@ -54,7 +55,7 @@ sap.ui.define([
 			properties: {
 				type: {type: "string", defaultValue: sap.ciconnect.control.JobType.Central},
 				goal: {type: "string", defaultValue: sap.ciconnect.control.JobGoal.Build},
-				status: {type: "string", defaultValue: sap.ciconnect.control.JobStatus.Waiting}
+				status: {type: "string", defaultValue: sap.ciconnect.control.JobStatus.None}
 			}
 		}
 	});
