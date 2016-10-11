@@ -15,7 +15,9 @@ sap.ui.define([], function () {
 	};
 	
 	PipelineRenderer.renderTitle = function (oRenderManager, oPipeline) {
-		oRenderManager.renderControl(oPipeline.getTitle());
+		if (oPipeline.getTitle()) {
+			oRenderManager.renderControl(oPipeline.getTitle());
+		}
 	};
 	
 	PipelineRenderer.renderSvg = function (oRenderManager, oPipeline) {
