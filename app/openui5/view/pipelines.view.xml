@@ -5,7 +5,7 @@
 		<m:items>
 			<Pipeline type="{type}" jobs="{path:'jobs', templateShareable: true}">
 				<jobs>
-					<Job goal="{goal}" type="{type}" status="Finished"/>
+					<Job goal="{goal}" type="{type}" status="{status}"/>
 				</jobs>
 			</Pipeline>
 		</m:items>

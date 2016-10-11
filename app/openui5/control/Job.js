@@ -23,6 +23,16 @@ sap.ciconnect.control.JobStatus = {
 };
 
 sap.ciconnect.control.JobStyle = {
+	BackSlashPattern: {
+		d: "M -1 3 l 2 2 M 0 0 l 4 4 M 3 -1 l 2,2",
+		height: 4,
+		width: 4
+	},
+	SlashPattern: {
+		d: "M-1,1 l2,-2 M0,4 l4,-4 M3,5 l2,-2",
+		height: 4,
+		width: 4
+	},
 	Chevron: {
 		d: "M 0 0 h 15 l 5 5 l -5 5 h -15 l 5 -5 z",
 		height: 10,

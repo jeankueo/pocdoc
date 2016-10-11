@@ -10,22 +10,32 @@
 	fill:none;
 }
 
-.ciconnectJobPathStatusFinished .ciconnectJobPathStatusInprocess {
-	stroke-width:2;
-	stroke-dasharray:1;
-}
-
-.ciconnectJobPathStatusWaiting {
-	stroke-width:2;
-	stroke-dasharray:3,4;
-}
-
 .ciConnectJobPathTypeCentral {
-	fill: none;
+	fill: #1C75BC;
 	stroke: #1C75BC;
 }
 
 .ciConnectJobPathTypeLocal {
-	fill: none;
+	fill: #e09d00;
 	stroke: #e09d00;
+}
+
+.ciconnectJobPathStatusfFinished {
+	stroke-width:1;
+}
+
+.ciconnectJobPathStatusInprocessCentral {
+	fill: url(#inProcessCentral);
+	stroke-width:1;
+}
+
+.ciconnectJobPathStatusInprocessLocal {
+	fill: url(#inProcessLocal);
+	stroke-width:1;
+}
+
+.ciconnectJobPathStatusWaiting {
+	fill-opacity: 0;
+	stroke-width:1;
+	stroke-dasharray:2,1;
 }
