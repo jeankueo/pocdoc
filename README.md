@@ -1,14 +1,15 @@
 # pipeline-ui-poc
 
-Steps to set up Environment
+Steps to set up this PoC
 --------------
 
- * [openui5](https://github.com/SAP/openui5). Run this command: 
+ * [openui5](https://github.com/SAP/openui5). Run this command, 3 openui5 modules will be downloaded:
 ```sh
 bower install openui5/packaged-sap.m
+bower install openui5/packaged-themelib_sap_bluecrystal
 ```
 
- * [octicon](https://github.com/primer/octicons). Run this command: 
+ * [octicon](https://github.com/primer/octicons). Run this command, 1 octicons module is downloaded:
 ```sh
 bower install octicons
 ```
