@@ -1,3 +1,11 @@
+@font-face {
+	font-family: 'oct';
+	src: url('../../bower_components/octicons/build/font/octicons.ttf'),
+		url('../../bower_components/octicons/build/font/octicons.eot'); /* IE9+ */
+	font-weight: normal;
+	font-style: normal;
+}
+
 .tileLayout {
 	float: left;
 }

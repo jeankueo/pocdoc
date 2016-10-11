@@ -25,6 +25,8 @@
 <script>
 	sap.ui.getCore().attachInit(function () {
 		
+		registerOctIcons();
+		
 		var oPipelinesView = sap.ui.view({
 			id:"pipelines",
 			viewName:"sap.ciconnect.view.pipelines",
@@ -70,6 +72,27 @@
 		var oApp = new sap.m.App({initialPage:"ciconnect"});
 		oApp.addPage(oPage);
 		oApp.placeAt("content");
+		
+		function registerOctIcons() {
+			jQuery.sap.require("sap.ui.core.IconPool");
+			var oOctIcons = {
+					fontFamily: "oct",
+					collectionName: "oct",
+					icons : [
+						["git-merge", "f023"]
+					]
+				};
+
+				for (var i = 0; i < oOctIcons.icons.length; i++) {
+					sap.ui.core.IconPool.addIcon(
+						oOctIcons.icons[i][0], 
+						oOctIcons.collectionName, 
+						oOctIcons.fontFamily, 
+						oOctIcons.icons[i][1],
+						false,
+						true);
+				}
+		};
 	});
 </script>
 
