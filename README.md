@@ -1,4 +1,4 @@
-# pipeline-ui-poc
+# Pipeline-UI-PoC
 
 Steps to set up this PoC
 --------------
