@@ -1,6 +1,6 @@
 [{
 	"id": "pipeline1",
-	"name": "Central Build Service (xmake)",
+	"name": "SAP predefined Pipeline 1",
 	"type": "mixed",
 	"jobs": [{
 		"type": "local",

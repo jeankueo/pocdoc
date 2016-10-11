@@ -52,13 +52,16 @@
 			items: [new sap.m.IconTabFilter({
 				text: "Pipelines",
 				count: 3,
+				icon: "sap-icon://awesome/fa-pied-piper-pp",
 				content: oPipelinesView
 			}), new sap.m.IconTabFilter({
 				text: "Repositories",
 				count: 5,
+				icon: "sap-icon://oct/octicon-repo",
 				content: oRepositoryView
 			}), new sap.m.IconTabFilter({
 				text: "Summary",
+				icon: "sap-icon://kpi-corporate-performance",
 				content: oSummaryView
 			})]
 		}).addStyleClass("sapUiResponsiveContentPadding"); 
@@ -89,7 +92,7 @@
 				fontFamily: "awesome",
 				collectionName: "awesome",
 				icons : [
-					["fa-git-square", "f1d2"]
+					["fa-git-square", "f1d2"], ["fa-pied-piper-pp", "f1a7"]
 				]
 			});
 		};
