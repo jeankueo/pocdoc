@@ -21,7 +21,7 @@
 	}]
 }, {
 	"id": "pipeline2",
-	"name": "John's Pipeline",
+	"name": "SAP predefined Pipeline 2",
 	"type": "centralOnly",
 	"jobs": [{
 		"type": "central",
@@ -34,7 +34,7 @@
 	}]
 }, {
 	"id": "pipeline3",
-	"name": "Jane's Pipeline",
+	"name": "Some Team's Pipeline",
 	"type": "localOnly",
 	"jobs": [{
 		"type": "local",

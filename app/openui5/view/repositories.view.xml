@@ -14,8 +14,9 @@
 				<headerToolbar>
 					<Toolbar>
 						<content>
+							<core:Icon size="1.5rem" src="sap-icon://oct/octicon-mark-github" tooltip="Github Repositories"/>
+							<Title text="Github" level="H2"/>
 							<ToolbarSpacer />
-							<core:Icon size="2.5rem" src="sap-icon://oct/octicon-mark-github" tooltip="Github Repositories"/>
 						</content>
 					</Toolbar>
 				</headerToolbar>
@@ -44,9 +45,10 @@
 				<headerToolbar>
 					<Toolbar>
 						<content>
-							<Button icon="sap-icon://add"/>
+							<core:Icon size="1.5rem" src="sap-icon://awesome/fa-git-square" tooltip="Git/Gerrit Repositories"/>
+							<Title text="Git/Gerrit" level="H2"/>
 							<ToolbarSpacer />
-							<core:Icon size="2.5rem" src="sap-icon://awesome/fa-git-square" tooltip="Git/Gerrit Repositories"/>
+							<Button icon="sap-icon://add"/>
 						</content>
 					</Toolbar>
 				</headerToolbar>
