@@ -45,8 +45,8 @@
 			
 			oModel = new sap.ui.model.json.JSONModel();
 			oModel.setData({
-				"jobStyle": "CircleLine",
-				"enableConnection": false,
+				"jobStyle": "CircleWithTextAbove",
+				"enableConnection": true,
 				"enableText": true,
 				"enableTwoRow": false
 			});
@@ -121,8 +121,8 @@
 							text: "Pipe",
 							key: "PipeWithTextAbove"
 						}), new sap.m.SegmentedButtonItem({
-							text: "Circle-Line",
-							key: "CircleLine"
+							text: "Circle",
+							key: "CircleWithTextAbove"
 						})],
 						selectedKey: "{setting>/jobStyle}",
 						select: function (oEvent) {

@@ -197,20 +197,48 @@ sap.ui.define([
 	};
 	
 	Pipeline.prototype._drawConnection = function ($svg) {
-		var aConnectionData = this._genConnectionData(),
-			iTileWidth = this.getTileWidth(),
-			iTileHeight = this.getTileHeight(),
-			iPadding = this.getPadding(),
-			bTwoRow = (this.getType() === sap.ciconnect.control.PipelineType.Mixed) && this.getEnableTwoRow(),
-			oJobStyle = sap.ciconnect.control.JobStyle[this.getJobStyle()],
-			fScaleFactor = Math.min(iTileWidth/oJobStyle.width, iTileHeight/oJobStyle.height);
+		var aConnectionData = this._genConnectionData();
 		
 		var $connectionGroup = $svg.selectAll(".connection")
 			.data(aConnectionData);
 		$connectionGroup.enter().append("g")
 			.classed("connection", true);
 		
+		this._drawConnectionPath($connectionGroup);
+		
 		$connectionGroup.exit().remove();
+	};
+	
+	Pipeline.prototype._drawConnectionPath = function ($connectionGroup) {
+		var iTileWidth = this.getTileWidth(),
+			iTileHeight = this.getTileHeight(),
+			iPadding = this.getPadding(),
+			bTwoRow = (this.getType() === sap.ciconnect.control.PipelineType.Mixed) && this.getEnableTwoRow(),
+			oJobStyle = sap.ciconnect.control.JobStyle[this.getJobStyle()],
+			fScaleFactor = Math.min(iTileWidth/oJobStyle.width, iTileHeight/oJobStyle.height);
+		
+		var $connectionPath = $connectionGroup.selectAll("path").data(function(d, i){
+			return [{data: d, index: i}];
+		});
+		$connectionPath.enter().append("path");
+		$connectionPath
+			.attr("style", function (d) {
+				var sRetVal = "stroke-width: 1.5;";
+				sRetVal += "stroke:#666666;";
+				return sRetVal;
+			})
+			.attr("d", function (d) {
+				return "M" + iTileWidth / 2 + ",0 h" + iTileWidth;
+			})
+			.attr("transform", function (d) {
+				var sRetVal = "",
+					tx = d.index * iTileWidth + iPadding + oJobStyle.xBias,
+					ty = (bTwoRow && (d.data.from.type === sap.ciconnect.control.JobType.Local) ? 1.5 : 0.5) * iTileHeight +
+						iPadding + oJobStyle.yBias;
+				
+				sRetVal += "translate(" + tx + "," + ty + ")";
+				return sRetVal;
+			})
 	};
 	
 	Pipeline.prototype._genJobData = function () {
