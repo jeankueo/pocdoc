@@ -155,6 +155,7 @@ sap.ui.define([
 			})
 			
 			.attr("d", oJobStyle.d)
+			.attr("stroke-width", 1.5/fScaleFactor)
 			.attr("transform", function (d) {
 				var sRetVal = "",
 					tx = d.index * iTileWidth + iPadding + oJobStyle.xBias,

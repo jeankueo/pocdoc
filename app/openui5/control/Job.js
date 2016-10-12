@@ -62,9 +62,9 @@ sap.ciconnect.control.JobStyle = {
 		fontYBias: 2
 	},
 	CircleLine: {
-		d: "M1,0 a4,4 0 1 0 0.00001,0 z",
-		height: 10,
-		width: 20,
+		d: "M4,0 a4,4 0 1 0 0.00001,0 z",
+		height: 8,
+		width: 8,
 		xBias: 0,
 		yBias: 6,
 		fontXBias: 5,
