@@ -31,7 +31,7 @@
 							</VBox>
 						</HBox>
 						<ci:Pipeline type="{github>type}" jobs="{path:'github>pipeline/jobs', templateShareable: true}" titleFirst="false"
-							 tileHeight="20" tileWidth="30">
+							 tileHeight="20" tileWidth="30" jobStyle="{setting>/jobStyle}">
 							<ci:title>
 								<Label text="{github>pipeline/name}" tooltip="{github>pipeline/name}"/>
 							</ci:title>
@@ -68,7 +68,7 @@
 							</VBox>
 						</HBox>
 						<ci:Pipeline type="{git>pipeline/type}" jobs="{path:'git>pipeline/jobs', templateShareable: true}" titleFirst="false"
-							 tileHeight="20" tileWidth="30">
+							 tileHeight="20" tileWidth="30" jobStyle="{setting>/jobStyle}">
 							<ci:title>
 								<Label text="{git>pipeline/name}" tooltip="{git>pipeline/name}"/>
 							</ci:title>

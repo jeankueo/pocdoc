@@ -42,6 +42,12 @@
 			oModel = new sap.ui.model.json.JSONModel();
 			oModel.loadData("../data/gitrepo.json");
 			oApp.setModel(oModel, "git");
+			
+			oModel = new sap.ui.model.json.JSONModel();
+			oModel.setData({
+				"jobStyle": "ChevronWithTextAbove"
+			});
+			oApp.setModel(oModel, "setting");
 		};
 		
 		function composeViews () {
@@ -87,7 +93,28 @@
 			var oPage = new sap.m.Page({
 				id: "ciconnect",
 				title: "CI-Connect PoC",
-				content: oIconTabBar
+				content: oIconTabBar,
+				footer: new sap.m.Toolbar({
+					content: [new sap.m.ToolbarSpacer(),new sap.m.SegmentedButton({
+						items: [new sap.m.SegmentedButtonItem({
+							text: "Sharp Chevron",
+							key: "ChevronWithTextAbove"
+						}), new sap.m.SegmentedButtonItem({
+							text: "Round Chevron",
+							key: "RoundChevronWithTextAbove"
+						}), new sap.m.SegmentedButtonItem({
+							text: "PipeWithTextAbove",
+							key: ""
+						}), new sap.m.SegmentedButtonItem({
+							text: "Line-Dot",
+							key: ""
+						})],
+						selectedKey: "ChevronWithTextAbove",
+						select: function (oEvent) {
+							oEvent.getSource().getModel("setting").setProperty("/jobStyle", oEvent.getParameter("key"));
+						}
+					})]
+				})
 			});
 			
 			var oApp = new sap.m.App({initialPage:"ciconnect"});

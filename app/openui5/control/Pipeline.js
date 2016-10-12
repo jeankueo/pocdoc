@@ -17,7 +17,7 @@ sap.ui.define([
 				tileWidth: {type: "int", defaultValue: 50},
 				tileHeight: {type: "int", defaultValue: 25},
 				padding: {type: "int", defaultValue: 10},
-				jobStyle: {type: "object", defaultValue: "ChevronWithTextAbove"},
+				jobStyle: {type: "string", defaultValue: "ChevronWithTextAbove"},
 				type: {type: "string", defaultValue: sap.ciconnect.control.PipelineType.CentralOnly},
 				enableText: {type: "boolean", defaultValue: true},
 				enableTwoRow: {type: "boolean", defaultValue: false},
