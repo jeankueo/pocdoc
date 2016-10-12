@@ -24,7 +24,7 @@
     },
     "pipeline": {
 		"id": "pipeline1",
-		"name": "Central Build Service (xmake)",
+		"name": "SAP predefined Pipeline 1",
 		"type": "mixed",
 		"jobs": [{
 			"type": "local",
@@ -184,7 +184,7 @@
     },
     "pipeline": {
 		"id": "pipeline2",
-		"name": "John's Pipeline",
+		"name": "SAP predefined Pipeline 2",
 		"type": "centralOnly",
 		"jobs": [{
 			"type": "central",

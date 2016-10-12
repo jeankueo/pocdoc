@@ -2,6 +2,7 @@
 	"id": "pipeline1",
 	"name": "SAP predefined Pipeline 1",
 	"type": "mixed",
+	"sapPredefined": true,
 	"jobs": [{
 		"type": "local",
 		"goal": "BLD",
@@ -23,6 +24,7 @@
 	"id": "pipeline2",
 	"name": "SAP predefined Pipeline 2",
 	"type": "centralOnly",
+	"sapPredefined": true,
 	"jobs": [{
 		"type": "central",
 		"goal": "BLD",

@@ -162,7 +162,7 @@
     },
     "pipeline": {
     	"id": "pipeline4",
-		"name": "Central Build Service (xmake)",
+		"name": "Some Team's Pipeline",
 		"type": "mixed",
 		"jobs": [{
 			"type": "local",
