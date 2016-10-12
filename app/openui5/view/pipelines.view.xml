@@ -20,7 +20,8 @@
 							<Link text="{pipeline>name}" target="_blank" href="{pipeline>html_url}" class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom"/>
 						</HBox>
 						<ci:Pipeline type="{pipeline>type}" jobs="{path:'pipeline>jobs', templateShareable: true}"
-							jobStyle="{setting>/jobStyle}">
+							jobStyle="{setting>/jobStyle}" enableConnection="{setting>/enableConnection}" enableText="{setting>/enableText}"
+							enableTwoRow="{setting>/enableTwoRow}">
 							<ci:jobs>
 								<ci:Job goal="{pipeline>goal}" type="{pipeline>type}" shortTooltip="{pipeline>short_desc}"/>
 							</ci:jobs>

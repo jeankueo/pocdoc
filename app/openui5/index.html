@@ -45,7 +45,10 @@
 			
 			oModel = new sap.ui.model.json.JSONModel();
 			oModel.setData({
-				"jobStyle": "CircleLine"
+				"jobStyle": "CircleLine",
+				"enableConnection": false,
+				"enableText": true,
+				"enableTwoRow": false
 			});
 			oApp.setModel(oModel, "setting");
 		};
@@ -95,7 +98,19 @@
 				title: "CI-Connect PoC",
 				content: oIconTabBar,
 				footer: new sap.m.Toolbar({
-					content: [new sap.m.ToolbarSpacer(),new sap.m.SegmentedButton({
+					content: [new sap.m.ToolbarSpacer(), new sap.m.Switch({
+						customTextOff: "TWO",
+						customTextOn: "TWO",
+						state: "{setting>/enableTwoRow}"
+					}),new sap.m.Switch({
+						customTextOff: "TXT",
+						customTextOn: "TXT",
+						state: "{setting>/enableText}"
+					}), new sap.m.Switch({
+						customTextOff: "CON",
+						customTextOn: "CON",
+						state: "{setting>/enableConnection}"
+					}), new sap.m.SegmentedButton({
 						items: [new sap.m.SegmentedButtonItem({
 							text: "Sharp Chevron",
 							key: "ChevronWithTextAbove"

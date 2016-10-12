@@ -21,6 +21,7 @@ sap.ui.define([
 				type: {type: "string", defaultValue: sap.ciconnect.control.PipelineType.CentralOnly},
 				enableText: {type: "boolean", defaultValue: true},
 				enableTwoRow: {type: "boolean", defaultValue: false},
+				enableConnection: {type: "boolean", defaultValue: false},
 				enableBackground: {type: "boolean", defaultValue: false},
 				titleFirst: {type: "boolean", defaultValue: true}
 			},
@@ -36,7 +37,9 @@ sap.ui.define([
 		var $svg = d3.select("#" + this.getId() + "-svg");
 		this._drawDefs($svg);
 		this._drawJobs($svg);
-		this._drawConnection($svg);
+		if (this.getEnableConnection()) {
+			this._drawConnection($svg);
+		}
 	};
 	
 	Pipeline.prototype._drawDefs = function ($svg) {
