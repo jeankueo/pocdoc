@@ -35,7 +35,7 @@ sap.ciconnect.control.JobStyle = {
 		width: 4
 	},
 	ChevronWithTextAbove: {
-		d: "M 0 0 h 15 l 5 5 l -5 5 h -15 l 5 -5 z",
+		d: "M0,0 h15 l5,5 l-5,5 h-15 l5,-5 z",
 		height: 10,
 		width: 20,
 		xBias: 0,
@@ -44,7 +44,25 @@ sap.ciconnect.control.JobStyle = {
 		fontYBias: 2
 	},
 	RoundChevronWithTextAbove: {
-		d: "M 0 0 h 15 q 12 5 0 10 h -15 q 12 -5 0 -10 z",
+		d: "M0,0 h15 q12,5,0,10 h-15 q12,-5,0,-10 z",
+		height: 10,
+		width: 20,
+		xBias: 0,
+		yBias: 6,
+		fontXBias: 5,
+		fontYBias: 2
+	},
+	PipeWithTextAbove: {
+		d: "M0,0 h2 l2,2 h10 l2,-2 h2 v10 h-2 l-2,-2 h-10 l-2,2 h-2 z",
+		height: 10,
+		width: 20,
+		xBias: 0,
+		yBias: 6,
+		fontXBias: 5,
+		fontYBias: 2
+	},
+	CircleLine: {
+		d: "M1,0 a4,4 0 1 0 0.00001,0 z",
 		height: 10,
 		width: 20,
 		xBias: 0,
