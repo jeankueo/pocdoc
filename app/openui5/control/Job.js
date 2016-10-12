@@ -42,6 +42,9 @@ sap.ciconnect.control.JobStyle = {
 		yBias: 6,
 		fontXBias: 5,
 		fontYBias: 2
+	},
+	CircleWithConnection: {
+		
 	}
 };
 

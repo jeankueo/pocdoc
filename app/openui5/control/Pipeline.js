@@ -17,8 +17,9 @@ sap.ui.define([
 				tileWidth: {type: "int", defaultValue: 50},
 				tileHeight: {type: "int", defaultValue: 25},
 				padding: {type: "int", defaultValue: 10},
-				jobStyle: {type: "object", defaultValue: sap.ciconnect.control.JobStyle.ChevronWithTextAbove},
+				jobStyle: {type: "object", defaultValue: "ChevronWithTextAbove"},
 				type: {type: "string", defaultValue: sap.ciconnect.control.PipelineType.CentralOnly},
+				enableText: {type: "boolean", defaultValue: true},
 				enableTwoRow: {type: "boolean", defaultValue: false},
 				enableBackground: {type: "boolean", defaultValue: false},
 				titleFirst: {type: "boolean", defaultValue: true}
@@ -84,8 +85,10 @@ sap.ui.define([
 		
 		this._drawTooltip($jobGroup);
 		this._drawJobPath($jobGroup);
-		this._drawJobText($jobGroup);
-		
+		if (this.getEnableText()) {
+			this._drawJobText($jobGroup);
+		}
+
 		$jobGroup.exit().remove();
 	};
 	
@@ -117,7 +120,7 @@ sap.ui.define([
 			iTileHeight = this.getTileHeight(),
 			iPadding = this.getPadding(),
 			bTwoRow = (this.getType() === sap.ciconnect.control.PipelineType.Mixed) && this.getEnableTwoRow(),
-			oJobStyle = this.getJobStyle(),
+			oJobStyle = sap.ciconnect.control.JobStyle[this.getJobStyle()],
 			fScaleFactor = Math.min(iTileWidth/oJobStyle.width, iTileHeight/oJobStyle.height);
 		
 		var $jobPath = $jobGroup.selectAll("path").data(function(d, i){
@@ -169,7 +172,7 @@ sap.ui.define([
 			iTileHeight = this.getTileHeight(),
 			iPadding = this.getPadding(),
 			bTwoRow = (this.getType() === sap.ciconnect.control.PipelineType.Mixed) && this.getEnableTwoRow(),
-			oJobStyle = this.getJobStyle(),
+			oJobStyle = sap.ciconnect.control.JobStyle[this.getJobStyle()],
 			fScaleFactor = Math.min(iTileWidth/oJobStyle.width, iTileHeight/oJobStyle.height);
 		
 		var $jobText = $jobGroup.selectAll("text").data(function(d, i){
