@@ -36,10 +36,10 @@ sap.ui.define([
 	Pipeline.prototype.onAfterRendering = function () {
 		var $svg = d3.select("#" + this.getId() + "-svg");
 		this._drawDefs($svg);
-		this._drawJobs($svg);
 		if (this.getEnableConnection()) {
 			this._drawConnection($svg);
 		}
+		this._drawJobs($svg);
 	};
 	
 	Pipeline.prototype._drawDefs = function ($svg) {
@@ -48,20 +48,21 @@ sap.ui.define([
 	};
 	
 	Pipeline.prototype._drawPattern = function ($defs) {
-		var aPatterData = [{
-			type: "Central",
-			pattern: sap.ciconnect.control.JobStyle.BackSlashPattern
-		}, {
-			type: "Local",
-			pattern: sap.ciconnect.control.JobStyle.BackSlashPattern
-		}];
+		var sPipelineId = this.getId(),
+			aPatterData = [{
+				type: "Central",
+				pattern: sap.ciconnect.control.JobStyle.BackSlashPattern
+			}, {
+				type: "Local",
+				pattern: sap.ciconnect.control.JobStyle.BackSlashPattern
+			}];
 		
 		$defs.selectAll("pattern")
 			.data(aPatterData)
 			.enter()
 			.append("pattern")
 			.attr("id", function (d) {
-				return "inProcess" + d.type;
+				return sPipelineId + "InProcess" + d.type;
 			}).attr("patternUnits", "userSpaceOnUse")
 			.attr("x", 0)
 			.attr("y", 0)
@@ -82,9 +83,10 @@ sap.ui.define([
 	Pipeline.prototype._drawJobs = function ($svg) {
 		var aJobData = this._genJobData();
 		
-		var $jobGroup = $svg.selectAll("g")
+		var $jobGroup = $svg.selectAll(".job")
 			.data(aJobData);
-		$jobGroup.enter().append("g");
+		$jobGroup.enter().append("g")
+			.classed("job", true);
 		
 		this._drawTooltip($jobGroup);
 		this._drawJobPath($jobGroup);
@@ -108,41 +110,44 @@ sap.ui.define([
 			iPadding = this.getPadding(),
 			bTwoRow = (this.getType() === sap.ciconnect.control.PipelineType.Mixed) && this.getEnableTwoRow(),
 			oJobStyle = sap.ciconnect.control.JobStyle[this.getJobStyle()],
-			fScaleFactor = Math.min(iTileWidth/oJobStyle.width, iTileHeight/oJobStyle.height);
+			fScaleFactor = Math.min(iTileWidth/oJobStyle.width, iTileHeight/oJobStyle.height),
+			sPipelineId = this.getId();
 		
 		var $jobPath = $jobGroup.selectAll("path").data(function(d, i){
 			return [{data: d, index: i}];
 		});
 		$jobPath.enter().append("path");
 		$jobPath
-			.classed("ciconnectJobPathStatusInprocessCentral", function (d) {
-				return d.data.status === sap.ciconnect.control.JobStatus.Processing
-					&& d.data.type === sap.ciconnect.control.JobType.Central;
-			})
-			.classed("ciconnectJobPathStatusInprocessLocal", function (d) {
-				return d.data.status === sap.ciconnect.control.JobStatus.Processing
-					&& d.data.type === sap.ciconnect.control.JobType.Local;
-			})
-			.classed("ciConnectJobPathTypeCentral", function (d) {
+			.classed("ciConnectJobPathTypeCentral", function (d) { // initial fill/stroke applied from css
 				return d.data.type === sap.ciconnect.control.JobType.Central;
 			})
-			.classed("ciConnectJobPathTypeLocal", function (d) {
+			.classed("ciConnectJobPathTypeLocal", function (d) { // initial fill/stroke applied from css
 				return d.data.type === sap.ciconnect.control.JobType.Local;
 			})
-			.classed("ciconnectJobPathStatusFinished", function (d) {
-				return d.data.status === sap.ciconnect.control.JobStatus.Succeeded ||
-					d.data.status === sap.ciconnect.control.JobStatus.Failed;
+			.attr("style", function (d) {
+				var sRetVal = "stroke-width:" + 1.5/fScaleFactor + ";";
+				
+				switch(d.data.status) {
+				case sap.ciconnect.control.JobStatus.Processing:
+					if (d.data.type === sap.ciconnect.control.JobType.Central) {
+						sRetVal += "fill: url(#" + sPipelineId + "InProcessCentral);";
+					} else {
+						sRetVal += "fill: url(#" + sPipelineId + "InProcessLocal);";
+					}
+					break;
+				case sap.ciconnect.control.JobStatus.Waiting:
+					sRetVal += "fill-opacity: 0;"
+					sRetVal += "stroke-dasharray:3,1;";
+					break;
+				case sap.ciconnect.control.JobStatus.None:
+					sRetVal += "fill-opacity: 0;";
+					break;
+				default: // Success or Fail
+				} 
+				
+				return sRetVal;
 			})
-			.classed("ciconnectJobPathStatusNone", function (d) {
-				return !d.data.status ||
-					d.data.status === sap.ciconnect.control.JobStatus.None;
-			})
-			.classed("ciconnectJobPathStatusWaiting", function (d) {
-				return d.data.status === sap.ciconnect.control.JobStatus.Waiting;
-			})
-			
 			.attr("d", oJobStyle.d)
-			.attr("stroke-width", 1.5/fScaleFactor)
 			.attr("transform", function (d) {
 				var sRetVal = "",
 					tx = d.index * iTileWidth + iPadding + oJobStyle.xBias,
@@ -192,7 +197,20 @@ sap.ui.define([
 	};
 	
 	Pipeline.prototype._drawConnection = function ($svg) {
-		var aConnectionData = this._genConnectionData();
+		var aConnectionData = this._genConnectionData(),
+			iTileWidth = this.getTileWidth(),
+			iTileHeight = this.getTileHeight(),
+			iPadding = this.getPadding(),
+			bTwoRow = (this.getType() === sap.ciconnect.control.PipelineType.Mixed) && this.getEnableTwoRow(),
+			oJobStyle = sap.ciconnect.control.JobStyle[this.getJobStyle()],
+			fScaleFactor = Math.min(iTileWidth/oJobStyle.width, iTileHeight/oJobStyle.height);
+		
+		var $connectionGroup = $svg.selectAll(".connection")
+			.data(aConnectionData);
+		$connectionGroup.enter().append("g")
+			.classed("connection", true);
+		
+		$connectionGroup.exit().remove();
 	};
 	
 	Pipeline.prototype._genJobData = function () {

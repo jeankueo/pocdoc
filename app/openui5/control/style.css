@@ -26,23 +26,3 @@
 	stroke-width: 0;
 	font-family: Arial, Helvetica, sans-serif;
 }
-
-.ciconnectJobPathStatusfFinished {
-}
-
-.ciconnectJobPathStatusNone {
-	fill-opacity: 0;
-}
-
-.ciconnectJobPathStatusInprocessCentral {
-	fill: url(#inProcessCentral);
-}
-
-.ciconnectJobPathStatusInprocessLocal {
-	fill: url(#inProcessLocal);
-}
-
-.ciconnectJobPathStatusWaiting {
-	fill-opacity: 0;
-	stroke-dasharray:3,1;
-}
