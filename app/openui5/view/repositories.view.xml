@@ -30,7 +30,10 @@
 								<Text text="{github>description}"/>
 							</VBox>
 						</HBox>
-						<ci:Pipeline type="{type}" jobs="{path:'github>pipeline/jobs', templateShareable: true}">
+						<ci:Pipeline type="{github>type}" jobs="{path:'github>pipeline/jobs', templateShareable: true}" titleFirst="false">
+							<ci:title>
+								<Label text="{github>pipeline/name}" tooltip="{github>pipeline/name}"/>
+							</ci:title>
 							<ci:jobs>
 								<ci:Job goal="{github>goal}" type="{github>type}" status="{github>status}" shortTooltip="status: {github>status}"/>
 							</ci:jobs>
@@ -48,6 +51,7 @@
 							<core:Icon size="1.5rem" src="sap-icon://awesome/fa-git-square" tooltip="Git/Gerrit Repositories"/>
 							<Title text="Git/Gerrit" level="H2"/>
 							<ToolbarSpacer />
+							<Input placeholder="ssh://xxx@xxx.git or https://xxx@xxx.git" width="300px"/>
 							<Button icon="sap-icon://add"/>
 						</content>
 					</Toolbar>
@@ -61,7 +65,10 @@
 								<Text text="{git>description}"/>
 							</VBox>
 						</HBox>
-						<ci:Pipeline type="{type}" jobs="{path:'git>pipeline/jobs', templateShareable: true}">
+						<ci:Pipeline type="{git>pipeline/type}" jobs="{path:'git>pipeline/jobs', templateShareable: true}" titleFirst="false">
+							<ci:title>
+								<Label text="{git>pipeline/name}" tooltip="{git>pipeline/name}"/>
+							</ci:title>
 							<ci:jobs>
 								<ci:Job goal="{git>goal}" type="{git>type}" status="{git>status}" shortTooltip="status: {git>status}"/>
 							</ci:jobs>

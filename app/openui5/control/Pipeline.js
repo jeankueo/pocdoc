@@ -20,10 +20,11 @@ sap.ui.define([
 				jobStyle: {type: "object", defaultValue: sap.ciconnect.control.JobStyle.ChevronWithTextAbove},
 				type: {type: "string", defaultValue: sap.ciconnect.control.PipelineType.CentralOnly},
 				enableTwoRow: {type: "boolean", defaultValue: false},
-				enableBackground: {type: "boolean", defaultValue: false}
+				enableBackground: {type: "boolean", defaultValue: false},
+				titleFirst: {type: "boolean", defaultValue: true}
 			},
 			aggregations: {
-				title: {type: "sap.m.Text", multiple: false, visibility: "public", bindable: "bindable"},
+				title: {type: "sap.m.Label", multiple: false, visibility: "public", bindable: "bindable"},
 				jobs: {type: "sap.ciconnect.control.Job", multiple: true, visibility: "public",
 					singularName: "job", bindable: "bindable"}
 			}

@@ -4,12 +4,24 @@ sap.ui.define([], function () {
 	var PipelineRenderer = {};
 
 	PipelineRenderer.render = function (oRenderManager, oPipeline) {
+		var aJobs = oPipeline.getJobs(),
+			iWidthSpan = aJobs ? aJobs.length : 1,
+			iTileWidth = oPipeline.getTileWidth(),
+			iPadding = oPipeline.getPadding();
+		
 		oRenderManager.write("<div");
+		oRenderManager.addStyle("width", (iWidthSpan * iTileWidth + iPadding * 2) + "px");
+		oRenderManager.writeStyles();
 		oRenderManager.writeControlData(oPipeline);
 		oRenderManager.write(">");
 		
-		this.renderTitle(oRenderManager, oPipeline);
-		this.renderSvg(oRenderManager, oPipeline);
+		if (oPipeline.getTitleFirst()) {
+			this.renderTitle(oRenderManager, oPipeline);
+			this.renderSvg(oRenderManager, oPipeline);
+		} else {
+			this.renderSvg(oRenderManager, oPipeline);
+			this.renderTitle(oRenderManager, oPipeline);
+		}
 		
 		oRenderManager.write("</div>");
 	};
@@ -21,15 +33,12 @@ sap.ui.define([], function () {
 	};
 	
 	PipelineRenderer.renderSvg = function (oRenderManager, oPipeline) {
-		var aJobs = oPipeline.getJobs(),
-			iWidthSpan = aJobs ? aJobs.length : 1,
-			iHeightSpan = (oPipeline.getType() === sap.ciconnect.control.PipelineType.Mixed) && oPipeline.getEnableTwoRow() ? 2 : 1,
-			iTileHeight = oPipeline.getTileHeight(),
-			iTileWidth = oPipeline.getTileWidth(),
-			iPadding = oPipeline.getPadding();
+		var iTileHeight = oPipeline.getTileHeight(),
+			iPadding = oPipeline.getPadding(),
+			iHeightSpan = (oPipeline.getType() === sap.ciconnect.control.PipelineType.Mixed) && oPipeline.getEnableTwoRow() ? 2 : 1;
 		
 		oRenderManager.write("<div");
-		oRenderManager.addStyle("width", (iWidthSpan * iTileWidth + iPadding * 2) + "px");
+		oRenderManager.addStyle("width", "100%");
 		oRenderManager.addStyle("height", (iHeightSpan * iTileHeight + iPadding * 2) + "px");
 		oRenderManager.writeStyles();
 		oRenderManager.addClass("ciconnectPipelineDiv");

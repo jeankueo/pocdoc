@@ -12,6 +12,12 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/model/json/JSONModel"], fun
 			this.getView().setModel(oModel, "git");
 		},
 		
+		onAfterRendering: function () {
+			var iGitHubLength = this.getView().getModel("github").getData().length,
+				iGitLength = this.getView().getModel("git").getData().length;
+			this.getView().getParent().setCount(iGitHubLength + iGitLength);
+		},
+		
 		handlePress: function (oEvent) {
 			alert(JSON.stringify(oEvent.getParameters()));
 		},

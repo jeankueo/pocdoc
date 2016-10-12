@@ -6,6 +6,10 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/model/json/JSONModel"], fun
 			var oModel = new JSONModel();
 			oModel.loadData("../data/pipeline.json");
 			this.getView().setModel(oModel);
+		},
+		
+		onAfterRendering: function () {
+			this.getView().getParent().setCount(this.getView().getModel().getData().length);
 		}
 	});
 });

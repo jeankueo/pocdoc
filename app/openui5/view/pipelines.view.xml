@@ -6,7 +6,7 @@
 			
 			<Pipeline type="{type}" jobs="{path:'jobs', templateShareable: true}">
 				<title>
-					<m:Text text="{name}:" />
+					<m:Label text="{name}:" />
 				</title>
 				<jobs>
 					<Job goal="{goal}" type="{type}" shortTooltip="{short_desc}"/>

@@ -1,8 +1,8 @@
 [
   {
     "id": 35901,
-    "name": "hello_keisha",
-    "full_name": "I037379/hello_keisha",
+    "name": "sap.awesome",
+    "full_name": "sap.awesome",
     "owner": {
       "login": "I037379",
       "id": 9244,
@@ -139,8 +139,8 @@
   },
   {
     "id": 35909,
-    "name": "hello_zhangsan",
-    "full_name": "I037379/hello_zhangsan",
+    "name": "training.fancy",
+    "full_name": "training.fancy",
     "owner": {
       "login": "I037379",
       "id": 9244,
