@@ -169,7 +169,8 @@ sap.ui.define([
 			iTileHeight = this.getTileHeight(),
 			iPadding = this.getPadding(),
 			bTwoRow = (this.getType() === sap.ciconnect.control.PipelineType.Mixed) && this.getEnableTwoRow(),
-			oJobStyle = this.getJobStyle();
+			oJobStyle = this.getJobStyle(),
+			fScaleFactor = Math.min(iTileWidth/oJobStyle.width, iTileHeight/oJobStyle.height);
 		
 		var $jobText = $jobGroup.selectAll("text").data(function(d, i){
 			return [{data: d, index: i}];
@@ -193,6 +194,9 @@ sap.ui.define([
 				
 				sRetVal += "translate(" + tx + "," + ty + ")";
 				return sRetVal;
+			})
+			.attr("font-size", function (d) {
+				return 5 * fScaleFactor + "px";
 			});
 	};
 	

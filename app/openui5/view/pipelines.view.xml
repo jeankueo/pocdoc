@@ -17,12 +17,9 @@
 						<HBox>
 							<core:Icon size="1rem" class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom"
 								src="sap-icon://{= ${sapPredefined} ? 'sap-logo-shape' : 'customize'}" />
-							<VBox  class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" >
-								<Link text="{name}" target="_blank" href="{github>html_url}"/>
-								<Text text="{description}"/>
-							</VBox>
+							<Link text="{name}" target="_blank" href="{github>html_url}" class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom"/>
 						</HBox>
-						<ci:Pipeline type="{type}" jobs="{path:'jobs', templateShareable: true}">
+						<ci:Pipeline type="{type}" jobs="{path:'jobs', templateShareable: true}" tileHeight="20" tileWidth="30">
 							<ci:jobs>
 								<ci:Job goal="{goal}" type="{type}" shortTooltip="{short_desc}"/>
 							</ci:jobs>
