@@ -43,8 +43,14 @@ sap.ciconnect.control.JobStyle = {
 		fontXBias: 5,
 		fontYBias: 2
 	},
-	CircleWithConnection: {
-		
+	RoundChevronWithTextAbove: {
+		d: "M 0 0 h 15 q 12 5 0 10 h -15 q 12 -5 0 -10 z",
+		height: 10,
+		width: 20,
+		xBias: 0,
+		yBias: 6,
+		fontXBias: 5,
+		fontYBias: 2
 	}
 };
 
