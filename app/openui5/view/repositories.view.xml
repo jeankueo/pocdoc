@@ -51,8 +51,8 @@
 							<core:Icon size="1.5rem" src="sap-icon://awesome/fa-git-square" tooltip="Git/Gerrit Repositories"/>
 							<Title text="Git/Gerrit" level="H2"/>
 							<ToolbarSpacer />
-							<Input placeholder="ssh://xxx@xxx.git or https://xxx@xxx.git" width="300px"/>
-							<Button icon="sap-icon://add"/>
+							<Label text="Add Git Repo:" />
+							<Input placeholder="ssh://xxx@xxx.git or https://xxx@xxx.git" width="300px" submit="onAddGitRepo"/>
 						</content>
 					</Toolbar>
 				</headerToolbar>

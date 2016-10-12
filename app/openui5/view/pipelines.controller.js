@@ -10,10 +10,6 @@ sap.ui.define([
 			this.getView().setModel(oModel);
 		},
 		
-		onAfterRendering: function () {
-			this.getView().getParent().setCount(this.getView().getModel().getData().length);
-		},
-		
 		onSearch: function (oEvent) {
 			// add filter for search
 			var aFilters = [];
@@ -27,6 +23,10 @@ sap.ui.define([
 			var oList = this.getView().byId("pipelineList");
 			var obinding = oList.getBinding("items");
 			obinding.filter(aFilters);
+		},
+		
+		_updateCount: function () {
+			this.getView().getParent().setCount(this.getView().getModel().getData().length);
 		}
 	});
 });

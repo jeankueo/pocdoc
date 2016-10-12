@@ -14,12 +14,6 @@ sap.ui.define([
 			this.getView().setModel(oModel, "git");
 		},
 		
-		onAfterRendering: function () {
-			var iGitHubLength = this.getView().getModel("github").getData().length,
-				iGitLength = this.getView().getModel("git").getData().length;
-			this.getView().getParent().setCount(iGitHubLength + iGitLength);
-		},
-		
 		onSearch: function (oEvent) {
 			// add filter for search
 			var aFilters = [];
@@ -38,6 +32,39 @@ sap.ui.define([
 			oList = this.getView().byId("gitList");
 			obinding = oList.getBinding("items");
 			obinding.filter(aFilters);
+		},
+		
+		onAddGitRepo: function (oEvent) {
+			var sURL = oEvent.getSource().getValue();
+			if (sURL) {
+				var oModel = this.getView().getModel("git");
+				var oData = oModel.getData();
+				oData.push({
+					"name": "new rep",
+					"full_name": "new git repository " + sURL,
+					"pipeline": {
+						"id": "pipeline4",
+						"name": "Some Team's Pipeline",
+						"type": "mixed",
+						"jobs": [{
+							"type": "local",
+							"goal": "BLD",
+							"status": "None"
+						}]
+					},
+					"private": true,
+					"folked": false
+				});
+				oModel.setData(oData);
+				this._updateCount();
+				oEvent.getSource().setValue();
+			}
+		},
+		
+		_updateCount: function () {
+			var iGitHubLength = this.getView().getModel("github").getData().length,
+				iGitLength = this.getView().getModel("git").getData().length;
+			this.getView().getParent().setCount(iGitHubLength + iGitLength);
 		}
 	});
 });
