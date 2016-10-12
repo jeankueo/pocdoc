@@ -36,7 +36,7 @@
 	}]
 }, {
 	"id": "pipeline3",
-	"name": "Some Team's Pipeline",
+	"name": "Some Team's Simple Pipeline",
 	"type": "localOnly",
 	"jobs": [{
 		"type": "local",
@@ -46,5 +46,34 @@
 		"type": "local",
 		"goal": "DEP",
 		"short_desc": "Short description for deploy job. Should be at most 2 sentences."
+	}]
+}, {
+	"id": "pipeline4",
+	"name": "Some Team's Fancy Pipeline",
+	"type": "mixed",
+	"jobs": [{
+		"type": "local",
+		"goal": "BLD",
+		"short_desc": "building"
+	}, {
+		"type": "central",
+		"goal": "VER",
+		"short_desc": "versioning"
+	}, {
+		"type": "local",
+		"goal": "VAL",
+		"short_desc": "validation"
+	}, {
+		"type": "central",
+		"goal": "STG",
+		"short_desc": "staging"
+	}, {
+		"type": "central",
+		"goal": "PRM",
+		"short_desc": "promotion"
+	}, {
+		"type": "local",
+		"goal": "DEP",
+		"short_desc": "deploy"
 	}]
 }]

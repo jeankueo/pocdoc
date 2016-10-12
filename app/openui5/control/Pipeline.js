@@ -223,12 +223,41 @@ sap.ui.define([
 		$connectionPath.enter().append("path");
 		$connectionPath
 			.attr("style", function (d) {
-				var sRetVal = "stroke-width: 1.5;";
+				var sRetVal = "stroke-width: 1;";
+				sRetVal += "stroke-dasharray:2,1;";
 				sRetVal += "stroke:#666666;";
+				sRetVal += "fill:none;";
 				return sRetVal;
 			})
 			.attr("d", function (d) {
-				return "M" + iTileWidth / 2 + ",0 h" + iTileWidth;
+				var sRetVal = "M" + iTileWidth / 2 + ",0 ";
+				if (bTwoRow) {
+					if (d.data.from.type === d.data.to.type) {
+						sRetVal += "h" + iTileWidth;
+					} else {
+						var fRx = Math.min(10, iTileWidth / 2),
+							fRy = Math.min(10, iTileHeight / 2),
+							fH = iTileWidth / 2 - fRx,
+							fV = iTileHeight / 2 - fRy;
+						
+						if (d.data.from.type === sap.ciconnect.control.JobType.Local) { // local-global
+							sRetVal += "h" + fH +
+								" a" + fRx + "," + fRy + " 0 " + "0,0 " + fRx + ",-" + fRy +
+								" v-" + 2 * fV +
+								" a" + fRx + "," + fRy + " 0 " + "0,1 " + fRx + ",-" + fRy +
+								" h" + fH;
+						} else { // global-local
+							sRetVal += "h" + fH +
+								" a" + fRx + "," + fRy + " 0 " + "0,1 " + fRx + "," + fRy +
+								" v" + 2 * fV +
+								" a" + fRx + "," + fRy + " 0 " + "0,0 " + fRx + "," + fRy +
+								" h" + fH;
+						}
+					} 
+				} else {
+					sRetVal += "h" + iTileWidth;
+				}
+				return sRetVal;
 			})
 			.attr("transform", function (d) {
 				var sRetVal = "",
