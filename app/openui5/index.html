@@ -26,57 +26,78 @@
 	sap.ui.getCore().attachInit(function () {
 		
 		registerIcons();
+		loadData(composeViews());
 		
-		var oPipelinesView = sap.ui.view({
-			id:"pipelines",
-			viewName:"sap.ciconnect.view.pipelines",
-			type:sap.ui.core.mvc.ViewType.XML
-		});
+		function loadData (oApp) {
+			var oModel;
+			
+			oModel = new sap.ui.model.json.JSONModel();
+			oModel.loadData("../data/pipeline.json");
+			oApp.setModel(oModel, "pipeline");
+
+			oModel = new sap.ui.model.json.JSONModel();
+			oModel.loadData("../data/githubrepo.json");
+			oApp.setModel(oModel, "github");
+
+			oModel = new sap.ui.model.json.JSONModel();
+			oModel.loadData("../data/gitrepo.json");
+			oApp.setModel(oModel, "git");
+		};
 		
-		var oRepositoryView = sap.ui.view({
-			id:"repositories",
-			viewName:"sap.ciconnect.view.repositories",
-			type:sap.ui.core.mvc.ViewType.XML
-		});
+		function composeViews () {
+			var oPipelinesView = sap.ui.view({
+				id:"pipelines",
+				viewName:"sap.ciconnect.view.pipelines",
+				type:sap.ui.core.mvc.ViewType.XML
+			});
+			
+			var oRepositoryView = sap.ui.view({
+				id:"repositories",
+				viewName:"sap.ciconnect.view.repositories",
+				type:sap.ui.core.mvc.ViewType.XML
+			});
+			
+			var oSummaryView = sap.ui.view({
+				id:"summary",
+				viewName:"sap.ciconnect.view.summary",
+				type:sap.ui.core.mvc.ViewType.XML
+			});
+			
+			var oIconTabBar = new sap.m.IconTabBar({
+				stretchContentHeight: true,
+				backgroundDesign: "Transparent",
+				applyContentPadding: false,
+				items: [new sap.m.IconTabFilter({
+					text: "Summary",
+					icon: "sap-icon://kpi-corporate-performance",
+					content: oSummaryView
+				}), new sap.m.IconTabFilter({
+					text: "Pipelines",
+					icon: "sap-icon://awesome/fa-pied-piper-pp",
+					count: "{= ${pipeline>/}.length}",
+					content: oPipelinesView
+				}), new sap.m.IconTabFilter({
+					text: "Repositories",
+					icon: "sap-icon://oct/octicon-repo",
+					count: "{= ${github>/}.length + ${git>/}.length}",
+					content: oRepositoryView
+				})]
+			}).addStyleClass("sapUiResponsiveContentPadding"); 
+			
+			var oPage = new sap.m.Page({
+				id: "ciconnect",
+				title: "CI-Connect PoC",
+				content: oIconTabBar
+			});
+			
+			var oApp = new sap.m.App({initialPage:"ciconnect"});
+			oApp.addPage(oPage);
+			oApp.placeAt("content");
+			
+			return oApp;
+		};
 		
-		var oSummaryView = sap.ui.view({
-			id:"summary",
-			viewName:"sap.ciconnect.view.summary",
-			type:sap.ui.core.mvc.ViewType.XML
-		});
-		
-		var oIconTabBar = new sap.m.IconTabBar({
-			stretchContentHeight: true,
-			backgroundDesign: "Transparent",
-			applyContentPadding: false,
-			items: [new sap.m.IconTabFilter({
-				text: "Pipelines",
-				icon: "sap-icon://awesome/fa-pied-piper-pp",
-				count: 3,
-				content: oPipelinesView
-			}), new sap.m.IconTabFilter({
-				text: "Repositories",
-				icon: "sap-icon://oct/octicon-repo",
-				count: 5,
-				content: oRepositoryView
-			}), new sap.m.IconTabFilter({
-				text: "Summary",
-				icon: "sap-icon://kpi-corporate-performance",
-				content: oSummaryView
-			})]
-		}).addStyleClass("sapUiResponsiveContentPadding"); 
-		
-		var oPage = new sap.m.Page({
-			id: "ciconnect",
-			title: "CI-Connect PoC",
-			content: oIconTabBar
-		});
-		
-		var oApp = new sap.m.App({initialPage:"ciconnect"});
-		oApp.addPage(oPage);
-		oApp.placeAt("content");
-		
-		function registerIcons() {
+		function registerIcons () {
 			jQuery.sap.require("sap.ui.core.IconPool");
 			registerPerLib({
 				fontFamily: "oct",

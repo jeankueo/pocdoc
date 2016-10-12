@@ -19,5 +19,9 @@
 }
 
 .ciconnectPipelineDiv {
-	margin: 5px
+	margin: 5px;
+}
+
+.ciconnectIcon {
+	color: #888888;
 }

@@ -14,7 +14,7 @@
 				<headerToolbar>
 					<Toolbar>
 						<content>
-							<core:Icon size="1.5rem" src="sap-icon://oct/octicon-mark-github" tooltip="Github Repositories"/>
+							<core:Icon size="1.5rem" src="sap-icon://oct/octicon-mark-github" tooltip="Github Repositories" class="ciconnectIcon"/>
 							<Title text="Github" level="H2"/>
 							<ToolbarSpacer />
 						</content>
@@ -23,14 +23,15 @@
 				<CustomListItem>
 					<HBox alignItems="Start" justifyContent="SpaceBetween">
 						<HBox>
-							<core:Icon size="1rem" class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom"
+							<core:Icon size="1rem" class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom ciconnectIcon"
 								src="sap-icon://oct/{= ${github>private} ? 'octicon-shield' : (${github>fork} ? 'octicon-repo-forked' : 'octicon-repo')}" />
 							<VBox  class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" >
 								<Link text="{github>full_name}" target="_blank" href="{github>html_url}"/>
 								<Text text="{github>description}"/>
 							</VBox>
 						</HBox>
-						<ci:Pipeline type="{github>type}" jobs="{path:'github>pipeline/jobs', templateShareable: true}" titleFirst="false">
+						<ci:Pipeline type="{github>type}" jobs="{path:'github>pipeline/jobs', templateShareable: true}" titleFirst="false"
+							 tileHeight="20" tileWidth="30">
 							<ci:title>
 								<Label text="{github>pipeline/name}" tooltip="{github>pipeline/name}"/>
 							</ci:title>
@@ -48,7 +49,8 @@
 				<headerToolbar>
 					<Toolbar>
 						<content>
-							<core:Icon size="1.5rem" src="sap-icon://awesome/fa-git-square" tooltip="Git/Gerrit Repositories"/>
+							<core:Icon size="1.5rem" src="sap-icon://awesome/fa-git-square" tooltip="Git/Gerrit Repositories"
+								class="ciconnectIcon"/>
 							<Title text="Git/Gerrit" level="H2"/>
 							<ToolbarSpacer />
 							<Label text="Add Git Repo:" />
@@ -59,13 +61,14 @@
 				<CustomListItem>
 					<HBox alignItems="Start" justifyContent="SpaceBetween">
 						<HBox>
-							<core:Icon size="1rem" src="sap-icon://oct/octicon-repo" class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" />
+							<core:Icon size="1rem" src="sap-icon://oct/octicon-repo" class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom ciconnectIcon" />
 							<VBox  class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" >
 								<Link text="{git>full_name}" target="_blank" href="{git>html_url}"/>
 								<Text text="{git>description}"/>
 							</VBox>
 						</HBox>
-						<ci:Pipeline type="{git>pipeline/type}" jobs="{path:'git>pipeline/jobs', templateShareable: true}" titleFirst="false">
+						<ci:Pipeline type="{git>pipeline/type}" jobs="{path:'git>pipeline/jobs', templateShareable: true}" titleFirst="false"
+							 tileHeight="20" tileWidth="30">
 							<ci:title>
 								<Label text="{git>pipeline/name}" tooltip="{git>pipeline/name}"/>
 							</ci:title>

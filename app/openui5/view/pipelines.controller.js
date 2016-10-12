@@ -5,9 +5,9 @@ sap.ui.define([
 	
 	return Controller.extend("sap.ciconnect.view.pipelines", {
 		onInit: function() {
-			var oModel = new JSONModel();
+			/*var oModel = new JSONModel();
 			oModel.loadData("../data/pipeline.json");
-			this.getView().setModel(oModel);
+			this.getView().setModel(oModel);*/
 		},
 		
 		onSearch: function (oEvent) {

@@ -5,13 +5,13 @@ sap.ui.define([
 	
 	return Controller.extend("sap.ciconnect.view.repositories", {
 		onInit: function() {
-			var oModel = new JSONModel();
+			/*var oModel = new JSONModel();
 			oModel.loadData("../data/githubrepo.json");
 			this.getView().setModel(oModel, "github");
 			
 			oModel = new JSONModel();
 			oModel.loadData("../data/gitrepo.json");
-			this.getView().setModel(oModel, "git");
+			this.getView().setModel(oModel, "git");*/
 		},
 		
 		onSearch: function (oEvent) {

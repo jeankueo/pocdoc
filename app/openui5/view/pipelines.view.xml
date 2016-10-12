@@ -10,18 +10,18 @@
 			</Toolbar>
 			
 			<List id="pipelineList"
-				items="{/}"
+				items="{pipeline>/}"
 				includeItemInSelection="true" >
 				<CustomListItem>
 					<HBox alignItems="Start" justifyContent="SpaceBetween">
 						<HBox>
-							<core:Icon size="1rem" class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom"
-								src="sap-icon://{= ${sapPredefined} ? 'sap-logo-shape' : 'customize'}" />
-							<Link text="{name}" target="_blank" href="{github>html_url}" class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom"/>
+							<core:Icon size="1rem" class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom ciconnectIcon"
+								src="sap-icon://{= ${pipeline>sapPredefined} ? 'sap-logo-shape' : 'customize'}"/>
+							<Link text="{pipeline>name}" target="_blank" href="{pipeline>html_url}" class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom"/>
 						</HBox>
-						<ci:Pipeline type="{type}" jobs="{path:'jobs', templateShareable: true}" tileHeight="20" tileWidth="30">
+						<ci:Pipeline type="{pipeline>type}" jobs="{path:'pipeline>jobs', templateShareable: true}">
 							<ci:jobs>
-								<ci:Job goal="{goal}" type="{type}" shortTooltip="{short_desc}"/>
+								<ci:Job goal="{pipeline>goal}" type="{pipeline>type}" shortTooltip="{pipeline>short_desc}"/>
 							</ci:jobs>
 						</ci:Pipeline>
 					</HBox>
