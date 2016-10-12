@@ -4,11 +4,11 @@
 		<items>
 			<Toolbar>
 				<content>
-					<SearchField placeholder="Search"  width="100%"/>
+					<SearchField placeholder="Search"  width="100%" liveChange="onSearch"/>
 				</content>
 			</Toolbar>
 			<List
-				id="github"
+				id="githubList"
 				items="{github>/}"
 				includeItemInSelection="true" >
 				<headerToolbar>
@@ -42,7 +42,7 @@
 				</CustomListItem>
 			</List>
 			<List
-				id="git"
+				id="gitList"
 				items="{git>/}"
 				includeItemInSelection="true" >
 				<headerToolbar>

@@ -1,4 +1,6 @@
-sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/model/json/JSONModel"], function (Controller, JSONModel) {
+sap.ui.define([
+	"sap/ui/core/mvc/Controller", 'sap/ui/model/Filter', "sap/ui/model/json/JSONModel"
+], function (Controller, Filter, JSONModel) {
 	"use strict";
 	
 	return Controller.extend("sap.ciconnect.view.repositories", {
@@ -18,12 +20,24 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/model/json/JSONModel"], fun
 			this.getView().getParent().setCount(iGitHubLength + iGitLength);
 		},
 		
-		handlePress: function (oEvent) {
-			alert(JSON.stringify(oEvent.getParameters()));
-		},
-		
-		handleDetailPress: function (oEvent) {
-			alert(JSON.stringify(oEvent.getParameters()));
+		onSearch: function (oEvent) {
+			// add filter for search
+			var aFilters = [];
+			var sQuery = oEvent.getSource().getValue();
+			if (sQuery && sQuery.length > 0) {
+				var ofilter = new Filter("full_name", sap.ui.model.FilterOperator.Contains, sQuery);
+				aFilters.push(ofilter);
+			}
+ 
+			// update github list binding
+			var oList = this.getView().byId("githubList");
+			var obinding = oList.getBinding("items");
+			obinding.filter(aFilters);
+			
+			// update git list binding
+			oList = this.getView().byId("gitList");
+			obinding = oList.getBinding("items");
+			obinding.filter(aFilters);
 		}
 	});
 });
