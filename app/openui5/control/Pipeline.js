@@ -224,7 +224,8 @@ sap.ui.define([
 		$connectionPath
 			.attr("style", function (d) {
 				var sRetVal = "stroke-width: 1;";
-				sRetVal += "stroke-dasharray:2,1;";
+				sRetVal += "stroke-dasharray:5,5;";
+				sRetVal += "stroke-linecap:round;";
 				sRetVal += "stroke:#666666;";
 				sRetVal += "fill:none;";
 				return sRetVal;
