@@ -80,7 +80,7 @@ sap.ui.define([
 	};
 	
 	Pipeline.prototype._drawJobs = function ($svg) {
-		var aJobData = this._genData(this.getJobs());
+		var aJobData = this._genJobData();
 		
 		var $jobGroup = $svg.selectAll("g")
 			.data(aJobData);
@@ -93,22 +93,6 @@ sap.ui.define([
 		}
 
 		$jobGroup.exit().remove();
-	};
-	
-	Pipeline.prototype._genData = function (aData) {
-		var aRetVal = [],
-			oEntry;
-		
-		if (aData) {
-			for (var i = 0; i < aData.length; i++) {
-				oEntry = {};
-				for (var j in aData[i].mProperties) {
-					oEntry[j] = aData[i].mProperties[j];
-				}
-				aRetVal.push(oEntry);
-			}
-		}
-		return aRetVal;
 	};
 	
 	Pipeline.prototype._drawTooltip = function ($jobGroup) {
@@ -208,7 +192,43 @@ sap.ui.define([
 	};
 	
 	Pipeline.prototype._drawConnection = function ($svg) {
-		//TODO
+		var aConnectionData = this._genConnectionData();
+	};
+	
+	Pipeline.prototype._genJobData = function () {
+		var aJob = this.getJobs(),
+			that = this;
+		
+		if (aJob) {
+			return aJob.map(function(oCurrent) {
+				return that._genDataEntryFromProperties(oCurrent.mProperties);
+			});
+		}
+	};
+	
+	Pipeline.prototype._genConnectionData = function () {
+		var aRetVal = [],
+			aJob = this.getJobs(),
+			that = this;
+		
+		if (aJob && aJob.length > 1) {
+			aJob.reduce(function(oPrevious, oCurrent) {
+				aRetVal.push({
+					"from": that._genDataEntryFromProperties(oPrevious.mProperties),
+					"to": that._genDataEntryFromProperties(oCurrent.mProperties)
+				});
+				return oCurrent;
+			});
+		}
+		return aRetVal;
+	};
+	
+	Pipeline.prototype._genDataEntryFromProperties = function (aProperties) {
+		var oEntry = {};
+		for (var sAttr in aProperties) {
+			oEntry[sAttr] = aProperties[sAttr];
+		}
+		return oEntry;
 	};
 	
 	return Pipeline;
