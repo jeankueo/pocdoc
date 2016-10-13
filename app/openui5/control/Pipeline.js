@@ -14,9 +14,9 @@ sap.ui.define([
 	var Pipeline = Control.extend("sap.ciconnect.control.Pipeline", {
 		metadata: {
 			properties: {
-				tileWidth: {type: "int", defaultValue: 50},
-				tileHeight: {type: "int", defaultValue: 25},
-				padding: {type: "int", defaultValue: 7},
+				tileWidth: {type: "int", defaultValue: 45},
+				tileHeight: {type: "int", defaultValue: 30},
+				padding: {type: "int", defaultValue: 2},
 				jobStyle: {type: "string", defaultValue: "ChevronWithTextAbove"},
 				type: {type: "string", defaultValue: sap.ciconnect.control.PipelineType.CentralOnly},
 				enableText: {type: "boolean", defaultValue: true},
@@ -81,18 +81,35 @@ sap.ui.define([
 	};
 	
 	Pipeline.prototype._drawJobs = function ($svg) {
-		var aJobData = this._genJobData();
+		var aJobData = this._genJobData(),
+			iTileWidth = this.getTileWidth(),
+			iTileHeight = this.getTileHeight(),
+			iPadding = this.getPadding(),
+			bTwoRow = this._calTwoRowMode(),
+			fScaleFactor = this._calScaleFactor();
 		
 		var $jobGroup = $svg.selectAll(".job")
 			.data(aJobData);
 		$jobGroup.enter().append("a")
 			.classed("job", true);
 		
-		$jobGroup.attr("xlink:href", function (d) {
-			if (d.serviceLink) {
+		$jobGroup.attr("target", "_blank")
+			.attr("xlink:href", function (d) {
 				return d.serviceLink;
-			}
-		}).attr("target", "_blank")
+			})
+			.classed("ciConnectJobLink", function (d) {
+				return d.serviceLink;
+			})
+			.attr("transform", function (d, i) {
+				var sRetVal = "",
+					tx = i * iTileWidth + iPadding,
+					ty = (bTwoRow && (d.type === sap.ciconnect.control.JobType.Local) ? iTileHeight : 0) + iPadding;
+				
+				// scale() execute before translate()
+				sRetVal += "translate(" + tx + "," + ty +")";
+				sRetVal += "scale(" + fScaleFactor + ")";
+				return sRetVal;
+			})
 		
 		this._drawTooltip($jobGroup);
 		this._drawJobPath($jobGroup);
@@ -103,6 +120,23 @@ sap.ui.define([
 		$jobGroup.exit().remove();
 	};
 	
+	Pipeline.prototype._calScaleFactor = function () {
+		var iTileWidth = this.getTileWidth(),
+			iTileHeight = this.getTileHeight(),
+			bEnableText = this.getEnableText(),
+			iPadding = this.getPadding(),
+			oJobStyle = sap.ciconnect.control.JobStyle[this.getJobStyle()];
+		
+		return Math.min(
+			iTileWidth / oJobStyle.width,
+			iTileHeight / (oJobStyle.height + bEnableText ? (oJobStyle.fontSize + oJobStyle.padding) : 0)
+		);
+	};
+	
+	Pipeline.prototype._calTwoRowMode = function () {
+		return (this.getType() === sap.ciconnect.control.PipelineType.Mixed) && this.getEnableTwoRow();
+	};
+	
 	Pipeline.prototype._drawTooltip = function ($jobGroup) {
 		$jobGroup.append("title")
 			.text(function(d) {
@@ -111,13 +145,9 @@ sap.ui.define([
 	};
 	
 	Pipeline.prototype._drawJobPath = function ($jobGroup) {
-		var iTileWidth = this.getTileWidth(),
-			iTileHeight = this.getTileHeight(),
-			iPadding = this.getPadding(),
-			bTwoRow = (this.getType() === sap.ciconnect.control.PipelineType.Mixed) && this.getEnableTwoRow(),
-			oJobStyle = sap.ciconnect.control.JobStyle[this.getJobStyle()],
-			fScaleFactor = Math.min(iTileWidth/oJobStyle.width, iTileHeight/oJobStyle.height),
-			sPipelineId = this.getId();
+		var oJobStyle = sap.ciconnect.control.JobStyle[this.getJobStyle()],
+			sPipelineId = this.getId(),
+			sTranslate = "translate(0," + (this.getEnableText() ? (oJobStyle.fontSize + oJobStyle.padding) : 0) + ")";
 		
 		var $jobPath = $jobGroup.selectAll("path").data(function(d, i){
 			return [{data: d, index: i}];
@@ -131,7 +161,7 @@ sap.ui.define([
 				return d.data.type === sap.ciconnect.control.JobType.Local;
 			})
 			.attr("style", function (d) {
-				var sRetVal = "stroke-width:" + 1.5/fScaleFactor + ";";
+				var sRetVal = "stroke-width: 1;";
 				
 				switch(d.data.status) {
 				case sap.ciconnect.control.JobStatus.Processing:
@@ -154,52 +184,31 @@ sap.ui.define([
 				return sRetVal;
 			})
 			.attr("d", oJobStyle.d)
-			.attr("transform", function (d) {
-				var sRetVal = "",
-					tx = d.index * iTileWidth + iPadding + oJobStyle.xBias,
-					ty = (bTwoRow && (d.data.type === sap.ciconnect.control.JobType.Local) ? iTileHeight : 0) +
-						iPadding + oJobStyle.yBias + oJobStyle.fontSize;
-				
-				sRetVal += "translate(" + tx + "," + ty + ")";
-				sRetVal += " scale(" + fScaleFactor + ")";
-				return sRetVal;
-			});
+			.attr("transform", sTranslate);
 	};
 	
 	Pipeline.prototype._drawJobText = function ($jobGroup) {
-		var iTileWidth = this.getTileWidth(),
-			iTileHeight = this.getTileHeight(),
-			iPadding = this.getPadding(),
-			bTwoRow = (this.getType() === sap.ciconnect.control.PipelineType.Mixed) && this.getEnableTwoRow(),
-			oJobStyle = sap.ciconnect.control.JobStyle[this.getJobStyle()],
-			fScaleFactor = Math.min(iTileWidth/oJobStyle.width, iTileHeight/oJobStyle.height);
+		var oJobStyle = sap.ciconnect.control.JobStyle[this.getJobStyle()],
+			sTranslate = "translate(2," + oJobStyle.fontSize + ")";
 		
 		var $jobText = $jobGroup.selectAll("text").data(function(d, i){
 			return [{data: d, index: i}];
 		});
 		$jobText.enter().append("text");
 		$jobText
-			.classed("ciConnectJobText", function (d) {
+			.classed("ciConnectJobTextNormal", function (d) {
 				return !d.data.serviceLink;
 			})
-			.classed("ciConnectJobLink", function (d) {
+			.classed("ciConnectJobTextLink", function (d) {
 				return d.data.serviceLink;
 			})
 			.text(function (d) {
 				return d.data.goal;
 			})
-			.attr("transform", function (d) {
-				var sRetVal = "",
-					tx = d.index * iTileWidth + iPadding + oJobStyle.fontXBias,
-					ty = (bTwoRow && (d.data.type === sap.ciconnect.control.JobType.Local) ? iTileHeight : 0) +
-						iPadding + oJobStyle.fontYBias +oJobStyle.fontSize;
-				
-				sRetVal += "translate(" + tx + "," + ty + ")";
-				return sRetVal;
-			})
 			.attr("font-size", function (d) {
-				return oJobStyle.fontSize * fScaleFactor + "px";
-			});
+				return oJobStyle.fontSize + "px";
+			})
+			.attr("transform", sTranslate);
 	};
 	
 	Pipeline.prototype._drawConnection = function ($svg) {
@@ -219,9 +228,8 @@ sap.ui.define([
 		var iTileWidth = this.getTileWidth(),
 			iTileHeight = this.getTileHeight(),
 			iPadding = this.getPadding(),
-			bTwoRow = (this.getType() === sap.ciconnect.control.PipelineType.Mixed) && this.getEnableTwoRow(),
 			oJobStyle = sap.ciconnect.control.JobStyle[this.getJobStyle()],
-			fScaleFactor = Math.min(iTileWidth/oJobStyle.width, iTileHeight/oJobStyle.height);
+			bTwoRow = this._calTwoRowMode();
 		
 		var $connectionPath = $connectionGroup.selectAll("path").data(function(d, i){
 			return [{data: d, index: i}];
@@ -269,8 +277,8 @@ sap.ui.define([
 			.attr("transform", function (d) {
 				var sRetVal = "",
 					tx = d.index * iTileWidth,
-					ty = (bTwoRow && (d.data.from.type === sap.ciconnect.control.JobType.Local) ? 1.5 : 0.5) * iTileHeight +
-						iPadding + oJobStyle.yBias;
+					ty = iPadding + iTileHeight - oJobStyle.height / 2 +
+						(bTwoRow && (d.data.from.type === sap.ciconnect.control.JobType.Local) ? iTileHeight : 0);
 				
 				sRetVal += "translate(" + tx + "," + ty + ")";
 				return sRetVal;

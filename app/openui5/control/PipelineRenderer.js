@@ -39,7 +39,9 @@ sap.ui.define([], function () {
 		
 		oRenderManager.write("<div");
 		oRenderManager.addStyle("width", "100%");
-		oRenderManager.addStyle("height", (iHeightSpan * iTileHeight + iPadding * 2) + "px");
+		oRenderManager.addStyle("height", (iHeightSpan * iTileHeight) +
+				(2 * oPipeline._calScaleFactor() +   // space of scaled stroke
+						iPadding) * 2 + "px");
 		oRenderManager.writeStyles();
 		oRenderManager.addClass("ciconnectPipelineDiv");
 		oRenderManager.writeClasses();

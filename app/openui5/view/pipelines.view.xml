@@ -19,7 +19,7 @@
 								src="sap-icon://{= ${pipeline>sapPredefined} ? 'sap-logo-shape' : 'customize'}"/>
 							<Link text="{pipeline>name}" target="_blank" href="{pipeline>html_url}" class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom"/>
 						</HBox>
-						<ci:Pipeline type="{pipeline>type}" jobs="{path:'pipeline>jobs', templateShareable: true}" tileHeight="30" tileWidth="45"
+						<ci:Pipeline type="{pipeline>type}" jobs="{path:'pipeline>jobs', templateShareable: true}"
 							jobStyle="{setting>/jobStyle}" enableConnection="{setting>/enableConnection}" enableText="{setting>/enableText}"
 							enableTwoRow="{setting>/enableTwoRow}">
 							<ci:jobs>
