@@ -40,6 +40,7 @@ sap.ciconnect.control.JobStyle = {
 		width: 20,
 		xBias: 0,
 		yBias: 6,
+		fontSize: 5,
 		fontXBias: 5,
 		fontYBias: 2
 	},
@@ -49,6 +50,7 @@ sap.ciconnect.control.JobStyle = {
 		width: 20,
 		xBias: 0,
 		yBias: 6,
+		fontSize: 5,
 		fontXBias: 5,
 		fontYBias: 2
 	},
@@ -58,15 +60,17 @@ sap.ciconnect.control.JobStyle = {
 		width: 20,
 		xBias: 0,
 		yBias: 6,
+		fontSize: 5,
 		fontXBias: 5,
 		fontYBias: 2
 	},
 	CircleWithTextAbove: {
-		d: "M8,0 a4,4 0 1 0 0.00001,0 z",
-		height: 8,
-		width: 8,
-		xBias: 0,
+		d: "M0,0 a4,4 0 1 0 0.00001,0 z",
+		height: 10,
+		width: 20,
+		xBias: 18,
 		yBias: 6,
+		fontSize: 5,
 		fontXBias: 5,
 		fontYBias: 2
 	}
@@ -83,7 +87,8 @@ sap.ui.define([
 				type: {type: "string", defaultValue: sap.ciconnect.control.JobType.Central},
 				goal: {type: "string", defaultValue: sap.ciconnect.control.JobGoal.Build},
 				status: {type: "string", defaultValue: sap.ciconnect.control.JobStatus.None},
-				shortTooltip: {type: "string", defaultValue: "hello"}
+				shortTooltip: {type: "string", defaultValue: "hello"},
+				serviceLink: {type: "string"}
 			}
 		}
 	});

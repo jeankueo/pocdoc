@@ -16,7 +16,7 @@ sap.ui.define([
 			properties: {
 				tileWidth: {type: "int", defaultValue: 50},
 				tileHeight: {type: "int", defaultValue: 25},
-				padding: {type: "int", defaultValue: 10},
+				padding: {type: "int", defaultValue: 7},
 				jobStyle: {type: "string", defaultValue: "ChevronWithTextAbove"},
 				type: {type: "string", defaultValue: sap.ciconnect.control.PipelineType.CentralOnly},
 				enableText: {type: "boolean", defaultValue: true},
@@ -85,8 +85,14 @@ sap.ui.define([
 		
 		var $jobGroup = $svg.selectAll(".job")
 			.data(aJobData);
-		$jobGroup.enter().append("g")
+		$jobGroup.enter().append("a")
 			.classed("job", true);
+		
+		$jobGroup.attr("xlink:href", function (d) {
+			if (d.serviceLink) {
+				return d.serviceLink;
+			}
+		}).attr("target", "_blank")
 		
 		this._drawTooltip($jobGroup);
 		this._drawJobPath($jobGroup);
@@ -152,7 +158,7 @@ sap.ui.define([
 				var sRetVal = "",
 					tx = d.index * iTileWidth + iPadding + oJobStyle.xBias,
 					ty = (bTwoRow && (d.data.type === sap.ciconnect.control.JobType.Local) ? iTileHeight : 0) +
-						iPadding + oJobStyle.yBias;
+						iPadding + oJobStyle.yBias + oJobStyle.fontSize;
 				
 				sRetVal += "translate(" + tx + "," + ty + ")";
 				sRetVal += " scale(" + fScaleFactor + ")";
@@ -172,12 +178,12 @@ sap.ui.define([
 			return [{data: d, index: i}];
 		});
 		$jobText.enter().append("text");
-		$jobText.classed("ciConnectJobText", true)
-			.classed("ciConnectJobPathTypeCentral", function (d) {
-				return d.data.type === sap.ciconnect.control.JobType.Central;
+		$jobText
+			.classed("ciConnectJobText", function (d) {
+				return !d.data.serviceLink;
 			})
-			.classed("ciConnectJobPathTypeLocal", function (d) {
-				return d.data.type === sap.ciconnect.control.JobType.Local;
+			.classed("ciConnectJobLink", function (d) {
+				return d.data.serviceLink;
 			})
 			.text(function (d) {
 				return d.data.goal;
@@ -186,13 +192,13 @@ sap.ui.define([
 				var sRetVal = "",
 					tx = d.index * iTileWidth + iPadding + oJobStyle.fontXBias,
 					ty = (bTwoRow && (d.data.type === sap.ciconnect.control.JobType.Local) ? iTileHeight : 0) +
-						iPadding + oJobStyle.fontYBias;
+						iPadding + oJobStyle.fontYBias +oJobStyle.fontSize;
 				
 				sRetVal += "translate(" + tx + "," + ty + ")";
 				return sRetVal;
 			})
 			.attr("font-size", function (d) {
-				return 5 * fScaleFactor + "px";
+				return oJobStyle.fontSize * fScaleFactor + "px";
 			});
 	};
 	
@@ -262,7 +268,7 @@ sap.ui.define([
 			})
 			.attr("transform", function (d) {
 				var sRetVal = "",
-					tx = d.index * iTileWidth + iPadding + oJobStyle.xBias,
+					tx = d.index * iTileWidth,
 					ty = (bTwoRow && (d.data.from.type === sap.ciconnect.control.JobType.Local) ? 1.5 : 0.5) * iTileHeight +
 						iPadding + oJobStyle.yBias;
 				

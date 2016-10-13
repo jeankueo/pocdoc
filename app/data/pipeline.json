@@ -4,21 +4,24 @@
 	"type": "mixed",
 	"sapPredefined": true,
 	"jobs": [{
-		"type": "local",
+		"type": "central",
 		"goal": "BLD",
-		"short_desc": "Short description for build job. Should be at most 2 sentences."
+		"short_desc": "Short description for build job. Should be at most 2 sentences.",
+		"link": "https://github.wdf.sap.corp/production-services/build-service/blob/master/README.md"
 	}, {
-		"type": "central",
+		"type": "local",
 		"goal": "VER",
-		"short_desc": "Short description for versioning job. Should be at most 2 sentences."
+		"short_desc": "Short description for versioning job. Should be at most 2 sentences.",
+		"link": "https://github.wdf.sap.corp/production-services/demo-test-service/blob/master/README.md"
 	}, {
-		"type": "central",
+		"type": "local",
 		"goal": "VAL",
 		"short_desc": "Short description for validation job. Should be at most 2 sentences."
 	}, {
-		"type": "local",
+		"type": "central",
 		"goal": "DEP",
-		"short_desc": "Short description for deploy job. Should be at most 2 sentences."
+		"short_desc": "Short description for deploy job. Should be at most 2 sentences.",
+		"link": "https://github.wdf.sap.corp/production-services/cf-deploy-service/blob/master/README.md"
 	}]
 }, {
 	"id": "pipeline2",
