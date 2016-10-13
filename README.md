@@ -5,11 +5,11 @@ Steps to set up this PoC
 
  * [openui5](https://github.com/SAP/openui5). Run this command, 3 openui5 modules are download:
 ```sh
-bower install openui5/packaged-sap.ui.suite
 bower install openui5/packaged-sap.m
 bower install openui5/packaged-themelib_sap_belize
 bower install openui5/packaged-themelib_sap_bluecrystal
 ```
+Skip this step by using bootstrap from cloud, openui5 does not provide sub-lib like sap.suite.ui etc.
 
  * [octicon](https://github.com/primer/octicons). Look up [here](https://octicons.github.com/) for icons you want to register. Run this command, 1 octicons module is download:
 ```sh

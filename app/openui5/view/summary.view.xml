@@ -1,23 +1,29 @@
-<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
-		controllerName="sap.ciconnect.view.summary" xmlns:html="http://www.w3.org/1999/xhtml">
-	<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Number of Pipelines"
-		subheader="Subheader">
-		<tileContent>
-			<TileContent unit="Unit" footer="Footer">
-				<content>
-					<ImageContent src="sap-icon://awesome/fa-pied-piper-pp"/>
-				</content>
-			</TileContent>
-		</tileContent>
-	</GenericTile>
-	<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Status Loaded - with press event"
-		subheader="Subheader" press="press">
-		<tileContent>
-			<TileContent unit="Unit" footer="Footer">
-				<content>
-					<ImageContent src="sap-icon://oct/octicon-repo"/>
-				</content>
-			</TileContent>
-		</tileContent>
-	</GenericTile>
-</core:View>
+<mvc:View
+	controllerName="sap.ciconnect.view.summary"
+	xmlns="sap.suite.ui.microchart"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:m="sap.m">
+		<m:GenericTile press="press" header="This is a TwoByOne tile with" subheader="two RadialMicroChart" frameType="TwoByOne">
+			<m:tileContent>
+				<m:TileContent footer="Some footer">
+					<m:content>
+						<RadialMicroChart percentage="100" valueColor="Good"/>
+					</m:content>
+				</m:TileContent>
+				<m:TileContent footer="Some footer">
+					<m:content>
+						<RadialMicroChart percentage="0" valueColor="Error"/>
+					</m:content>
+				</m:TileContent>
+			</m:tileContent>
+		</m:GenericTile>
+		<m:GenericTile press="press" header="This is OneByOne tile with" subheader="a RadialMicroChart" frameType="OneByOne">
+			<m:tileContent>
+				<m:TileContent footer="Some footer">
+					<m:content>
+						<RadialMicroChart percentage="99.9" valueColor="Neutral"/>
+					</m:content>
+				</m:TileContent>
+			</m:tileContent>
+		</m:GenericTile>
+</mvc:View>
