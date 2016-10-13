@@ -3,7 +3,7 @@
 	xmlns="sap.suite.ui.microchart"
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:m="sap.m">
-		<m:GenericTile press="press" header="Pipeline Report" subheader="xxxx" frameType="TwoByOne">
+		<m:GenericTile press="press" header="Pipeline Report" subheader="xxxx" frameType="Auto">
 			<m:tileContent>
 				<m:TileContent footer="Pipelines in Use">
 					<m:content>
@@ -17,7 +17,7 @@
 				</m:TileContent>
 			</m:tileContent>
 		</m:GenericTile>
-		<m:GenericTile press="press" header="Repository Report" subheader="xxxx" frameType="OneByOne">
+		<m:GenericTile press="press" header="Repository Report" subheader="xxxx" frameType="Auto">
 			<m:tileContent>
 				<m:TileContent footer="Pipeline Actived Repo">
 					<m:content>
