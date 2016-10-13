@@ -10,6 +10,10 @@
 						<RadialMicroChart percentage="95" valueColor="Good"/>
 					</m:content>
 				</m:TileContent>
+			</m:tileContent>
+		</m:GenericTile>
+		<m:GenericTile press="press" header="Service Report" subheader="xxxx" frameType="Auto">
+			<m:tileContent>
 				<m:TileContent footer="Failed Jobs">
 					<m:content>
 						<RadialMicroChart percentage="30" valueColor="Error"/>
