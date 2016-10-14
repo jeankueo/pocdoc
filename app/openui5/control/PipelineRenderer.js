@@ -11,6 +11,7 @@ sap.ui.define([], function () {
 		
 		oRenderManager.write("<div");
 		oRenderManager.addStyle("width", (iWidthSpan * iTileWidth + iPadding * 2) + "px");
+		oRenderManager.addStyle("margin", "10px");
 		oRenderManager.writeStyles();
 		oRenderManager.writeControlData(oPipeline);
 		oRenderManager.write(">");
