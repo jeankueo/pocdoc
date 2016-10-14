@@ -63,6 +63,7 @@
 			
 			oModel = new sap.ui.model.json.JSONModel();
 			oModel.setData({
+				"selectedTabKey": "Summary",
 				"jobStyle": "ChevronWithTextAbove",
 				"enableConnection": false,
 				"enableText": true,
@@ -94,18 +95,22 @@
 				stretchContentHeight: true,
 				backgroundDesign: "Transparent",
 				applyContentPadding: false,
+				selectedKey: "{setting>/selectedTabKey}",
 				items: [new sap.m.IconTabFilter({
 					text: "Pipelines",
+					key: "Pipelines",
 					icon: "sap-icon://awesome/fa-pied-piper-pp",
 					count: "{= ${pipeline>/}.length}",
 					content: oPipelinesView
 				}), new sap.m.IconTabFilter({
 					text: "Repositories",
+					key: "Repositories",
 					icon: "sap-icon://oct/octicon-repo",
 					count: "{= ${github>/}.length + ${git>/}.length}",
 					content: oRepositoryView
 				}), new sap.m.IconTabFilter({
 					text: "Summary",
+					key: "Summary",
 					icon: "sap-icon://kpi-corporate-performance",
 					content: oSummaryView
 				})]
