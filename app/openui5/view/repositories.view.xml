@@ -37,7 +37,8 @@
 								<Label text="{github>pipeline/name}" tooltip="{github>pipeline/name}"/>
 							</ci:title>
 							<ci:jobs>
-								<ci:Job goal="{github>goal}" type="{github>type}" status="{github>status}" shortTooltip="status: {github>status}"/>
+								<ci:Job goal="{github>goal}" type="{github>type}" status="{github>status}"
+									shortTooltip="status: {github>status}" serviceLink="{github>link}"/>
 							</ci:jobs>
 						</ci:Pipeline>
 					</HBox>
@@ -75,7 +76,8 @@
 								<Label text="{git>pipeline/name}" tooltip="{git>pipeline/name}"/>
 							</ci:title>
 							<ci:jobs>
-								<ci:Job goal="{git>goal}" type="{git>type}" status="{git>status}" shortTooltip="status: {git>status}"/>
+								<ci:Job goal="{git>goal}" type="{git>type}" status="{git>status}"
+									shortTooltip="status: {git>status}"  serviceLink="{git>link}"/>
 							</ci:jobs>
 						</ci:Pipeline>
 					</HBox>

@@ -97,9 +97,6 @@ sap.ui.define([
 			.attr("xlink:href", function (d) {
 				return d.serviceLink;
 			})
-			.classed("ciConnectJobLink", function (d) {
-				return d.serviceLink;
-			})
 			.attr("transform", function (d, i) {
 				var sRetVal = "",
 					tx = i * iTileWidth + iPadding,
@@ -159,6 +156,9 @@ sap.ui.define([
 			})
 			.classed("ciConnectJobPathTypeLocal", function (d) { // initial fill/stroke applied from css
 				return d.data.type === sap.ciconnect.control.JobType.Local;
+			})
+			.classed("ciConnectJobLink", function (d) {
+				return d.data.serviceLink;
 			})
 			.attr("style", function (d) {
 				var sRetVal = "stroke-width: 1;";

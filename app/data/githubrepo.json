@@ -33,11 +33,13 @@
 		}, {
 			"type": "central",
 			"goal": "VER",
-			"status": "Failed"
+			"status": "Failed",
+			"link": "http://www.google.com"
 		}, {
 			"type": "central",
 			"goal": "VAL",
-			"status": "Processing"
+			"status": "Processing",
+			"link": "http://www.google.com"
 		}, {
 			"type": "local",
 			"goal": "DEP",
