@@ -9,11 +9,6 @@ Prerequisite: nodeJS and mvn are installed
 npm run installAll
 ```
 
- * Maven build Blueocean plugin 
-```sh
-npm run buildBo
-```
-
  * Run an http server
 ```sh
 node server.js
