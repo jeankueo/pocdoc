@@ -1,7 +1,7 @@
 {
   "name": "pipeline-ui-poc",
   "version": "1.0.0",
-  "description": "Steps to set up this PoC\r --------------",
+  "description": "PoC",
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git@github.wdf.sap.corp:ci-connect/pipeline-ui-poc.git"
   },
-  "author": "",
+  "author": "I037379",
   "license": "ISC",
   "dependencies": {
     "octicons": "^4.4.0",
