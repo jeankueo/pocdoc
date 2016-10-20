@@ -6,6 +6,7 @@
 
 # Ignore npm files/folders
 node_modules
+blueocean_plugin
 npm-debug.log
 
 # Ignore bower folder
