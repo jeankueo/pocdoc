@@ -5,7 +5,7 @@
   "main": "index.html",
   "scripts": {
     "installAll": "npm install && bower install jenkinsci/blueocean-plugin",
-    "buildBo": "cd node_modules/blueocean-plugin/blueocean-dashboard && npm install"
+    "buildBo": "cd node_modules/blueocean-plugin && mvn clean install -DskipTests"
   },
   "repository": {
     "type": "git",

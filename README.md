@@ -3,9 +3,18 @@
 Steps to set up this PoC
 --------------
 Prerequisite: nodeJS and mvn are installed
- * Run this commands on after each other.
+
+ * Download dependencies
 ```sh
 npm run installAll
+```
+
+ * Maven build Blueocean plugin 
+```sh
 npm run buildBo
+```
+
+ * Run an http server
+```sh
 node server.js
 ```
