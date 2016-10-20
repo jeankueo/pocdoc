@@ -11,5 +11,9 @@
     "url": "git@github.wdf.sap.corp:ci-connect/pipeline-ui-poc.git"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "octicons": "^4.4.0",
+    "font-awesome": "^4.6.3"
+  }
 }
