@@ -2,10 +2,10 @@
 
 Steps to set up this PoC
 --------------
-
- * Run this command in node env.
+Prerequisite: nodeJS and mvn are installed
+ * Run this commands on after each other.
 ```sh
-npm install
+npm run installAll
+npm run buildBo
+node server.js
 ```
- * start up a web server (e.g. tomcat)
- * run index.html under folder  app/openui5

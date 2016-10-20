@@ -4,7 +4,8 @@
   "description": "PoC",
   "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "installAll": "npm install && bower install jenkinsci/blueocean-plugin",
+    "buildBo": "cd node_modules/blueocean-plugin/blueocean-dashboard && npm install"
   },
   "repository": {
     "type": "git",
@@ -13,6 +14,9 @@
   "author": "I037379",
   "license": "ISC",
   "dependencies": {
+    "connect": "^3.5.0",
+    "serve-static": "^1.11.1",
+    "bower": "^1.7.9",
     "octicons": "^4.4.0",
     "font-awesome": "^4.6.3"
   }
