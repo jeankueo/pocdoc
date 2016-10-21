@@ -18,8 +18,12 @@ node server.js
 ```
 
 
-To Run blueocean react storybook
+Other scripts
 --------------
 ```sh
 npm run storybook
+```
+
+```sh
+npm run buildBo
 ```
