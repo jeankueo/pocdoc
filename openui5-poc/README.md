@@ -7,7 +7,7 @@ Prerequisite: nodeJS is installed
 npm install
 ```
 
- * Run an http server
+ * Run an HTTP server
 ```sh
 node server.js
 ```
