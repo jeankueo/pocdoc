@@ -6,7 +6,6 @@
 
 # Ignore npm files/folders
 node_modules
-bower_components
 npm-debug.log
 
 # Ignore bower folder
@@ -24,3 +23,6 @@ web.config
 
 # testing
 coverage
+
+# build
+build
