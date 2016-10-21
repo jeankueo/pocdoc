@@ -2,7 +2,8 @@
 
 See steps inside each PoC to setup.
 
-proxy settings:
+Proxy settings
+--------------
  * for npm, these two lines for .npmrc in your user root folder:
 ```
 proxy=http://proxy.wdf.sap.corp:8080/
