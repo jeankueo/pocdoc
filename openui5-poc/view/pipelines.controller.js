@@ -35,6 +35,9 @@ sap.ui.define([
 
 			this.getView().getModel("setting").setProperty("/enableAssign", bSelected);
 			this.getView().getModel("setting").setProperty("/enableUnassign", bSelected && iCountOfRepoAssigned > 0);
+			this.getView().getModel("setting").setProperty("/pipelineTokenVisible", true);
+			this.getView().getModel("setting").setProperty("/pipelineTokenText",  oListItem.getBindingContext("pipeline").getProperty("name"));
+			this.getView().getModel("setting").setProperty("/pipelineTokenId",  oListItem.getBindingContext("pipeline").getProperty("id"));
 		}
 	});
 });

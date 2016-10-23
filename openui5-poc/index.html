@@ -43,145 +43,14 @@
 
 <script>
 	sap.ui.getCore().attachInit(function () {
-		
-		registerIcons();
-		loadData(composeViews());
-		
-		function loadData (oApp) {
-			var oModel;
-			
-			oModel = new sap.ui.model.json.JSONModel();
-			oModel.loadData("../../data/pipeline.json");
-			oApp.setModel(oModel, "pipeline");
-
-			oModel = new sap.ui.model.json.JSONModel();
-			oModel.loadData("../../data/githubrepo.json");
-			oApp.setModel(oModel, "github");
-
-			oModel = new sap.ui.model.json.JSONModel();
-			oModel.loadData("../../data/gitrepo.json");
-			oApp.setModel(oModel, "git");
-			
-			oModel = new sap.ui.model.json.JSONModel();
-			oModel.setData({
-				"selectedTabKey": "Summary",
-				"jobStyle": "CircleWithTextAbove",
-				"enableConnection": true,
-				"enableText": true,
-				"enableTwoRow": true,
-				"enableAssign": false,
-				"enableUnassign": false
-			});
-			oApp.setModel(oModel, "setting");
-		};
-		
-		function composeViews () {
-			var oPipelinesView = sap.ui.view({
-				id:"pipelines",
-				viewName:"sap.ciconnect.view.pipelines",
-				type:sap.ui.core.mvc.ViewType.XML
-			});
-			
-			var oRepositoryView = sap.ui.view({
-				id:"repositories",
-				viewName:"sap.ciconnect.view.repositories",
-				type:sap.ui.core.mvc.ViewType.XML
-			});
-			
-			var oSummaryView = sap.ui.view({
-				id:"summary",
-				viewName:"sap.ciconnect.view.summary",
-				type:sap.ui.core.mvc.ViewType.XML
-			});
-			
-			var oIconTabBar = new sap.m.IconTabBar({
-				stretchContentHeight: true,
-				backgroundDesign: "Transparent",
-				applyContentPadding: false,
-				selectedKey: "{setting>/selectedTabKey}",
-				items: [new sap.m.IconTabFilter({
-					text: "Pipelines",
-					key: "Pipelines",
-					icon: "sap-icon://awesome/fa-pied-piper-pp",
-					count: "{= ${pipeline>/}.length}",
-					content: oPipelinesView
-				}), new sap.m.IconTabFilter({
-					text: "Repositories",
-					key: "Repositories",
-					icon: "sap-icon://oct/octicon-repo",
-					count: "{= ${github>/}.length + ${git>/}.length}",
-					content: oRepositoryView
-				}), new sap.m.IconTabFilter({
-					text: "Summary",
-					key: "Summary",
-					icon: "sap-icon://kpi-corporate-performance",
-					content: oSummaryView
-				})]
-			}).addStyleClass("sapUiResponsiveContentPadding"); 
-			
-			var oPage = new sap.m.Page({
-				id: "ciconnect",
-				title: "Viz Pipeline PoC",
-				content: oIconTabBar,
-				footer: new sap.m.Toolbar({
-					content: [new sap.m.ToolbarSpacer(), new sap.m.OverflowToolbarButton({
-						icon: "sap-icon://activity-assigned-to-goal",
-						tooltip: "Assign pipeline to repository",
-						type: "Accept",
-						enabled: "{setting>/enableAssign}"
-					}), new sap.m.OverflowToolbarButton({
-						icon: "sap-icon://activity-items",
-						tooltip: "Remove pipeline from repository",
-						type: "Reject",
-						enabled: "{setting>/enableUnassign}"
-					})]
-				})
-			});
-			
-			var oApp = new sap.m.App({initialPage:"ciconnect"});
-			oApp.addPage(oPage);
-			oApp.placeAt("content");
-			
-			return oApp;
-		};
-		
-		function registerIcons () {
-			jQuery.sap.require("sap.ui.core.IconPool");
-			registerPerLib({
-				fontFamily: "oct",
-				collectionName: "oct",
-				icons : [
-					["octicon-repo-forked", "f002"], ["octicon-repo", "f001"], 
-					["octicon-octoface", "f008"], ["octicon-mark-github", "f00a"],
-					["octicon-shield", "f0e1"]
-				]
-			});
-			
-			registerPerLib({
-				fontFamily: "awesome",
-				collectionName: "awesome",
-				icons : [
-					["fa-git-square", "f1d2"], ["fa-pied-piper-pp", "f1a7"]
-				]
-			});
-		};
-		
-		function registerPerLib (oIcons) {
-			for (var i = 0; i < oIcons.icons.length; i++) {
-				sap.ui.core.IconPool.addIcon(
-					oIcons.icons[i][0], 
-					oIcons.collectionName, 
-					oIcons.fontFamily, 
-					oIcons.icons[i][1],
-					false,
-					true);
-			}
-		};
+		sap.ui.xmlview({
+			viewName : "sap.ciconnect.view.index"
+		}).placeAt("content");
 	});
 </script>
 
 </head>
-<body class='sapUiBody sapUiSizeCompact'>
+<body class='sapUiBody sapUiSizeCozy'>
 	<div id='content'></div>
 </body>
 </html>

@@ -55,12 +55,15 @@ sap.ui.define([
 		},
 
 		onSelectionChange: function (oEvent) {
-			var oList = oEvent.getSource(),
-				 oToolbar = this.getView().byId("pipelineSelectInfoToolbar"),
-				 oLabel = this.getView().byId("pipelineSelectInfoLabel");
+			var oList = oEvent.getSource();
+			var oToolbar = oList.getInfoToolbar();
+			var oLabel = oToolbar.getContent()[0];
+
 			var aSelectedContexts = oList.getSelectedContexts(true);
 			var bSelected = aSelectedContexts && aSelectedContexts.length > 0;
+			
 			var sText = bSelected ? aSelectedContexts.length + " selected" : null;
+			
 			oToolbar.setVisible(bSelected);
 			oLabel.setText(sText);
 		}
