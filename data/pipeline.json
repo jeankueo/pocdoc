@@ -3,6 +3,7 @@
 	"name": "SAP predefined Pipeline 1",
 	"type": "mixed",
 	"sapPredefined": true,
+	"countOfRepoAssigned": 3,
 	"jobs": [{
 		"type": "central",
 		"goal": "BLD",
@@ -28,6 +29,7 @@
 	"name": "SAP predefined Pipeline 2",
 	"type": "centralOnly",
 	"sapPredefined": true,
+	"countOfRepoAssigned": 0,
 	"jobs": [{
 		"type": "central",
 		"goal": "BLD",
@@ -41,6 +43,7 @@
 	"id": "pipeline3",
 	"name": "Some Team's Simple Pipeline",
 	"type": "localOnly",
+	"countOfRepoAssigned": 1,
 	"jobs": [{
 		"type": "local",
 		"goal": "BLD",
@@ -54,6 +57,7 @@
 	"id": "pipeline4",
 	"name": "Some Team's Fancy Pipeline",
 	"type": "mixed",
+	"countOfRepoAssigned": 7,
 	"jobs": [{
 		"type": "local",
 		"goal": "BLD",

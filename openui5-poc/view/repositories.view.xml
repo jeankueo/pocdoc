@@ -10,7 +10,9 @@
 			<List
 				id="githubList"
 				items="{github>/}"
-				includeItemInSelection="true" >
+				mode="MultiSelect"
+				includeItemInSelection="true" 
+				selectionChange="onSelectionChange">
 				<headerToolbar>
 					<Toolbar>
 						<content>
@@ -20,6 +22,11 @@
 						</content>
 					</Toolbar>
 				</headerToolbar>
+				<infoToolbar>
+					<Toolbar id="repoSelectInfoToolbar" visible="true">
+						<Label id="repoSelectInfoLabel"/>
+					</Toolbar>
+				</infoToolbar>
 				<CustomListItem>
 					<HBox alignItems="Start" justifyContent="SpaceBetween">
 						<HBox>
@@ -47,7 +54,9 @@
 			<List
 				id="gitList"
 				items="{git>/}"
-				includeItemInSelection="true" >
+				mode="MultiSelect"
+				includeItemInSelection="true" 
+				selectionChange="onSelectionChange">
 				<headerToolbar>
 					<Toolbar>
 						<content>

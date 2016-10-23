@@ -11,13 +11,17 @@
 			
 			<List id="pipelineList"
 				items="{pipeline>/}"
-				includeItemInSelection="true" >
+				mode="SingleSelectLeft"
+				includeItemInSelection="true"
+				selectionChange="onSelectionChange">
 				<CustomListItem>
 					<HBox alignItems="Start" justifyContent="SpaceBetween">
 						<HBox>
 							<core:Icon size="1rem" class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom ciconnectIcon"
 								src="sap-icon://{= ${pipeline>sapPredefined} ? 'sap-logo-shape' : 'customize'}"/>
 							<Link text="{pipeline>name}" target="_blank" href="{pipeline>html_url}" class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom"/>
+							<ObjectNumber number="{pipeline>countOfRepoAssigned}" unit="Repo assigned" class="sapUiSmallMargin"
+								state="{path: 'pipeline>countOfRepoAssigned', formatter: '.formatter.pipeLineAssignedRepoState'}"/>
 						</HBox>
 						<ci:Pipeline type="{pipeline>type}" jobs="{path:'pipeline>jobs', templateShareable: true}"
 							jobStyle="{setting>/jobStyle}" enableConnection="{setting>/enableConnection}" enableText="{setting>/enableText}"

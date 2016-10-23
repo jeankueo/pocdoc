@@ -5,13 +5,6 @@ sap.ui.define([
 	
 	return Controller.extend("sap.ciconnect.view.repositories", {
 		onInit: function() {
-			/*var oModel = new JSONModel();
-			oModel.loadData("../data/githubrepo.json");
-			this.getView().setModel(oModel, "github");
-			
-			oModel = new JSONModel();
-			oModel.loadData("../data/gitrepo.json");
-			this.getView().setModel(oModel, "git");*/
 		},
 		
 		onSearch: function (oEvent) {
@@ -56,15 +49,20 @@ sap.ui.define([
 					"folked": false
 				});
 				oModel.setData(oData);
-				this._updateCount();
+				oModel.updateBindings(true); // force counter in tab to update
 				oEvent.getSource().setValue();
 			}
 		},
-		
-		_updateCount: function () {
-			var iGitHubLength = this.getView().getModel("github").getData().length,
-				iGitLength = this.getView().getModel("git").getData().length;
-			this.getView().getParent().setCount(iGitHubLength + iGitLength);
+
+		onSelectionChange: function (oEvent) {
+			var oList = oEvent.getSource(),
+				 oToolbar = this.getView().byId("pipelineSelectInfoToolbar"),
+				 oLabel = this.getView().byId("pipelineSelectInfoLabel");
+			var aSelectedContexts = oList.getSelectedContexts(true);
+			var bSelected = aSelectedContexts && aSelectedContexts.length > 0;
+			var sText = bSelected ? aSelectedContexts.length + " selected" : null;
+			oToolbar.setVisible(bSelected);
+			oLabel.setText(sText);
 		}
 	});
 });

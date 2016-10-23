@@ -4,6 +4,10 @@
 .project
 .externalToolBuilders
 
+# Ignore sublime
+.sublime-workspace
+.sublime-project
+
 # Ignore npm files/folders
 node_modules
 npm-debug.log

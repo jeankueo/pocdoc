@@ -1,13 +1,13 @@
 sap.ui.define([
-	"sap/ui/core/mvc/Controller", 'sap/ui/model/Filter', "sap/ui/model/json/JSONModel"
-], function (Controller, Filter, JSONModel) {
+	"sap/ui/core/mvc/Controller", 'sap/ui/model/Filter', "sap/ui/model/json/JSONModel",
+	"../model/formatter"
+], function (Controller, Filter, JSONModel, formatter) {
 	"use strict";
 	
 	return Controller.extend("sap.ciconnect.view.pipelines", {
+		formatter: formatter,
+
 		onInit: function() {
-			/*var oModel = new JSONModel();
-			oModel.loadData("../data/pipeline.json");
-			this.getView().setModel(oModel);*/
 		},
 		
 		onSearch: function (oEvent) {
@@ -24,9 +24,17 @@ sap.ui.define([
 			var obinding = oList.getBinding("items");
 			obinding.filter(aFilters);
 		},
-		
-		_updateCount: function () {
-			this.getView().getParent().setCount(this.getView().getModel().getData().length);
+
+		onSelectionChange: function (oEvent) {
+			var oList = oEvent.getSource(),
+				 oListItem = oEvent.getParameter('listItem');
+			
+			var aSelectedContexts = oList.getSelectedContexts(true);
+			var bSelected = aSelectedContexts && aSelectedContexts.length > 0;
+			var iCountOfRepoAssigned = oListItem.getBindingContext("pipeline").getProperty("countOfRepoAssigned")
+
+			this.getView().getModel("setting").setProperty("/enableAssign", bSelected);
+			this.getView().getModel("setting").setProperty("/enableUnassign", bSelected && iCountOfRepoAssigned > 0);
 		}
 	});
 });
