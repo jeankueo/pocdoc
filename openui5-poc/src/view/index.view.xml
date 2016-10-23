@@ -39,7 +39,10 @@
 			<footer>
 				<Toolbar>
 					<content>
-						<Token text="{setting>/pipelineTokenText}" visible="{setting>/pipelineTokenVisible}" />
+						<Token text="{setting>/pipelineTokenText}" visible="{setting>/pipelineTokenVisible}" 
+							press="onPipelineTokenPressed" delete="onPipelineTokenDelete"/>
+						<Token text="{setting>/repoTokenText}" visible="{setting>/repoTokenVisible}" 
+							press="onRepoTokenPressed" delete="onRepoTokenDelete"/>
 						<ToolbarSpacer />
 						<OverflowToolbarButton icon="sap-icon://activity-assigned-to-goal"
 							tooltip="Assign pipeline to repository"

@@ -1,6 +1,6 @@
 sap.ui.define([
-	"sap/ui/core/mvc/Controller", "sap/ui/model/json/JSONModel"
-], function (Controller, JSONModel) {
+	"sap/ui/core/mvc/Controller", "sap/ui/model/json/JSONModel", "sap/ui/core/IconPool"
+], function (Controller, JSONModel, IconPool) {
 	"use strict";
 	
 	return Controller.extend("sap.ciconnect.view.index", {
@@ -10,7 +10,6 @@ sap.ui.define([
 		},
 		
 		_registerIcons: function () {
-			jQuery.sap.require("sap.ui.core.IconPool");
 			this._registerPerLib({
 				fontFamily: "oct",
 				collectionName: "oct",
@@ -32,7 +31,7 @@ sap.ui.define([
 		
 		_registerPerLib: function (oIcons) {
 			for (var i = 0; i < oIcons.icons.length; i++) {
-				sap.ui.core.IconPool.addIcon(
+				IconPool.addIcon(
 					oIcons.icons[i][0], 
 					oIcons.collectionName, 
 					oIcons.fontFamily, 
@@ -46,31 +45,57 @@ sap.ui.define([
 			var oModel;
 			
 			oModel = new JSONModel();
-			oModel.loadData("../../data/pipeline.json");
+			oModel.loadData("../../../data/pipeline.json");
 			this.getView().setModel(oModel, "pipeline");
 
 			oModel = new JSONModel();
-			oModel.loadData("../../data/githubrepo.json");
+			oModel.loadData("../../../data/githubrepo.json");
 			this.getView().setModel(oModel, "github");
 
 			oModel = new JSONModel();
-			oModel.loadData("../../data/gitrepo.json");
+			oModel.loadData("../../../data/gitrepo.json");
 			this.getView().setModel(oModel, "git");
 			
 			oModel = new JSONModel();
 			oModel.setData({
+				// tab selection
 				"selectedTabKey": "Summary",
+				
+				// pipeline&job control related
 				"jobStyle": "CircleWithTextAbove",
 				"enableConnection": true,
 				"enableText": true,
 				"enableTwoRow": true,
-				"enableAssign": false,
-				"enableUnassign": false,
+				
+				// assign/unassign button related
+				"enableAssignPipeline": false,
+				"enableUnassignPipeline": false,
+				"enableUnassignRepo": false,
+				"enableUnassignRepo": false,
+				
+				// pipeline token related
 				"pipelineTokenVisible": false,
 				"pipelineTokenText": undefined,
-				"pipelineTokenId": undefined
+				"pipelineTokenId": undefined,
+				
+				// repo token related
+				"repoTokenVisible": false,
+				"repoTokenText": undefined,
+				"repoTokenId": undefined
 			});
 			this.getView().setModel(oModel, "setting");
+		},
+		
+		onPipelineTokenPressed: function (oEvent) {
+			this.getView().getModel("setting").setProperty("/selectedTabKey", "Pipelines");
+		},
+		
+		onPipelineTokenDelete: function (oEvent) {
+			var oModel = this.getView().getModel("setting");
+			oModel.setProperty("/pipelineTokenVisible", false);
+			oModel.setProperty("/pipelineTokenText", undefined);
+			oModel.setProperty("/pipelineTokenId", undefined);
+			oModel.updateBindings(true);
 		}
 	});
 });
