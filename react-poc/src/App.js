@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+//import logo from './logo.svg';
+//import './App.css';
 // import {PipelinePage} from '../bower_components/blueocean-plugin/blueocean-dashboard/src/main/js/components/PipelinePage';
 
 class App extends Component {

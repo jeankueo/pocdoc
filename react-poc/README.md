@@ -6,7 +6,10 @@ Prerequisite: nodeJS is installed
 ```sh
 npm run installAll
 ```
-
+ * Run webpack to build ES6 to ES5
+```sh
+npm run webpack
+```
  * Run an HTTP server, middleware are installed in this js.
 ```sh
 node server.js
