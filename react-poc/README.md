@@ -25,4 +25,12 @@ npm run storybook
 npm run buildBo
 ```
 
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+Todos
+--------------
+* (DONE) manual set up of bundle tools (webpack, babel) etc.
+* add more loaders (css/img/jsx)
+* load BO control
+* compose some components
+* think of ways to integrate to ui5 (possible?)
+* edit .gitignore to ignore files under dist
+* move webpack config file to config package
