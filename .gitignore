@@ -15,18 +15,9 @@ npm-debug.log
 # Ignore bower folder
 bower_components
 
+# Ignore built file of webpack
+dist/
+
 # Ignore Mac files
 .DS_Store
 .env
-
-# Ignore Visual Studio project and settings files
-*.sln
-*.suo
-web.config
-/.user.project.json
-
-# testing
-coverage
-
-# build
-build
