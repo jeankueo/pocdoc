@@ -2,14 +2,14 @@ Steps to set up react PoC
 --------------
 Prerequisite: nodeJS is installed
 
- * Download dependencies
+ * Download dependencies. Blue ocean will be downloaded by bower while others are referenced as node module.
 ```sh
 npm run installAll
 ```
 
- * Run an HTTP server
+ * Run an HTTP server, middleware are installed in this js.
 ```sh
-npm start
+node server.js
 ```
 
 Other scripts
