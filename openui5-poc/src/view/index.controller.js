@@ -67,21 +67,14 @@ sap.ui.define([
 				"enableText": true,
 				"enableTwoRow": true,
 				
-				// assign/unassign button related
-				"enableAssignPipeline": false,
-				"enableUnassignPipeline": false,
-				"enableUnassignRepo": false,
-				"enableUnassignRepo": false,
-				
 				// pipeline token related
 				"pipelineTokenVisible": false,
 				"pipelineTokenText": undefined,
-				"pipelineTokenId": undefined,
+				"pipelineTokenHasRepoAssigned": false,
 				
 				// repo token related
 				"repoTokenVisible": false,
-				"repoTokenText": undefined,
-				"repoTokenId": undefined
+				"repoTokenText": undefined
 			});
 			this.getView().setModel(oModel, "setting");
 		},
@@ -94,8 +87,22 @@ sap.ui.define([
 			var oModel = this.getView().getModel("setting");
 			oModel.setProperty("/pipelineTokenVisible", false);
 			oModel.setProperty("/pipelineTokenText", undefined);
-			oModel.setProperty("/pipelineTokenId", undefined);
 			oModel.updateBindings(true);
+
+			this.getView().byId("pipelineView").getController().removeAllSelection();
+		},
+
+		onRepoTokenPressed: function (oEvent) {
+			this.getView().getModel("setting").setProperty("/selectedTabKey", "Repositories");
+		},
+
+		onRepoTokenDelete: function (oEvent) {
+			var oModel = this.getView().getModel("setting");
+			oModel.setProperty("/repoTokenVisible", false);
+			oModel.setProperty("/repoTokenNumber", undefined);
+			oModel.updateBindings(true);
+
+			this.getView().byId("repoView").getController().removeAllSelection();
 		}
 	});
 });

@@ -5,6 +5,7 @@ sap.ui.define([
 	
 	return Controller.extend("sap.ciconnect.view.repositories", {
 		onInit: function() {
+			this._iSelectCount = 0;
 		},
 		
 		onSearch: function (oEvent) {
@@ -56,6 +57,7 @@ sap.ui.define([
 
 		onSelectionChange: function (oEvent) {
 			var oList = oEvent.getSource();
+
 			var oToolbar = oList.getInfoToolbar();
 			var oLabel = oToolbar.getContent()[0];
 
@@ -66,6 +68,36 @@ sap.ui.define([
 			
 			oToolbar.setVisible(bSelected);
 			oLabel.setText(sText);
+
+			this._updateRepoToken();
+		},
+
+		_updateRepoToken: function () {
+			var oGitList = this.getView().byId("gitList"),
+				oGithubList = this.getView().byId("githubList"),
+				oModel = this.getView().getModel("setting");
+
+			var aGitSelectedContexts = oGitList.getSelectedContexts(true),
+				aGithubSelectedContexts = oGithubList.getSelectedContexts(true);
+
+			var iSelectedCount = aGitSelectedContexts.length + aGithubSelectedContexts.length;
+			if (iSelectedCount > 0) {
+				oModel.setProperty("/repoTokenVisible", true);
+				oModel.setProperty("/repoTokenNumber",  iSelectedCount);
+			} else {
+				oModel.setProperty("/repoTokenVisible", false);
+			}
+			oModel.updateBindings(true);
+		},
+
+		removeAllSelection: function () {
+			var oGitList = this.getView().byId("gitList");
+			oGitList.removeSelections(true);
+			oGitList.getInfoToolbar().setVisible(false);
+
+			var oGithubList = this.getView().byId("githubList");
+			oGithubList.removeSelections(true);
+			oGithubList.getInfoToolbar().setVisible(false);
 		}
 	});
 });
