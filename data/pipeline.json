@@ -1,6 +1,6 @@
 [{
 	"id": "pipeline1",
-	"name": "SAP predefined Pipeline 1",
+	"name": "SAP predefined Pipeline A",
 	"type": "mixed",
 	"sapPredefined": true,
 	"countOfRepoAssigned": 3,
@@ -26,7 +26,7 @@
 	}]
 }, {
 	"id": "pipeline2",
-	"name": "SAP predefined Pipeline 2",
+	"name": "SAP predefined Pipeline B",
 	"type": "centralOnly",
 	"sapPredefined": true,
 	"countOfRepoAssigned": 0,
