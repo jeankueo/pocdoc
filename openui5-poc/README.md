@@ -6,11 +6,11 @@ Prerequisite: nodeJS is installed
 ```sh
 npm install
 ```
-
  * Run an HTTP server
 ```sh
 node server.js
 ```
+ * Access by link [http://localhost:8765/react-poc/public](http://localhost:8765/react-poc/public)
 
 Todos
 --------------

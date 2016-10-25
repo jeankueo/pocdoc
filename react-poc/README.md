@@ -14,6 +14,7 @@ npm run webpack
 ```sh
 node server.js
 ```
+ * Access by link [http://localhost:9876/openui5-poc/public](http://localhost:9876/openui5-poc/public)
 
 Other scripts
 --------------
