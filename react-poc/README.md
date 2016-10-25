@@ -28,11 +28,14 @@ npm run buildBo
 
 Todos
 --------------
-- [x] manual set up of bundle tools (webpack, babel) etc.~~
-- [x] add more loaders (css/img/jsx)~~
-- [ ] load BO control
-- [ ] compose some components
+- [x] manual set up of bundle tools (webpack, babel) etc.
+- [x] add more loaders (css/img/jsx)
+- [x] load BO control -- tryout success on icon from module react-material-icons-blue
+- [ ] try out WeatherIcon in es6
+- [ ] try out PipelineGraph in es6
+- [ ] try out WeatherIcon in es5
+- [ ] try out PipelineGraph in es5
 - [ ] think of ways to integrate to ui5 (possible?) -- one way could be, the controls are actually provided by @jenkinscd/design-language, after npm install, it's already built (maybe by gulp) into es5 react. Maybe a good way to consume and wrap it directly in openui5.
-- [x] edit .gitignore to ignore files under asset~~
-- [x] move webpack config file to config package~~
-- [x] webpack works fine in mac/linux/windows~~
+- [x] edit .gitignore to ignore files under asset
+- [x] move webpack config file to config package
+- [x] webpack works fine in mac/linux/windows

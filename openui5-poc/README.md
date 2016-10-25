@@ -14,8 +14,8 @@ node server.js
 
 Todos
 --------------
-* control bug (set test page in folder /test and fix)
-* vertical scroll bars
-* ~~finish token logic~~
-* ~~finish two button enable logic~~
-* think of button click confirm window, should show all operations in list in a good manner
+- [ ] control bug (set test page in folder /test and fix)
+- [ ] vertical scroll bars
+- [x] finish token logic
+- [x] finish two button enable logic
+- [ ] think of button click confirm window, should show all operations in list in a good manner
