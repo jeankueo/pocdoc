@@ -4,20 +4,20 @@ See steps inside each PoC to setup.
 
 Proxy settings
 --------------
- * for npm, these two lines for .npmrc in your user root folder:
-```
+ * for **npm**, these two lines for .npmrc in your user root folder:
+``` sh
 proxy=http://proxy.wdf.sap.corp:8080/
 https-proxy=https://proxy.wdf.sap.corp:8080
 ```
 
- * for bower, put these two lines in .bowerrc which is a JSON structure in your project root folder:
-```
+ * for **bower**, put these two lines in .bowerrc which is a JSON structure in your project root folder:
+``` json
 "proxy": "http://proxy.wdf.sap.corp:8080",
 "https-proxy": "http://proxy.wdf.sap.corp:8080"
 ```
 
- * for mvn, put these lines in your settings.xml in your user root folder /.m2:
-```
+ * for **mvn**, put these lines in your settings.xml in your user root folder /.m2:
+``` xml
 <proxies>
 	<proxy>
 		<id>http_proxy</id>
@@ -38,8 +38,9 @@ https-proxy=https://proxy.wdf.sap.corp:8080
 
 Upgrade node/npm via npm
 --------------
-```
+``` sh
 sudo npm cache clean -f
 sudo npm install -g n
 sudo n stable
 ```
+**sudo** is needed for linux/mac. For **windows** user who us git-bash etc, remove sudo.
