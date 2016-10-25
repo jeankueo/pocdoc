@@ -34,4 +34,4 @@ Todos
 * think of ways to integrate to ui5 (possible?)
 * ~~edit .gitignore to ignore files under asset~~
 * ~~move webpack config file to config package~~
-* ~~webpack works fine in mac/linuxx/windows~~
+* ~~webpack works fine in mac/linux/windows~~
