@@ -5,18 +5,18 @@ import React, { Component } from 'react';
 //import PipelineRowItem from '../bower_components/blueocean-plugin/blueocean-dashboard/src/main/js/components/PipelineRowItem.jsx';
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <h2>Welcome Jean to Webpack+babel+React World!</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
+	render() {
+		return (
+			<div className="App">
+				<div className="App-header">
+					<h2>Welcome Jean to Webpack+babel+React World!</h2>
+				</div>
+				<p className="App-intro">
+					To get started, edit <code>src/App.js</code> and save to reload.
+				</p>
+			</div>
+		);
+	}
 }
 
 export default App;
