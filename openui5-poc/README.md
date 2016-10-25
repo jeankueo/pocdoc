@@ -10,7 +10,7 @@ npm install
 ```sh
 node server.js
 ```
- * Access by link [http://localhost:8765/react-poc/public](http://localhost:8765/react-poc/public)
+ * Access by link [http://localhost:9876/openui5-poc/public](http://localhost:9876/openui5-poc/public)
 
 Todos
 --------------
