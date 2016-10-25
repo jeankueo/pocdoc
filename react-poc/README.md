@@ -32,7 +32,7 @@ Todos
 * ~~add more loaders (css/img/jsx)~~
 * load BO control
 * compose some components
-* think of ways to integrate to ui5 (possible?)
+* think of ways to integrate to ui5 (possible?) -- one way could be, the controls are actually provided by @jenkinscd/design-language, after npm install, it's already built (maybe by gulp) into es5 react. Maybe a good way to consume and wrap it directly in openui5.
 * ~~edit .gitignore to ignore files under asset~~
 * ~~move webpack config file to config package~~
 * ~~webpack works fine in mac/linux/windows~~
