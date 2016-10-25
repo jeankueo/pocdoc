@@ -43,4 +43,4 @@ sudo npm cache clean -f
 sudo npm install -g n
 sudo n stable
 ```
-**sudo** is needed for linux/mac. For **windows** user who us git-bash etc, remove sudo.
+sudo is needed for **linux/mac**. For **windows** user who us git-bash etc, remove sudo.
