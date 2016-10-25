@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-// import {PipelinePage} from '../bower_components/blueocean-plugin/blueocean-dashboard/src/main/js/components/PipelinePage.jsx';
+import { Icon, shapes } from 'react-material-icons-blue';
 import PipelineRowItem from '../bower_components/blueocean-plugin/blueocean-dashboard/src/main/js/components/PipelineRowItem.jsx';
 
 class App extends Component {
@@ -12,9 +12,27 @@ class App extends Component {
 					<img src={logo} className="App-logo" alt="logo" />
 					<h2>Welcome Jean to Webpack+babel+React World!</h2>
 				</div>
-				<p className="App-intro">
-					To get started, edit <code>src/App.js</code> and save to reload.
-				</p>
+				<Icon
+		          icon="link"// Icon in the field transformation
+		          style={{ fill: 'green' }} // Styles prop for icon (svg)
+		        />
+				<div>
+		        {
+		            Object.keys(shapes).map((shape, index) => <div
+		              key={index}
+		              style={
+		                  {
+		                      display: 'inline',
+		                      float: 'left',
+		                      padding: '5px',
+		                  }
+		              }
+		            >
+		                <Icon icon={shape} />
+		                <div>{shape}</div>
+		            </div>)
+		        }
+		    </div>
 			</div>
 		);
 	}
