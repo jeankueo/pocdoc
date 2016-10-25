@@ -5,8 +5,8 @@
 .externalToolBuilders
 
 # Ignore sublime
-.sublime-workspace
-.sublime-project
+**.sublime-workspace
+**.sublime-project
 
 # Ignore npm files/folders
 node_modules
@@ -16,7 +16,7 @@ npm-debug.log
 bower_components
 
 # Ignore built file of webpack
-dist/
+asset
 
 # Ignore Mac files
 .DS_Store
