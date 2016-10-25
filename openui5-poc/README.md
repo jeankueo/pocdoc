@@ -14,6 +14,18 @@ node server.js
 
 Todos
 --------------
+- [x] set up server.js
+- [x] ~~import and bootstrap openui5 sub-lib as node modules~~
+- [x] ~~import and bootstrap openui5 themes as node modules~~
+- [x] import ui5 from hanaondemand
+- [x] Pipeline control (several shape options)
+- [x] three views
+- [x] embed three views as sub view to index.view.xml
+- [x] sort out data binding
+- [x] selection of lists
+- [x] search of list
+- [ ] enhance search, filter number,text,build service names in pipeline view
+- [ ] enhance search, filter more fields for repo view
 - [ ] control bug (set test page in folder /test and fix)
 - [ ] vertical scroll bars
 - [x] finish token logic
