@@ -16,23 +16,24 @@ class App extends Component {
 		          icon="link"// Icon in the field transformation
 		          style={{ fill: 'green' }} // Styles prop for icon (svg)
 		        />
+		        <PipelineRowItem />
 				<div>
-		        {
-		            Object.keys(shapes).map((shape, index) => <div
-		              key={index}
-		              style={
-		                  {
-		                      display: 'inline',
-		                      float: 'left',
-		                      padding: '5px',
-		                  }
-		              }
-		            >
-		                <Icon icon={shape} />
-		                <div>{shape}</div>
-		            </div>)
-		        }
-		    </div>
+			        {
+			            Object.keys(shapes).map((shape, index) => <div
+			              key={index}
+			              style={
+			                  {
+			                      display: 'inline',
+			                      float: 'left',
+			                      padding: '5px',
+			                  }
+			              }
+			            >
+			                <Icon icon={shape} />
+			                <div>{shape}</div>
+			            </div>)
+			        }
+			    </div>
 			</div>
 		);
 	}

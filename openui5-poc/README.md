@@ -16,6 +16,6 @@ Todos
 --------------
 * control bug (set test page in folder /test and fix)
 * vertical scroll bars
-* (DONE) finish token logic
-* (DONE) finish two button enable logic
+* ~~finish token logic~~
+* ~~finish two button enable logic~~
 * think of button click confirm window, should show all operations in list in a good manner
