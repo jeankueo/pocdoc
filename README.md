@@ -43,4 +43,4 @@ sudo npm cache clean -f
 sudo npm install -g n
 sudo n stable
 ```
-Onlu useful for **linux/mac**. For **windows** user you have to reinstall.
+Only useful for **linux/mac**. For **windows** user you have to reinstall.
