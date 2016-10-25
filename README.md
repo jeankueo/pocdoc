@@ -35,3 +35,11 @@ https-proxy=https://proxy.wdf.sap.corp:8080
 	</proxy>
 </proxies>
 ```
+
+Upgrade node/npm via npm
+--------------
+```
+sudo npm cache clean -f
+sudo npm install -g n
+sudo n stable
+```
