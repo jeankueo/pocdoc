@@ -3,7 +3,9 @@ import logo from './logo.svg';
 import './App.css';
 import { Icon, shapes } from 'react-material-icons-blue';
 import { WeatherIcon } from '../node_modules/@jenkins-cd/design-language/dist/js/components/weather-icon.js';
+import '../node_modules/@jenkins-cd/design-language/dist/assets/css/jenkins-design-language.css';
 import PipelineGraph from '../node_modules/@jenkins-cd/design-language/dist/js/components/PipelineGraph.js';
+
 
 class App extends Component {
 	render() {
@@ -11,7 +13,7 @@ class App extends Component {
 			<div className="App">
 				<div className="App-header">
 					<img src={logo} className="App-logo" alt="logo" />
-					<h2>Welcome Jean to Webpack+babel+React World!</h2>
+					<h2>Hello World!</h2>
 				</div>
 				<Icon
 		          icon="link"// Icon in the field transformation

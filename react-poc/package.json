@@ -11,7 +11,7 @@
   "license": "ISC",
   "private": true,
   "scripts": {
-    "webpack": "./node_modules/.bin/webpack --config ./config/webpack.config.js",
+    "webpack": "./node_modules/.bin/webpack --config ./config/webpack.config.js --display-error-details",
     "installAll": "npm install && bower install jenkinsci/blueocean-plugin",
     "buildBo": "cd bower_components/blueocean-plugin && mvn clean install -DskipTests",
     "storybook": "cd ./bower_components/blueocean-plugin/blueocean-dashboard && start-storybook -p 9001 --static-dir ../../../node_modules/@jenkins-cd/design-language/dist/assets/"
