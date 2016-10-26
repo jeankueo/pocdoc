@@ -31,7 +31,7 @@ Todos
 - [x] manual set up of bundle tools (webpack, babel) etc.
 - [x] add more loaders (css/img/jsx)
 - [x] load BO control -- tryout success on icon from module react-material-icons-blue
-- [ ] try out WeatherIcon in es6
+- [x] try out WeatherIcon in es6
 - [ ] try out PipelineGraph in es6
 - [ ] try out WeatherIcon in es5
 - [ ] try out PipelineGraph in es5
