@@ -4,7 +4,9 @@ import './App.css';
 import { Icon, shapes } from 'react-material-icons-blue';
 import { WeatherIcon } from '../node_modules/@jenkins-cd/design-language/dist/js/components/weather-icon.js';
 import '../node_modules/@jenkins-cd/design-language/dist/assets/css/jenkins-design-language.css';
-import PipelineGraph from '../node_modules/@jenkins-cd/design-language/dist/js/components/PipelineGraph.js';
+
+
+import PipelinePoC from './PipelinePoC.js';
 
 
 class App extends Component {
@@ -20,6 +22,7 @@ class App extends Component {
 		          style={{ fill: 'green' }} // Styles prop for icon (svg)
 		        />
 		        <WeatherIcon score="70" />
+		        <PipelinePoC />
 				<div>
 			        {
 			            Object.keys(shapes).map((shape, index) => <div
