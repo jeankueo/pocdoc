@@ -15,7 +15,7 @@ class App extends Component {
 			<div className="App">
 				<div className="App-header">
 					<img src={logo} className="App-logo" alt="logo" />
-					<h2>Hello World!</h2>
+					<h2>ES6 PoC</h2>
 				</div>
 				<Icon
 		          icon="link"// Icon in the field transformation

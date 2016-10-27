@@ -14,9 +14,11 @@ function makeNode(name, children = [], state = validResultValues.not_built, comp
 
 class PipelinePoC extends Component {
 	render() {
-		this.state = {layout: defaultLayout};
+		// Reduce spacing just to make this graph smaller
+		const layout = { nodeSpacingH: 90 };
 		
-		const stages = [
+		// case 1
+		const stages1 = [
 			makeNode("Success", [], validResultValues.success),
 			makeNode("Failure", [], validResultValues.failure),
 			makeNode("Running", [], validResultValues.running),
@@ -27,13 +29,28 @@ class PipelinePoC extends Component {
 			makeNode("Not Built", [], validResultValues.not_built),
 			makeNode("Bad data", [], "this is not my office")
 		];
-
-		// Reduce spacing just to make this graph smaller
-		const layout = { nodeSpacingH: 90 };
 		
-		return (
-			<PipelineGraph stages={stages} layout={layout} />
-		);
+		// case 2
+		const stages2 = [
+			makeNode("Build", [], validResultValues.success),
+			makeNode("Test", [], validResultValues.success),
+			makeNode("Browser Tests", [
+				makeNode("Internet Explorer", [], validResultValues.queued),
+				makeNode("Chrome", [], validResultValues.queued)
+			]),
+			makeNode("Dev"),
+			makeNode("Dev"), // Make sure it works with dupe names
+			makeNode("Staging"),
+			makeNode("Production")
+		];
+		function nodeClicked(...values) {
+			console.log('Node clicked', values);
+		}
+		
+		return (<div>
+			<div><PipelineGraph stages={stages1} layout={layout}/></div>
+			<div><PipelineGraph stages={stages2} layout={layout} onNodeClick={nodeClicked}/></div>
+		</div>);
 	}
 }
 
