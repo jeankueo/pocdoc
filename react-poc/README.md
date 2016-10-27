@@ -6,7 +6,7 @@ Prerequisite: nodeJS is installed
 ```sh
 npm run installAll
 ```
- * Run webpack to build ES6 to ES5
+ * Run webpack to build ES6 to ES5 -- only necessary for page index_es6_pre_process.html 
 ```sh
 npm run webpack
 ```
@@ -15,6 +15,8 @@ npm run webpack
 node server.js
 ```
  * Access by link [http://localhost:8765/react-poc/public](http://localhost:8765/react-poc/public)
+ 
+ https://github.com/Daniel15/babel-standalone
 
 Other scripts
 --------------
