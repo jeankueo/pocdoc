@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import {PipelineGraph, defaultLayout} from '../node_modules/@jenkins-cd/design-language/dist/js/components/PipelineGraph.js';
+import {PipelineGraph, defaultLayout} from '../../node_modules/@jenkins-cd/design-language/dist/js/components/PipelineGraph.js';
 
-import {StatusIndicator} from '../node_modules/@jenkins-cd/design-language/dist/js/components/';
+import {StatusIndicator} from '../../node_modules/@jenkins-cd/design-language/dist/js/components/';
 
 const validResultValues = StatusIndicator.validResultValues;
 let __id = 1;

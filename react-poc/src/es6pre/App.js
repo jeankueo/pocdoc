@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { Icon, shapes } from 'react-material-icons-blue';
-import { WeatherIcon } from '../node_modules/@jenkins-cd/design-language/dist/js/components/weather-icon.js';
-import '../node_modules/@jenkins-cd/design-language/dist/assets/css/jenkins-design-language.css';
+import { WeatherIcon } from '../../node_modules/@jenkins-cd/design-language/dist/js/components/weather-icon.js';
+import '../../node_modules/@jenkins-cd/design-language/dist/assets/css/jenkins-design-language.css';
 
 
 import PipelinePoC from './PipelinePoC.js';
