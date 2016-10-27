@@ -43,6 +43,7 @@ class PipelinePoC extends Component {
 			makeNode("Staging"),
 			makeNode("Production")
 		];
+		
 		function nodeClicked(...values) {
 			console.log('Node clicked', values);
 		}
