@@ -1,10 +1,10 @@
 var path = require('path');
 
 module.exports = {
-	entry: path.resolve(__dirname, '../src/es6pre/index.js'),
+	entry: path.resolve(__dirname, '../src/es5/controls.js'),
 	output: {
 		path: path.resolve(__dirname, '../asset'),
-		filename: 'bundle.js'
+		filename: 'controls_es5_amd.js'
 	},
 	module: {
 		loaders: [{
@@ -12,14 +12,16 @@ module.exports = {
 			exclude: /(node_modules|bower_components)/,
 			loader: 'babel',
 			query: {
-				presets: ['react', 'es2015', 'stage-0']
+				presets: ['react', 'es2015', 'stage-0'],
+				plugins: ["transform-es2015-modules-amd"]
 			}
 		}, {
 			test: /.jsx?$/,
 			loader: 'babel-loader',
 			exclude: /node_modules/,
 			query: {
-				presets: ['es2015', 'react', 'stage-0']
+				presets: ['es2015', 'react', 'stage-0'],
+				plugins: ["transform-es2015-modules-amd"]
 			}
 		}, { 
 			test: /\.css$/, 

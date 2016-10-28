@@ -1,4 +1,4 @@
-// import { WeatherIcon } from '../node_modules/@jenkins-cd/design-language/dist/js/components/weather-icon.js';
+import { WeatherIcon } from '../bower_components/jenkins-design-language/src/js/components/weather-icon.jsx';
 // import '../node_modules/@jenkins-cd/design-language/dist/assets/css/jenkins-design-language.css';
 // import {PipelineGraph, defaultLayout} from '../node_modules/@jenkins-cd/design-language/dist/js/components/PipelineGraph.js';
 // import {StatusIndicator} from '../node_modules/@jenkins-cd/design-language/dist/js/components/';
