@@ -6,10 +6,12 @@ Prerequisite: nodeJS is installed
 ```sh
 npm run installAll
 ```
+After this step, folder **node_modules** and **bower_components** are created.
  * Run webpack to build ES6 to ES5 -- only necessary for page index_es6_pre_process.html 
 ```sh
 npm run webpack
 ```
+After this step, folder **dist** is created
  * Run an HTTP server, middleware are installed in this js.
 ```sh
 node server.js
