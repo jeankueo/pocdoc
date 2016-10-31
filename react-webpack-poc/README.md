@@ -29,7 +29,7 @@ npm run storybook
 ```sh
 npm run buildBo
 ```
-These two commands does not work anymore, it was written when I was trying to use dashboard. But design-language is proved to be the right lib tu use. 
+These two commands do not work anymore, they are written when I was trying to use dashboard. But design-language is proved to be the right lib tu use. 
 
 Todos
 --------------
