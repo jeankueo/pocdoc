@@ -31,3 +31,7 @@ Todos
 - [x] finish token logic
 - [x] finish two button enable logic
 - [ ] think of button click confirm window, should show all operations in list in a good manner
+
+Outcome
+--------------
+a PoC by using UI5 controls + self-developed Pipeline control.

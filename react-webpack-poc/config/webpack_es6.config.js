@@ -3,7 +3,7 @@ var path = require('path');
 module.exports = {
 	entry: path.resolve(__dirname, '../src/es6pre/index.js'),
 	output: {
-		path: path.resolve(__dirname, '../asset'),
+		path: path.resolve(__dirname, '../dist'),
 		filename: 'es6_preprocess.js'
 	},
 	module: {

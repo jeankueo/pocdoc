@@ -5,7 +5,7 @@ module.exports = {
 	entry: path.resolve(__dirname, '../bower_components/jenkins-design-language/src/js/components/weather-icon.jsx'),
 	//entry: path.resolve(__dirname, '../src/es5/Test.jsx'),
 	output: {
-		path: path.resolve(__dirname, '../asset'),
+		path: path.resolve(__dirname, '../dist'),
 		//filename: 'testU.js'
 		filename: 'weather-icon.js'
 	},

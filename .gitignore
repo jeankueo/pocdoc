@@ -16,7 +16,7 @@ npm-debug.log
 bower_components
 
 # Ignore built file of webpack
-asset
+dist
 
 # Ignore Mac files
 .DS_Store
