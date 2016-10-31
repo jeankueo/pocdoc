@@ -2,7 +2,7 @@ Steps to set up react-webpack PoC
 --------------
 Prerequisite: nodeJS is installed.
 
- * Download dependencies. Blue ocean will be downloaded by bower while others are referenced as node module.
+ * Download dependencies.
 ```sh
 npm install
 ```
