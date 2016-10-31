@@ -1,4 +1,4 @@
-Steps to set up react babel PoC
+Steps to set up react babel PoC (3/4)
 --------------
 Prerequisite: nodeJS is installed
 

@@ -1,4 +1,4 @@
-Steps to set up openui5 PoC
+Steps to set up openui5 PoC (1/4)
 --------------
 Prerequisite: nodeJS is installed
 

@@ -1,4 +1,4 @@
-Steps to set up react-webpack PoC
+Steps to set up react-webpack PoC (2/4)
 --------------
 Prerequisite: nodeJS is installed.
 
