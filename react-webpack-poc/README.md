@@ -1,6 +1,6 @@
-Steps to set up react PoC
+Steps to set up react-webpack PoC
 --------------
-Prerequisite: nodeJS is installed
+Prerequisite: nodeJS is installed.
 
  * Download dependencies. Blue ocean will be downloaded by bower while others are referenced as node module.
 ```sh
@@ -50,4 +50,4 @@ Todos
 
 Outcome
 --------------
-Proved how to use Blueocean React modules in ES6.
+Proved how to use Blueocean React modules in ES6. Webpack is used to do pre-processing of ES6 file. Runtime compiling should also be possible by including babel, but it hurts performace. I stopped investigation on runtime compiling, but page inline_process.html is still kept for potential future evaluation.
