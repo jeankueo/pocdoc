@@ -11,7 +11,7 @@
   "license": "ISC",
   "private": true,
   "scripts": {
-    "webpack_es6": "./node_modules/.bin/webpack --config ./config/webpack_es6.config.js --display-error-details",
+    "webpack": "./node_modules/.bin/webpack --config ./config/webpack_es6.config.js --display-error-details",
 	"webpack_es5": "./node_modules/.bin/webpack --config ./config/webpack_es5.config.js --display-error-details",
     "installAll": "npm install && bower install jenkinsci/jenkins-design-language",
     "buildBo": "cd bower_components/blueocean-plugin && mvn clean install -DskipTests",

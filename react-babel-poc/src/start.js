@@ -6,6 +6,6 @@ requirejs.config({
 	}
 });
 
-requirejs(['react', 'bo/weather-icon'], function (React, WeatherIcon) {
-	console.log(arguments.length)
+requirejs(['bo/weather-icon', 'bo/PipelineGraph'], function (WeatherIcon, PipelineGraph) {
+	
 });
