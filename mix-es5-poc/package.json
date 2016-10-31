@@ -1,0 +1,22 @@
+{
+  "name": "pipeline-mix-poc",
+  "version": "1.0.0",
+  "description": "PoC",
+  "main": "index.html",
+  "repository": {
+    "type": "git",
+    "url": "git@github.wdf.sap.corp:ci-connect/pipeline-ui-poc.git"
+  },
+  "author": "I037379",
+  "license": "ISC",
+  "private": true,
+  "devDependencies": {
+    "bower": "^1.7.9",
+    "connect": "^3.5.0",
+    "serve-static": "^1.11.1"
+  },
+  "dependencies": {
+    "octicons": "^4.4.0",
+    "font-awesome": "^4.6.3"
+  }
+}

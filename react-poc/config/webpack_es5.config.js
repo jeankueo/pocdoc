@@ -1,13 +1,16 @@
 var path = require('path');
 
 module.exports = {
-	entry: path.resolve(__dirname, '../src/es5/controls.js'),
+	//entry: path.resolve(__dirname, '../src/es5/controls.js'),
+	entry: path.resolve(__dirname, '../bower_components/jenkins-design-language/src/js/components/weather-icon.jsx'),
+	//entry: path.resolve(__dirname, '../src/es5/Test.jsx'),
 	output: {
 		path: path.resolve(__dirname, '../asset'),
-		filename: 'controls_es5_amd.js'
+		//filename: 'testU.js'
+		filename: 'weather-icon.js'
 	},
 	module: {
-		loaders: [{
+		loaders: [/*{
 			test: /src\/.+.js$/,
 			exclude: /(node_modules|bower_components)/,
 			loader: 'babel',
@@ -15,10 +18,10 @@ module.exports = {
 				presets: ['react', 'es2015', 'stage-0'],
 				plugins: ["transform-es2015-modules-amd"]
 			}
-		}, {
+		},*/ {
 			test: /.jsx?$/,
-			loader: 'babel-loader',
 			exclude: /node_modules/,
+			loader: 'babel',
 			query: {
 				presets: ['es2015', 'react', 'stage-0'],
 				plugins: ["transform-es2015-modules-amd"]
