@@ -22,7 +22,7 @@ Todos
 - [x] install babel purely by nodejs
 - [x] try out amd plugin for weather-icon. (be careful about .babelrc file. I abandoned it, instead i specify preset and plugins for babel in script. Because when i ran babel cli to build files from bower_component/jenkins-design-language, it's their .babelrc is effecting instead of mine, that's why i wasted much time wondering why my compiling result stay in commenJS format instead of AMD although i configured them in my .babelrc... specifying your config in command options are always safer...)
 - [ ] try out drawing of weather-icons in html page by requirejs. Reference: [https://facebook.github.io/react/docs/react-without-es6.html](https://facebook.github.io/react/docs/react-without-es6.html)
-- [ ] try out drawing of PipelineGraph in html page by requirejs.
+- [ ] try out drawing of PipelineGraph in html page by requirejs. Reference: [http://remarkablemark.org/blog/2016/09/24/react-requirejs-amd/](http://remarkablemark.org/blog/2016/09/24/react-requirejs-amd/)
 - [ ] think about merge to ui5.
 
 Outcome
