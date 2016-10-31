@@ -7,11 +7,12 @@ Prerequisite: nodeJS is installed
 npm run installAll
 ```
 After this step, folder **node_modules** and **bower_components** are created.
- * Run webpack to build ES6 to ES5 -- only necessary for page index_es6_pre_process.html 
+ * Run webpack to build ES6 to ES5
 ```sh
 npm run webpack
 ```
-After this step, folder **dist** is created
+Jenkins developer made a stupid decision that they put a space in an svg file name. To run webpack successfully, you have to rename the file 'bower_components/jenkins-design-language/icons/weather/Partially Sunny.svg' to 'Partially%20Sunny.svg' first manually. Hopefully someday later they will change it.
+After this step, folder **dist** is created.
  * Run an HTTP server, middleware are installed in this js.
 ```sh
 node server.js
