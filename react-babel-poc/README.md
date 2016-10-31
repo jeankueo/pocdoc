@@ -27,4 +27,4 @@ Todos
 
 Outcome
 --------------
-Prove to transform BO es6 react modules to amd modules.
+Prove to transform BO es6 react modules to amd modules. And PoC code is written in ES5.
