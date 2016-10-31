@@ -16,7 +16,7 @@ node server.js
 ```
  * Access by link [http://localhost:8765/react-poc/public](http://localhost:8765/react-poc/public)
  
- https://github.com/Daniel15/babel-standalone
+Only linkage 'es6 pre-process PoC' works in this PoC.
 
 Other scripts
 --------------
