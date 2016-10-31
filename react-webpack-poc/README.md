@@ -17,7 +17,7 @@ After this step, folder **dist** is created.
 ```sh
 node server.js
 ```
- * Access by link [http://localhost:8765/react-poc/public](http://localhost:8765/react-poc/public)
+ * Access by link [http://localhost:8765/react-webpack-poc/public](http://localhost:8765/react-webpack-poc/public)
  es6 pre-process page works, babel standalone does not work yet.
 
 Other scripts

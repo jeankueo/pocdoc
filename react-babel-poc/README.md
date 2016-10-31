@@ -14,9 +14,8 @@ npm run webpack
 ```sh
 node server.js
 ```
- * Access by link [http://localhost:8765/react-poc/public](http://localhost:8765/react-poc/public)
- 
-Only linkage 'es6 pre-process PoC' works in this PoC.
+ * Access by link [http://localhost:6543/react-babel-poc/public](http://localhost:6543/react-babel-poc/public)
+
 
 Other scripts
 --------------
