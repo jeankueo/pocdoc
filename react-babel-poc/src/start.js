@@ -2,10 +2,15 @@ requirejs.config({
 	'baseUrl': '../',
 	'paths': {
 		'bo': 'dist',
-		'react': '//fb.me/react-with-addons-0.14.2'
+		'react': 'https://unpkg.com/react@15.3.2/dist/react',
+		'react-dom': 'https://unpkg.com/react-dom@15.3.2/dist/react-dom'
 	}
 });
 
-requirejs(['bo/weather-icon', 'bo/PipelineGraph'], function (WeatherIcon, PipelineGraph) {
-	
+requirejs([
+	'react', 'react-dom', 'bo/weather-icon', 'bo/PipelineGraph'
+], function (React, ReactDOM, WeatherIcon, PipelineGraph) {
+	ReactDOM.render(
+		React.createElement('p', {}, 'Hello, AMD!'),
+			document.getElementById('root'));
 });
