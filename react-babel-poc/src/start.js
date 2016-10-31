@@ -9,8 +9,11 @@ requirejs.config({
 
 requirejs([
 	'react', 'react-dom', 'bo/weather-icon', 'bo/PipelineGraph'
-], function (React, ReactDOM, WeatherIcon, PipelineGraph) {
+], function (React, ReactDOM, weathericon, PipelineGraph) {
+	
+	var weatherElement = React.createElement(weathericon.WeatherIcon, {score: "70"});
+	
 	ReactDOM.render(
-		React.createElement('p', {}, 'Hello, AMD!'),
-			document.getElementById('root'));
+		weatherElement,
+		document.getElementById('root'));
 });
