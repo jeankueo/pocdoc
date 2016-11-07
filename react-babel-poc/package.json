@@ -12,7 +12,8 @@
   "private": true,
   "scripts": {
     "installAll": "npm install && bower install jenkinsci/jenkins-design-language",
-    "babel": "./node_modules/.bin/babel bower_components/jenkins-design-language/src/js/components -d dist --presets es2015,react,stage-0 --plugins transform-es2015-modules-amd"
+    "babel": "./node_modules/.bin/babel bower_components/jenkins-design-language/src/js/components -d dist/bo/js --presets es2015,react,stage-0 --plugins transform-es2015-modules-amd",
+    "gulp": "./node_modules/.bin/gulp"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
@@ -23,6 +24,14 @@
     "babel-preset-stage-0": "^6.16.0",
     "bower": "^1.7.9",
     "connect": "^3.5.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-clean": "^0.3.2",
+    "gulp-copy": "0.0.2",
+    "gulp-less": "3.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "^2.2.0",
+    "run-sequence": "1.2.1",
     "serve-static": "^1.11.1"
   },
   "dependencies": {
