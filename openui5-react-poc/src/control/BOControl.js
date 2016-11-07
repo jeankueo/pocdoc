@@ -40,7 +40,10 @@ sap.ui.define([
 			if (Exporter[sControlName]) {
 				ReactDOM.render(
 					React.createElement(Exporter[sControlName], oProps),
-					document.getElementById(sId));
+					document.getElementById(sId), function ($ref) {
+						return $ref;
+					});
+				jQuery("")
 			}
 		});
 	};

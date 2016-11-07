@@ -6,6 +6,8 @@ sap.ui.define([], function () {
 	BOControlRenderer.render = function (oRenderManager, BOControl) {
 		oRenderManager.write("<div");
 		oRenderManager.writeControlData(BOControl);
+		oRenderManager.addClass("jenkinsbo");
+		oRenderManager.writeClasses();
 		oRenderManager.write(">");
 		oRenderManager.write("</div>");
 	};

@@ -20,7 +20,7 @@ const config = {
 		}
 	},
 	less: {
-		sources: "bower_components/jenkins-design-language/less/theme.less",
+		sources: "src/less/jenkinsbo.less",
 		watch: "less/**/*.less", // Watch includes as well as main
 		dest: "dist/bo/assets/css"
 	},
