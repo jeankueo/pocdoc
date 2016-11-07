@@ -8,7 +8,7 @@ npm run installAll
 ```
  * Run gulp to build BO src, tasks including ES6 to ES5 in amd module format; translate LESS to CSS, copy svg files.
 ```sh
-npm run babel
+npm run gulp
 ```
  * Run an HTTP server, middleware are installed in this js.
 ```sh
