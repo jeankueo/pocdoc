@@ -6,7 +6,7 @@ Prerequisite: nodeJS is installed
 ```sh
 npm run installAll
 ```
- * Run babel CLI to build ES6 to ES5 in amd module format. 
+ * Run gulp to build BO src, tasks including ES6 to ES5 in amd module format; translate LESS to CSS, copy svg files.
 ```sh
 npm run babel
 ```
@@ -16,6 +16,12 @@ node server.js
 ```
  * Access by link [http://localhost:6543/react-babel-poc/public](http://localhost:6543/react-babel-poc/public)
 
+Other scripts
+--------------
+ * Run babel CLI to build ES6 to ES5 in amd module format. 
+```sh
+npm run babel
+```
 
 Todos
 --------------
