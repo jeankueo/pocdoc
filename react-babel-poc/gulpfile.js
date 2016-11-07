@@ -26,7 +26,7 @@ const config = {
     },
      copy: {
         icons: {
-            sources: "bower_components/jenkins-design-language/icons/**/*.{svg}",
+            sources: "bower_components/jenkins-design-language/icons/**/*",
             dest: "dist/bo/assets/icons"
         }
     }
@@ -62,4 +62,4 @@ gulp.task("copy", ["copy-icons"/*, "copy-octicons", "copy-normalize", "copy-font
 
 gulp.task("copy-icons", () =>
     gulp.src(config.copy.icons.sources)
-        .pipe(copy(config.copy.icons.dest)));
+        .pipe(copy(config.copy.icons.dest, {prefix: 3})));
