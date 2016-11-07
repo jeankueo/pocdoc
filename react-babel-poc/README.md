@@ -30,8 +30,7 @@ Todos
 - [x] Setup gulp, use it to build all (copy, less->css, babel compile...., copy from jenkins/design-language, rename)
 - [x] try out drawing of weather-icons in html page by requirejs. Reference: [https://facebook.github.io/react/docs/react-without-es6.html](https://facebook.github.io/react/docs/react-without-es6.html) [http://jamesknelson.com/learn-raw-react-no-jsx-flux-es6-webpack/](http://jamesknelson.com/learn-raw-react-no-jsx-flux-es6-webpack/)
 - [x] note that, in ubantu, task copy-icons does not need to replace space with '%20'; but in windows/mac, this task should be replaced by task copy-icons-replace-space.
-- [ ] try out drawing of PipelineGraph in html page by requirejs. Reference: [http://remarkablemark.org/blog/2016/09/24/react-requirejs-amd/](http://remarkablemark.org/blog/2016/09/24/react-requirejs-amd/)
-- [ ] think about merge to ui5.
+- [x] try out drawing of PipelineGraph in html page by requirejs. Reference: [http://remarkablemark.org/blog/2016/09/24/react-requirejs-amd/](http://remarkablemark.org/blog/2016/09/24/react-requirejs-amd/)
 
 Outcome
 --------------
