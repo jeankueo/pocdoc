@@ -57,7 +57,7 @@ gulp.task("less", () =>
 		.pipe(sourcemaps.write("."))
 		.pipe(gulp.dest(config.less.dest)));
 
-gulp.task("copy", ["copy-icons", /*"copy-icons-replace-space"*//*, "copy-octicons", "copy-normalize", "copy-fontsCSS", "copy-fonts",
+gulp.task("copy", ["copy-icons"/*"copy-icons-replace-space"*//*, "copy-octicons", "copy-normalize", "copy-fontsCSS", "copy-fonts",
 	"copy-componentDocFiles", "copy-licenses-octicons", "copy-licenses-ofl"*/]);
 
 gulp.task("copy-icons", () =>

@@ -4,7 +4,10 @@ sap.ui.define([], function () {
 	var BOControlRenderer = {};
 
 	BOControlRenderer.render = function (oRenderManager, BOControl) {
-		
+		oRenderManager.write("<div");
+		oRenderManager.writeControlData(BOControl);
+		oRenderManager.write(">");
+		oRenderManager.write("</div>");
 	};
 	
 	return BOControlRenderer;

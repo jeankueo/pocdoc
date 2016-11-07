@@ -4,6 +4,7 @@
 	"type": "mixed",
 	"sapPredefined": true,
 	"countOfRepoAssigned": 3,
+	"score": 99,
 	"jobs": [{
 		"type": "central",
 		"goal": "BLD",
@@ -30,6 +31,7 @@
 	"type": "centralOnly",
 	"sapPredefined": true,
 	"countOfRepoAssigned": 0,
+	"score": 70,
 	"jobs": [{
 		"type": "central",
 		"goal": "BLD",
@@ -44,6 +46,7 @@
 	"name": "Some Team's Simple Pipeline",
 	"type": "localOnly",
 	"countOfRepoAssigned": 1,
+	"score": 50,
 	"jobs": [{
 		"type": "local",
 		"goal": "BLD",
@@ -58,6 +61,7 @@
 	"name": "Some Team's Fancy Pipeline",
 	"type": "mixed",
 	"countOfRepoAssigned": 7,
+	"score": 20,
 	"jobs": [{
 		"type": "local",
 		"goal": "BLD",
