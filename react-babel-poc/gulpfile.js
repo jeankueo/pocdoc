@@ -57,12 +57,15 @@ gulp.task("less", () =>
 		.pipe(sourcemaps.write("."))
 		.pipe(gulp.dest(config.less.dest)));
 
-gulp.task("copy", ["copy-icons"/*, "copy-octicons", "copy-normalize", "copy-fontsCSS", "copy-fonts",
+gulp.task("copy", ["copy-icons", /*"copy-icons-replace-space"*//*, "copy-octicons", "copy-normalize", "copy-fontsCSS", "copy-fonts",
 	"copy-componentDocFiles", "copy-licenses-octicons", "copy-licenses-ofl"*/]);
 
 gulp.task("copy-icons", () =>
 	gulp.src(config.copy.icons.sources)
-		//.pipe(copy(config.copy.icons.dest, {prefix: 3}))
+		.pipe(copy(config.copy.icons.dest, {prefix: 3})));
+
+gulp.task("copy-icons-replace-space", () =>
+	gulp.src(config.copy.icons.sources)
 		.pipe(rename(function (path) {
 			path.basename = path.basename.replace(' ', '%20');
 			console.log(path.basename);
