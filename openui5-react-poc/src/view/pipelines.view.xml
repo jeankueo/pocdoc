@@ -5,22 +5,20 @@
 		<items>
 			<Toolbar>
 				<content>
-					<HBox>
-						<Select
-							forceSelection="false"
-							selectedKey="{category>/0/key}"
-							showSecondaryValues= "true"
-							width="150px"
-							items="{
-								path: 'category>/',
-								sorter: { path: 'text' }}">
-							<core:ListItem key="{category>key}" text="{category>text}" additionalText="{category>count}"/>
-						</Select>
-						<SearchField placeholder="Search"  width="calc(100% - 150px)" liveChange="onSearch"  class="sapUiSmallMarginBegin"/>
-					</HBox>
+					<Select
+						forceSelection="false"
+						selectedKey="{category>/0/key}"
+						showSecondaryValues= "true"
+						width="150px"
+						tooltip="Pipeline Categories"
+						items="{
+							path: 'category>/',
+							sorter: { path: 'text' }}">
+						<core:ListItem key="{category>key}" text="{category>text}" additionalText="{category>count}"/>
+					</Select>
+					<SearchField placeholder="Search"  width="100%" liveChange="onSearch" />
 				</content>
 			</Toolbar>
-			
 			<List id="pipelineList"
 				items="{pipeline>/}"
 				mode="SingleSelectLeft"

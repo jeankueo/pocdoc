@@ -1,7 +1,7 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
 		controllerName="sap.ciconnect.view.index" xmlns:html="http://www.w3.org/1999/xhtml">
 		
-	<App initialPage="ciconnect">
+	<App initialPage="ciconnect" width="100%" height="100%">
 		<Page id="ciconnect" title="Viz Pipeline PoC">
 			<content>
 				<IconTabBar stretchContentHeight="true"
