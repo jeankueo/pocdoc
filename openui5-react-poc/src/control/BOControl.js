@@ -28,7 +28,8 @@ sap.ui.define([
 	BOControl.prototype.onAfterRendering = function () {
 		var sId = this.getId(),
 			sModuleName = this.getModuleName(),
-			sControlName = this.getControlName();
+			sControlName = this.getControlName(),
+			that = this;
 		
 		var	oProps = jQuery.extend({}, this.getProps(), {
 				key: sId + "_" + sModuleName + "_" + sControlName
@@ -43,9 +44,18 @@ sap.ui.define([
 					document.getElementById(sId), function ($ref) {
 						return $ref;
 					});
-				jQuery("")
+				// work around: add 'jenkinsbo' namespace to each of the children dom elements
+				that.addJenkinsboClass(jQuery("#" + that.getId()).children());
 			}
 		});
+	};
+	
+	BOControl.prototype.addJenkinsboClass = function (aDomElement) {
+		aDomElement.addClass("jenkinsbo");
+		var aChildren = aDomElement.children();
+		if (aChildren && aChildren.length > 0) {
+			this.addJenkinsboClass(aChildren);
+		}
 	};
 	
 	return BOControl;
