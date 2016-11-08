@@ -1,61 +1,59 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta http-equiv='X-UA-Compatible' content='IE=edge' />
-<title>openui5 + react - Viz Pipeline PoC</title>
+	<head>
+		<meta http-equiv='X-UA-Compatible' content='IE=edge' />
+		<title>openui5 + react - Viz Pipeline PoC</title>
 
-<link rel="stylesheet" href="../dist/bo/assets/css/jenkins-design-language.css" />
-<link rel="stylesheet" href="../src/control/style.css" />
-<link rel="stylesheet" href="../src/view/style.css" />
+		<link rel="stylesheet" href="../dist/bo/assets/css/jenkins-design-language.css" />
+		<link rel="stylesheet" href="../src/control/style.css" />
+		<link rel="stylesheet" href="../src/view/style.css" />
 
-<!-- 
-<script id='sap-ui-bootstrap'
-	src='../bower_components/openui5-sap.ui.core/resources/sap-ui-core.js'
-	data-sap-ui-theme='sap_belize'
-	data-sap-ui-libs='sap.m'
-	data-sap-ui-compatVersion='edge'
-	data-sap-ui-preload='async'
-	data-sap-ui-theme-roots='{
-		"sap_bluecrystal" : "../bower_components/openui5-themelib_sap_bluecrystal/resources",
-		"sap_belize" : "../bower_components/openui5-themelib_sap_belize/resources",
-		"sap_belize_plus" : "../bower_components/openui5-themelib_sap_belize/resources"
-	}' 
-	data-sap-ui-resourceroots='{
-		"sap.m": "../bower_components/openui5-sap.m/resources/sap/m",
-		"sap.ciconnect.view": "./view",
-		"sap.ciconnect.control": "./control"
-	}'>
-</script>
- -->
- 
-  <script id='sap-ui-bootstrap'
-	src='https://sapui5.hana.ondemand.com/resources/sap-ui-core.js'
-	data-sap-ui-theme='sap_belize'
-	data-sap-ui-libs='sap.m'
-	data-sap-ui-compatVersion='edge'
-	data-sap-ui-preload='async'
-	data-sap-ui-resourceroots='{
-		"sap.ciconnect.view": "./../src/view",
-		"sap.ciconnect.control": "./../src/control",
-		"sap.ciconnect.model": "./../src/model",
-		"require": "https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.2/require.min"
-	}'>
-	<!--,
-	"react": "https://unpkg.com/react@15.3.2/dist/react",
-	"reactDOM": "https://unpkg.com/react-dom@15.3.2/dist/react-dom",
-	"jenkins.bo": "./../dist/bo/js" -->
-</script>
-
-<script>
-	sap.ui.getCore().attachInit(function () {
-		sap.ui.xmlview({
-			viewName : "sap.ciconnect.view.index"
-		}).placeAt("content");
-	});
-</script>
-
-</head>
-<body class='sapUiBody sapUiSizeCozy'>
-	<div id='content'></div>
-</body>
+		<!-- 
+		<script id='sap-ui-bootstrap'
+			src='../bower_components/openui5-sap.ui.core/resources/sap-ui-core.js'
+			data-sap-ui-theme='sap_belize'
+			data-sap-ui-libs='sap.m'
+			data-sap-ui-compatVersion='edge'
+			data-sap-ui-preload='async'
+			data-sap-ui-theme-roots='{
+				"sap_bluecrystal" : "../bower_components/openui5-themelib_sap_bluecrystal/resources",
+				"sap_belize" : "../bower_components/openui5-themelib_sap_belize/resources",
+				"sap_belize_plus" : "../bower_components/openui5-themelib_sap_belize/resources"
+			}' 
+			data-sap-ui-resourceroots='{
+				"sap.m": "../bower_components/openui5-sap.m/resources/sap/m",
+				"sap.ciconnect.view": "./view",
+				"sap.ciconnect.control": "./control"
+			}'>
+		</script>
+		 -->
+		 <!-- https://sapui5.hana.ondemand.com/resources/sap-ui-core.js -->
+		  <script id='sap-ui-bootstrap'
+			src='http://vesapui5.dhcp.wdf.sap.corp:8080/sapui5-dist-1.42/resources/sap-ui-core.js'
+			data-sap-ui-theme='sap_belize'
+			data-sap-ui-libs='sap.m'
+			data-sap-ui-compatVersion='edge'
+			data-sap-ui-preload='async'
+			data-sap-ui-resourceroots='{
+				"sap.ciconnect.view": "./../src/view",
+				"sap.ciconnect.control": "./../src/control",
+				"sap.ciconnect.model": "./../src/model",
+				"require": "https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.2/require.min"
+			}'>
+			<!--,
+			"react": "https://unpkg.com/react@15.3.2/dist/react",
+			"reactDOM": "https://unpkg.com/react-dom@15.3.2/dist/react-dom",
+			"jenkins.bo": "./../dist/bo/js" -->
+		</script>
+	</head>
+	<body class='sapUiBody sapUiSizeCozy'>
+		<div id='content'></div>
+		<script>
+			sap.ui.getCore().attachInit(function () {
+				sap.ui.xmlview({
+					viewName : "sap.ciconnect.view.index"
+				}).placeAt("content");
+			});
+		</script>
+	</body>
 </html>

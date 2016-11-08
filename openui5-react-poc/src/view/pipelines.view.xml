@@ -5,7 +5,19 @@
 		<items>
 			<Toolbar>
 				<content>
-					<SearchField placeholder="Search"  width="100%" liveChange="onSearch"/>
+					<HBox>
+						<Select
+							forceSelection="false"
+							selectedKey="{category>/0/key}"
+							showSecondaryValues= "true"
+							width="150px"
+							items="{
+								path: 'category>/',
+								sorter: { path: 'text' }}">
+							<core:ListItem key="{category>key}" text="{category>text}" additionalText="{category>count}"/>
+						</Select>
+						<SearchField placeholder="Search"  width="calc(100% - 150px)" liveChange="onSearch"  class="sapUiSmallMarginBegin"/>
+					</HBox>
 				</content>
 			</Toolbar>
 			
@@ -16,13 +28,16 @@
 				selectionChange="onSelectionChange">
 				<CustomListItem>
 					<HBox alignItems="Start" justifyContent="SpaceBetween">
-						<HBox>
-							<core:Icon size="1rem" class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom ciconnectIcon"
-								src="sap-icon://{= ${pipeline>sapPredefined} ? 'sap-logo-shape' : 'customize'}"/>
-							<Link text="{pipeline>name}" target="_blank" href="{pipeline>html_url}" class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom"/>
-							<ObjectNumber number="{pipeline>countOfRepoAssigned}" unit="Repo" class="sapUiSmallMargin"
+						<VBox>
+							<HBox class="sapUiSmallMarginTop">
+								<core:Icon size="1rem" class="sapUiSmallMarginBegin  ciconnectIcon"
+									src="sap-icon://{= ${pipeline>sapPredefined} ? 'sap-logo-shape' : 'customize'}"/>
+
+								<Link text="{pipeline>name}" target="_blank" href="{pipeline>html_url}" class="sapUiSmallMarginBegin"/>
+							</HBox>
+							<ObjectNumber number="{pipeline>countOfRepoAssigned}" unit="Repo Assigned" class="sapUiSmallMarginBegin sapUiSmallMarginBottom"
 								state="{path: 'pipeline>countOfRepoAssigned', formatter: '.formatter.pipeLineAssignedRepoState'}"/>
-						</HBox>
+						</VBox>
 						<ci:BOControl moduleName="PipelineGraph" controlName="PipelineGraph" props="{pipeline>}">
 						</ci:BOControl>
 					</HBox>
