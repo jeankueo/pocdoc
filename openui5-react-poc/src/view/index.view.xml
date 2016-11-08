@@ -28,7 +28,7 @@
 						<IconTabFilter text="Repositories"
 							key="Repositories"
 							icon="sap-icon://oct/octicon-repo"
-							count="{= ${github>/}.length + ${git>/}.length}">
+							count="{= ${repo>/}.length}">
 							<content>
 								<mvc:XMLView id="repoView" viewName="sap.ciconnect.view.repositories" />
 							</content>

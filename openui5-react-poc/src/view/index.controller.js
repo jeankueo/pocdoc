@@ -42,21 +42,26 @@ sap.ui.define([
 		},
 		
 		_loadData: function () {
-			var oModel;
-			
-			oModel = new JSONModel();
+			this._loadPipelineData();
+			this._loadRepoData();
+			this._initSettingData();
+		},
+
+		_loadPipelineData: function () {
+			var oModel = new JSONModel();
 			oModel.loadData("../../../data/pipeline.json");
 			this.getView().setModel(oModel, "pipeline");
+		},
 
-			oModel = new JSONModel();
-			oModel.loadData("../../../data/githubrepo.json");
-			this.getView().setModel(oModel, "github");
+		_loadRepoData: function () {
+			// repo contains all repo from git/gerrit/github
+			var oModel = new JSONModel();
+			oModel.loadData("../../../data/repo.json");
+			this.getView().setModel(oModel, "repo");
+		},
 
-			oModel = new JSONModel();
-			oModel.loadData("../../../data/gitrepo.json");
-			this.getView().setModel(oModel, "git");
-			
-			oModel = new JSONModel();
+		_initSettingData: function () {
+			var oModel = new JSONModel();
 			oModel.setData({
 				// tab selection
 				"selectedTabKey": "Summary",
@@ -126,11 +131,12 @@ sap.ui.define([
 		_addGitRepoData: function (oEvent) {
 			var sURL = oEvent.getSource().getValue();
 			if (sURL) {
-				var oModel = this.getView().getModel("git");
+				var oModel = this.getView().getModel("repo");
 				var oData = oModel.getData();
 				oData.push({
 					"name": "new rep",
 					"full_name": "new git repository " + sURL,
+					"repoType": (Math.random() > 0.5 ? "git" : "git+gerrit"),
 					"pipeline": {
 						"id": "pipeline4",
 						"name": "Some Team's Pipeline",
@@ -141,8 +147,8 @@ sap.ui.define([
 							"status": "None"
 						}]
 					},
-					"private": true,
-					"folked": false
+					"private": (Math.random() > 0.5 ? true : false),
+					"folked": (Math.random() > 0.5 ? true : false)
 				});
 				oModel.setData(oData);
 				oModel.updateBindings(true); // force counter in tab to update

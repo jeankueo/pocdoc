@@ -33,14 +33,13 @@ sap.ui.define([
 		},
 
 		_updateRepoToken: function () {
-			var oGitList = this.getView().byId("gitList"),
-				oGithubList = this.getView().byId("githubList"),
+			var oRepoList = this.getView().byId("repoList"),
 				oModel = this.getView().getModel("setting");
 
-			var aGitSelectedContexts = oGitList.getSelectedContexts(true),
-				aGithubSelectedContexts = oGithubList.getSelectedContexts(true);
+			var aRepoSelectedContexts = oRepoList.getSelectedContexts(true);
 
-			var iSelectedCount = aGitSelectedContexts.length + aGithubSelectedContexts.length;
+			var iSelectedCount = aRepoSelectedContexts.length;
+
 			if (iSelectedCount > 0) {
 				oModel.setProperty("/repoTokenVisible", true);
 				oModel.setProperty("/repoTokenNumber",  iSelectedCount);
@@ -51,11 +50,8 @@ sap.ui.define([
 		},
 
 		removeAllSelection: function () {
-			var oGitList = this.getView().byId("gitList");
-			oGitList.removeSelections(true);
-
-			var oGithubList = this.getView().byId("githubList");
-			oGithubList.removeSelections(true);
+			var oRepoList = this.getView().byId("repoList");
+			oRepoList.removeSelections(true);
 		}
 	});
 });
