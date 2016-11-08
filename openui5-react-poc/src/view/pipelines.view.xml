@@ -20,7 +20,7 @@
 							<core:Icon size="1rem" class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom ciconnectIcon"
 								src="sap-icon://{= ${pipeline>sapPredefined} ? 'sap-logo-shape' : 'customize'}"/>
 							<Link text="{pipeline>name}" target="_blank" href="{pipeline>html_url}" class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom"/>
-							<ObjectNumber number="{pipeline>countOfRepoAssigned}" unit="Repo assigned" class="sapUiSmallMargin"
+							<ObjectNumber number="{pipeline>countOfRepoAssigned}" unit="Repo" class="sapUiSmallMargin"
 								state="{path: 'pipeline>countOfRepoAssigned', formatter: '.formatter.pipeLineAssignedRepoState'}"/>
 						</HBox>
 						<ci:BOControl moduleName="PipelineGraph" controlName="PipelineGraph" props="{pipeline>}">

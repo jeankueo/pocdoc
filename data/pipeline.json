@@ -5,35 +5,42 @@
 	"sapPredefined": true,
 	"countOfRepoAssigned": 3,
 	"layout": {
-		"nodeSpacingH": 50,
-		 "nodeSpacingV": 15,
-		 "nodeRadius": 10
+		"nodeSpacingH": 70,
+		"nodeSpacingV": 15,
+		"nodeRadius": 10
 	},
 	"stages": [{
 		"id": 1,
 		"type": "central",
-		"name": "BLD",
-		"state": "queued",
+		"name": "Build",
+		"state": "not_built",
+		"short_desc": "Click to see document.",
+		"link": "https://github.wdf.sap.corp/production-services/build-service/blob/master/README.md"
+	}, {
+		"id": 1.1,
+		"type": "central",
+		"name": "Test",
+		"state": "not_built",
 		"short_desc": "Click to see document.",
 		"link": "https://github.wdf.sap.corp/production-services/build-service/blob/master/README.md"
 	}, {
 		"id": 2,
 		"type": "local",
-		"name": "VER",
-		"state": "queued",
+		"name": "Versioning",
+		"state": "not_built",
 		"short_desc": "Click to see document.",
 		"link": "https://github.wdf.sap.corp/production-services/demo-test-service/blob/master/README.md"
 	}, {
 		"id": 3,
 		"type": "local",
-		"name": "VAL",
-		"state": "queued",
+		"name": "Validation",
+		"state": "not_built",
 		"short_desc": "Short description for validation job. Should be at most 2 sentences."
 	}, {
 		"id": 4,
 		"type": "central",
-		"name": "DEP",
-		"state": "queued",
+		"name": "Deploy",
+		"state": "not_built",
 		"short_desc": "Click to see document.",
 		"link": "https://github.wdf.sap.corp/production-services/cf-deploy-service/blob/master/README.md"
 	}]
@@ -44,21 +51,21 @@
 	"sapPredefined": true,
 	"countOfRepoAssigned": 0,
 	"layout": {
-		"nodeSpacingH": 50,
-		 "nodeSpacingV": 15,
-		 "nodeRadius": 10
+		"nodeSpacingH": 70,
+		"nodeSpacingV": 15,
+		"nodeRadius": 10
 	},
 	"stages": [{
 		"id": 5,
 		"type": "central",
-		"name": "BLD",
-		"state": "queued",
+		"name": "Build",
+		"state": "not_built",
 		"short_desc": "Short description for build job. Should be at most 2 sentences."
 	}, {
 		"id": 6,
 		"type": "central",
-		"name": "DEP",
-		"state": "queued",
+		"name": "Deploy",
+		"state": "not_built",
 		"short_desc": "Short description for deploy job. Should be at most 2 sentences."
 	}]
 }, {
@@ -67,21 +74,21 @@
 	"type": "localOnly",
 	"countOfRepoAssigned": 1,
 	"layout": {
-		"nodeSpacingH": 50,
-		 "nodeSpacingV": 15,
-		 "nodeRadius": 10
+		"nodeSpacingH": 70,
+		"nodeSpacingV": 15,
+		"nodeRadius": 10
 	},
 	"stages": [{
 		"id": 7,
 		"type": "local",
-		"name": "BLD",
-		"state": "queued",
+		"name": "Build",
+		"state": "not_built",
 		"short_desc": "Short description for build job. Should be at most 2 sentences."
 	}, {
 		"id": 8,
 		"type": "local",
-		"name": "DEP",
-		"state": "queued",
+		"name": "Deploy",
+		"state": "not_built",
 		"short_desc": "Short description for deploy job. Should be at most 2 sentences."
 	}]
 }, {
@@ -90,45 +97,45 @@
 	"type": "mixed",
 	"countOfRepoAssigned": 7,
 	"layout": {
-		"nodeSpacingH": 50,
-		 "nodeSpacingV": 15,
-		 "nodeRadius": 10
+		"nodeSpacingH": 70,
+		"nodeSpacingV": 15,
+		"nodeRadius": 10
 	},
 	"stages": [{
 		"id": 9,
 		"type": "local",
-		"name": "BLD",
-		"state": "queued",
-		"short_desc": "building"
+		"name": "Build",
+		"state": "not_built",
+		"short_desc": "Build"
 	}, {
 		"id": 10,
 		"type": "central",
-		"name": "VER",
-		"state": "queued",
+		"name": "Versioning",
+		"state": "not_built",
 		"short_desc": "versioning"
 	}, {
 		"id": 11,
 		"type": "local",
-		"name": "VAL",
-		"state": "queued",
+		"name": "Validation",
+		"state": "not_built",
 		"short_desc": "validation"
 	}, {
 		"id": 12,
 		"type": "central",
-		"name": "STG",
-		"state": "queued",
+		"name": "Staging",
+		"state": "not_built",
 		"short_desc": "staging"
 	}, {
 		"id": 13,
 		"type": "central",
-		"name": "PRM",
-		"state": "queued",
+		"name": "Promotion",
+		"state": "not_built",
 		"short_desc": "promotion"
 	}, {
 		"id": 14,
 		"type": "local",
-		"name": "DEP",
-		"state": "queued",
+		"name": "Deploy",
+		"state": "not_built",
 		"short_desc": "deploy"
 	}]
 }]

@@ -4,9 +4,9 @@
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:ci="sap.ciconnect.control"
 	xmlns:m="sap.m">
-		<m:GenericTile press="onPress" header="Pipeline Report" subheader="xxxx" frameType="Auto">
+		<m:GenericTile press="onPress" header="Pipeline Report" subheader="Pipelines in Use" frameType="Auto">
 			<m:tileContent>
-				<m:TileContent footer="Pipelines in Use">
+				<m:TileContent footer="90%">
 					<m:content>
 						<!-- <RadialMicroChart percentage="95" valueColor="Good"/> -->
 						<ci:BOControl moduleName="weather-icon" controlName="WeatherIcon" props="{score: 90, size: 'large'}"
@@ -15,9 +15,9 @@
 				</m:TileContent>
 			</m:tileContent>
 		</m:GenericTile>
-		<m:GenericTile header="Service Report" subheader="xxxx" frameType="Auto">
+		<m:GenericTile header="Service Report" subheader="Failed Jobs" frameType="Auto">
 			<m:tileContent>
-				<m:TileContent footer="Failed Jobs">
+				<m:TileContent footer="70%">
 					<m:content>
 						<!-- <RadialMicroChart percentage="30" valueColor="Error"/> -->
 						<ci:BOControl moduleName="weather-icon" controlName="WeatherIcon" props="{score: 30, size: 'large'}"
@@ -26,9 +26,9 @@
 				</m:TileContent>
 			</m:tileContent>
 		</m:GenericTile>
-		<m:GenericTile press="onPress" header="Repository Report" subheader="xxxx" frameType="Auto">
+		<m:GenericTile press="onPress" header="Repository Report" subheader="Pipeline Actived Repo" frameType="Auto">
 			<m:tileContent>
-				<m:TileContent footer="Pipeline Actived Repo">
+				<m:TileContent footer="30%">
 					<m:content>
 						<!-- <RadialMicroChart percentage="60" valueColor="Neutral"/> -->
 						<ci:BOControl moduleName="weather-icon" controlName="WeatherIcon" props="{score: 60, size: 'large'}"

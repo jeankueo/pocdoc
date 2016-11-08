@@ -29,3 +29,7 @@
 .ciconnectSummaryWeather {
 	float: right;
 }
+
+.jenkinsbo .pipeline-big-label  {
+	font-size: 0.8rem;
+}
