@@ -23,7 +23,7 @@
 							<ObjectNumber number="{pipeline>countOfRepoAssigned}" unit="Repo assigned" class="sapUiSmallMargin"
 								state="{path: 'pipeline>countOfRepoAssigned', formatter: '.formatter.pipeLineAssignedRepoState'}"/>
 						</HBox>
-						<ci:BOControl moduleName="weather-icon" controlName="WeatherIcon" props="{pipeline>}">
+						<ci:BOControl moduleName="PipelineGraph" controlName="PipelineGraph" props="{pipeline>}">
 						</ci:BOControl>
 					</HBox>
 				</CustomListItem>

@@ -66,14 +66,9 @@ sap.ui.define([
 					});
 
 				var $bo = jQuery("#" + that.getId()).children();
-				that.adjustBOControlSvg($bo);
 				that.addJenkinsboClass($bo); // add namespace of css -- quick and dirty solution
 			}
 		});
-	};
-	
-	BOControl.prototype.adjustBOControlSvg = function (aDomElement) {
-		
 	};
 	
 	BOControl.prototype.addJenkinsboClass = function (aDomElement) {

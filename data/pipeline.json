@@ -1,86 +1,134 @@
 [{
-	"id": "pipeline1",
+	"key": "pipeline1",
 	"name": "SAP predefined Pipeline A",
 	"type": "mixed",
 	"sapPredefined": true,
 	"countOfRepoAssigned": 3,
-	"jobs": [{
+	"layout": {
+		"nodeSpacingH": 50,
+		 "nodeSpacingV": 15,
+		 "nodeRadius": 10
+	},
+	"stages": [{
+		"id": 1,
 		"type": "central",
-		"goal": "BLD",
+		"name": "BLD",
+		"state": "queued",
 		"short_desc": "Click to see document.",
 		"link": "https://github.wdf.sap.corp/production-services/build-service/blob/master/README.md"
 	}, {
+		"id": 2,
 		"type": "local",
-		"goal": "VER",
+		"name": "VER",
+		"state": "queued",
 		"short_desc": "Click to see document.",
 		"link": "https://github.wdf.sap.corp/production-services/demo-test-service/blob/master/README.md"
 	}, {
+		"id": 3,
 		"type": "local",
-		"goal": "VAL",
+		"name": "VAL",
+		"state": "queued",
 		"short_desc": "Short description for validation job. Should be at most 2 sentences."
 	}, {
+		"id": 4,
 		"type": "central",
-		"goal": "DEP",
+		"name": "DEP",
+		"state": "queued",
 		"short_desc": "Click to see document.",
 		"link": "https://github.wdf.sap.corp/production-services/cf-deploy-service/blob/master/README.md"
 	}]
 }, {
-	"id": "pipeline2",
+	"key": "pipeline2",
 	"name": "SAP predefined Pipeline B",
 	"type": "centralOnly",
 	"sapPredefined": true,
 	"countOfRepoAssigned": 0,
-	"jobs": [{
+	"layout": {
+		"nodeSpacingH": 50,
+		 "nodeSpacingV": 15,
+		 "nodeRadius": 10
+	},
+	"stages": [{
+		"id": 5,
 		"type": "central",
-		"goal": "BLD",
+		"name": "BLD",
+		"state": "queued",
 		"short_desc": "Short description for build job. Should be at most 2 sentences."
 	}, {
+		"id": 6,
 		"type": "central",
-		"goal": "DEP",
+		"name": "DEP",
+		"state": "queued",
 		"short_desc": "Short description for deploy job. Should be at most 2 sentences."
 	}]
 }, {
-	"id": "pipeline3",
+	"key": "pipeline3",
 	"name": "Some Team's Simple Pipeline",
 	"type": "localOnly",
 	"countOfRepoAssigned": 1,
-	"jobs": [{
+	"layout": {
+		"nodeSpacingH": 50,
+		 "nodeSpacingV": 15,
+		 "nodeRadius": 10
+	},
+	"stages": [{
+		"id": 7,
 		"type": "local",
-		"goal": "BLD",
+		"name": "BLD",
+		"state": "queued",
 		"short_desc": "Short description for build job. Should be at most 2 sentences."
 	}, {
+		"id": 8,
 		"type": "local",
-		"goal": "DEP",
+		"name": "DEP",
+		"state": "queued",
 		"short_desc": "Short description for deploy job. Should be at most 2 sentences."
 	}]
 }, {
-	"id": "pipeline4",
+	"key": "pipeline4",
 	"name": "Some Team's Fancy Pipeline",
 	"type": "mixed",
 	"countOfRepoAssigned": 7,
-	"jobs": [{
+	"layout": {
+		"nodeSpacingH": 50,
+		 "nodeSpacingV": 15,
+		 "nodeRadius": 10
+	},
+	"stages": [{
+		"id": 9,
 		"type": "local",
-		"goal": "BLD",
+		"name": "BLD",
+		"state": "queued",
 		"short_desc": "building"
 	}, {
+		"id": 10,
 		"type": "central",
-		"goal": "VER",
+		"name": "VER",
+		"state": "queued",
 		"short_desc": "versioning"
 	}, {
+		"id": 11,
 		"type": "local",
-		"goal": "VAL",
+		"name": "VAL",
+		"state": "queued",
 		"short_desc": "validation"
 	}, {
+		"id": 12,
 		"type": "central",
-		"goal": "STG",
+		"name": "STG",
+		"state": "queued",
 		"short_desc": "staging"
 	}, {
+		"id": 13,
 		"type": "central",
-		"goal": "PRM",
+		"name": "PRM",
+		"state": "queued",
 		"short_desc": "promotion"
 	}, {
+		"id": 14,
 		"type": "local",
-		"goal": "DEP",
+		"name": "DEP",
+		"state": "queued",
 		"short_desc": "deploy"
 	}]
 }]
