@@ -6,9 +6,29 @@ sap.ui.define([
 	var BOControl = Control.extend("sap.ciconnect.control.BOControl", {
 		metadata: {
 			properties: {
-				moduleName: {type: "string"}, // amd module
-				controlName: {type: "string"}, // control name on exported object
-				props: {type: "any"}	// react property
+				/**
+				 * Width of root <div>
+				 */
+				width: {type: "sap.ui.core.CSSSize", defaultValue: undefined},
+				/**
+				 * Height of root <div>
+				 */
+				height: {type: "sap.ui.core.CSSSize", defaultValue: undefined},
+				/**
+				 * Module name of Jenkins-design-language control in AMD module bundle system
+				 */
+				moduleName: {type: "string"},
+				/**
+				 * Control name of Jenkins-design-language control in the module
+				 */
+				controlName: {type: "string"},
+				/**
+				 * JSON data property in control props definition
+				 */
+				props: {type: "any"}
+			},
+			events: {
+				
 			}
 		}
 	});
@@ -44,10 +64,16 @@ sap.ui.define([
 					document.getElementById(sId), function ($ref) {
 						return $ref;
 					});
-				// work around: add 'jenkinsbo' namespace to each of the children dom elements
-				that.addJenkinsboClass(jQuery("#" + that.getId()).children());
+
+				var $bo = jQuery("#" + that.getId()).children();
+				that.adjustBOControlSvg($bo);
+				that.addJenkinsboClass($bo); // add namespace of css -- quick and dirty solution
 			}
 		});
+	};
+	
+	BOControl.prototype.adjustBOControlSvg = function (aDomElement) {
+		
 	};
 	
 	BOControl.prototype.addJenkinsboClass = function (aDomElement) {

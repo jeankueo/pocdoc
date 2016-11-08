@@ -25,3 +25,7 @@
 .ciconnectIcon {
 	color: #888888;
 }
+
+.ciconnectSummaryWeather {
+	float: right;
+}
