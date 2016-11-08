@@ -1,7 +1,7 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
 		controllerName="sap.ciconnect.view.index" xmlns:html="http://www.w3.org/1999/xhtml">
 		
-	<App initialPage="ciconnect" width="100%" height="100%">
+	<App initialPage="ciconnect">
 		<Page id="ciconnect" title="Viz Pipeline PoC">
 			<content>
 				<IconTabBar stretchContentHeight="true"
@@ -10,6 +10,13 @@
 					selectedKey="{setting>/selectedTabKey}"
 					class="sapUiResponsiveContentPadding">
 					<items>
+						<IconTabFilter text="Overview"
+							key="Summary"
+							icon="sap-icon://kpi-corporate-performance">
+							<content>
+								<mvc:XMLView id="summaryView" viewName="sap.ciconnect.view.summary" />
+							</content>
+						</IconTabFilter>
 						<IconTabFilter text="Pipelines"
 							key="Pipelines"
 							icon="sap-icon://awesome/fa-pied-piper-pp"
@@ -24,13 +31,6 @@
 							count="{= ${github>/}.length + ${git>/}.length}">
 							<content>
 								<mvc:XMLView id="repoView" viewName="sap.ciconnect.view.repositories" />
-							</content>
-						</IconTabFilter>
-						<IconTabFilter text="Summary"
-							key="Summary"
-							icon="sap-icon://kpi-corporate-performance">
-							<content>
-								<mvc:XMLView id="summaryView" viewName="sap.ciconnect.view.summary" />
 							</content>
 						</IconTabFilter>
 					</items>
