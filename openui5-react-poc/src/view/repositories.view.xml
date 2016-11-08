@@ -22,11 +22,6 @@
 						</content>
 					</Toolbar>
 				</headerToolbar>
-				<infoToolbar>
-					<Toolbar visible="false">
-						<Label/>
-					</Toolbar>
-				</infoToolbar>
 				<CustomListItem>
 					<HBox alignItems="Start" justifyContent="SpaceBetween">
 						<HBox>
@@ -69,11 +64,6 @@
 						</content>
 					</Toolbar>
 				</headerToolbar>
-				<infoToolbar>
-					<Toolbar visible="false">
-						<Label/>
-					</Toolbar>
-				</infoToolbar>
 				<CustomListItem>
 					<HBox alignItems="Start" justifyContent="SpaceBetween">
 						<HBox>

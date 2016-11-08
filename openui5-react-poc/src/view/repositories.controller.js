@@ -56,19 +56,6 @@ sap.ui.define([
 		},
 
 		onSelectionChange: function (oEvent) {
-			var oList = oEvent.getSource();
-
-			var oToolbar = oList.getInfoToolbar();
-			var oLabel = oToolbar.getContent()[0];
-
-			var aSelectedContexts = oList.getSelectedContexts(true);
-			var bSelected = aSelectedContexts && aSelectedContexts.length > 0;
-			
-			var sText = bSelected ? aSelectedContexts.length + " selected" : null;
-			
-			oToolbar.setVisible(bSelected);
-			oLabel.setText(sText);
-
 			this._updateRepoToken();
 		},
 
@@ -93,11 +80,9 @@ sap.ui.define([
 		removeAllSelection: function () {
 			var oGitList = this.getView().byId("gitList");
 			oGitList.removeSelections(true);
-			oGitList.getInfoToolbar().setVisible(false);
 
 			var oGithubList = this.getView().byId("githubList");
 			oGithubList.removeSelections(true);
-			oGithubList.getInfoToolbar().setVisible(false);
 		}
 	});
 });
