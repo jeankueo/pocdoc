@@ -17,3 +17,6 @@ Todos
 - [ ] add navigation function to repo page list items, a page to see more detail of running status
 - [ ] finish active button pop
 - [ ] finish deactive button pop
+- [x] move add git input to a pop triggered by popover
+- [ ] mix github/gitgerrit tables
+- [ ] change to bage style, line items become like link + bages + a diagram
