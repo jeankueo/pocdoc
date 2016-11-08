@@ -45,7 +45,7 @@ Todos
 - [x] edit .gitignore to ignore files under asset
 - [x] move webpack config file to config package
 - [x] webpack works fine in mac/linux/windows
-- [ ] ~~in jdl weather-icon need xxx.css be loaded, and .css load .svg, but some file 'Patial Sunny.svg' contains a white space what is escaped in webpack loader, by rename it to 'Patial%20Sunny.svg' this problem is proved tobe solved, still, need to fix the escaping of empty char problem. ~~
+- [ ] ~~in jdl weather-icon need xxx.css be loaded, and .css load .svg, but some file 'Patial Sunny.svg' contains a white space what is escaped in webpack loader, by rename it to 'Patial%20Sunny.svg' this problem is proved tobe solved, still, need to fix the escaping of empty char problem.~~
 - [ ] try out standalone babel page.
 
 Outcome

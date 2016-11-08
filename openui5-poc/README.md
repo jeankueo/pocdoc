@@ -24,13 +24,13 @@ Todos
 - [x] sort out data binding
 - [x] selection of lists
 - [x] search of list
-- [ ] enhance search, filter number,text,build service names in pipeline view
-- [ ] enhance search, filter more fields for repo view
+- [ ] ~~enhance search, filter number,text,build service names in pipeline view~~
+- [ ] ~~enhance search, filter more fields for repo view~~
 - [ ] control bug (set test page in folder /test and fix)
-- [ ] vertical scroll bars
+- [ ] ~~vertical scroll bars - fixed in openui5-react-poc~~
 - [x] finish token logic
 - [x] finish two button enable logic
-- [ ] think of button click confirm window, should show all operations in list in a good manner
+- [ ] ~~think of button click confirm window, should show all operations in list in a good manner~~
 
 Outcome
 --------------
