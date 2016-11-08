@@ -58,9 +58,6 @@
 							<core:Icon size="1.5rem" src="sap-icon://awesome/fa-git-square" tooltip="Git/Gerrit Repositories"
 								class="ciconnectIcon"/>
 							<Title text="Git/Gerrit" level="H2"/>
-							<ToolbarSpacer />
-							<Label text="Add Git Repo:" />
-							<Input placeholder="ssh://xxx@xxx.git or https://xxx@xxx.git" width="300px" submit="onAddGitRepo"/>
 						</content>
 					</Toolbar>
 				</headerToolbar>

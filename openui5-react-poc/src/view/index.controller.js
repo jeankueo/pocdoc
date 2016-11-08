@@ -103,6 +103,61 @@ sap.ui.define([
 			oModel.updateBindings(true);
 
 			this.getView().byId("repoView").getController().removeAllSelection();
+		},
+
+		onPopAdd: function (oEvent) {
+			this.getView().getModel("setting").setProperty("/selectedTabKey", "Repositories");
+			this._showAddRepoUrlInput(oEvent.getSource());
+		},
+
+		_showAddRepoUrlInput: function (oHolder) {
+			this._oPopover = this._oPopover || new sap.ui.xmlfragment("sap.ciconnect.fragment.UrlPopover", this);
+			this.getView().addDependent(this._oPopover);
+			jQuery.sap.delayedCall(0, this, function () {
+				this._oPopover.openBy(oHolder);
+			})
+		},
+
+		onAddGitRepo: function (oEvent) {
+			this._addGitRepoData(oEvent);
+			this._closePopover();
+		},
+
+		_addGitRepoData: function (oEvent) {
+			var sURL = oEvent.getSource().getValue();
+			if (sURL) {
+				var oModel = this.getView().getModel("git");
+				var oData = oModel.getData();
+				oData.push({
+					"name": "new rep",
+					"full_name": "new git repository " + sURL,
+					"pipeline": {
+						"id": "pipeline4",
+						"name": "Some Team's Pipeline",
+						"type": "mixed",
+						"jobs": [{
+							"type": "local",
+							"goal": "BLD",
+							"status": "None"
+						}]
+					},
+					"private": true,
+					"folked": false
+				});
+				oModel.setData(oData);
+				oModel.updateBindings(true); // force counter in tab to update
+				oEvent.getSource().setValue();
+			}
+		},
+
+		_closePopover: function () {
+			this._oPopover.close();
+		},
+
+		onExit: function () {
+			if (this._oPopover) {
+				this._oPopover.destroy();
+			}
 		}
 	});
 });

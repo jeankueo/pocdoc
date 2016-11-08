@@ -27,33 +27,6 @@ sap.ui.define([
 			obinding = oList.getBinding("items");
 			obinding.filter(aFilters);
 		},
-		
-		onAddGitRepo: function (oEvent) {
-			var sURL = oEvent.getSource().getValue();
-			if (sURL) {
-				var oModel = this.getView().getModel("git");
-				var oData = oModel.getData();
-				oData.push({
-					"name": "new rep",
-					"full_name": "new git repository " + sURL,
-					"pipeline": {
-						"id": "pipeline4",
-						"name": "Some Team's Pipeline",
-						"type": "mixed",
-						"jobs": [{
-							"type": "local",
-							"goal": "BLD",
-							"status": "None"
-						}]
-					},
-					"private": true,
-					"folked": false
-				});
-				oModel.setData(oData);
-				oModel.updateBindings(true); // force counter in tab to update
-				oEvent.getSource().setValue();
-			}
-		},
 
 		onSelectionChange: function (oEvent) {
 			this._updateRepoToken();

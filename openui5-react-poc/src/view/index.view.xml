@@ -52,6 +52,7 @@
 							tooltip="Unassign pipeline from repository"
 							type="Reject"
 							enabled="{= ${setting>/pipelineTokenVisible} &amp;&amp; ${setting>/pipelineTokenHasRepoAssigned}}"/>
+						<OverflowToolbarButton icon="sap-icon://add" tooltip="Add a Repository via url" press="onPopAdd"/>
 					</content>
 				</Toolbar>
 			</footer>
