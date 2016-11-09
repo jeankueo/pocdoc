@@ -21,16 +21,19 @@ sap.ui.define([
 				count: 21
 			}, {
 				key: "GITHUB-O1",
+				org: "ciconnect",
 				text: "Github/ciconnect",
 				count: 7
 			}, {
 				key: "GITHUB-O2",
-				text: "Github/xxx",
-				count: 7
+				org: "i037379",
+				text: "Github/i037379",
+				count: 8
 			}, {
 				key: "GITHUB-O3",
-				text: "Github/yyy",
-				count: 7
+				org: "test",
+				text: "Github/test",
+				count: 6
 			}, {
 				key: "GIT",
 				text: "Git",

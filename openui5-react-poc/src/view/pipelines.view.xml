@@ -36,8 +36,7 @@
 							<ObjectNumber number="{pipeline>countOfRepoAssigned}" unit="Repo Assigned" class="sapUiSmallMarginBegin sapUiSmallMarginBottom"
 								state="{path: 'pipeline>countOfRepoAssigned', formatter: '.formatter.pipeLineAssignedRepoState'}"/>
 						</VBox>
-						<ci:BOControl moduleName="PipelineGraph" controlName="PipelineGraph" props="{pipeline>}">
-						</ci:BOControl>
+						<ci:BOControl moduleName="PipelineGraph" controlName="PipelineGraph" props="{pipeline>}" />
 					</HBox>
 				</CustomListItem>
 			</List>

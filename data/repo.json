@@ -27,24 +27,34 @@
 		"id": "pipeline1",
 		"name": "SAP predefined Pipeline 1",
 		"type": "mixed",
-		"jobs": [{
+          "layout": {
+              "nodeSpacingH": 70,
+              "nodeSpacingV": 15,
+              "nodeRadius": 10
+          },
+		"stages": [{
+              "id": 51612.1,
 			"type": "local",
-			"goal": "BLD",
-			"status": "Succeeded"
+			"name": "Build",
+			"state": "success"
 		}, {
+              "id": 51612.2,
 			"type": "central",
-			"goal": "VER",
-			"status": "Failed",
+			"name": "Version",
+			"state": "running",
+              "completePercent": 70,
 			"link": "http://www.google.com"
 		}, {
+              "id": 51612.3,
 			"type": "central",
-			"goal": "VAL",
-			"status": "Processing",
+			"name": "Validation",
+			"state": "queued",
 			"link": "http://www.google.com"
 		}, {
+              "id": 51612.4,
 			"type": "local",
-			"goal": "DEP",
-			"status": "Waiting"
+			"name": "Deploy",
+			"state": "queued"
 		}]
 	},
     "private": false,
@@ -190,14 +200,21 @@
 		"id": "pipeline2",
 		"name": "SAP predefined Pipeline 2",
 		"type": "centralOnly",
-		"jobs": [{
+          "layout": {
+              "nodeSpacingH": 70,
+              "nodeSpacingV": 15,
+              "nodeRadius": 10
+          },
+		"stages": [{
+              "id": "pipeline2.1",
 			"type": "central",
-			"goal": "BLD",
-			"status": "Succeeded"
+			"name": "Build",
+			"state": "not_built"
 		}, {
+              "id": "pipeline2.2",
 			"type": "central",
-			"goal": "DEP",
-			"status": "Succeeded"
+			"name": "Deploy",
+			"state": "not_built"
 		}]
 	},
     "private": true,
@@ -302,19 +319,21 @@
 		"id": "pipeline3",
 		"name": "Jane's Pipeline",
 		"type": "localOnly",
-		"jobs": [{
+          "layout": {
+              "nodeSpacingH": 70,
+              "nodeSpacingV": 15,
+              "nodeRadius": 10
+          },
+		"stages": [{
+              "id": "pipeline3.1",
 			"type": "local",
-			"goal": "BLD",
-			"status": "Succeeded"
-		}, {
-			"type": "local",
-			"goal": "DEP",
-			"status": "Processing"
+			"name": "Build",
+			"state": "failure"
 		}]
 	},
     "private": false,
     "html_url": "https://github.wdf.sap.corp/I037379/helloworld",
-    "description": "",
+    "description": "This is dummy data for test",
     "fork": false,
     "url": "https://github.wdf.sap.corp/api/v3/repos/I037379/helloworld",
     "forks_url": "https://github.wdf.sap.corp/api/v3/repos/I037379/helloworld/forks",
@@ -386,9 +405,9 @@
     }
   },
   {
-    "id": 1,
+    "id": 4,
     "name": "helloworld 2",
-    "full_name": "I037379/helloworld",
+    "full_name": "PoC for resource based planning",
     "repo_source": "git",
     "owner": {
       "login": "I037379",
@@ -409,23 +428,9 @@
       "type": "User",
       "site_admin": false
     },
-    "pipeline": {
-    "id": "pipeline3",
-    "name": "Jane's Pipeline",
-    "type": "localOnly",
-    "jobs": [{
-      "type": "local",
-      "goal": "BLD",
-      "status": "Succeeded"
-    }, {
-      "type": "local",
-      "goal": "DEP",
-      "status": "Processing"
-    }]
-  },
     "private": false,
     "html_url": "https://github.wdf.sap.corp/I037379/helloworld",
-    "description": "",
+    "description": "This is dummy data for test",
     "fork": false,
     "url": "https://github.wdf.sap.corp/api/v3/repos/I037379/helloworld",
     "forks_url": "https://github.wdf.sap.corp/api/v3/repos/I037379/helloworld/forks",
@@ -497,9 +502,9 @@
     }
   },
   {
-    "id": 2,
+    "id": 5,
     "name": "helloworld 2",
-    "full_name": "I037379/helloworld",
+    "full_name": "Project for resource based planning",
     "repo_source": "git",
     "owner": {
       "login": "I037379",
@@ -521,23 +526,28 @@
       "site_admin": false
     },
     "pipeline": {
-    "id": "pipeline3",
-    "name": "Jane's Pipeline",
-    "type": "localOnly",
-    "jobs": [{
-      "type": "local",
-      "goal": "BLD",
-      "status": "Succeeded"
-    }, {
-      "type": "local",
-      "goal": "DEP",
-      "status": "Processing"
-    }]
-  },
+          "id": "pipeline3",
+          "name": "Jane's Pipeline",
+          "type": "localOnly",
+          "layout": {
+              "nodeSpacingH": 70,
+              "nodeSpacingV": 15,
+              "nodeRadius": 10
+          },
+          "stages": [{
+            "type": "local",
+            "name": "Build",
+            "state": "unstable"
+          }, {
+            "type": "local",
+            "name": "Deploy",
+            "state": "aborted"
+          }]
+    },
     "with_gerrit": true,
     "private": false,
     "html_url": "https://github.wdf.sap.corp/I037379/helloworld",
-    "description": "",
+    "description": "This is dummy data for test",
     "fork": false,
     "url": "https://github.wdf.sap.corp/api/v3/repos/I037379/helloworld",
     "forks_url": "https://github.wdf.sap.corp/api/v3/repos/I037379/helloworld/forks",

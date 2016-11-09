@@ -2,8 +2,16 @@
 	 background-image: url("/openui5-react-poc/src/svg/Gerrit.svg");
 }
 
+.ciConnectSvgGerritColor {
+	 background-image: url("/openui5-react-poc/src/svg/GerritColor.svg");
+}
+
 .ciConnectSvgGit {
 	 background-image: url("/openui5-react-poc/src/svg/Git.svg");
+}
+
+.ciConnectSvgGitColor {
+	 background-image: url("/openui5-react-poc/src/svg/GitColor.svg");
 }
 
 .ciConnectSvgGitSquare {

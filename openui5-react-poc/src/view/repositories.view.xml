@@ -33,17 +33,7 @@
 							</HBox>
 							<Text text="{repo>description}"/>
 						</VBox>
-						<ci:Pipeline type="{repo>type}" jobs="{path:'repo>pipeline/jobs', templateShareable: true}" titleFirst="false"
-							 tileHeight="20" tileWidth="30" jobStyle="{setting>/jobStyle}" enableConnection="{setting>/enableConnection}"
-							 enableText="{setting>/enableText}" enableTwoRow="{setting>/enableTwoRow}">
-							<ci:title>
-								<Label text="{repo>pipeline/name}" tooltip="{repo>pipeline/name}"/>
-							</ci:title>
-							<ci:jobs>
-								<ci:Job goal="{repo>goal}" type="{repo>type}" status="{repo>status}"
-									shortTooltip="status: {repo>status}" serviceLink="{repo>link}"/>
-							</ci:jobs>
-						</ci:Pipeline>
+						<ci:BOControl moduleName="PipelineGraph" controlName="PipelineGraph" props="{repo>pipeline}" />
 					</HBox>
 				</CustomListItem>
 			</List>
