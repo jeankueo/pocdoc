@@ -2,6 +2,20 @@ Steps to set up openui5-react PoC (4/4)
 --------------
 Prerequisite: nodeJS is installed
 
+ * Download dependencies. Blue ocean design language will be downloaded by bower while others are referenced as node module.
+```sh
+npm run installAll
+```
+ * Run gulp to build BO src, tasks including ES6 to ES5 in amd module format; translate LESS to CSS, copy svg files.
+```sh
+npm run gulp
+```
+ * Run an HTTP server, middleware are installed in this js.
+```sh
+node server.js
+```
+ * Access by link [http://localhost:76547/openui5-react-poc/public](http://localhost:7654/openui5-react-poc/public)
+
 Todos
 --------------
 - [x] use requirejs to integrate amd bo to ui5.
