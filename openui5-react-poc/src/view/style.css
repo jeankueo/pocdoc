@@ -22,8 +22,10 @@
 	margin: 5px;
 }
 
-.ciconnectIcon {
+.ciconnectBadge {
 	color: #888888;
+	size: 1rem;
+	margin-left: 5px;
 }
 
 .ciconnectSummaryWeather {

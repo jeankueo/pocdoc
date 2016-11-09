@@ -16,6 +16,11 @@ node server.js
 ```
  * Access by link [http://localhost:76547/openui5-react-poc/public](http://localhost:7654/openui5-react-poc/public)
 
+Useful links
+--------------
+* Octicons list: [https://octicons.github.com/](https://octicons.github.com/)
+* Fontawesome icon list: [http://fontawesome.io/icons/](http://fontawesome.io/icons/)
+
 Todos
 --------------
 - [x] use requirejs to integrate amd bo to ui5.

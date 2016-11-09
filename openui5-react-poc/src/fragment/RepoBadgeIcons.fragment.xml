@@ -1,0 +1,22 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<HBox>
+		<core:Icon id="github" class="ciconnectBadge" 
+			visible="{= ${repo>repo_source} === 'github'}"
+			src="sap-icon://oct/octicon-mark-github"
+			tooltip="Github"/>
+		<core:Icon id="git" class="ciconnectBadge"
+			visible="{= ${repo>repo_source} === 'git'}"
+			src="sap-icon://awesome/fa-git-square"
+			tooltip="Git"/>
+		<core:Icon id="private" class="ciconnectBadge"
+			visible="{repo>private}"
+			src="sap-icon://oct/octicon-shield"
+			tooltip="Private" />
+		<core:Icon id="fork" class="ciconnectBadge"
+			visible="{repo>fork}"
+			src="sap-icon://oct/octicon-repo-forked"
+			tooltip="Forked" />
+	</HBox>
+</core:FragmentDefinition>

@@ -26,14 +26,13 @@
 				selectionChange="onSelectionChange">
 				<CustomListItem>
 					<HBox alignItems="Start" justifyContent="SpaceBetween">
-						<HBox>
-							<core:Icon size="1rem" class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom ciconnectIcon"
-								src="sap-icon://oct/{= ${repo>private} ? 'octicon-shield' : (${repo>fork} ? 'octicon-repo-forked' : 'octicon-repo')}" />
-							<VBox  class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" >
+						<VBox  class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" >
+							<HBox>
 								<Link text="{repo>full_name}" target="_blank" href="{repo>html_url}"/>
-								<Text text="{repo>description}"/>
-							</VBox>
-						</HBox>
+								<core:Fragment fragmentName="sap.ciconnect.fragment.RepoBadgeIcons" type="XML" />
+							</HBox>
+							<Text text="{repo>description}"/>
+						</VBox>
 						<ci:Pipeline type="{repo>type}" jobs="{path:'repo>pipeline/jobs', templateShareable: true}" titleFirst="false"
 							 tileHeight="20" tileWidth="30" jobStyle="{setting>/jobStyle}" enableConnection="{setting>/enableConnection}"
 							 enableText="{setting>/enableText}" enableTwoRow="{setting>/enableTwoRow}">
