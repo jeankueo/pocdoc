@@ -14,30 +14,25 @@ sap.ui.define([
 			oModel.setData([{
 				key: "ALL",
 				text: "All",
-				count: 26
+				count: 10
 			}, {
 				key: "GITHUB",
 				text: "Github",
-				count: 21
+				count: 8
 			}, {
 				key: "GITHUB-O1",
 				org: "ciconnect",
-				text: "Github/ciconnect",
-				count: 7
+				text: "Github-ciconnect",
+				count: 5
 			}, {
 				key: "GITHUB-O2",
 				org: "i037379",
-				text: "Github/i037379",
-				count: 8
-			}, {
-				key: "GITHUB-O3",
-				org: "test",
-				text: "Github/test",
-				count: 6
+				text: "Github-i037379",
+				count: 3
 			}, {
 				key: "GIT",
 				text: "Git",
-				count: 5
+				count: 2
 			}]);
 			this.getView().setModel(oModel, "category");
 		},

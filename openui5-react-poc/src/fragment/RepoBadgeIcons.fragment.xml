@@ -6,30 +6,26 @@
 		<core:Icon id="github"  class="ciconnectBadge"
 			visible="{= ${repo>repo_source} === 'github'}"
 			src="sap-icon://oct/octicon-mark-github"
-			color="rgb(224, 157, 0)"
 			tooltip="Github"/>
 		<ciconnect:SvgIcon id="git"  class="ciconnectBadge"
 			visible="{= ${repo>repo_source} === 'git'}"
-			name="GitColor"
+			name="Git"
 			tooltip="Git"/>
 		<ciconnect:SvgIcon id="gerrit"  class="ciconnectBadge" 
 			visible="{= ${repo>with_gerrit} ? true : false}"
-			name="GerritColor"
+			name="Gerrit"
 			tooltip="Gerrit"/>
 		<core:Icon id="fork" class="ciconnectBadge" 
 			visible="{= ${repo>repo_source} === 'github' &amp;&amp; ${repo>fork} ? true : false}"
 			src="sap-icon://oct/octicon-repo-forked"
-			color="rgb(0, 112, 177)"
 			tooltip="Forked" />
 		<core:Icon id="origin" class="ciconnectBadge" 
 			visible="{= ${repo>repo_source} === 'github' &amp;&amp; !${repo>fork} ? true : false}"
 			src="sap-icon://oct/octicon-repo"
-			color="rgb(0, 112, 177)"
 			tooltip="Origin" />
 		<core:Icon id="private" class="ciconnectBadge" 
 			visible="{= ${repo>private} ? true : false}"
 			src="sap-icon://oct/octicon-shield"
-			color="#888"
 			tooltip="Private" />
 	</HBox>
 </core:FragmentDefinition>

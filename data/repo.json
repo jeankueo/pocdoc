@@ -4,6 +4,7 @@
     "name": "bulletinboard-ads",
     "full_name": "I037379/bulletinboard-ads",
     "repo_source": "github",
+    "org": "i037379",
     "owner": {
       "login": "I037379",
       "id": 9244,
@@ -177,6 +178,7 @@
     "name": "cc-devops-coursematerial",
     "full_name": "I037379/cc-devops-coursematerial",
     "repo_source": "github",
+    "org": "i037379",
     "owner": {
       "login": "I037379",
       "id": 9244,
@@ -292,10 +294,189 @@
     }
   },
   {
+    "id": 123,
+    "name": "pipeline-poc",
+    "full_name": "ciconnect/pipeline-poc",
+    "description": "testtest tse dfefjkw dv sd f ef th e rf sedf sdfsf eref we fw efwe",
+    "repo_source": "github",
+    "org": "ciconnect",
+    "private": true,
+    "fork": false,
+    "pipeline": {
+      "id": "pipeline123",
+      "name": "Jane's Pipeline",
+      "type": "localOnly",
+      "layout": {
+          "nodeSpacingH": 70,
+          "nodeSpacingV": 15,
+          "nodeRadius": 10
+      },
+      "stages": [{
+        "id": "pipeline123.1",
+        "type": "local",
+        "name": "Test",
+        "state": "success"
+      }]
+    }
+  },
+    {
+    "id": 124,
+    "name": "service1",
+    "full_name": "ciconnect/service1",
+    "description": "testtest tse dfefjkw dv sd f ef th e rf sedf sdfsf eref we fw efwe",
+    "repo_source": "github",
+    "org": "ciconnect",
+    "private": false,
+    "fork": false,
+    "pipeline": {
+    "id": "pipeline1",
+    "name": "SAP predefined Pipeline 1",
+    "type": "mixed",
+          "layout": {
+              "nodeSpacingH": 70,
+              "nodeSpacingV": 15,
+              "nodeRadius": 10
+          },
+          "stages": [{
+            "id": 124.1,
+            "type": "local",
+            "name": "Build",
+            "state": "success"
+          }, {
+            "id": 124.2,
+            "type": "central",
+            "name": "Version",
+            "state": "success",
+            "link": "http://www.google.com"
+          }, {
+            "id": 124.3,
+            "type": "central",
+            "name": "Validation",
+            "state": "success",
+            "link": "http://www.google.com"
+          }]
+        }
+  },
+  {
+    "id": 125,
+    "name": "service2",
+    "full_name": "ciconnect/service2",
+    "description": "testtest tse dfefjkw dv sd f ef th e rf sedf sdfsf eref we fw efwe",
+    "repo_source": "github",
+    "org": "ciconnect",
+    "private": false,
+    "fork": false,
+    "pipeline": {
+    "id": "pipeline1",
+    "name": "SAP predefined Pipeline 1",
+    "type": "mixed",
+          "layout": {
+              "nodeSpacingH": 70,
+              "nodeSpacingV": 15,
+              "nodeRadius": 10
+          },
+          "stages": [{
+            "id": 125.1,
+            "type": "local",
+            "name": "Build",
+            "state": "success"
+          }, {
+            "id": 125.2,
+            "type": "central",
+            "name": "Version",
+            "state": "success",
+            "link": "http://www.google.com"
+          }, {
+            "id": 125.3,
+            "type": "central",
+            "name": "Validation",
+            "state": "success",
+            "link": "http://www.google.com"
+          }]
+        }
+  },
+   {
+    "id": 126,
+    "name": "service3",
+    "full_name": "ciconnect/service3",
+    "description": "testtest tse dfefjkw dv sd f ef th e rf sedf sdfsf eref we fw efwe",
+    "repo_source": "github",
+    "org": "ciconnect",
+    "private": false,
+    "fork": false,
+    "pipeline": {
+    "id": "pipeline1",
+    "name": "SAP predefined Pipeline 1",
+    "type": "mixed",
+          "layout": {
+              "nodeSpacingH": 70,
+              "nodeSpacingV": 15,
+              "nodeRadius": 10
+          },
+          "stages": [{
+            "id": 126.1,
+            "type": "local",
+            "name": "Build",
+            "state": "success"
+          }, {
+            "id": 126.2,
+            "type": "central",
+            "name": "Version",
+            "state": "success",
+            "link": "http://www.google.com"
+          }, {
+            "id": 126.3,
+            "type": "central",
+            "name": "Validation",
+            "state": "unstable",
+            "link": "http://www.google.com"
+          }]
+        }
+  },
+   {
+    "id": 127,
+    "name": "service4",
+    "full_name": "ciconnect/service4",
+    "description": "testtest tse dfefjkw dv sd f ef th e rf sedf sdfsf eref we fw efwe",
+    "repo_source": "github",
+    "org": "ciconnect",
+    "private": false,
+    "fork": false,
+    "pipeline": {
+    "id": "pipeline1",
+    "name": "SAP predefined Pipeline 1",
+    "type": "mixed",
+          "layout": {
+              "nodeSpacingH": 70,
+              "nodeSpacingV": 15,
+              "nodeRadius": 10
+          },
+          "stages": [{
+            "id": 127.1,
+            "type": "local",
+            "name": "Build",
+            "state": "success"
+          }, {
+            "id": 127.2,
+            "type": "central",
+            "name": "Version",
+            "state": "success",
+            "link": "http://www.google.com"
+          }, {
+            "id": 127.3,
+            "type": "central",
+            "name": "Validation",
+            "state": "failure",
+            "link": "http://www.google.com"
+          }]
+        }
+  },
+  {
     "id": 35925,
     "name": "helloworld",
     "full_name": "I037379/helloworld",
     "repo_source": "github",
+    "org": "i037379",
     "owner": {
       "login": "I037379",
       "id": 9244,
@@ -506,6 +687,7 @@
     "name": "helloworld 2",
     "full_name": "Project for resource based planning",
     "repo_source": "git",
+    "with_gerrit": true,
     "owner": {
       "login": "I037379",
       "id": 9244,
@@ -526,7 +708,7 @@
       "site_admin": false
     },
     "pipeline": {
-          "id": "pipeline3",
+          "id": "pipeline4",
           "name": "Jane's Pipeline",
           "type": "localOnly",
           "layout": {
@@ -535,16 +717,17 @@
               "nodeRadius": 10
           },
           "stages": [{
+            "id": "pipeline4.1",
             "type": "local",
             "name": "Build",
             "state": "unstable"
           }, {
+            "id": "pipeline4.2",
             "type": "local",
             "name": "Deploy",
             "state": "aborted"
           }]
     },
-    "with_gerrit": true,
     "private": false,
     "html_url": "https://github.wdf.sap.corp/I037379/helloworld",
     "description": "This is dummy data for test",
