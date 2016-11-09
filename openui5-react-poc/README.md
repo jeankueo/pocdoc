@@ -26,7 +26,7 @@ Todos
 - [ ] move vscroll bar from view level on to list level
 - [x] add a category dropdown in front of search on pipeline page (e.g. Fiori standard pipeline)
 - [ ] enhance search function (fuzzy) of pipeline page
-- [ ] add an organization + git/gerrit + all selection dropdown in front of search on repo page.
+- [x] add an organization + git/gerrit + all selection dropdown in front of search on repo page.
 - [ ] enhance search function (fuzzy) of repo page
 - [ ] add navigation function to pipeline page list items, a page to edit pipeline, and see more details about it
 - [ ] add navigation function to repo page list items, a page to see more detail of running status
@@ -36,3 +36,5 @@ Todos
 - [x] mix github/gitgerrit tables
 - [ ] change to bage style, line items become like link + bages + a diagram
 - [ ] adjust css to be more close to blue ocean theme
+- [ ] integrate with real system
+- [ ] add db (json-based)

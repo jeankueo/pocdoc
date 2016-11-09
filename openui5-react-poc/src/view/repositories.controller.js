@@ -6,6 +6,37 @@ sap.ui.define([
 	return Controller.extend("sap.ciconnect.view.repositories", {
 		onInit: function() {
 			this._iSelectCount = 0;
+			this._initData();
+		},
+
+		_initData: function () {
+			var oModel = new JSONModel();
+			oModel.setData([{
+				key: "ALL",
+				text: "All",
+				count: 26
+			}, {
+				key: "GITHUB",
+				text: "Github",
+				count: 21
+			}, {
+				key: "GITHUB-O1",
+				text: "Github/ciconnect",
+				count: 7
+			}, {
+				key: "GITHUB-O2",
+				text: "Github/xxx",
+				count: 7
+			}, {
+				key: "GITHUB-O3",
+				text: "Github/yyy",
+				count: 7
+			}, {
+				key: "GIT",
+				text: "Git",
+				count: 5
+			}]);
+			this.getView().setModel(oModel, "category");
 		},
 		
 		onSearch: function (oEvent) {
