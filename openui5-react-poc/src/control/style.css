@@ -1,4 +1,21 @@
-.ciconnectPipelineDiv {
+.ciConnectSvgGerrit {
+	 background-image: url("/openui5-react-poc/src/svg/Gerrit.svg");
+}
+
+.ciConnectSvgGit {
+	 background-image: url("/openui5-react-poc/src/svg/Git.svg");
+}
+
+.ciConnectSvgGitSquare {
+	 background-image: url("/openui5-react-poc/src/svg/GitSquare.svg");
+}
+
+.ciConnectSvgGithub {
+	 background-image: url("/openui5-react-poc/src/svg/Github.svg");
+}
+
+.ciConnectSvgGithubSquare {
+	 background-image: url("/openui5-react-poc/src/svg/GithubSquare.svg");
 }
 
 .ciconnectPipelineSvgFrame {

@@ -23,9 +23,11 @@
 }
 
 .ciconnectBadge {
-	color: #888888;
-	size: 1rem;
 	margin-left: 5px;
+	size: 1rem;  /* for icon font */
+	width: 1rem; /* for svg */
+	height: 1rem; /* for svg */
+	background-size: 1rem 1rem; /* for svg */
 }
 
 .ciconnectSummaryWeather {

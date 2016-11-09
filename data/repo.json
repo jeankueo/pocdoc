@@ -201,6 +201,7 @@
 		}]
 	},
     "private": true,
+    "with_gerrit": false,
     "html_url": "https://github.wdf.sap.corp/I037379/cc-devops-coursematerial",
     "description": "Trainer guide and exercises for Cloud Curriculum M4 - CD + DevOps",
     "fork": true,
@@ -500,7 +501,6 @@
     "name": "helloworld 2",
     "full_name": "I037379/helloworld",
     "repo_source": "git",
-    "with_gerrit": true,
     "owner": {
       "login": "I037379",
       "id": 9244,
@@ -534,6 +534,7 @@
       "status": "Processing"
     }]
   },
+    "with_gerrit": true,
     "private": false,
     "html_url": "https://github.wdf.sap.corp/I037379/helloworld",
     "description": "",
