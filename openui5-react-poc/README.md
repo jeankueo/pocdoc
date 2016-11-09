@@ -38,3 +38,5 @@ Todos
 - [ ] adjust css to be more close to blue ocean theme
 - [ ] integrate with real system
 - [ ] add db (json-based)
+- [ ] event handling of BOControl
+- [ ] linkage / event navigation of repo/pipeline page
