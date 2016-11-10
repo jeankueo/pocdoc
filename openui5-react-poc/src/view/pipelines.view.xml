@@ -27,13 +27,10 @@
 					<HBox alignItems="Start" justifyContent="SpaceBetween">
 						<VBox>
 							<HBox class="sapUiSmallMarginTop">
-								<core:Icon size="1rem" class="sapUiSmallMarginBegin  ciconnectIcon"
-									src="sap-icon://{= ${pipeline>sapPredefined} ? 'sap-logo-shape' : 'customize'}"/>
-
-								<Link text="{pipeline>name}" target="_blank" href="{pipeline>html_url}" class="sapUiSmallMarginBegin"/>
+								<Link text="{pipeline>name}" target="_blank" href="{pipeline>html_url}" />
+								<core:Fragment fragmentName="sap.ciconnect.fragment.PipelineBadgeIcons" type="XML" />
 							</HBox>
-							<ObjectNumber number="{pipeline>countOfRepoAssigned}" unit="Repo Assigned" class="sapUiSmallMarginBegin sapUiSmallMarginBottom"
-								state="{path: 'pipeline>countOfRepoAssigned', formatter: '.formatter.pipeLineAssignedRepoState'}"/>
+							<Text text="{pipeline>description}"/>
 						</VBox>
 						<ci:BOControl moduleName="PipelineGraph" controlName="PipelineGraph" props="{pipeline>}" />
 					</HBox>

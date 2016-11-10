@@ -26,7 +26,7 @@
 				selectionChange="onSelectionChange">
 				<CustomListItem>
 					<HBox alignItems="Start" justifyContent="SpaceBetween">
-						<VBox  class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" >
+						<VBox  class="sapUiSmallMarginTopBottom" >
 							<HBox>
 								<Link text="{repo>full_name}" target="_blank" href="{repo>html_url}"/>
 								<core:Fragment fragmentName="sap.ciconnect.fragment.RepoBadgeIcons" type="XML" />

@@ -16,23 +16,23 @@ sap.ui.define([
 			oModel.setData([{
 				key: "ALL",
 				text: "All",
-				count: 28
+				count: 6
 			}, {
 				key: "FIORI",
 				text: "Fiori",
-				count: 10
+				count: 1
 			}, {
 				key: "SAPUI5",
 				text: "UI5",
-				count: 5
+				count: 1
 			}, {
 				key: "HCP_CLASSIC",
 				text: "HCP Classic",
-				count: 6
+				count: 1
 			}, {
 				key: "HCP_CF",
 				text: "HCP Cloudfoundry",
-				count: 7
+				count: 1
 			}]);
 			this.getView().setModel(oModel, "category");
 		},

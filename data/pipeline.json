@@ -1,6 +1,7 @@
 [{
 	"key": "pipeline1",
-	"name": "SAP predefined Pipeline A",
+	"name": "Fiori pipeline",
+	"description": "Predefined pipeline delivered by SAP for Fiori",
 	"type": "mixed",
 	"sapPredefined": true,
 	"countOfRepoAssigned": 3,
@@ -46,7 +47,8 @@
 	}]
 }, {
 	"key": "pipeline2",
-	"name": "SAP predefined Pipeline B",
+	"name": "HCP Classic pipeline",
+	"description": "Predefined pipeline delivered by SAP for HCP Classic",
 	"type": "centralOnly",
 	"sapPredefined": true,
 	"countOfRepoAssigned": 0,
@@ -70,7 +72,9 @@
 	}]
 }, {
 	"key": "pipeline3",
-	"name": "Some Team's Simple Pipeline",
+	"name": "SAPUI5 pipeline",
+	"description": "Predefined pipeline delivered by SAP for SAPUI5",
+	"sapPredefined": true,
 	"type": "localOnly",
 	"countOfRepoAssigned": 1,
 	"layout": {
@@ -93,7 +97,9 @@
 	}]
 }, {
 	"key": "pipeline4",
-	"name": "Some Team's Fancy Pipeline",
+	"name": "HCP CLoudfoundry pipeline",
+	"sapPredefined": true,
+	"description": "Predefined pipeline delivered by SAP for HCP Cloudfoundry",
 	"type": "mixed",
 	"countOfRepoAssigned": 7,
 	"layout": {
@@ -137,5 +143,65 @@
 		"name": "Deploy",
 		"state": "not_built",
 		"short_desc": "deploy"
+	}]
+}, {
+	"key": "pipeline5",
+	"name": "i037379's pipeline",
+	"description": "Predefined pipeline delivered by SAP for HCP Cloudfoundry",
+	"type": "mixed",
+	"countOfRepoAssigned": 2,
+	"layout": {
+		"nodeSpacingH": 70,
+		"nodeSpacingV": 15,
+		"nodeRadius": 10
+	},
+	"stages": [{
+		"id": 15,
+		"type": "local",
+		"name": "Test",
+		"state": "not_built",
+		"short_desc": "Test"
+	}, {
+		"id": 16,
+		"type": "central",
+		"name": "Commit",
+		"state": "not_built",
+		"short_desc": "Commit"
+	}]
+}, {
+	"key": "pipeline6",
+	"name": "TM's pipeline",
+	"description": "tm hosted pipeline",
+	"type": "mixed",
+	"countOfRepoAssigned": 1,
+	"layout": {
+		"nodeSpacingH": 70,
+		"nodeSpacingV": 15,
+		"nodeRadius": 10
+	},
+	"stages": [{
+		"id": 17,
+		"type": "local",
+		"name": "Build",
+		"state": "not_built",
+		"short_desc": "Build"
+	}, {
+		"id": 18,
+		"type": "central",
+		"name": "Test",
+		"state": "not_built",
+		"short_desc": "Test"
+	}, {
+		"id": 19,
+		"type": "central",
+		"name": "Commit",
+		"state": "not_built",
+		"short_desc": "Commit"
+	}, {
+		"id": 20,
+		"type": "central",
+		"name": "Deploy",
+		"state": "not_built",
+		"short_desc": "upload"
 	}]
 }]

@@ -1,0 +1,20 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:ciconnect="sap.ciconnect.control">
+	<HBox>
+		<core:Icon id="source"  class="ciconnectBadge"
+			visible="{= ${pipeline>sapPredefined} ? true : false}"
+			src="sap-icon://sap-logo-shape"
+			color="rgb(0, 146, 209)"
+			tooltip="SAP predefined"/>
+		<ObjectNumber id="repoKPI" class="ciconnectBadge"
+			number="{pipeline>countOfRepoAssigned}" 
+			tooltip="Number of Repository Assigned" 
+			state="{path: 'pipeline>countOfRepoAssigned', formatter: '.formatter.pipeLineAssignedRepoState'}"/>
+		<!--<ciconnect:SvgIcon id="git"  class="ciconnectBadge"
+			visible="{= ${repo>repo_source} === 'git'}"
+			name="Git"
+			tooltip="Git"/>-->
+	</HBox>
+</core:FragmentDefinition>
