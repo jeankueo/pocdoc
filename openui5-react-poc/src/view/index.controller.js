@@ -45,6 +45,9 @@ sap.ui.define([
 			this._loadPipelineData();
 			this._loadRepoData();
 			this._initSettingData();
+
+			this.getView().setModel("selectedRepo", new JSONModel());
+			this.getView().setModel("selectedPipeline", new JSONModel());
 		},
 
 		_loadPipelineData: function () {
@@ -113,7 +116,15 @@ sap.ui.define([
 		},
 
 		onPopAssign: function (oEvent) {
-			this._showPopOverFragment(oEvent.getSource(), "AssignPopover");
+			this._showPopOverFragment(
+				oEvent.getSource(), 
+				"AssignPopover",
+				this._buildAssignModel());
+		},
+
+		_buildAssignModel: function () {
+			var oRetModel = new JSONModel();
+			return oRetModel;
 		},
 
 		onPopUnassign: function (oEvent) {

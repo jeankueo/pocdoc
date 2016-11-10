@@ -3,8 +3,34 @@
 	xmlns:core="sap.ui.core">
 	<Popover
 		class="sapUiContentPadding"
-		showHeader="false'"
+		title="Assign Pipeline to Repository"
 		placement="Top">
-			
+		
+		<List id="popoverList"
+			items="{/}"
+			mode="MultiSelect"
+			includeItemInSelection="true"
+			class="sapContrast sapContrastPlus">
+			<NotificationListGroup
+				title="{title}"
+				showCloseButton="true"
+				unread="true"
+				priority="{= High : }"
+				showButtons="true"
+				close="onPopoverCloseItem">
+				<buttons>
+					<Button text="Accept All" type="Accept" press="onPopoverAcceptItem"/>
+				</buttons>
+			</NotificationListGroup>
+		</List>
+
+		<beginButton>
+			<Button icon="sap-icon://decline" press="onPopoverClose"/>
+		</beginButton>
+		
+		<endButton>
+			<Button text="Accept All" type="Accept" press="onPopoverAcceptAll"/>
+		</endButton>
+
 	</Popover>
 </core:FragmentDefinition>
