@@ -36,6 +36,7 @@ Todos
 - [x] enhance search function of repo page
 - [ ] add navigation function to pipeline page list items, a page to edit pipeline, and see more details about it
 - [ ] add navigation function to repo page list items, a page to see more detail of running status
+- [x] finish delete git repo pop
 - [ ] finish active button pop
 - [ ] finish deactive button pop
 - [x] move add git input to a pop triggered by popover
