@@ -3,6 +3,9 @@
 		
 	<App initialPage="ciconnect">
 		<Page id="ciconnect" title="Viz Pipeline PoC" enableScrolling="false">
+			<headerContent>
+				<Button icon="sap-icon://legend" press="onPopLegend" />
+			</headerContent>
 			<content>
 				<IconTabBar stretchContentHeight="true"
 					backgroundDesign="Transparent"
@@ -44,17 +47,16 @@
 						<Token text="{setting>/repoTokenNumber} repos" visible="{setting>/repoTokenVisible}" 
 							press="onRepoTokenPressed" delete="onRepoTokenDelete"/>
 						<ToolbarSpacer />
-						<OverflowToolbarButton icon="sap-icon://activity-assigned-to-goal"
+						<OverflowToolbarButton icon="sap-icon://connected"
 							tooltip="Assign pipeline to repository"
-							type="Accept"
 							enabled="{= ${setting>/pipelineTokenVisible} &amp;&amp; ${setting>/repoTokenVisible}}"
 							press="onPopAssign"/>
-						<OverflowToolbarButton icon="sap-icon://activity-items"
+						<OverflowToolbarButton icon="sap-icon://disconnected"
 							tooltip="Unassign pipeline from repository"
-							type="Reject"
 							enabled="{= ${setting>/pipelineTokenVisible} &amp;&amp; ${setting>/pipelineTokenHasRepoAssigned} || ${setting>/repoTokenVisible} &amp;&amp; ${setting>/repoTokenHasPipelineAssigned}}"
 							press="onPopUnassign"/>
-						<OverflowToolbarButton icon="sap-icon://add" tooltip="Add a Repository via url" press="onPopAdd"/>
+						<OverflowToolbarButton icon="sap-icon://add" tooltip="Add a git repository via url" press="onPopAdd"/>
+						<OverflowToolbarButton icon="sap-icon://less" tooltip="Delete selected git repositories" press="onPopDelete"/>
 					</content>
 				</Toolbar>
 			</footer>

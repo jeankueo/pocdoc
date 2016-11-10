@@ -47,3 +47,4 @@ Todos
 - [ ] add db (json-based)
 - [ ] event handling of BOControl
 - [ ] linkage / event navigation of repo/pipeline page
+- [ ] legend page
