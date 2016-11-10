@@ -8,16 +8,26 @@
 		<List id="popoverList"
 			items="{/}"
 			mode="MultiSelect"
-			includeItemInSelection="true">
-			<StandardListItem 
-				title="{full_name}"/>
+			includeItemInSelection="true"
+			class="sapContrast sapContrastPlus">
+			<NotificationListItem 
+				title="Delete git repository &quot;{full_name}&quot;"
+				description="{description}"
+				showCloseButton="true"
+				unread="true"
+				priority="High"
+				showButtons="true"
+				close="onPopoverCloseItem">
+				<buttons>
+					<Button text="Accept" type="Accept" press="onPopoverAcceptItem"/>
+				</buttons>
+			</NotificationListItem>
 		</List>
-		<Toolbar>
-			<ToolbarSpacer />
-			<Button text="Select All" press="onSelectAllOnPopover"/>
-			<Button text="Deselect All" press="onDeselectAllOnPopover"/>
-			<Button text="Confirm" type="Accept" press="onDeleteGitRepo"/>
-			<Button text="Cancel" type="Reject" press="closePopover"/>
-		</Toolbar>
+		<beginButton>
+			<Button icon="sap-icon://decline" press="onPopoverClose"/>
+		</beginButton>
+		<endButton>
+			<Button text="Accept All" type="Accept" press="onPopoverAcceptAll"/>
+		</endButton>
 	</Popover>
 </core:FragmentDefinition>

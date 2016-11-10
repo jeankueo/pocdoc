@@ -170,7 +170,7 @@ sap.ui.define([
 			var sURL = oEvent.getSource().getParent().getContent()[0].getValue();
 			//TODO: url validity check
 			this._addGitRepoData(sURL);
-			this.closePopover();
+			this._closePopover();
 		},
 
 		_addGitRepoData: function (sURL) {
@@ -180,7 +180,8 @@ sap.ui.define([
 				oData.push({
 					"name": "new rep",
 					"full_name": "new git repository " + sURL,
-					"repoType": (Math.random() > 0.5 ? "git" : "git+gerrit"),
+					"repo_source": "git",
+					"with_gerrit": (Math.random() > 0.5 ? true : false),
 					"pipeline": {
 						"id": "pipeline4",
 						"name": "Some Team's Pipeline",
@@ -196,33 +197,39 @@ sap.ui.define([
 				});
 				oModel.setData(oData);
 				oModel.updateBindings(true); // force counter in tab to update
-				oEvent.getSource().setValue();
 			}
 		},
 
-		onDeleteGitRepo: function (oEvent) {
-			//TODO: logic to delete selected git repo
-			this.closePopover();
+		onPopoverAcceptAll: function (oEvent) {
+			//TODO: logic to accept all in popover
+			this._closePopover();
 		},
 
-		closePopover: function () {
+		onPopoverClose: function () {
+			this._closePopover();
+		},
+
+		_closePopover: function () {
 			if (this._oPopover) {
 				this._oPopover.close();
 			}
 		},
 
-		onSelectAllOnPopover: function () { // each list popover must keep same structure
-			var oList = this._oPopover.getContent()[0];
-			if (oList) {
-				oList.selectAll();
-			}
+		onPopoverAcceptItem: function (oEvent) {
+			//TODO: logic to accept item in popover
+			this._deleteItemFromPopover(oEvent);
 		},
 
-		onDeselectAllOnPopover: function () { // each list popover must keep same structure
-			var oList = this._oPopover.getContent()[0];
-			if (oList) {
-				oList.removeSelections();
-			}
+		onPopoverCloseItem: function (oEvent) {
+			this._deleteItemFromPopover(oEvent);
+		},
+
+		_deleteItemFromPopover: function (oEvent) {
+			var oBindingContext = oEvent.getSource().getBindingContext();
+			var aData = oBindingContext.getModel().getData(),
+				oData = oBindingContext.getModel().getProperty(oBindingContext.getPath());
+			aData.splice(jQuery.inArray(oData, aData), 1);
+			oBindingContext.getModel().setData(aData);
 		},
 
 		onExit: function () {
