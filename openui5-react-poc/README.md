@@ -40,8 +40,8 @@ Todos
 - [ ] finish deactive button pop
 - [x] move add git input to a pop triggered by popover
 - [x] mix github/gitgerrit tables
-- [x] change repo view to bage style, line items become like link + bages + a diagram
-- [x] change pipeline view to bage style, line items become like link + bages + a diagram
+- [x] change repo view to bage style, line items become like link + bages + pipelinegraph
+- [x] change pipeline view to bage style, line items become like link + bages + pipelinegraph
 - [ ] adjust css to be more close to blue ocean theme
 - [ ] integrate with real system
 - [ ] add db (json-based)
