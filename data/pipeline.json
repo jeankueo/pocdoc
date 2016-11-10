@@ -3,6 +3,7 @@
 	"name": "Fiori pipeline",
 	"description": "Predefined pipeline delivered by SAP for Fiori",
 	"type": "mixed",
+	"category": "FIORI",
 	"sapPredefined": true,
 	"countOfRepoAssigned": 3,
 	"layout": {
@@ -48,6 +49,7 @@
 }, {
 	"key": "pipeline2",
 	"name": "HCP Classic pipeline",
+	"category": "HCP_CLASSIC",
 	"description": "Predefined pipeline delivered by SAP for HCP Classic",
 	"type": "centralOnly",
 	"sapPredefined": true,
@@ -73,6 +75,7 @@
 }, {
 	"key": "pipeline3",
 	"name": "SAPUI5 pipeline",
+	"category": "SAPUI5",
 	"description": "Predefined pipeline delivered by SAP for SAPUI5",
 	"sapPredefined": true,
 	"type": "localOnly",
@@ -99,6 +102,7 @@
 	"key": "pipeline4",
 	"name": "HCP CLoudfoundry pipeline",
 	"sapPredefined": true,
+	"category": "HCP_CF",
 	"description": "Predefined pipeline delivered by SAP for HCP Cloudfoundry",
 	"type": "mixed",
 	"countOfRepoAssigned": 7,

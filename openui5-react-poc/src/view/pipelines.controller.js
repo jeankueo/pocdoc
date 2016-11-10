@@ -9,6 +9,7 @@ sap.ui.define([
 
 		onInit: function() {
 			this._initData();
+			this._aFilter = [];
 		},
 
 		_initData: function () {
@@ -36,20 +37,23 @@ sap.ui.define([
 			}]);
 			this.getView().setModel(oModel, "category");
 		},
+
+		onSelectChange: function (oEvent) {
+			
+		},
 		
 		onSearch: function (oEvent) {
 			// add filter for search
-			var aFilters = [];
 			var sQuery = oEvent.getSource().getValue();
 			if (sQuery && sQuery.length > 0) {
 				var ofilter = new Filter("name", sap.ui.model.FilterOperator.Contains, sQuery);
-				aFilters.push(ofilter);
+				this._aFilter.push(ofilter);
 			}
  
 			// update list binding
 			var oList = this.getView().byId("pipelineList");
 			var obinding = oList.getBinding("items");
-			obinding.filter(aFilters);
+			obinding.filter(this._aFilter);
 		},
 
 		onSelectionChange: function (oEvent) {

@@ -110,14 +110,25 @@ sap.ui.define([
 			this.getView().byId("repoView").getController().removeAllSelection();
 		},
 
-		onPopAdd: function (oEvent) {
-			this.getView().getModel("setting").setProperty("/selectedTabKey", "Repositories");
-			this._showAddRepoUrlInput(oEvent.getSource());
+		onPopAssign: function (oEvent) {
+			this._showPopOverFragment(oEvent.getSource(), "AssignPopover");
 		},
 
-		_showAddRepoUrlInput: function (oHolder) {
-			this._oPopover = this._oPopover || new sap.ui.xmlfragment("sap.ciconnect.fragment.UrlPopover", this);
-			this.getView().addDependent(this._oPopover);
+		onPopUnassign: function (oEvent) {
+			this._showPopOverFragment(oEvent.getSource(), "UnassignPopover");
+		},
+
+		onPopAdd: function (oEvent) {
+			this.getView().getModel("setting").setProperty("/selectedTabKey", "Repositories");
+			this._showPopOverFragment(oEvent.getSource(), "UrlPopover");
+		},
+
+		_showPopOverFragment: function (oHolder, sPopOverFragmentName) {
+			if (this._oPopover) {
+				this._oPopover.destroy();
+			}
+			this._oPopover = new sap.ui.xmlfragment("sap.ciconnect.fragment." + sPopOverFragmentName, this);
+			//this.getView().addDependent(this._oPopover);
 			jQuery.sap.delayedCall(0, this, function () {
 				this._oPopover.openBy(oHolder);
 			})
@@ -157,7 +168,9 @@ sap.ui.define([
 		},
 
 		_closePopover: function () {
-			this._oPopover.close();
+			if (this._oPopover) {
+				this._oPopover.close();
+			}
 		},
 
 		onExit: function () {

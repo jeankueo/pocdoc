@@ -47,11 +47,13 @@
 						<OverflowToolbarButton icon="sap-icon://activity-assigned-to-goal"
 							tooltip="Assign pipeline to repository"
 							type="Accept"
-							enabled="{= ${setting>/pipelineTokenVisible} &amp;&amp; ${setting>/repoTokenVisible}}"/>
+							enabled="{= ${setting>/pipelineTokenVisible} &amp;&amp; ${setting>/repoTokenVisible}}"
+							press="onPopAssign"/>
 						<OverflowToolbarButton icon="sap-icon://activity-items"
 							tooltip="Unassign pipeline from repository"
 							type="Reject"
-							enabled="{= ${setting>/pipelineTokenVisible} &amp;&amp; ${setting>/pipelineTokenHasRepoAssigned}}"/>
+							enabled="{= ${setting>/pipelineTokenVisible} &amp;&amp; ${setting>/pipelineTokenHasRepoAssigned}}"
+							press="onPopUnassign"/>
 						<OverflowToolbarButton icon="sap-icon://add" tooltip="Add a Repository via url" press="onPopAdd"/>
 					</content>
 				</Toolbar>
