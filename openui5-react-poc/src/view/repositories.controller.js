@@ -81,6 +81,21 @@ sap.ui.define([
 		removeAllSelection: function () {
 			var oRepoList = this.getView().byId("repoList");
 			oRepoList.removeSelections(true);
+		},
+
+		onAfterRendering: function () {
+			this._adjustHeightOfScrollContainerForList();
+		},
+
+		onContainerResize: function () {
+			this._adjustHeightOfScrollContainerForList();
+		},
+
+		_adjustHeightOfScrollContainerForList: function () {
+			var $bar = jQuery("#"+this.getView().getParent().getParent().getParent().getId()),
+				$container = jQuery("#" + this.getView().getContent()[1].getId());
+
+			this.getView().getContent()[1].setHeight(($bar.offset().top + $bar.height() - $container.offset().top) + "px");
 		}
 	});
 });

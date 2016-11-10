@@ -20,6 +20,7 @@ Useful links
 --------------
 * Octicons list: [https://octicons.github.com/](https://octicons.github.com/)
 * Fontawesome icon list: [http://fontawesome.io/icons/](http://fontawesome.io/icons/)
+* Jenkins Design Language controls: [http://jenkinsci.github.io/jenkins-design-language/docs](http://jenkinsci.github.io/jenkins-design-language/docs)
 
 Todos
 --------------
@@ -28,7 +29,7 @@ Todos
 - [x] adjust data to support both d3 pipeline and new bo pipeline control.
 - [x] adjust summary page, use weather icons instead of ui5 control.
 - [x] remove vscroll bar on app level (overflow: hidden)
-- [ ] move vscroll bar from view level on to list level
+- [x] move vscroll bar from view level on to list level
 - [x] add a category dropdown in front of search on pipeline page (e.g. Fiori standard pipeline)
 - [ ] enhance search function (fuzzy) of pipeline page
 - [x] add an organization + git/gerrit + all selection dropdown in front of search on repo page.

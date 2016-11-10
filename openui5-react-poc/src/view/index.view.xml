@@ -2,7 +2,7 @@
 		controllerName="sap.ciconnect.view.index" xmlns:html="http://www.w3.org/1999/xhtml">
 		
 	<App initialPage="ciconnect">
-		<Page id="ciconnect" title="Viz Pipeline PoC">
+		<Page id="ciconnect" title="Viz Pipeline PoC" enableScrolling="false">
 			<content>
 				<IconTabBar stretchContentHeight="true"
 					backgroundDesign="Transparent"

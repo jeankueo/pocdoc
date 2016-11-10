@@ -10,6 +10,32 @@ sap.ui.define([
 		onInit: function() {
 			this._initData();
 		},
+
+		_initData: function () {
+			var oModel = new JSONModel();
+			oModel.setData([{
+				key: "ALL",
+				text: "All",
+				count: 28
+			}, {
+				key: "FIORI",
+				text: "Fiori",
+				count: 10
+			}, {
+				key: "SAPUI5",
+				text: "UI5",
+				count: 5
+			}, {
+				key: "HCP_CLASSIC",
+				text: "HCP Classic",
+				count: 6
+			}, {
+				key: "HCP_CF",
+				text: "HCP Cloudfoundry",
+				count: 7
+			}]);
+			this.getView().setModel(oModel, "category");
+		},
 		
 		onSearch: function (oEvent) {
 			// add filter for search
@@ -45,30 +71,19 @@ sap.ui.define([
 			this.getView().byId("pipelineList").removeSelections(true);
 		},
 
-		_initData: function () {
-			var oModel = new JSONModel();
-			oModel.setData([{
-				key: "ALL",
-				text: "All",
-				count: 28
-			}, {
-				key: "FIORI",
-				text: "Fiori",
-				count: 10
-			}, {
-				key: "SAPUI5",
-				text: "UI5",
-				count: 5
-			}, {
-				key: "HCP_CLASSIC",
-				text: "HCP Classic",
-				count: 6
-			}, {
-				key: "HCP_CF",
-				text: "HCP Cloudfoundry",
-				count: 7
-			}]);
-			this.getView().setModel(oModel, "category");
+		onAfterRendering: function () {
+			this._adjustHeightOfScrollContainerForList();
+		},
+
+		onContainerResize: function () {
+			this._adjustHeightOfScrollContainerForList();
+		},
+
+		_adjustHeightOfScrollContainerForList: function () {
+			var $bar = jQuery("#"+this.getView().getParent().getParent().getParent().getId()),
+				$container = jQuery("#" + this.getView().getContent()[1].getId());
+
+			this.getView().getContent()[1].setHeight(($bar.offset().top + $bar.height() - $container.offset().top) + "px");
 		}
 	});
 });
