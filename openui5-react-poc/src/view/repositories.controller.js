@@ -106,23 +106,35 @@ sap.ui.define([
 			var iSelectedCount = aRepoSelectedContexts.length;
 				
 			if (iSelectedCount > 0) {
-				var bRepoAssigned = false;
+				var bRepoAssigned = false,
+					bGitSelected = false;
 				for (var i = 0; i < iSelectedCount; i++) {
 					bRepoAssigned = bRepoAssigned || !!aRepoSelectedContexts[i].getProperty("pipeline");
+					bGitSelected = bGitSelected || (aRepoSelectedContexts[i].getProperty("repo_source") === "git");
 				}
 				oModel.setProperty("/repoTokenVisible", true);
 				oModel.setProperty("/repoTokenNumber",  iSelectedCount);
 				oModel.setProperty("/repoTokenHasPipelineAssigned",  bRepoAssigned);
+				oModel.setProperty("/repoTokenGitSelected",  bGitSelected);
 			} else {
 				oModel.setProperty("/repoTokenVisible", false);
 				oModel.setProperty("/repoTokenHasPipelineAssigned",  false);
+				oModel.setProperty("/repoTokenHasPipelineAssigned",  false);
+				oModel.setProperty("/repoTokenGitSelected",  false);
 			}
 			oModel.updateBindings(true);
 		},
 
 		removeAllSelection: function () {
-			var oRepoList = this.getView().byId("repoList");
+			var oRepoList = this.getView().byId("repoList"),
+				oModel = this.getView().getModel("setting");
+
 			oRepoList.removeSelections(true);
+			oModel.setProperty("/repoTokenVisible", false);
+			oModel.setProperty("/repoTokenHasPipelineAssigned",  false);
+			oModel.setProperty("/repoTokenHasPipelineAssigned",  false);
+			oModel.setProperty("/repoTokenGitSelected",  false);
+			oModel.updateBindings(true);
 		},
 
 		onAfterRendering: function () {

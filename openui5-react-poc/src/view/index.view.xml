@@ -55,8 +55,13 @@
 							tooltip="Unassign pipeline from repository"
 							enabled="{= ${setting>/pipelineTokenVisible} &amp;&amp; ${setting>/pipelineTokenHasRepoAssigned} || ${setting>/repoTokenVisible} &amp;&amp; ${setting>/repoTokenHasPipelineAssigned}}"
 							press="onPopUnassign"/>
-						<OverflowToolbarButton icon="sap-icon://add" tooltip="Add a git repository via url" press="onPopAdd"/>
-						<OverflowToolbarButton icon="sap-icon://less" tooltip="Delete selected git repositories" press="onPopDelete"/>
+						<OverflowToolbarButton icon="sap-icon://add" 
+							tooltip="Add a git repository via url" 
+							press="onPopAdd"/>
+						<OverflowToolbarButton icon="sap-icon://less"
+							tooltip="Delete selected git repositories" 
+							enabled="{= ${setting>/repoTokenGitSelected}}"
+							press="onPopDelete" />
 					</content>
 				</Toolbar>
 			</footer>

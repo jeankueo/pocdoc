@@ -81,6 +81,7 @@ sap.ui.define([
 				"repoTokenVisible": false,
 				"repoTokenText": undefined,
 				"repoTokenHasPipelineAssigned": false,
+				"repoTokenGitSelected": false
 			});
 			this.getView().setModel(oModel, "setting");
 		},

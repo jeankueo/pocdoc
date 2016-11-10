@@ -95,7 +95,14 @@ sap.ui.define([
 		},
 
 		removeAllSelection: function () {
-			this.getView().byId("pipelineList").removeSelections(true);
+			var oRepoList = this.getView().byId("pipelineList"),
+				oModel= this.getView().getModel("setting");
+
+			oRepoList.removeSelections(true);
+			oModel.setProperty("/pipelineTokenHasRepoAssigned", false);
+			oModel.setProperty("/pipelineTokenVisible", false);
+			oModel.setProperty("/pipelineTokenText",  undefined);
+			oModel.updateBindings(true);
 		},
 
 		onAfterRendering: function () {

@@ -3,10 +3,9 @@
 	xmlns:core="sap.ui.core">
 	<Popover
 		class="sapUiContentPadding"
-		showHeader="false'"
+		title="Add Git Repository"
 		placement="Top">
 			<Toolbar>
-				<Label text="Add Git Repo:" />
 				<Input placeholder="ssh://xxx@xxx.git or https://xxx@xxx.git" width="500px" submit="onAddGitRepo"/>
 			</Toolbar>
 	</Popover>
