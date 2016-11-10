@@ -8,6 +8,20 @@
 			src="sap-icon://sap-logo-shape"
 			color="rgb(0, 146, 209)"
 			tooltip="SAP predefined"/>
+		<core:Icon id="central"  class="ciconnectBadge"
+			visible="{= ${pipeline>type} === 'centralOnly'}"
+			src="sap-icon://cloud"
+			color="rgb(26, 152, 152)"
+			tooltip="central service only"/>
+		<core:Icon id="mixed"  class="ciconnectBadge"
+			visible="{= ${pipeline>type} === 'mixed'}"
+			src="sap-icon://tag-cloud-chart"
+			color="rgb(224, 157, 0)"
+			tooltip="central and local services mixed"/>
+		<core:Icon id="manual"  class="ciconnectBadge"
+			visible="{= ${pipeline>manualIncluded} ? true : false}"
+			src="sap-icon://awesome/fa-hand-paper-o"
+			tooltip="manual step included"/>
 		<ObjectNumber id="repoKPI" class="ciconnectBadge"
 			number="{pipeline>countOfRepoAssigned}" 
 			tooltip="Number of Repository Assigned" 

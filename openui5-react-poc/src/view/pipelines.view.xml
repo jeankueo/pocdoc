@@ -29,7 +29,8 @@
 						<VBox>
 							<HBox class="sapUiSmallMarginTop">
 								<Link text="{pipeline>name}" target="_blank" href="{pipeline>html_url}" />
-								<core:Fragment fragmentName="sap.ciconnect.fragment.PipelineBadgeIcons" type="XML" />
+								<core:Fragment fragmentName="sap.ciconnect.fragment.PipelineBadgeIcons" type="XML" 
+									class="sapUiSmallMarginBegin"/>
 							</HBox>
 							<Text text="{pipeline>description}"/>
 						</VBox>

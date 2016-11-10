@@ -105,6 +105,7 @@
 	"category": "HCP_CF",
 	"description": "Predefined pipeline delivered by SAP for HCP Cloudfoundry",
 	"type": "mixed",
+	"manualIncluded": true,
 	"countOfRepoAssigned": 7,
 	"layout": {
 		"nodeSpacingH": 70,

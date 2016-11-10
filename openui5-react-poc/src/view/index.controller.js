@@ -24,7 +24,7 @@ sap.ui.define([
 				fontFamily: "awesome",
 				collectionName: "awesome",
 				icons : [
-					["fa-git-square", "f1d2"], ["fa-pied-piper-pp", "f1a7"]
+					["fa-git-square", "f1d2"], ["fa-pied-piper-pp", "f1a7"], ["fa-hand-paper-o", "f256"]
 				]
 			});
 		},
@@ -79,7 +79,8 @@ sap.ui.define([
 				
 				// repo token related
 				"repoTokenVisible": false,
-				"repoTokenText": undefined
+				"repoTokenText": undefined,
+				"repoTokenHasPipelineAssigned": false,
 			});
 			this.getView().setModel(oModel, "setting");
 		},

@@ -30,7 +30,8 @@
 						<VBox  class="sapUiSmallMarginTopBottom" >
 							<HBox>
 								<Link text="{repo>full_name}" target="_blank" href="{repo>html_url}"/>
-								<core:Fragment fragmentName="sap.ciconnect.fragment.RepoBadgeIcons" type="XML" />
+								<core:Fragment fragmentName="sap.ciconnect.fragment.RepoBadgeIcons" type="XML"
+									class="sapUiSmallMarginBegin" />
 							</HBox>
 							<Text text="{repo>description}"/>
 						</VBox>
