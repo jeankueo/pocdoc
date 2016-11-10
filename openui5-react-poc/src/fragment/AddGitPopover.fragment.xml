@@ -1,0 +1,14 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<Popover
+		class="sapUiContentPadding"
+		title="Add Git Repository"
+		placement="Top">
+		<Toolbar>
+			<Input id="url" placeholder="ssh://xxx@xxx.git or https://xxx@xxx.git" width="500px" submit="onAddGitRepo"/>
+			<Button text="Confirm" type="Accept" press="onAddGitRepo"/>
+			<Button text="Cancel" type="Reject" press="closePopover"/>
+		</Toolbar>
+	</Popover>
+</core:FragmentDefinition>

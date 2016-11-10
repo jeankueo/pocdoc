@@ -122,14 +122,43 @@ sap.ui.define([
 
 		onPopAdd: function (oEvent) {
 			this.getView().getModel("setting").setProperty("/selectedTabKey", "Repositories");
-			this._showPopOverFragment(oEvent.getSource(), "UrlPopover");
+			this._showPopOverFragment(oEvent.getSource(), "AddGitPopover");
 		},
 
-		_showPopOverFragment: function (oHolder, sPopOverFragmentName) {
+		onPopDelete: function (oEvent) {
+			this.getView().getModel("setting").setProperty("/selectedTabKey", "Repositories");
+			this._showPopOverFragment(
+				oEvent.getSource(),
+				"DeleteGitPopover", 
+				this._buildSelectedGitListModel());
+		},
+
+		_buildSelectedGitListModel: function () {
+			var oRetModel = new JSONModel(),
+				oRepoModel = this.getView().getModel("repo"),
+				aData = [], oData,
+				oRepoList = this.getView().byId("repoView").byId("repoList");
+
+			var aSelectedContexts = oRepoList.getSelectedContexts(true);
+			for (var i = 0; i < aSelectedContexts.length; i++) {
+				oData = oRepoModel.getProperty(aSelectedContexts[i].getPath());
+				if (oData.repo_source === "git") {
+					aData.push(oData);
+				}
+			}
+			oRetModel.setData(aData);
+
+			return oRetModel;
+		},
+
+		_showPopOverFragment: function (oHolder, sPopOverFragmentName, oModel) {
 			if (this._oPopover) {
 				this._oPopover.destroy();
 			}
 			this._oPopover = new sap.ui.xmlfragment("sap.ciconnect.fragment." + sPopOverFragmentName, this);
+			if (oModel) {
+				this._oPopover.setModel(oModel);
+			}
 			//this.getView().addDependent(this._oPopover);
 			jQuery.sap.delayedCall(0, this, function () {
 				this._oPopover.openBy(oHolder);
@@ -137,12 +166,14 @@ sap.ui.define([
 		},
 
 		onAddGitRepo: function (oEvent) {
-			this._addGitRepoData(oEvent);
-			this._closePopover();
+			// both button and input field works in this way
+			var sURL = oEvent.getSource().getParent().getContent()[0].getValue();
+			//TODO: url validity check
+			this._addGitRepoData(sURL);
+			this.closePopover();
 		},
 
-		_addGitRepoData: function (oEvent) {
-			var sURL = oEvent.getSource().getValue();
+		_addGitRepoData: function (sURL) {
 			if (sURL) {
 				var oModel = this.getView().getModel("repo");
 				var oData = oModel.getData();
@@ -169,9 +200,28 @@ sap.ui.define([
 			}
 		},
 
-		_closePopover: function () {
+		onDeleteGitRepo: function (oEvent) {
+			//TODO: logic to delete selected git repo
+			this.closePopover();
+		},
+
+		closePopover: function () {
 			if (this._oPopover) {
 				this._oPopover.close();
+			}
+		},
+
+		onSelectAllOnPopover: function () { // each list popover must keep same structure
+			var oList = this._oPopover.getContent()[0];
+			if (oList) {
+				oList.selectAll();
+			}
+		},
+
+		onDeselectAllOnPopover: function () { // each list popover must keep same structure
+			var oList = this._oPopover.getContent()[0];
+			if (oList) {
+				oList.removeSelections();
 			}
 		},
 
