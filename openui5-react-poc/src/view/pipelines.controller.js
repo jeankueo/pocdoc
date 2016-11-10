@@ -9,7 +9,9 @@ sap.ui.define([
 
 		onInit: function() {
 			this._initData();
-			this._aFilter = [];
+			this._oSelectFilter = undefined;
+			this._oSearchFilter = undefined;
+			this._aFilter = new Array(2);
 		},
 
 		_initData: function () {
@@ -39,21 +41,40 @@ sap.ui.define([
 		},
 
 		onSelectChange: function (oEvent) {
-			
+			var aFilters = [];
+
+			if (this._oSearchFilter) {
+				aFilters.push(this._oSearchFilter);
+			}
+
+			var sSelectKey = oEvent.getSource().getSelectedKey();
+
+			this._oSelectFilter = undefined;
+			if (sSelectKey !== "ALL") {
+				this._oSelectFilter = new Filter("category", sap.ui.model.FilterOperator.EQ, sSelectKey);
+				aFilters.push(this._oSelectFilter);
+			}
+
+			var oList = this.getView().byId("pipelineList");
+			var obinding = oList.getBinding("items");
+			obinding.filter(aFilters);
 		},
 		
 		onSearch: function (oEvent) {
-			// add filter for search
+			var aFilters = [];
+			if (this._oSelectFilter) {
+				aFilters.push(this._oSelectFilter);
+			}
+
 			var sQuery = oEvent.getSource().getValue();
 			if (sQuery && sQuery.length > 0) {
-				var ofilter = new Filter("name", sap.ui.model.FilterOperator.Contains, sQuery);
-				this._aFilter.push(ofilter);
+				this._oSearchFilter = new Filter("name", sap.ui.model.FilterOperator.Contains, sQuery);
+				aFilters.push(this._oSearchFilter);
 			}
  
-			// update list binding
 			var oList = this.getView().byId("pipelineList");
 			var obinding = oList.getBinding("items");
-			obinding.filter(this._aFilter);
+			obinding.filter(aFilters);
 		},
 
 		onSelectionChange: function (oEvent) {

@@ -4,7 +4,7 @@
 		<content>
 			<Select
 				forceSelection="false"
-				selectedKey="{category>/0/key}"
+				selectedKey="ALL"
 				showSecondaryValues= "true"
 				width="150px"
 				tooltip="Pipeline Categories"

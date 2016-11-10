@@ -4,13 +4,14 @@
 		<content>
 			<Select
 				forceSelection="false"
-				selectedKey="{category>/0/key}"
+				selectedKey="ALL"
 				showSecondaryValues= "true"
 				width="150px"
 				tooltip="Pipeline Categories"
 				items="{
 					path: 'category>/',
-					sorter: { path: 'text' }}">
+					sorter: { path: 'text' }}"
+				change="onSelectChange">
 				<core:ListItem key="{category>key}" text="{category>text}" additionalText="{category>count}"/>
 			</Select>
 			<SearchField placeholder="Search"  width="100%" liveChange="onSearch" />

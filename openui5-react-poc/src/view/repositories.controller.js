@@ -6,6 +6,9 @@ sap.ui.define([
 	return Controller.extend("sap.ciconnect.view.repositories", {
 		onInit: function() {
 			this._iSelectCount = 0;
+			this._oSelectRepoSourceFilter = undefined;
+			this._oSelectOrgFilter = undefined;
+			this._oSearchFilter = undefined;
 			this._initData();
 		},
 
@@ -17,43 +20,74 @@ sap.ui.define([
 				count: 10
 			}, {
 				key: "GITHUB",
+				source: "github",
 				text: "Github",
 				count: 8
 			}, {
 				key: "GITHUB-O1",
+				source: "github",
 				org: "ciconnect",
 				text: "Github-ciconnect",
 				count: 5
 			}, {
 				key: "GITHUB-O2",
+				source: "github",
 				org: "i037379",
 				text: "Github-i037379",
 				count: 3
 			}, {
 				key: "GIT",
+				source: "git",
 				text: "Git",
 				count: 2
 			}]);
 			this.getView().setModel(oModel, "category");
 		},
-		
-		onSearch: function (oEvent) {
-			// add filter for search
+
+		onSelectChange: function (oEvent) {
 			var aFilters = [];
-			var sQuery = oEvent.getSource().getValue();
-			if (sQuery && sQuery.length > 0) {
-				var ofilter = new Filter("full_name", sap.ui.model.FilterOperator.Contains, sQuery);
-				aFilters.push(ofilter);
+
+			if (this._oSearchFilter) {
+				aFilters.push(this._oSearchFilter);
 			}
- 
-			// update github list binding
-			var oList = this.getView().byId("githubList");
+
+			var oSelectData = this.getView().getModel("category").getProperty(
+				oEvent.getParameter("selectedItem").getBindingContext("category").getPath());
+
+			this._oSelectRepoSourceFilter = undefined;
+			this._oSelectOrgFilter = undefined;
+			if (oSelectData.key !== "ALL") {
+				this._oSelectRepoSourceFilter = new Filter("repo_source",
+					sap.ui.model.FilterOperator.EQ, oSelectData.source);
+				aFilters.push(this._oSelectRepoSourceFilter);
+				if (oSelectData.org) {
+					this._oSelectOrgFilter  = new Filter("org", sap.ui.model.FilterOperator.EQ, oSelectData.org);
+					aFilters.push(this._oSelectOrgFilter);
+				}
+			}
+
+			var oList = this.getView().byId("repoList");
 			var obinding = oList.getBinding("items");
 			obinding.filter(aFilters);
-			
-			// update git list binding
-			oList = this.getView().byId("gitList");
-			obinding = oList.getBinding("items");
+		},
+		
+		onSearch: function (oEvent) {
+			var aFilters = [];
+			if (this._oSelectRepoSourceFilter) {
+				aFilters.push(this._oSelectRepoSourceFilter);
+			}
+			if (this._oSelectOrgFilter) {
+				aFilters.push(this._oSelectOrgFilter);
+			}
+
+			var sQuery = oEvent.getSource().getValue();
+			if (sQuery && sQuery.length > 0) {
+				this._oSearchFilter = new Filter("full_name", sap.ui.model.FilterOperator.Contains, sQuery);
+				aFilters.push(this._oSearchFilter);
+			}
+ 
+			var oList = this.getView().byId("repoList");
+			var obinding = oList.getBinding("items");
 			obinding.filter(aFilters);
 		},
 

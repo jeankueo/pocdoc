@@ -31,9 +31,9 @@ Todos
 - [x] remove vscroll bar on app level (overflow: hidden)
 - [x] move vscroll bar from view level on to list level
 - [x] add a category dropdown in front of search on pipeline page (e.g. Fiori standard pipeline)
-- [ ] enhance search function (fuzzy) of pipeline page
+- [x] enhance search function of pipeline page
 - [x] add an organization + git/gerrit + all selection dropdown in front of search on repo page.
-- [ ] enhance search function (fuzzy) of repo page
+- [x] enhance search function of repo page
 - [ ] add navigation function to pipeline page list items, a page to edit pipeline, and see more details about it
 - [ ] add navigation function to repo page list items, a page to see more detail of running status
 - [ ] finish active button pop
