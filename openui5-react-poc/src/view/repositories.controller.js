@@ -81,6 +81,7 @@ sap.ui.define([
 			}
 
 			var sQuery = oEvent.getSource().getValue();
+			this._oSearchFilter = undefined;
 			if (sQuery && sQuery.length > 0) {
 				this._oSearchFilter = new Filter("full_name", sap.ui.model.FilterOperator.Contains, sQuery);
 				aFilters.push(this._oSearchFilter);
