@@ -104,12 +104,18 @@ sap.ui.define([
 			var aRepoSelectedContexts = oRepoList.getSelectedContexts(true);
 
 			var iSelectedCount = aRepoSelectedContexts.length;
-
+				
 			if (iSelectedCount > 0) {
+				var bRepoAssigned = false;
+				for (var i = 0; i < iSelectedCount; i++) {
+					bRepoAssigned = bRepoAssigned || !!aRepoSelectedContexts[i].getProperty("pipeline");
+				}
 				oModel.setProperty("/repoTokenVisible", true);
 				oModel.setProperty("/repoTokenNumber",  iSelectedCount);
+				oModel.setProperty("/repoTokenHasPipelineAssigned",  bRepoAssigned);
 			} else {
 				oModel.setProperty("/repoTokenVisible", false);
+				oModel.setProperty("/repoTokenHasPipelineAssigned",  false);
 			}
 			oModel.updateBindings(true);
 		},
