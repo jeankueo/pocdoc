@@ -4,6 +4,14 @@
 	<App initialPage="ciconnect">
 		<Page id="ciconnect" title="Viz Pipeline PoC" enableScrolling="false">
 			<headerContent>
+				<Button icon="sap-icon://multiselect-all"
+					tooltip="Select All"
+					enabled="{= ${setting>/selectedTabKey} === 'Repositories'}"
+					press="onSelectAll"/>
+				<Button icon="sap-icon://multiselect-none"
+					tooltip="Deselect All"
+					enabled="{= ${setting>/selectedTabKey} !== 'Summary'}"
+					press="onDeselectAll"/>
 				<Button icon="sap-icon://legend" press="onPopLegend" />
 			</headerContent>
 			<content>
@@ -47,14 +55,6 @@
 						<Token text="{setting>/repoTokenNumber} repos" visible="{setting>/repoTokenVisible}" 
 							press="onRepoTokenPressed" delete="onRepoTokenDelete"/>
 						<ToolbarSpacer />
-						<OverflowToolbarButton icon="sap-icon://multiselect-all"
-							tooltip="Select All"
-							enabled="{= ${setting>/selectedTabKey} === 'Repositories'}"
-							press="onSelectAll"/>
-							<OverflowToolbarButton icon="sap-icon://multiselect-none"
-							tooltip="Deselect All"
-							enabled="{= ${setting>/selectedTabKey} !== 'Summary'}"
-							press="onDeselectAll"/>
 						<OverflowToolbarButton icon="sap-icon://add" 
 							tooltip="Add a git repository via url" 
 							press="onPopAdd"/>
