@@ -47,6 +47,21 @@
 						<Token text="{setting>/repoTokenNumber} repos" visible="{setting>/repoTokenVisible}" 
 							press="onRepoTokenPressed" delete="onRepoTokenDelete"/>
 						<ToolbarSpacer />
+						<OverflowToolbarButton icon="sap-icon://multiselect-all"
+							tooltip="Select All"
+							enabled="{= ${setting>/selectedTabKey} === 'Repositories'}"
+							press="onSelectAll"/>
+							<OverflowToolbarButton icon="sap-icon://multiselect-none"
+							tooltip="Deselect All"
+							enabled="{= ${setting>/selectedTabKey} !== 'Summary'}"
+							press="onDeselectAll"/>
+						<OverflowToolbarButton icon="sap-icon://add" 
+							tooltip="Add a git repository via url" 
+							press="onPopAdd"/>
+						<OverflowToolbarButton icon="sap-icon://less"
+							tooltip="Delete selected git repositories" 
+							enabled="{= ${setting>/repoTokenGitSelected}}"
+							press="onPopDelete" />
 						<OverflowToolbarButton icon="sap-icon://connected"
 							tooltip="Assign pipeline to repository"
 							enabled="{= ${setting>/pipelineTokenVisible} &amp;&amp; ${setting>/repoTokenVisible}}"
@@ -55,13 +70,6 @@
 							tooltip="Unassign pipeline from repository"
 							enabled="{= ${setting>/pipelineTokenVisible} &amp;&amp; ${setting>/pipelineTokenHasRepoAssigned} || ${setting>/repoTokenVisible} &amp;&amp; ${setting>/repoTokenHasPipelineAssigned}}"
 							press="onPopUnassign"/>
-						<OverflowToolbarButton icon="sap-icon://add" 
-							tooltip="Add a git repository via url" 
-							press="onPopAdd"/>
-						<OverflowToolbarButton icon="sap-icon://less"
-							tooltip="Delete selected git repositories" 
-							enabled="{= ${setting>/repoTokenGitSelected}}"
-							press="onPopDelete" />
 					</content>
 				</Toolbar>
 			</footer>

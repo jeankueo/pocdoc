@@ -123,7 +123,35 @@ sap.ui.define([
 		},
 
 		_buildAssignModel: function () {
-			var oRetModel = new JSONModel();
+			var oRetModel = new JSONModel(),
+				aSelectedRepoContext = this.getView().byId("repoView").byId("repoList").getSelectedContexts(true),
+				aSelectedPipelineContext = this.getView().byId("pipelineView").byId("pipelineList").getSelectedContexts(true),
+				aAssignData = [],
+				aChangeData = [],
+				aNoChangeData = [],
+				oData;
+
+			var oSelectedPipelineData = aSelectedPipelineContext[0].getModel().getProperty(aSelectedPipelineContext[0].getPath());
+			for (var i = 0; i < aSelectedRepoContext.length; i++) {
+				oData = aSelectedRepoContext[i].getModel().getProperty(aSelectedRepoContext[i].getPath());
+				if (oData.pipeline) {
+					if (oData.pipeline.id === oSelectedPipelineData.key) {
+						aNoChangeData.push(oData);
+					} else {
+						aChangeData.push(oData);
+					}
+				} else {
+					aAssignData.push(oData);
+				}
+			}
+
+			oRetModel.setData({
+				pipeline: oSelectedPipelineData,
+				assign: aAssignData,
+				change: aChangeData,
+				noChange: aNoChangeData
+			});
+
 			return oRetModel;
 		},
 
@@ -241,6 +269,22 @@ sap.ui.define([
 				oData = oBindingContext.getModel().getProperty(oBindingContext.getPath());
 			aData.splice(jQuery.inArray(oData, aData), 1);
 			oBindingContext.getModel().setData(aData);
+		},
+
+		onSelectAll: function () {
+			this.getView().byId("repoView").getController().selectAll();
+		},
+
+		onDeselectAll: function () {
+			var sTabKey = this.getView().getModel("setting").getProperty("/selectedTabKey"),
+				sViewName;
+			 if (sTabKey === "Pipelines") {
+			 	sViewName = "pipelineView";
+			 } else if (sTabKey === "Repositories") {
+			 	sViewName = "repoView";
+			 }
+
+			this.getView().byId(sViewName).getController().removeAllSelection();
 		},
 
 		onExit: function () {

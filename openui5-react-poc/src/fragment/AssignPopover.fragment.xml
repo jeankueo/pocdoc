@@ -3,25 +3,79 @@
 	xmlns:core="sap.ui.core">
 	<Popover
 		class="sapUiContentPadding"
-		title="Assign Pipeline to Repository"
+		title="Assign Pipeline &quot;{/pipeline/name}&quot; to Selected Repositories"
 		placement="Top">
 		
 		<List id="popoverList"
-			items="{/}"
 			mode="MultiSelect"
 			includeItemInSelection="true"
 			class="sapContrast sapContrastPlus">
-			<NotificationListGroup
-				title="{title}"
-				showCloseButton="true"
-				unread="true"
-				priority="{= High : }"
-				showButtons="true"
-				close="onPopoverCloseItem">
-				<buttons>
-					<Button text="Accept All" type="Accept" press="onPopoverAcceptItem"/>
-				</buttons>
-			</NotificationListGroup>
+			<items>
+
+				<NotificationListGroup
+					id="assignNotificationGroup"
+					title="Assign {= ${/assign}.length} repositories without any existed assignment."
+					description="This group contains all selection repositories which have no pipeline assigned yet."
+					showCloseButton="true"
+					unread="true"
+					showButtons="true"
+					collapsed="true"
+					close="onPopoverCloseItem"
+					items="{/assign}">
+					<items>
+						<NotificationListItem title="Assign pipeline to unassigned Repository"
+							description="Assign pipeline &quot;{/pipeline/name}&quot; to repository {full_name}"
+							showCloseButton="true"
+							priority="Low"
+							>
+						</NotificationListItem>
+					</items>
+					<buttons>
+						<Button text="Accept All" type="Accept" press="onPopoverAcceptItem"/>
+					</buttons>
+				</NotificationListGroup>
+
+				<NotificationListGroup
+					id="changeNotificationGroup"
+					title="Change {= ${/change}.length} Repositories with existed assignment."
+					showCloseButton="true"
+					unread="true"
+					showButtons="true"
+					collapsed="true"
+					close="onPopoverCloseItem"
+					items="{/change}">
+					<items>
+						<NotificationListItem title="Assign pipeline to unassigned Repository"
+							description="Assign pipeline &quot;{/pipeline/name}&quot; to repository {full_name}"
+							showCloseButton="true"
+							priority="High"
+							>
+						</NotificationListItem>
+					</items>
+					<buttons>
+						<Button text="Accept All" type="Accept" press="onPopoverAcceptItem"/>
+					</buttons>
+				</NotificationListGroup>
+
+				<NotificationListGroup
+					id="noChangeNotificationGroup"
+					title="No Change to {= ${/noChange}.length} repositories with the same existed assignment."
+					showCloseButton="true"
+					unread="true"
+					showButtons="true"
+					collapsed="true"
+					close="onPopoverCloseItem"
+					items="{/noChange}">
+					<items>
+						<NotificationListItem title="Assign pipeline to unassigned Repository"
+							description="Assign pipeline &quot;{/pipeline/name}&quot; to repository {full_name}"
+							showCloseButton="true"
+							priority="None"
+							>
+						</NotificationListItem>
+					</items>
+				</NotificationListGroup>
+			</items>
 		</List>
 
 		<beginButton>

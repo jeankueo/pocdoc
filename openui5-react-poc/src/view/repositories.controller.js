@@ -126,15 +126,13 @@ sap.ui.define([
 		},
 
 		removeAllSelection: function () {
-			var oRepoList = this.getView().byId("repoList"),
-				oModel = this.getView().getModel("setting");
+			this.getView().byId("repoList").removeSelections(true);
+			this._updateRepoToken();
+		},
 
-			oRepoList.removeSelections(true);
-			oModel.setProperty("/repoTokenVisible", false);
-			oModel.setProperty("/repoTokenHasPipelineAssigned",  false);
-			oModel.setProperty("/repoTokenHasPipelineAssigned",  false);
-			oModel.setProperty("/repoTokenGitSelected",  false);
-			oModel.updateBindings(true);
+		selectAll: function () {
+			this.getView().byId("repoList").selectAll();
+			this._updateRepoToken();
 		},
 
 		onAfterRendering: function () {
