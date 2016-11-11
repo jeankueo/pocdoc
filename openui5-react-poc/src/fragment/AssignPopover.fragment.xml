@@ -1,9 +1,12 @@
 <core:FragmentDefinition
 	xmlns="sap.m"
-	xmlns:core="sap.ui.core">
+	xmlns:core="sap.ui.core"
+	xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
 	<Popover
 		class="sapUiContentPadding"
 		title="Assign Pipeline &quot;{/pipeline/name}&quot; to Selected Repositories"
+		modal="true"
+		contentMinWidth="140px"
 		placement="Top">
 		
 		<List id="popoverList"
@@ -20,6 +23,7 @@
 					showButtons="true"
 					collapsed="true"
 					close="onPopoverCloseGroup"
+					customData:dataName="assign"
 					items="{/assign}">
 					<items>
 						<NotificationListItem title="Pipeline assignment for repository &quot;{full_name}&quot;"
@@ -28,12 +32,12 @@
 							priority="Low"
 							close="onPopoverCloseItem">
 							<buttons>
-								<Button text="Accept" type="Accept" press="onPopoverAcceptItem"/>
+								<Button text="Accept" type="Accept" press="onPopoverAcceptItem" />
 							</buttons>
 						</NotificationListItem>
 					</items>
 					<buttons>
-						<Button text="Accept Group" type="Accept" press="onPopoverAcceptGroup"/>
+						<Button text="Accept Group" type="Accept" press="onPopoverAcceptGroup" customData:dataName="assign"/>
 					</buttons>
 				</NotificationListGroup>
 
@@ -45,6 +49,7 @@
 					showButtons="true"
 					collapsed="true"
 					close="onPopoverCloseGroup"
+					customData:dataName="change"
 					items="{/change}">
 					<items>
 						<NotificationListItem 
@@ -59,7 +64,7 @@
 						</NotificationListItem>
 					</items>
 					<buttons>
-						<Button text="Accept Group" type="Accept" press="onPopoverAcceptGroup"/>
+						<Button text="Accept Group" type="Accept" press="onPopoverAcceptGroup"  customData:dataName="change" />
 					</buttons>
 				</NotificationListGroup>
 
@@ -71,6 +76,7 @@
 					showButtons="true"
 					collapsed="true"
 					close="onPopoverCloseGroup"
+					customData:dataName="noChange"
 					items="{/noChange}">
 					<items>
 						<NotificationListItem 
@@ -79,14 +85,8 @@
 							showCloseButton="true"
 							priority="None"
 							close="onPopoverCloseItem">
-							<buttons>
-								<Button text="Accept" type="Accept" press="onPopoverAcceptItem"/>
-							</buttons>
 						</NotificationListItem>
 					</items>
-					<buttons>
-						<Button text="Accept Group" type="Accept" press="onPopoverAcceptGroup"/>
-					</buttons>
 				</NotificationListGroup>
 			</items>
 		</List>

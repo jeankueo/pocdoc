@@ -37,8 +37,7 @@ Todos
 - [ ] add navigation function to pipeline page list items, a page to edit pipeline, and see more details about it
 - [ ] add navigation function to repo page list items, a page to see more detail of running status
 - [x] finish delete git repo pop
-- [ ] build selectedRepo and selectedPipeline models while selection changes
-- [ ] finish active button pop - consume the new models
+- [x] finish active button pop - consume the new models
 - [ ] finish deactive button pop - consume the new models
 - [x] move add git input to a pop triggered by popover
 - [x] mix github/gitgerrit tables

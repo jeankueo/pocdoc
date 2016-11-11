@@ -265,8 +265,17 @@ sap.ui.define([
 			this._deleteGroupFromPopover(oEvent);
 		},
 
+		/*
+		 * Pre-assumption of this method is
+		 * 1. model is anonymous, then getBindingContext() works
+		 * 2. each group is an named array, name is after last slash of path
+		 */
 		_deleteGroupFromPopover: function (oEvent) {
-			
+			var sDataName = oEvent.getSource().data("dataName"),
+				oModel = oEvent.getSource().getModel();
+			var oData = oModel.getData();
+			delete oData[sDataName];
+			oModel.setData(oData);
 		},
 
 		onPopoverAcceptItem: function (oEvent) {
@@ -279,12 +288,19 @@ sap.ui.define([
 			this._deleteItemFromPopover(oEvent);
 		},
 
+		/*
+		 * Pre-assumption of this method is
+		 * 1. model is anonymous, then getBindingContext() works
+		 * 2. each item is part of an array, then lastIndex of "/" is always followed with an Integer >= 0
+		 */
 		_deleteItemFromPopover: function (oEvent) {
 			var oBindingContext = oEvent.getSource().getBindingContext();
-			var aData = oBindingContext.getModel().getData(),
-				oData = oBindingContext.getModel().getProperty(oBindingContext.getPath());
+			var sItemPath = oBindingContext.getPath();
+			var sArrayPath = sItemPath.substring(0, sItemPath.lastIndexOf("/"));
+			var aData = oBindingContext.getModel().getProperty(sArrayPath),
+				oData = oBindingContext.getModel().getProperty(sItemPath);
 			aData.splice(jQuery.inArray(oData, aData), 1);
-			oBindingContext.getModel().setData(aData);
+			oBindingContext.getModel().setProperty(sArrayPath, aData);
 		},
 
 		onSelectAll: function () {

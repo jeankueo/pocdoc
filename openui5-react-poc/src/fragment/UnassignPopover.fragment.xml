@@ -1,10 +1,28 @@
 <core:FragmentDefinition
 	xmlns="sap.m"
-	xmlns:core="sap.ui.core">
+	xmlns:core="sap.ui.core"
+	xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
 	<Popover
 		class="sapUiContentPadding"
-		showHeader="false'"
+		title="Unassign Pipeline from Selected Repositories"
+		modal="true"
+		contentMinWidth="140px"
 		placement="Top">
+
+		<List id="popoverList"
+			mode="MultiSelect"
+			includeItemInSelection="true"
+			class="sapContrast sapContrastPlus">
+
+		</List>
+		
+		<beginButton>
+			<Button icon="sap-icon://decline" press="onPopoverClose"/>
+		</beginButton>
+		
+		<endButton>
+			<Button text="Accept All" type="Accept" press="onPopoverAcceptAll"/>
+		</endButton>
 			
 	</Popover>
 </core:FragmentDefinition>
