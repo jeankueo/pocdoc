@@ -19,18 +19,21 @@
 					unread="true"
 					showButtons="true"
 					collapsed="true"
-					close="onPopoverCloseItem"
+					close="onPopoverCloseGroup"
 					items="{/assign}">
 					<items>
 						<NotificationListItem title="Pipeline assignment for repository &quot;{full_name}&quot;"
 							description=" &quot;{/pipeline/name}&quot; is newly assigned."
 							showCloseButton="true"
 							priority="Low"
-							>
+							close="onPopoverCloseItem">
+							<buttons>
+								<Button text="Accept" type="Accept" press="onPopoverAcceptItem"/>
+							</buttons>
 						</NotificationListItem>
 					</items>
 					<buttons>
-						<Button text="Accept All" type="Accept" press="onPopoverAcceptItem"/>
+						<Button text="Accept Group" type="Accept" press="onPopoverAcceptGroup"/>
 					</buttons>
 				</NotificationListGroup>
 
@@ -41,7 +44,7 @@
 					unread="true"
 					showButtons="true"
 					collapsed="true"
-					close="onPopoverCloseItem"
+					close="onPopoverCloseGroup"
 					items="{/change}">
 					<items>
 						<NotificationListItem 
@@ -49,11 +52,14 @@
 							description="is changed from &quot;{pipeline/name}&quot; to &quot;{/pipeline/name}&quot;."
 							showCloseButton="true"
 							priority="High"
-							>
+							close="onPopoverCloseItem">
+							<buttons>
+								<Button text="Accept" type="Accept" press="onPopoverAcceptItem"/>
+							</buttons>
 						</NotificationListItem>
 					</items>
 					<buttons>
-						<Button text="Accept All" type="Accept" press="onPopoverAcceptItem"/>
+						<Button text="Accept Group" type="Accept" press="onPopoverAcceptGroup"/>
 					</buttons>
 				</NotificationListGroup>
 
@@ -64,7 +70,7 @@
 					unread="true"
 					showButtons="true"
 					collapsed="true"
-					close="onPopoverCloseItem"
+					close="onPopoverCloseGroup"
 					items="{/noChange}">
 					<items>
 						<NotificationListItem 
@@ -72,9 +78,15 @@
 							description="&quot;{/pipeline/name}&quot; remains unchanged."
 							showCloseButton="true"
 							priority="None"
-							>
+							close="onPopoverCloseItem">
+							<buttons>
+								<Button text="Accept" type="Accept" press="onPopoverAcceptItem"/>
+							</buttons>
 						</NotificationListItem>
 					</items>
+					<buttons>
+						<Button text="Accept Group" type="Accept" press="onPopoverAcceptGroup"/>
+					</buttons>
 				</NotificationListGroup>
 			</items>
 		</List>

@@ -241,6 +241,7 @@ sap.ui.define([
 
 		onPopoverAcceptAll: function (oEvent) {
 			//TODO: logic to accept all in popover
+			console.log("onPopoverAcceptAll is triggered by " + oEvent.getSource().getId());
 			this._closePopover();
 		},
 
@@ -254,8 +255,23 @@ sap.ui.define([
 			}
 		},
 
+		onPopoverAcceptGroup: function (oEvent) {
+			//TODO: logic to accept group in popover
+			console.log("onPopoverAcceptGroup is triggered by " + oEvent.getSource().getId());
+			this._deleteGroupFromPopover(oEvent);
+		},
+
+		onPopoverCloseGroup: function (oEvent) {
+			this._deleteGroupFromPopover(oEvent);
+		},
+
+		_deleteGroupFromPopover: function (oEvent) {
+			
+		},
+
 		onPopoverAcceptItem: function (oEvent) {
 			//TODO: logic to accept item in popover
+			console.log("onPopoverAcceptItem is triggered by " + oEvent.getSource().getId());
 			this._deleteItemFromPopover(oEvent);
 		},
 
