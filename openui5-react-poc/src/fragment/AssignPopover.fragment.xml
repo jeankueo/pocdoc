@@ -15,7 +15,6 @@
 				<NotificationListGroup
 					id="assignNotificationGroup"
 					title="Assign {= ${/assign}.length} repositories without any existed assignment."
-					description="This group contains all selection repositories which have no pipeline assigned yet."
 					showCloseButton="true"
 					unread="true"
 					showButtons="true"
@@ -23,8 +22,8 @@
 					close="onPopoverCloseItem"
 					items="{/assign}">
 					<items>
-						<NotificationListItem title="Assign pipeline to unassigned Repository"
-							description="Assign pipeline &quot;{/pipeline/name}&quot; to repository {full_name}"
+						<NotificationListItem title="Pipeline assignment for repository &quot;{full_name}&quot;"
+							description=" &quot;{/pipeline/name}&quot; is newly assigned."
 							showCloseButton="true"
 							priority="Low"
 							>
@@ -45,8 +44,9 @@
 					close="onPopoverCloseItem"
 					items="{/change}">
 					<items>
-						<NotificationListItem title="Assign pipeline to unassigned Repository"
-							description="Assign pipeline &quot;{/pipeline/name}&quot; to repository {full_name}"
+						<NotificationListItem 
+							title="Pipeline assignment for repository &quot;{full_name}&quot;"
+							description="is changed from &quot;{pipeline/name}&quot; to &quot;{/pipeline/name}&quot;."
 							showCloseButton="true"
 							priority="High"
 							>
@@ -67,8 +67,9 @@
 					close="onPopoverCloseItem"
 					items="{/noChange}">
 					<items>
-						<NotificationListItem title="Assign pipeline to unassigned Repository"
-							description="Assign pipeline &quot;{/pipeline/name}&quot; to repository {full_name}"
+						<NotificationListItem 
+							title="Pipeline assignment for repository &quot;{full_name}&quot;"
+							description="&quot;{/pipeline/name}&quot; remains unchanged."
 							showCloseButton="true"
 							priority="None"
 							>
