@@ -156,7 +156,23 @@ sap.ui.define([
 		},
 
 		onPopUnassign: function (oEvent) {
-			this._showPopOverFragment(oEvent.getSource(), "UnassignPopover");
+			this._showPopOverFragment(
+				oEvent.getSource(), 
+				"UnassignPopover",
+				this._buildUnassignModel());
+		},
+
+		_buildUnassignModel: function (oEvent) {
+			var oRetModel = new JSONModel(),
+				aSelectedPipelineContext = this.getView().byId("pipelineView").byId("pipelineList").getSelectedContexts(true),
+				aSelectedRepoContext = this.getView().byId("repoView").byId("repoList").getSelectedContexts(true),
+				aUnassignFromPipeline = [],
+				aUnassginFromRepo = [],
+				oData = {};
+
+			if (aSelectedPipelineContext.length > 0) { // pipeline is selected
+				
+			}
 		},
 
 		onPopAdd: function (oEvent) {

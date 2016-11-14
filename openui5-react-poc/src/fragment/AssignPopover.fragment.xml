@@ -9,7 +9,7 @@
 		contentMinWidth="140px"
 		placement="Top">
 		
-		<List id="popoverList"
+		<List id="assignPopoverList"
 			mode="MultiSelect"
 			includeItemInSelection="true"
 			class="sapContrast sapContrastPlus">

@@ -5,7 +5,16 @@
 	"type": "mixed",
 	"category": "FIORI",
 	"sapPredefined": true,
-	"countOfRepoAssigned": 3,
+	"reposAssigned": [{
+		"id": "",
+		"name": ""
+	}, {
+		"id": "",
+		"name": ""
+	}, {
+		"id": "",
+		"name": ""
+	}],
 	"layout": {
 		"nodeSpacingH": 70,
 		"nodeSpacingV": 15,
@@ -53,7 +62,7 @@
 	"description": "Predefined pipeline delivered by SAP for HCP Classic",
 	"type": "centralOnly",
 	"sapPredefined": true,
-	"countOfRepoAssigned": 0,
+	"reposAssigned": [],
 	"layout": {
 		"nodeSpacingH": 70,
 		"nodeSpacingV": 15,
@@ -79,7 +88,10 @@
 	"description": "Predefined pipeline delivered by SAP for SAPUI5",
 	"sapPredefined": true,
 	"type": "localOnly",
-	"countOfRepoAssigned": 1,
+	"reposAssigned": [{
+		"id": "",
+		"name": ""
+	}],
 	"layout": {
 		"nodeSpacingH": 70,
 		"nodeSpacingV": 15,
@@ -106,7 +118,28 @@
 	"description": "Predefined pipeline delivered by SAP for HCP Cloudfoundry",
 	"type": "mixed",
 	"manualIncluded": true,
-	"countOfRepoAssigned": 7,
+	"reposAssigned": [{
+		"id": "",
+		"name": ""
+	}, {
+		"id": "",
+		"name": ""
+	}, {
+		"id": "",
+		"name": ""
+	}, {
+		"id": "",
+		"name": ""
+	}, {
+		"id": "",
+		"name": ""
+	}, {
+		"id": "",
+		"name": ""
+	}, {
+		"id": "",
+		"name": ""
+	}],
 	"layout": {
 		"nodeSpacingH": 70,
 		"nodeSpacingV": 15,
@@ -154,7 +187,13 @@
 	"name": "i037379's pipeline",
 	"description": "Predefined pipeline delivered by SAP for HCP Cloudfoundry",
 	"type": "mixed",
-	"countOfRepoAssigned": 2,
+	"reposAssigned": [{
+		"id": "",
+		"name": ""
+	}, {
+		"id": "",
+		"name": ""
+	}],
 	"layout": {
 		"nodeSpacingH": 70,
 		"nodeSpacingV": 15,
@@ -178,7 +217,10 @@
 	"name": "TM's pipeline",
 	"description": "tm hosted pipeline",
 	"type": "mixed",
-	"countOfRepoAssigned": 1,
+	"reposAssigned": [{
+		"id": "",
+		"name": ""
+	}],
 	"layout": {
 		"nodeSpacingH": 70,
 		"nodeSpacingV": 15,

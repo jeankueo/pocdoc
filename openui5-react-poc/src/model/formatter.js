@@ -1,10 +1,12 @@
 sap.ui.define([], function () {
 	"use strict";
 	return {
-		pipeLineAssignedRepoState: function (iRepoCount) {
-			if (iRepoCount === 0) {
+		pipeLineAssignedRepoState: function (aRepo) {
+			if (!aRepo) {
 				return "Error";
-			} else if (iRepoCount < 5) {
+			} else if (aRepo.length === 0) {
+				return "Error";
+			} else if (aRepo.length < 5) {
 				return "Warning";
 			} else {
 				return "Success";

@@ -23,9 +23,9 @@
 			src="sap-icon://awesome/fa-hand-paper-o"
 			tooltip="manual step included"/>
 		<ObjectNumber id="repoKPI" class="ciconnectBadge"
-			number="{pipeline>countOfRepoAssigned}" 
-			tooltip="Number of Repository Assigned" 
-			state="{path: 'pipeline>countOfRepoAssigned', formatter: '.formatter.pipeLineAssignedRepoState'}"/>
+			number="{= ${pipeline>reposAssigned} ? ${pipeline>reposAssigned}.length : 0}"
+			tooltip="Number of Repository Assigned"
+			state="{path: 'pipeline>reposAssigned', formatter: '.formatter.pipeLineAssignedRepoState'}"/>
 		<!--<ciconnect:SvgIcon id="git"  class="ciconnectBadge"
 			visible="{= ${repo>repo_source} === 'git'}"
 			name="Git"

@@ -86,9 +86,9 @@ sap.ui.define([
 			
 			var aSelectedContexts = oList.getSelectedContexts(true);
 			var bSelected = aSelectedContexts && aSelectedContexts.length > 0;
-			var iCountOfRepoAssigned = oListItem.getBindingContext("pipeline").getProperty("countOfRepoAssigned")
+			var aRepoAssigned = oListItem.getBindingContext("pipeline").getProperty("reposAssigned");
 
-			oModel.setProperty("/pipelineTokenHasRepoAssigned", iCountOfRepoAssigned > 0);
+			oModel.setProperty("/pipelineTokenHasRepoAssigned", aRepoAssigned && aRepoAssigned.length > 0);
 			oModel.setProperty("/pipelineTokenVisible", true);
 			oModel.setProperty("/pipelineTokenText",  oListItem.getBindingContext("pipeline").getProperty("name"));
 			oModel.updateBindings(true);
