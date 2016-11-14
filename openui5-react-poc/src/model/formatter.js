@@ -6,7 +6,7 @@ sap.ui.define([], function () {
 				return "Error";
 			} else if (aRepo.length === 0) {
 				return "Error";
-			} else if (aRepo.length < 5) {
+			} else if (aRepo.length < 3) {
 				return "Warning";
 			} else {
 				return "Success";

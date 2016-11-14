@@ -1,19 +1,13 @@
 [{
-	"key": "pipeline1",
+	"key": "p_fiori",
 	"name": "Fiori pipeline",
 	"description": "Predefined pipeline delivered by SAP for Fiori",
 	"type": "mixed",
 	"category": "FIORI",
 	"sapPredefined": true,
 	"reposAssigned": [{
-		"id": "",
-		"name": ""
-	}, {
-		"id": "",
-		"name": ""
-	}, {
-		"id": "",
-		"name": ""
+		"id": "github1",
+		"name": "bulletinboard-ads"
 	}],
 	"layout": {
 		"nodeSpacingH": 70,
@@ -56,13 +50,19 @@
 		"link": "https://github.wdf.sap.corp/production-services/cf-deploy-service/blob/master/README.md"
 	}]
 }, {
-	"key": "pipeline2",
+	"key": "p_hcp_cl",
 	"name": "HCP Classic pipeline",
 	"category": "HCP_CLASSIC",
 	"description": "Predefined pipeline delivered by SAP for HCP Classic",
 	"type": "centralOnly",
 	"sapPredefined": true,
-	"reposAssigned": [],
+	"reposAssigned": [{
+	    "id": "github2",
+	    "name": "cc-devops-coursematerial"
+	}, {
+		"id": "git2",
+		"name": "helloworld 2"
+	}],
 	"layout": {
 		"nodeSpacingH": 70,
 		"nodeSpacingV": 15,
@@ -82,15 +82,21 @@
 		"short_desc": "Short description for deploy job. Should be at most 2 sentences."
 	}]
 }, {
-	"key": "pipeline3",
+	"key": "p_ui5",
 	"name": "SAPUI5 pipeline",
 	"category": "SAPUI5",
 	"description": "Predefined pipeline delivered by SAP for SAPUI5",
 	"sapPredefined": true,
 	"type": "localOnly",
 	"reposAssigned": [{
-		"id": "",
-		"name": ""
+		"id": "github4",
+   	 	"name": "service1"
+	}, {
+		"id": "github5",
+		"name": "service2"
+	}, {
+		"id": "github6",
+		"name": "service3"
 	}],
 	"layout": {
 		"nodeSpacingH": 70,
@@ -104,6 +110,12 @@
 		"state": "not_built",
 		"short_desc": "Short description for build job. Should be at most 2 sentences."
 	}, {
+		"id": 7.1,
+		"type": "local",
+		"name": "Version",
+		"state": "not_built",
+		"short_desc": "Short description for build job. Should be at most 2 sentences."
+	}, {
 		"id": 8,
 		"type": "local",
 		"name": "Deploy",
@@ -111,7 +123,7 @@
 		"short_desc": "Short description for deploy job. Should be at most 2 sentences."
 	}]
 }, {
-	"key": "pipeline4",
+	"key": "p_hcp_cf",
 	"name": "HCP CLoudfoundry pipeline",
 	"sapPredefined": true,
 	"category": "HCP_CF",
@@ -119,26 +131,8 @@
 	"type": "mixed",
 	"manualIncluded": true,
 	"reposAssigned": [{
-		"id": "",
-		"name": ""
-	}, {
-		"id": "",
-		"name": ""
-	}, {
-		"id": "",
-		"name": ""
-	}, {
-		"id": "",
-		"name": ""
-	}, {
-		"id": "",
-		"name": ""
-	}, {
-		"id": "",
-		"name": ""
-	}, {
-		"id": "",
-		"name": ""
+		"id": "github7",
+		"name": "service4"
 	}],
 	"layout": {
 		"nodeSpacingH": 70,
@@ -183,13 +177,13 @@
 		"short_desc": "deploy"
 	}]
 }, {
-	"key": "pipeline5",
+	"key": "p_i037379",
 	"name": "i037379's pipeline",
 	"description": "Predefined pipeline delivered by SAP for HCP Cloudfoundry",
 	"type": "mixed",
 	"reposAssigned": [{
-		"id": "",
-		"name": ""
+		"id": "github8",
+    		"name": "helloworld"
 	}, {
 		"id": "",
 		"name": ""
@@ -205,22 +199,12 @@
 		"name": "Test",
 		"state": "not_built",
 		"short_desc": "Test"
-	}, {
-		"id": 16,
-		"type": "central",
-		"name": "Commit",
-		"state": "not_built",
-		"short_desc": "Commit"
 	}]
 }, {
-	"key": "pipeline6",
+	"key": "p_tm",
 	"name": "TM's pipeline",
 	"description": "tm hosted pipeline",
 	"type": "mixed",
-	"reposAssigned": [{
-		"id": "",
-		"name": ""
-	}],
 	"layout": {
 		"nodeSpacingH": 70,
 		"nodeSpacingV": 15,

@@ -29,7 +29,7 @@
 		<core:Icon id="private" class="ciconnectBadge" 
 			visible="{= ${repo>private} ? true : false}"
 			src="sap-icon://oct/octicon-shield"
-			color="rgb(217, 152, 203)"
+			color="red"
 			tooltip="Private" />
 	</HBox>
 </core:FragmentDefinition>
