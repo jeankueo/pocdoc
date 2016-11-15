@@ -123,8 +123,7 @@ sap.ui.define([
 		},
 
 		_buildAssignModel: function () {
-			var oRetModel = new JSONModel(),
-				aSelectedRepoContext = this.getView().byId("repoView").byId("repoList").getSelectedContexts(true),
+			var aSelectedRepoContext = this.getView().byId("repoView").byId("repoList").getSelectedContexts(true),
 				aSelectedPipelineContext = this.getView().byId("pipelineView").byId("pipelineList").getSelectedContexts(true),
 				aAssignData = [],
 				aChangeData = [],
@@ -145,14 +144,12 @@ sap.ui.define([
 				}
 			}
 
-			oRetModel.setData({
+			return new JSONModel({
 				pipeline: oSelectedPipelineData,
 				assign: aAssignData,
 				change: aChangeData,
 				noChange: aNoChangeData
 			});
-
-			return oRetModel;
 		},
 
 		onPopUnassign: function (oEvent) {
@@ -163,16 +160,39 @@ sap.ui.define([
 		},
 
 		_buildUnassignModel: function (oEvent) {
-			var oRetModel = new JSONModel(),
-				aSelectedPipelineContext = this.getView().byId("pipelineView").byId("pipelineList").getSelectedContexts(true),
+			var aSelectedPipelineContext = this.getView().byId("pipelineView").byId("pipelineList").getSelectedContexts(true),
 				aSelectedRepoContext = this.getView().byId("repoView").byId("repoList").getSelectedContexts(true),
-				aUnassignFromPipeline = [],
-				aUnassginFromRepo = [],
-				oData = {};
+				aUnassignFromSelectedPipeline = [],
+				oRepoIds,
+				oPipelineData,
+				oRepoData,
+				aRepoData = [];
 
 			if (aSelectedPipelineContext.length > 0) { // pipeline is selected
-				
+				oPipelineData = aSelectedPipelineContext[0].getModel().getProperty(aSelectedPipelineContext[0].getPath());
 			}
+
+			if (aSelectedRepoContext.length > 0) {
+				// make an index of repo ids recorded in pipeline already
+				if (oPipelineData.reposAssigned && oPipelineData.reposAssigned.length > 0) {
+					oRepoIds = {};
+					for (var j = 0; j < oPipelineData.reposAssigned.length; j++) {
+						oRepoIds[oPipelineData.reposAssigned[j].id] = true;
+					}
+				}
+				// record other pipelines which is recorded in selected repo
+				for (var i = 0; i < aSelectedRepoContext.length; i++) {
+					oRepoData = aSelectedRepoContext[i].getModel().getProperty(aSelectedRepoContext[i].getPath());
+					if (oRepoData.pipeline && !oRepoIds[oRepoData.pipeline.id]) {
+						aRepoData.push(oRepoData);
+					}
+				}
+			}
+
+			return new JSONModel({
+				pipeline: oPipelineData,
+				repo: aRepoData
+			});
 		},
 
 		onPopAdd: function (oEvent) {

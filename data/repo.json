@@ -42,14 +42,14 @@
               "id": 51612.2,
 			"type": "central",
 			"name": "Version",
-			"state": "running",
-              "completePercent": 70,
+			"state": "success",
 			"link": "http://www.google.com"
 		}, {
               "id": 51612.3,
 			"type": "central",
 			"name": "Validation",
-			"state": "queued",
+			"state": "running",
+              "completePercent": 70,
 			"link": "http://www.google.com"
 		}, {
               "id": 51612.4,
@@ -351,7 +351,7 @@
           }, {
             "id": 124.3,
             "type": "central",
-            "name": "Validation",
+            "name": "Deploy",
             "state": "success",
             "link": "http://www.google.com"
           }]
@@ -389,8 +389,9 @@
           }, {
             "id": 125.3,
             "type": "central",
-            "name": "Validation",
-            "state": "success",
+            "name": "Deploy",
+            "state": "running",
+            "completePercent": 20,
             "link": "http://www.google.com"
           }]
         }
@@ -427,7 +428,7 @@
           }, {
             "id": 126.3,
             "type": "central",
-            "name": "Validation",
+            "name": "Deploy",
             "state": "unstable",
             "link": "http://www.google.com"
           }]
