@@ -41,7 +41,7 @@ Todos
 - [x] mix github/gitgerrit tables
 - [x] change repo view to bage style, line items become like link + bages + pipelinegraph
 - [x] change pipeline view to bage style, line items become like link + bages + pipelinegraph
-- [ ] linkage / event navigation of repo/pipeline page
+- [x] linkage / event navigation of repo/pipeline page
 - [ ] add navigation function to pipeline page list items, a page to edit pipeline, and see more details about it
 - [ ] add navigation function to repo page list items, a page to see more detail of running status
 - [ ] event handling of BOControl
