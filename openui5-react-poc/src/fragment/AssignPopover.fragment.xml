@@ -10,11 +10,9 @@
 		placement="Top">
 		
 		<List id="assignPopoverList"
-			mode="MultiSelect"
 			includeItemInSelection="true"
 			class="sapContrast sapContrastPlus">
 			<items>
-
 				<NotificationListGroup
 					id="assignNotificationGroup"
 					title="Assign {= ${/assign}.length} repositories without any existed assignment."

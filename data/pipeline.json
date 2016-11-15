@@ -7,7 +7,7 @@
 	"sapPredefined": true,
 	"reposAssigned": [{
 		"id": "github1",
-		"name": "bulletinboard-ads"
+		"full_name": "I037379/bulletinboard-ads"
 	}],
 	"layout": {
 		"nodeSpacingH": 70,
@@ -58,10 +58,10 @@
 	"sapPredefined": true,
 	"reposAssigned": [{
 	    "id": "github2",
-	    "name": "cc-devops-coursematerial"
+	    "full_name": "I037379/cc-devops-coursematerial"
 	}, {
 		"id": "git2",
-		"name": "helloworld 2"
+		"full_name": "Project for resource based planning"
 	}],
 	"layout": {
 		"nodeSpacingH": 70,
@@ -90,13 +90,13 @@
 	"type": "localOnly",
 	"reposAssigned": [{
 		"id": "github4",
-   	 	"name": "service1"
+   	 	"full_name": "ciconnect/service1"
 	}, {
 		"id": "github5",
-		"name": "service2"
+		"full_name": "ciconnect/service2"
 	}, {
 		"id": "github6",
-		"name": "service3"
+		"full_name": "ciconnect/service3"
 	}],
 	"layout": {
 		"nodeSpacingH": 70,
@@ -132,7 +132,7 @@
 	"manualIncluded": true,
 	"reposAssigned": [{
 		"id": "github7",
-		"name": "service4"
+		"full_name": "ciconnect/service4"
 	}],
 	"layout": {
 		"nodeSpacingH": 70,
@@ -183,10 +183,10 @@
 	"type": "mixed",
 	"reposAssigned": [{
 		"id": "github8",
-    		"name": "helloworld"
+    		"full_name": "I037379/helloworld"
 	}, {
-		"id": "",
-		"name": ""
+		"id": "github3",
+   	 	"full_name": "i037379's repo"
 	}],
 	"layout": {
 		"nodeSpacingH": 70,

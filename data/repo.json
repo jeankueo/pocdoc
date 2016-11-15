@@ -295,15 +295,15 @@
   },
   {
     "id": "github3",
-    "name": "p_i037379",
-    "full_name": "i037379's pipeline",
+    "name": "git service",
+    "full_name": "i037379's repo",
     "description": "testtest tse dfefjkw dv sd f ef th e rf sedf sdfsf eref we fw efwe",
     "repo_source": "github",
     "org": "ciconnect",
     "private": true,
     "fork": false,
     "pipeline": {
-      "id": "pipeline123",
+      "id": "p_i037379",
       "name": "i037379's Pipeline",
       "type": "localOnly",
       "layout": {

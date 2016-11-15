@@ -163,7 +163,6 @@ sap.ui.define([
 			var aSelectedPipelineContext = this.getView().byId("pipelineView").byId("pipelineList").getSelectedContexts(true),
 				aSelectedRepoContext = this.getView().byId("repoView").byId("repoList").getSelectedContexts(true),
 				aUnassignFromSelectedPipeline = [],
-				oRepoIds,
 				oPipelineData,
 				oRepoData,
 				aRepoData = [];
@@ -173,17 +172,10 @@ sap.ui.define([
 			}
 
 			if (aSelectedRepoContext.length > 0) {
-				// make an index of repo ids recorded in pipeline already
-				if (oPipelineData.reposAssigned && oPipelineData.reposAssigned.length > 0) {
-					oRepoIds = {};
-					for (var j = 0; j < oPipelineData.reposAssigned.length; j++) {
-						oRepoIds[oPipelineData.reposAssigned[j].id] = true;
-					}
-				}
 				// record other pipelines which is recorded in selected repo
 				for (var i = 0; i < aSelectedRepoContext.length; i++) {
 					oRepoData = aSelectedRepoContext[i].getModel().getProperty(aSelectedRepoContext[i].getPath());
-					if (oRepoData.pipeline && !oRepoIds[oRepoData.pipeline.id]) {
+					if (oRepoData.pipeline && (!oPipelineData|| oRepoData.pipeline.id !== oPipelineData.key)) {
 						aRepoData.push(oRepoData);
 					}
 				}

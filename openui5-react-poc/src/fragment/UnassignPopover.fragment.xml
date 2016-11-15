@@ -10,10 +10,61 @@
 		placement="Top">
 
 		<List id="unassignPopoverList"
-			mode="MultiSelect"
 			includeItemInSelection="true"
 			class="sapContrast sapContrastPlus">
 
+			<items>
+				<NotificationListGroup
+					id="unAssignFromPipeline"
+					title="Unassign {= ${/pipeline/reposAssigned}.length} repositories from pipeline &quot;{/pipeline/name}&quot;."
+					showCloseButton="true"
+					unread="true"
+					showButtons="true"
+					collapsed="true"
+					close="onPopoverCloseGroup"
+					customData:dataName="pipeline"
+					items="{/pipeline/reposAssigned}">
+					<items>
+						<NotificationListItem title="Repository &quot;{full_name}&quot;"
+							showCloseButton="true"
+							priority="Low"
+							close="onPopoverCloseItem">
+							<buttons>
+								<Button text="Accept" type="Accept" press="onPopoverAcceptItem" />
+							</buttons>
+						</NotificationListItem>
+					</items>
+					<buttons>
+						<Button text="Accept Group" type="Accept" press="onPopoverAcceptGroup" customData:dataName="pipeline"/>
+					</buttons>
+				</NotificationListGroup>
+
+				<NotificationListGroup
+					id="unAssignRest"
+					title="Unassgin {= ${/repo}.length} selected repositories which are not assigned to selected pipeline &quot;{/pipeline/name}&quot;."
+					showCloseButton="true"
+					unread="true"
+					showButtons="true"
+					collapsed="true"
+					close="onPopoverCloseGroup"
+					customData:dataName="repo"
+					items="{/repo}">
+					<items>
+						<NotificationListItem title="Repository &quot;{full_name}&quot;"
+							description="unassign pipeline &quot;{pipeline/id}&quot;"
+							showCloseButton="true"
+							priority="Low"
+							close="onPopoverCloseItem">
+							<buttons>
+								<Button text="Accept" type="Accept" press="onPopoverAcceptItem" />
+							</buttons>
+						</NotificationListItem>
+					</items>
+					<buttons>
+						<Button text="Accept Group" type="Accept" press="onPopoverAcceptGroup" customData:dataName="repo"/>
+					</buttons>
+				</NotificationListGroup>
+			</items>
 		</List>
 		
 		<beginButton>
