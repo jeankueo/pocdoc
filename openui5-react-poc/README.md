@@ -34,18 +34,18 @@ Todos
 - [x] enhance search function of pipeline page
 - [x] add an organization + git/gerrit + all selection dropdown in front of search on repo page.
 - [x] enhance search function of repo page
-- [ ] add navigation function to pipeline page list items, a page to edit pipeline, and see more details about it
-- [ ] add navigation function to repo page list items, a page to see more detail of running status
 - [x] finish delete git repo pop
 - [x] finish active button pop - consume the new models
-- [ ] finish deactive button pop - consume the new models
+- [x] finish deactive button pop - consume the new models
 - [x] move add git input to a pop triggered by popover
 - [x] mix github/gitgerrit tables
 - [x] change repo view to bage style, line items become like link + bages + pipelinegraph
 - [x] change pipeline view to bage style, line items become like link + bages + pipelinegraph
-- [ ] adjust css to be more close to blue ocean theme
-- [ ] integrate with real system
-- [ ] add db (json-based)
-- [ ] event handling of BOControl
 - [ ] linkage / event navigation of repo/pipeline page
+- [ ] add navigation function to pipeline page list items, a page to edit pipeline, and see more details about it
+- [ ] add navigation function to repo page list items, a page to see more detail of running status
+- [ ] event handling of BOControl
 - [ ] legend page
+- [ ] adjust css to be more close to blue ocean theme
+- [ ] add db (json-based)
+- [ ] integrate with real system
