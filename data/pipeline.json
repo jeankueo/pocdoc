@@ -124,7 +124,7 @@
 	}]
 }, {
 	"key": "p_hcp_cf",
-	"name": "HCP CLoudfoundry pipeline",
+	"name": "HCP Cloudfoundry pipeline",
 	"sapPredefined": true,
 	"category": "HCP_CF",
 	"description": "Predefined pipeline delivered by SAP for HCP Cloudfoundry",
