@@ -61,9 +61,11 @@ sap.ui.define([
 			if (Exporter[sControlName]) {
 				ReactDOM.render(
 					React.createElement(Exporter[sControlName], oProps),
-					document.getElementById(sId), function ($ref) {
+					document.getElementById(sId)/*, 
+					function ($ref) {
 						return $ref;
-					});
+					}*/
+				);
 
 				var $bo = jQuery("#" + that.getId()).children();
 				that.addJenkinsboClass($bo); // add namespace of css -- quick and dirty solution

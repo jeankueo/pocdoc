@@ -324,7 +324,7 @@ sap.ui.define([
 		_deleteItemFromPopover: function (oEvent) {
 			var oBindingContext = oEvent.getSource().getBindingContext();
 			var sItemPath = oBindingContext.getPath();
-			var sArrayPath = sItemPath.substring(0, sItemPath.lastIndexOf("/"));
+			var sArrayPath = sItemPath.substring(0, sItemPath.lastIndexOf("/") + 1);
 			var aData = oBindingContext.getModel().getProperty(sArrayPath),
 				oData = oBindingContext.getModel().getProperty(sItemPath);
 			aData.splice(jQuery.inArray(oData, aData), 1);

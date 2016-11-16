@@ -7,7 +7,6 @@
 		placement="Top">
 		<List id="popoverList"
 			items="{/}"
-			mode="MultiSelect"
 			includeItemInSelection="true"
 			class="sapContrast sapContrastPlus">
 			<NotificationListItem 
