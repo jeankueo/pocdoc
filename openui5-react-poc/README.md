@@ -44,7 +44,8 @@ Todos
 - [x] linkage / event navigation of repo/pipeline page
 - [x] add navigation function to pipeline page list items, a page to edit pipeline, and see more details about it
 - [x] add navigation function to repo page list items, a page to see more detail of running status
-- [ ] add bookmark button
+- [x] add bookmarkable tab
+- [ ] add bookmarkable search
 - [ ] detail page of pipeline (use children data of BO pipelinegraph control)
 - [ ] detail page of repo (use BO control)
 - [ ] event handling of BOControl in general
