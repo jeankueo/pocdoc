@@ -24,7 +24,7 @@
 						key="Summary"
 						icon="sap-icon://kpi-corporate-performance">
 						<content>
-							<mvc:XMLView id="summaryView" viewName="sap.ciconnect.view.summary" />
+							<mvc:XMLView id="summaryView" viewName="sap.ciconnect.view.Summary" />
 						</content>
 					</IconTabFilter>
 					<IconTabFilter text="Pipelines"
@@ -32,7 +32,7 @@
 						icon="sap-icon://awesome/fa-pied-piper-pp"
 						count="{= ${pipeline>/}.length}">
 						<content>
-							<mvc:XMLView id="pipelineView" viewName="sap.ciconnect.view.pipelines" />
+							<mvc:XMLView id="pipelineView" viewName="sap.ciconnect.view.Pipelines" />
 						</content>
 					</IconTabFilter>
 					<IconTabFilter text="Repositories"
@@ -40,7 +40,7 @@
 						icon="sap-icon://oct/octicon-repo"
 						count="{= ${repo>/}.length}">
 						<content>
-							<mvc:XMLView id="repoView" viewName="sap.ciconnect.view.repositories" />
+							<mvc:XMLView id="repoView" viewName="sap.ciconnect.view.Repositories" />
 						</content>
 					</IconTabFilter>
 				</items>

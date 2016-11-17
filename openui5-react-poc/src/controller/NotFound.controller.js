@@ -1,8 +1,8 @@
 sap.ui.define([
-   "sap/ui/core/mvc/Controller"
-], function (Controller) {
+   "./BaseController"
+], function (BaseController) {
    "use strict";
-   return Controller.extend("sap.ciconnect.controller.NotFound", {
+   return BaseController.extend("sap.ciconnect.controller.NotFound", {
       onInit: function () {
       }
    });
