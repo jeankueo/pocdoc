@@ -4,7 +4,6 @@ sap.ui.define([
 	"use strict";
 
 	return UIComponent.extend("sap.ciconnect.Component", {
-
 		metadata: {
 			manifest: "json"
 		},

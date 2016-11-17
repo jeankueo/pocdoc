@@ -9,46 +9,51 @@
 		"id": "github1",
 		"full_name": "I037379/bulletinboard-ads"
 	}],
-	"layout": {
-		"nodeSpacingH": 70,
-		"nodeSpacingV": 15,
-		"nodeRadius": 10
+	"abstract": {
+		"layout": {
+			"nodeSpacingH": 70,
+			"nodeSpacingV": 15,
+			"nodeRadius": 10
+		},
+		"stages": [{
+			"id": 1,
+			"type": "central",
+			"name": "Build",
+			"state": "not_built",
+			"short_desc": "Click to see document.",
+			"link": "https://github.wdf.sap.corp/production-services/build-service/blob/master/README.md"
+		}, {
+			"id": 1.1,
+			"type": "central",
+			"name": "Test",
+			"state": "not_built",
+			"short_desc": "Click to see document.",
+			"link": "https://github.wdf.sap.corp/production-services/build-service/blob/master/README.md"
+		}, {
+			"id": 2,
+			"type": "local",
+			"name": "Versioning",
+			"state": "not_built",
+			"short_desc": "Click to see document.",
+			"link": "https://github.wdf.sap.corp/production-services/demo-test-service/blob/master/README.md"
+		}, {
+			"id": 3,
+			"type": "local",
+			"name": "Validation",
+			"state": "not_built",
+			"short_desc": "Short description for validation job. Should be at most 2 sentences."
+		}, {
+			"id": 4,
+			"type": "central",
+			"name": "Deploy",
+			"state": "not_built",
+			"short_desc": "Click to see document.",
+			"link": "https://github.wdf.sap.corp/production-services/cf-deploy-service/blob/master/README.md"
+		}]
 	},
-	"stages": [{
-		"id": 1,
-		"type": "central",
-		"name": "Build",
-		"state": "not_built",
-		"short_desc": "Click to see document.",
-		"link": "https://github.wdf.sap.corp/production-services/build-service/blob/master/README.md"
-	}, {
-		"id": 1.1,
-		"type": "central",
-		"name": "Test",
-		"state": "not_built",
-		"short_desc": "Click to see document.",
-		"link": "https://github.wdf.sap.corp/production-services/build-service/blob/master/README.md"
-	}, {
-		"id": 2,
-		"type": "local",
-		"name": "Versioning",
-		"state": "not_built",
-		"short_desc": "Click to see document.",
-		"link": "https://github.wdf.sap.corp/production-services/demo-test-service/blob/master/README.md"
-	}, {
-		"id": 3,
-		"type": "local",
-		"name": "Validation",
-		"state": "not_built",
-		"short_desc": "Short description for validation job. Should be at most 2 sentences."
-	}, {
-		"id": 4,
-		"type": "central",
-		"name": "Deploy",
-		"state": "not_built",
-		"short_desc": "Click to see document.",
-		"link": "https://github.wdf.sap.corp/production-services/cf-deploy-service/blob/master/README.md"
-	}]
+	"detail": {
+
+	}
 }, {
 	"key": "p_hcp_cl",
 	"name": "HCP Classic pipeline",
@@ -63,24 +68,29 @@
 		"id": "git2",
 		"full_name": "Project for resource based planning"
 	}],
-	"layout": {
-		"nodeSpacingH": 70,
-		"nodeSpacingV": 15,
-		"nodeRadius": 10
+	"abstract": {
+		"layout": {
+			"nodeSpacingH": 70,
+			"nodeSpacingV": 15,
+			"nodeRadius": 10
+		},
+		"stages": [{
+			"id": 5,
+			"type": "central",
+			"name": "Build",
+			"state": "not_built",
+			"short_desc": "Short description for build job. Should be at most 2 sentences."
+		}, {
+			"id": 6,
+			"type": "central",
+			"name": "Deploy",
+			"state": "not_built",
+			"short_desc": "Short description for deploy job. Should be at most 2 sentences."
+		}]
 	},
-	"stages": [{
-		"id": 5,
-		"type": "central",
-		"name": "Build",
-		"state": "not_built",
-		"short_desc": "Short description for build job. Should be at most 2 sentences."
-	}, {
-		"id": 6,
-		"type": "central",
-		"name": "Deploy",
-		"state": "not_built",
-		"short_desc": "Short description for deploy job. Should be at most 2 sentences."
-	}]
+	"detail": {
+
+	}
 }, {
 	"key": "p_ui5",
 	"name": "SAPUI5 pipeline",
@@ -98,30 +108,35 @@
 		"id": "github6",
 		"full_name": "ciconnect/service3"
 	}],
-	"layout": {
-		"nodeSpacingH": 70,
-		"nodeSpacingV": 15,
-		"nodeRadius": 10
+	"abstract": {
+		"layout": {
+			"nodeSpacingH": 70,
+			"nodeSpacingV": 15,
+			"nodeRadius": 10
+		},
+		"stages": [{
+			"id": 7,
+			"type": "local",
+			"name": "Build",
+			"state": "not_built",
+			"short_desc": "Short description for build job. Should be at most 2 sentences."
+		}, {
+			"id": 7.1,
+			"type": "local",
+			"name": "Version",
+			"state": "not_built",
+			"short_desc": "Short description for build job. Should be at most 2 sentences."
+		}, {
+			"id": 8,
+			"type": "local",
+			"name": "Deploy",
+			"state": "not_built",
+			"short_desc": "Short description for deploy job. Should be at most 2 sentences."
+		}]
 	},
-	"stages": [{
-		"id": 7,
-		"type": "local",
-		"name": "Build",
-		"state": "not_built",
-		"short_desc": "Short description for build job. Should be at most 2 sentences."
-	}, {
-		"id": 7.1,
-		"type": "local",
-		"name": "Version",
-		"state": "not_built",
-		"short_desc": "Short description for build job. Should be at most 2 sentences."
-	}, {
-		"id": 8,
-		"type": "local",
-		"name": "Deploy",
-		"state": "not_built",
-		"short_desc": "Short description for deploy job. Should be at most 2 sentences."
-	}]
+	"detail": {
+
+	}
 }, {
 	"key": "p_hcp_cf",
 	"name": "HCP Cloudfoundry pipeline",
@@ -134,48 +149,53 @@
 		"id": "github7",
 		"full_name": "ciconnect/service4"
 	}],
-	"layout": {
-		"nodeSpacingH": 70,
-		"nodeSpacingV": 15,
-		"nodeRadius": 10
+	"abstract": {
+		"layout": {
+			"nodeSpacingH": 70,
+			"nodeSpacingV": 15,
+			"nodeRadius": 10
+		},
+		"stages": [{
+			"id": 9,
+			"type": "local",
+			"name": "Build",
+			"state": "not_built",
+			"short_desc": "Build"
+		}, {
+			"id": 10,
+			"type": "central",
+			"name": "Versioning",
+			"state": "not_built",
+			"short_desc": "versioning"
+		}, {
+			"id": 11,
+			"type": "local",
+			"name": "Validation",
+			"state": "not_built",
+			"short_desc": "validation"
+		}, {
+			"id": 12,
+			"type": "central",
+			"name": "Staging",
+			"state": "not_built",
+			"short_desc": "staging"
+		}, {
+			"id": 13,
+			"type": "central",
+			"name": "Promotion",
+			"state": "not_built",
+			"short_desc": "promotion"
+		}, {
+			"id": 14,
+			"type": "local",
+			"name": "Deploy",
+			"state": "not_built",
+			"short_desc": "deploy"
+		}]
 	},
-	"stages": [{
-		"id": 9,
-		"type": "local",
-		"name": "Build",
-		"state": "not_built",
-		"short_desc": "Build"
-	}, {
-		"id": 10,
-		"type": "central",
-		"name": "Versioning",
-		"state": "not_built",
-		"short_desc": "versioning"
-	}, {
-		"id": 11,
-		"type": "local",
-		"name": "Validation",
-		"state": "not_built",
-		"short_desc": "validation"
-	}, {
-		"id": 12,
-		"type": "central",
-		"name": "Staging",
-		"state": "not_built",
-		"short_desc": "staging"
-	}, {
-		"id": 13,
-		"type": "central",
-		"name": "Promotion",
-		"state": "not_built",
-		"short_desc": "promotion"
-	}, {
-		"id": 14,
-		"type": "local",
-		"name": "Deploy",
-		"state": "not_built",
-		"short_desc": "deploy"
-	}]
+	"detail": {
+
+	}
 }, {
 	"key": "p_i037379",
 	"name": "i037379's pipeline",
@@ -188,51 +208,59 @@
 		"id": "github3",
    	 	"full_name": "i037379's repo"
 	}],
-	"layout": {
-		"nodeSpacingH": 70,
-		"nodeSpacingV": 15,
-		"nodeRadius": 10
+	"abstract": {
+		"layout": {
+			"nodeSpacingH": 70,
+			"nodeSpacingV": 15,
+			"nodeRadius": 10
+		},
+		"stages": [{
+			"id": 15,
+			"type": "local",
+			"name": "Test",
+			"state": "not_built",
+			"short_desc": "Test"
+		}]
 	},
-	"stages": [{
-		"id": 15,
-		"type": "local",
-		"name": "Test",
-		"state": "not_built",
-		"short_desc": "Test"
-	}]
+	"detail": {
+
+	}
 }, {
 	"key": "p_tm",
 	"name": "TM's pipeline",
 	"description": "tm hosted pipeline",
 	"type": "mixed",
-	"layout": {
-		"nodeSpacingH": 70,
-		"nodeSpacingV": 15,
-		"nodeRadius": 10
+	"abstract": {
+		"layout": {
+			"nodeSpacingH": 70,
+			"nodeSpacingV": 15,
+			"nodeRadius": 10
+		},
+		"stages": [{
+			"id": 17,
+			"type": "local",
+			"name": "Build",
+			"state": "not_built",
+			"short_desc": "Build"
+		}, {
+			"id": 18,
+			"type": "central",
+			"name": "Test",
+			"state": "not_built",
+			"short_desc": "Test"
+		}, {
+			"id": 19,
+			"type": "central",
+			"name": "Commit",
+			"state": "not_built",
+			"short_desc": "Commit"
+		}, {
+			"id": 20,
+			"type": "central",
+			"name": "Deploy",
+			"state": "not_built",
+			"short_desc": "upload"
+		}]
 	},
-	"stages": [{
-		"id": 17,
-		"type": "local",
-		"name": "Build",
-		"state": "not_built",
-		"short_desc": "Build"
-	}, {
-		"id": 18,
-		"type": "central",
-		"name": "Test",
-		"state": "not_built",
-		"short_desc": "Test"
-	}, {
-		"id": 19,
-		"type": "central",
-		"name": "Commit",
-		"state": "not_built",
-		"short_desc": "Commit"
-	}, {
-		"id": 20,
-		"type": "central",
-		"name": "Deploy",
-		"state": "not_built",
-		"short_desc": "upload"
-	}]
+	"detail": {}
 }]

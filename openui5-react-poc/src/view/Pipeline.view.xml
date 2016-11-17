@@ -3,7 +3,7 @@
    xmlns="sap.m"
    xmlns:mvc="sap.ui.core.mvc">
    
-   <Page title="Pipeline name"
+   <Page title="Pipeline {pipeline>name}"
       text="aaa"
       description="bbb"
       showNavButton="true"

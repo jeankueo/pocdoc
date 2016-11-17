@@ -3,7 +3,7 @@
    xmlns="sap.m"
    xmlns:mvc="sap.ui.core.mvc">
    
-   <Page title="Repository name"
+   <Page title="Repository {repo>full_name}"
       text="aaa"
       description="bbb"
       showNavButton="true"

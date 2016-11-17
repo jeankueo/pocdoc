@@ -120,9 +120,11 @@ sap.ui.define([
 			this.getView().getContent()[1].setHeight(($bar.offset().top + $bar.height() - $container.offset().top) + "px");
 		},
 
-		onNavDetail: function () {
-			this.getRouter().getTargets().display("pipeline", {
-				fromTarget: "home"
+		onNavDetail: function (oEvent) {
+			var sPath = oEvent.getSource().getBindingContext("pipeline").getPath();
+			this.getRouter().navTo("pipeline", {
+				//key: oBindingContext.getProperty("key")
+				index: sPath.substr(sPath.indexOf("/") + 1)
 			});
 		}
 	});

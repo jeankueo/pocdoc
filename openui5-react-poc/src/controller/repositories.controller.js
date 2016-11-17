@@ -150,9 +150,11 @@ sap.ui.define([
 			this.getView().getContent()[1].setHeight(($bar.offset().top + $bar.height() - $container.offset().top) + "px");
 		},
 
-		onNavDetail: function () {
-			this.getRouter().getTargets().display("repository", {
-				fromTarget: "home"
+		onNavDetail: function (oEvent) {
+			var sPath = oEvent.getSource().getBindingContext("repo").getPath();
+			this.getRouter().navTo("repository", {
+				//id: oBindingContext.getProperty("id")
+				index: sPath.substr(sPath.indexOf("/") + 1)
 			});
 		}
 	});

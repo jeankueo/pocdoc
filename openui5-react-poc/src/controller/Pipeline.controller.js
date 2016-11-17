@@ -6,24 +6,33 @@ sap.ui.define([
 
 	return BaseController.extend("sap.ciconnect.controller.Pipeline", {
 		onInit: function () {
-			var oRouter, oTarget;
-			oRouter = this.getRouter();
-			oTarget = oRouter.getTarget("pipeline");
-			oTarget.attachDisplay(function (oEvent) {
-				this._oData = oEvent.getParameter("data"); //store the data
-			}, this);
+			var oRouter = this.getRouter();
+			oRouter.getRoute("pipeline").attachMatched(this._onRouteMatched, this);
+		},
+
+		_onRouteMatched: function (oEvent) {
+			var oArgs = oEvent.getParameter("arguments"),
+				oView = this.getView();
+
+			oView.bindElement({
+				path: "pipeline>/" + oArgs.index,
+				events: {
+					change: this._onBindingChange.bind(this),
+					dataRequested: function (oEvent) {
+						oView.setBusy(true);
+					},
+					dataReceived: function (oEvent) {
+						oView.setBusy(false);
+					}
+				}
+			})
 		},
 		
-		onNavBack : function (oEvent){
-			var oHistory, sPreviousHash, oRouter;
-			// in some cases we could display a certain target when the back button is pressed
-			if (this._oData && this._oData.fromTarget) {
-				this.getRouter().getTargets().display(this._oData.fromTarget);
-				delete this._oData.fromTarget;
-				return;
+		_onBindingChange: function (oEvent) {
+			var oBindingContext = this.getView().getBindingContext("pipeline");
+			if (!oBindingContext || !oBindingContext.getModel().getProperty(oBindingContext.getPath())) {
+				this.getRouter().getTargets().display("notFound");
 			}
-			// call the parent's onNavBack
-			BaseController.prototype.onNavBack.apply(this, arguments);
 		}
 	});
 });

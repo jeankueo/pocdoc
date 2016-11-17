@@ -56,11 +56,11 @@
 				"name": "appHome",
 				"target": "home"
 			}, {
-				"pattern": "pipeline",
+				"pattern": "pipeline/{index}",
 				"name": "pipeline",
 				"target": "pipeline"
 			}, {
-				"pattern": "repository",
+				"pattern": "repository/{index}",
 				"name": "repository",
 				"target": "repository"
 			}],
@@ -79,7 +79,8 @@
 				},
 				"notFound": {
 					"viewName": "NotFound",
-					"transition": "show"
+					"transition": "fade",
+					"viewLevel": 10
 				}
 			}
 		}
