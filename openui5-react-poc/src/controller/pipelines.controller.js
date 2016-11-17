@@ -121,7 +121,7 @@ sap.ui.define([
 		},
 
 		onNavDetail: function () {
-			this.getRouter().getTargets().display("notFound", {
+			this.getRouter().getTargets().display("pipeline", {
 				fromTarget: "home"
 			});
 		}

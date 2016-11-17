@@ -1,9 +1,9 @@
 sap.ui.define([
-	"sap/ui/core/mvc/Controller", 'sap/ui/model/Filter', "sap/ui/model/json/JSONModel"
-], function (Controller, Filter, JSONModel) {
+	"./BaseController", 'sap/ui/model/Filter', "sap/ui/model/json/JSONModel"
+], function (BaseController, Filter, JSONModel) {
 	"use strict";
 	
-	return Controller.extend("sap.ciconnect.controller.Repositories", {
+	return BaseController.extend("sap.ciconnect.controller.Repositories", {
 		onInit: function() {
 			this._iSelectCount = 0;
 			this._oSelectRepoSourceFilter = undefined;
@@ -148,6 +148,12 @@ sap.ui.define([
 				$container = jQuery("#" + this.getView().getContent()[1].getId());
 
 			this.getView().getContent()[1].setHeight(($bar.offset().top + $bar.height() - $container.offset().top) + "px");
+		},
+
+		onNavDetail: function () {
+			this.getRouter().getTargets().display("repository", {
+				fromTarget: "home"
+			});
 		}
 	});
 });

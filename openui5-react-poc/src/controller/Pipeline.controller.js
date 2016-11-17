@@ -1,12 +1,14 @@
 sap.ui.define([
-   "./BaseController"
-], function (BaseController) {
-   "use strict";
-   return BaseController.extend("sap.ciconnect.controller.NotFound", {
-      	onInit: function () {
+	"../controller/BaseController", 'sap/ui/model/Filter', "sap/ui/model/json/JSONModel",
+	"../model/formatter"
+], function (BaseController, Filter, JSONModel, formatter) {
+	"use strict";
+
+	return BaseController.extend("sap.ciconnect.controller.Pipeline", {
+		onInit: function () {
 			var oRouter, oTarget;
 			oRouter = this.getRouter();
-			oTarget = oRouter.getTarget("notFound");
+			oTarget = oRouter.getTarget("pipeline");
 			oTarget.attachDisplay(function (oEvent) {
 				this._oData = oEvent.getParameter("data"); //store the data
 			}, this);
@@ -23,5 +25,5 @@ sap.ui.define([
 			// call the parent's onNavBack
 			BaseController.prototype.onNavBack.apply(this, arguments);
 		}
-   });
+	});
 });

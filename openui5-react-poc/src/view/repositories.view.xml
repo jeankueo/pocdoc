@@ -35,7 +35,10 @@
 							</HBox>
 							<Text text="{repo>description}"/>
 						</VBox>
-						<ci:BOControl moduleName="PipelineGraph" controlName="PipelineGraph" props="{repo>pipeline}" />
+						<HBox alignItems="Center">
+							<ci:BOControl moduleName="PipelineGraph" controlName="PipelineGraph" props="{repo>pipeline}" />
+							<Button icon="sap-icon://feeder-arrow" type="Transparent" press="onNavDetail" tooltip="Show Repository Detail"/>
+						</HBox>
 					</HBox>
 				</CustomListItem>
 			</List>

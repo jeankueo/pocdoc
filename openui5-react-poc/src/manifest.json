@@ -55,11 +55,27 @@
 				"pattern": "",
 				"name": "appHome",
 				"target": "home"
+			}, {
+				"pattern": "pipeline",
+				"name": "pipeline",
+				"target": "pipeline"
+			}, {
+				"pattern": "repository",
+				"name": "repository",
+				"target": "repository"
 			}],
 			"targets": {
 				"home": {
 					"viewName": "Home",
 					"viewLevel": 1
+				},
+				"pipeline": {
+					"viewName": "Pipeline",
+					"viewLevel": 2
+				},
+				"repository": {
+					"viewName": "Repository",
+					"viewLevel": 2
 				},
 				"notFound": {
 					"viewName": "NotFound",

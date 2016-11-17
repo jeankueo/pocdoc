@@ -1,0 +1,27 @@
+<mvc:View
+   controllerName="sap.ciconnect.controller.Pipeline"
+   xmlns="sap.m"
+   xmlns:mvc="sap.ui.core.mvc">
+   
+   <Page title="Pipeline name"
+      text="aaa"
+      description="bbb"
+      showNavButton="true"
+	 navButtonPress="onNavBack">
+   		
+   		<headerContent>
+			<Button icon="sap-icon://legend"/>
+		</headerContent>
+
+		<content>
+		</content>
+
+		<footer>
+			<Toolbar>
+				<content>
+					
+				</content>
+			</Toolbar>
+		</footer>
+   </Page>
+</mvc:View>
