@@ -118,6 +118,10 @@ sap.ui.define([
 				$container = jQuery("#" + this.getView().getContent()[1].getId());
 
 			this.getView().getContent()[1].setHeight(($bar.offset().top + $bar.height() - $container.offset().top) + "px");
+		},
+
+		onNavDetail: function (oEvent) {
+			
 		}
 	});
 });

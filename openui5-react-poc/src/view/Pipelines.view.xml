@@ -34,7 +34,10 @@
 							</HBox>
 							<Text text="{pipeline>description}"/>
 						</VBox>
-						<ci:BOControl moduleName="PipelineGraph" controlName="PipelineGraph" props="{pipeline>}" />
+						<HBox>
+							<ci:BOControl moduleName="PipelineGraph" controlName="PipelineGraph" props="{pipeline>}" />
+							<core:Icon src="sap-icon://feeder-arrow" class="sapUiSmallMargin" press="onNavDetail" />
+						</HBox>
 					</HBox>
 				</CustomListItem>
 			</List>
