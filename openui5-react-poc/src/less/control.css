@@ -1,0 +1,71 @@
+.ciConnectSvgGerrit {
+	 background-image: url("/openui5-react-poc/src/svg/Gerrit.svg");
+}
+
+.ciConnectSvgGerritColor {
+	 background-image: url("/openui5-react-poc/src/svg/GerritColor.svg");
+}
+
+.ciConnectSvgGit {
+	 background-image: url("/openui5-react-poc/src/svg/Git.svg");
+}
+
+.ciConnectSvgGitColor {
+	 background-image: url("/openui5-react-poc/src/svg/GitColor.svg");
+}
+
+.ciConnectSvgGitSquare {
+	 background-image: url("/openui5-react-poc/src/svg/GitSquare.svg");
+}
+
+.ciConnectSvgGithub {
+	 background-image: url("/openui5-react-poc/src/svg/Github.svg");
+}
+
+.ciConnectSvgGithubSquare {
+	 background-image: url("/openui5-react-poc/src/svg/GithubSquare.svg");
+}
+
+.ciconnectPipelineSvgFrame {
+	width:100%;
+	height:100%;
+	stroke:#666666;
+	stroke-width:1;
+	stroke-dasharray:3,4;
+	fill:#ffffff;
+	rx: 10;
+	ry: 10;
+}
+
+.ciConnectJobPathTypeCentral {
+	fill: #1C75BC;
+	stroke: #1C75BC;
+}
+
+.ciConnectJobPathTypeLocal {
+	fill: #e09d00;
+	stroke: #e09d00;
+}
+
+.ciConnectJobTextNormal {
+	fill: #666666;
+	stroke-width: 0;
+	font-family: Arial, Helvetica, sans-serif;
+	text-decoration: none;
+}
+
+.ciConnectJobTextLink {
+	fill: #0070b1;
+	stroke-width: 0;
+	font-family: Arial, Helvetica, sans-serif;
+	text-decoration: none;
+}
+
+svg a:hover .ciConnectJobTextLink{
+	text-decoration: underline;
+}
+
+.ciConnectJobLink:hover {
+	fill-opacity: 0.3 !important;
+	fill: #1C75BC !important;
+}

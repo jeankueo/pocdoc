@@ -4,7 +4,7 @@ sap.ui.define([
 ], function (Controller, Filter, JSONModel, formatter) {
 	"use strict";
 	
-	return Controller.extend("sap.ciconnect.view.pipelines", {
+	return Controller.extend("sap.ciconnect.controller.pipelines", {
 		formatter: formatter,
 
 		onInit: function() {

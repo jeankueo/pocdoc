@@ -1,5 +1,5 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
-		controllerName="sap.ciconnect.view.Home" xmlns:html="http://www.w3.org/1999/xhtml">
+		controllerName="sap.ciconnect.controller.Home" xmlns:html="http://www.w3.org/1999/xhtml">
 
 	<Page id="ciconnect" title="Viz Pipeline PoC" enableScrolling="false">
 		<headerContent>

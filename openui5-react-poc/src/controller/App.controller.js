@@ -3,7 +3,7 @@ sap.ui.define([
 ], function (Controller, JSONModel, IconPool) {
 	"use strict";
 	
-	return Controller.extend("sap.ciconnect.view.App", {
+	return Controller.extend("sap.ciconnect.controller.App", {
 		onInit: function() {
 			this._registerIcons();
 			this._loadData();

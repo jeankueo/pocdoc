@@ -1,7 +1,7 @@
 <mvc:View 
 	xmlns:mvc="sap.ui.core.mvc" 
 	xmlns="sap.m"
-	controllerName="sap.ciconnect.view.App" 
+	controllerName="sap.ciconnect.controller.App" 
 	displayBlock="true">
 	<App id="ciconnectApp" />
 </mvc:View>

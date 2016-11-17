@@ -3,7 +3,7 @@ sap.ui.define([
 ], function (Controller, Filter, JSONModel) {
 	"use strict";
 	
-	return Controller.extend("sap.ciconnect.view.repositories", {
+	return Controller.extend("sap.ciconnect.controller.repositories", {
 		onInit: function() {
 			this._iSelectCount = 0;
 			this._oSelectRepoSourceFilter = undefined;

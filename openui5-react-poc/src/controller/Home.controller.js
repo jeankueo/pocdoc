@@ -3,7 +3,7 @@ sap.ui.define([
 ], function (Controller, JSONModel) {
 	"use strict";
 	
-	return Controller.extend("sap.ciconnect.view.Home", {
+	return Controller.extend("sap.ciconnect.controller.Home", {
 		onPipelineTokenPressed: function (oEvent) {
 			this.getView().getModel("setting").setProperty("/selectedTabKey", "Pipelines");
 		},

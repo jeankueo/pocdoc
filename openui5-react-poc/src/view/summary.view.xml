@@ -1,5 +1,5 @@
 <mvc:View
-	controllerName="sap.ciconnect.view.summary"
+	controllerName="sap.ciconnect.controller.summary"
 	xmlns="sap.m"
 	xmlns:microchart="sap.suite.ui.microchart"
 	xmlns:mvc="sap.ui.core.mvc"
