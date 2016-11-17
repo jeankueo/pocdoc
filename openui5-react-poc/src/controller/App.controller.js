@@ -1,9 +1,9 @@
 sap.ui.define([
-	"sap/ui/core/mvc/Controller", "sap/ui/model/json/JSONModel", "sap/ui/core/IconPool"
-], function (Controller, JSONModel, IconPool) {
+	"./BaseController", "sap/ui/model/json/JSONModel", "sap/ui/core/IconPool"
+], function (BaseController, JSONModel, IconPool) {
 	"use strict";
 	
-	return Controller.extend("sap.ciconnect.controller.App", {
+	return BaseController.extend("sap.ciconnect.controller.App", {
 		onInit: function() {
 			this._registerIcons();
 			this._loadData();

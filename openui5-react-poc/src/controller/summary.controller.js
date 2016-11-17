@@ -1,7 +1,9 @@
-sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/model/json/JSONModel"], function (Controller, JSONModel) {
+sap.ui.define([
+	"./BaseController", "sap/ui/model/json/JSONModel"
+], function (BaseController, JSONModel) {
 	"use strict";
 	
-	return Controller.extend("sap.ciconnect.controller.Summary", {
+	return BaseController.extend("sap.ciconnect.controller.Summary", {
 		onPress: function(oEvent) {
 			switch(oEvent.getSource().getHeader()){
 			case "Pipeline Report":

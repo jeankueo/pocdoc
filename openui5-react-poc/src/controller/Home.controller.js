@@ -1,9 +1,9 @@
 sap.ui.define([
-	"sap/ui/core/mvc/Controller", "sap/ui/model/json/JSONModel"
-], function (Controller, JSONModel) {
+	"./BaseController", "sap/ui/model/json/JSONModel"
+], function (BaseController, JSONModel) {
 	"use strict";
 	
-	return Controller.extend("sap.ciconnect.controller.Home", {
+	return BaseController.extend("sap.ciconnect.controller.Home", {
 		onPipelineTokenPressed: function (oEvent) {
 			this.getView().getModel("setting").setProperty("/selectedTabKey", "Pipelines");
 		},

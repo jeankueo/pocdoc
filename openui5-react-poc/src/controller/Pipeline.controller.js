@@ -29,8 +29,7 @@ sap.ui.define([
 		},
 		
 		_onBindingChange: function (oEvent) {
-			var oBindingContext = this.getView().getBindingContext("pipeline");
-			if (!oBindingContext || !oBindingContext.getModel().getProperty(oBindingContext.getPath())) {
+			if (!this.getView().getBindingContext("pipeline")) {
 				this.getRouter().getTargets().display("notFound");
 			}
 		}

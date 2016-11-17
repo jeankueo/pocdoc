@@ -4,9 +4,11 @@ sap.ui.define([
 ], function (Controller, History) {
 	"use strict";
 	return Controller.extend("sap.ciconnect.BaseController", {
+
 		getRouter : function () {
 			return sap.ui.core.UIComponent.getRouterFor(this);
 		},
+
 		onNavBack: function (oEvent) {
 			var oHistory, sPreviousHash;
 			oHistory = History.getInstance();
@@ -16,6 +18,10 @@ sap.ui.define([
 			} else {
 				this.getRouter().navTo("appHome", {}, true /*no history*/);
 			}
+		},
+
+		onBookmark: function (oEvent) {
+
 		}
 	});
 });

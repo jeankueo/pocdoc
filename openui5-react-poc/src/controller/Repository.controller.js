@@ -29,8 +29,7 @@ sap.ui.define([
 		},
 		
 		_onBindingChange: function (oEvent) {
-			var oBindingContext = this.getView().getBindingContext("repo");
-			if (!oBindingContext || !oBindingContext.getModel().getProperty(oBindingContext.getPath())) {
+			if (!this.getView().getBindingContext("repo")) {
 				this.getRouter().getTargets().display("notFound");
 			}
 		}
