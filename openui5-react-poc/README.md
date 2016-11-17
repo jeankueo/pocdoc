@@ -42,9 +42,12 @@ Todos
 - [x] change repo view to bage style, line items become like link + bages + pipelinegraph
 - [x] change pipeline view to bage style, line items become like link + bages + pipelinegraph
 - [x] linkage / event navigation of repo/pipeline page
-- [ ] add navigation function to pipeline page list items, a page to edit pipeline, and see more details about it
-- [ ] add navigation function to repo page list items, a page to see more detail of running status
-- [ ] event handling of BOControl
+- [x] add navigation function to pipeline page list items, a page to edit pipeline, and see more details about it
+- [x] add navigation function to repo page list items, a page to see more detail of running status
+- [ ] add bookmark button
+- [ ] detail page of pipeline (use children data of BO pipelinegraph control)
+- [ ] detail page of repo (use BO control)
+- [ ] event handling of BOControl in general
 - [ ] legend page
 - [ ] adjust css to be more close to blue ocean theme
 - [ ] add db (json-based)
