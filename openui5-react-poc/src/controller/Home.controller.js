@@ -3,7 +3,39 @@ sap.ui.define([
 ], function (BaseController, JSONModel) {
 	"use strict";
 	
+	var _aValidTabKeys = ["Summary", "Pipelines", "Repositories"];
+
 	return BaseController.extend("sap.ciconnect.controller.Home", {
+
+		onInit: function () {
+			this.getRouter().getRoute("appHome").attachMatched(this._onRouteMatched, this);
+		},
+
+		_onRouteMatched: function (oEvent) {
+			var oArgs, oView, oQuery;
+			oArgs = oEvent.getParameter("arguments");
+			oView = this.getView();
+			oQuery = oArgs["?query"];
+			if (oQuery && _aValidTabKeys.indexOf(oQuery.tab) > -1){
+				oView.getModel("setting").setProperty("/selectedTabKey", oQuery.tab);
+			} else {
+				// the default query param should be visible at all time
+				this.getRouter().navTo("appHome", {
+					query: {
+						tab : _aValidTabKeys[0]
+					}
+				}, true /*no history*/);
+			}
+		},
+
+		onTabSelect: function (oEvent) {
+			this.getRouter().navTo("appHome", {
+				query: {
+					tab : oEvent.getParameter("selectedKey")
+				}
+			}, true /*without history*/);
+		},
+
 		onPipelineTokenPressed: function (oEvent) {
 			this.getView().getModel("setting").setProperty("/selectedTabKey", "Pipelines");
 		},

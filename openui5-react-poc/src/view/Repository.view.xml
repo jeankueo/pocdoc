@@ -10,7 +10,6 @@
 	 navButtonPress="onNavBack">
    		
    		<headerContent>
-   			<Button icon="sap-icon://bookmark" press="onBookmark" />
 			<Button icon="sap-icon://legend"/>
 		</headerContent>
 

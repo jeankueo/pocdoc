@@ -18,10 +18,6 @@ sap.ui.define([
 			} else {
 				this.getRouter().navTo("appHome", {}, true /*no history*/);
 			}
-		},
-
-		onBookmark: function (oEvent) {
-
 		}
 	});
 });

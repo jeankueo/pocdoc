@@ -29,6 +29,7 @@ sap.ui.define([
 		},
 		
 		_onBindingChange: function (oEvent) {
+			// TODO: applicable to odata, json model does not work well
 			if (!this.getView().getBindingContext("pipeline")) {
 				this.getRouter().getTargets().display("notFound");
 			}

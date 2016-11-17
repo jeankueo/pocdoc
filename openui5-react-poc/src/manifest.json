@@ -52,7 +52,7 @@
 		          }
 			},
 			"routes": [{
-				"pattern": "",
+				"pattern": ":?query:",
 				"name": "appHome",
 				"target": "home"
 			}, {
