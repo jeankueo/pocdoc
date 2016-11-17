@@ -1,10 +1,10 @@
 sap.ui.define([
-	"sap/ui/core/mvc/Controller", 'sap/ui/model/Filter', "sap/ui/model/json/JSONModel",
+	"../controller/BaseController", 'sap/ui/model/Filter', "sap/ui/model/json/JSONModel",
 	"../model/formatter"
-], function (Controller, Filter, JSONModel, formatter) {
+], function (BaseController, Filter, JSONModel, formatter) {
 	"use strict";
 	
-	return Controller.extend("sap.ciconnect.controller.Pipelines", {
+	return BaseController.extend("sap.ciconnect.controller.Pipelines", {
 		formatter: formatter,
 
 		onInit: function() {
@@ -120,8 +120,10 @@ sap.ui.define([
 			this.getView().getContent()[1].setHeight(($bar.offset().top + $bar.height() - $container.offset().top) + "px");
 		},
 
-		onNavDetail: function (oEvent) {
-			
+		onNavDetail: function () {
+			this.getRouter().getTargets().display("notFound", {
+				fromTarget: "home"
+			});
 		}
 	});
 });
