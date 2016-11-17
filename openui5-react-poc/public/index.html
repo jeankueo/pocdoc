@@ -35,6 +35,7 @@
 			data-sap-ui-compatVersion='edge'
 			data-sap-ui-preload='async'
 			data-sap-ui-resourceroots='{
+				"sap.ciconnect": "./../src",
 				"sap.ciconnect.model": "./../src/model",
 				"sap.ciconnect.view": "./../src/view",
 				"sap.ciconnect.fragment": "./../src/fragment",
@@ -51,9 +52,24 @@
 		<div id='content' style="overflow: hidden"/>	
 		<script>
 			sap.ui.getCore().attachInit(function () {
-				sap.ui.xmlview({
+				// this way of coding enables routing
+				sap.ui.require([
+					//"sap/ui/demo/nav/localService/mockserver",
+					"sap/m/Shell",
+					"sap/ui/core/ComponentContainer"
+				], function (Shell, ComponentContainer) { //mockserver, 
+					//mockserver.init();
+					new Shell({
+						app: new ComponentContainer({
+							name: "sap.ciconnect",
+							height: "100%"
+						})
+					}).placeAt("content");
+				});
+				// this way of coding imbed view directly into html content div
+				/*sap.ui.xmlview({
 					viewName : "sap.ciconnect.view.App"
-				}).placeAt("content");
+				}).placeAt("content");*/
 			});
 		</script>
 	</body>

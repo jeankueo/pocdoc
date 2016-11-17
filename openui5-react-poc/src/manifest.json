@@ -44,7 +44,7 @@
 				"routerClass": "sap.m.routing.Router",
 				"viewType": "XML",
 				"viewPath": "sap.ciconnect.view",
-				"controlId": "app",
+				"controlId": "ciconnectApp",
 				"controlAggregation": "pages",
 				"transition": "slide",
 				"bypassed": {
@@ -54,11 +54,11 @@
 			"routes": [{
 				"pattern": "",
 				"name": "appHome",
-				"target": "index"
+				"target": "home"
 			}],
 			"targets": {
-				"index": {
-					"viewName": "index",
+				"home": {
+					"viewName": "Home",
 					"viewLevel": 1
 				},
 				"notFound": {
