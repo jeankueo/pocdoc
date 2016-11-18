@@ -10,7 +10,7 @@
 	 navButtonPress="onNavBack">
    		
    		<headerContent>
-			<Button icon="sap-icon://legend"/>
+			<Button icon="sap-icon://legend" enabled="false"/>
 		</headerContent>
 
 		<content>

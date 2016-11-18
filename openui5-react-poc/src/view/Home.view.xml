@@ -11,7 +11,7 @@
 				tooltip="Deselect All"
 				enabled="{= ${setting>/selectedTabKey} !== 'Summary'}"
 				press="onDeselectAll"/>
-			<Button icon="sap-icon://legend" press="onPopLegend" />
+			<Button icon="sap-icon://legend" press="onPopLegend" enabled="false" />
 		</headerContent>
 		<content>
 			<IconTabBar stretchContentHeight="true"

@@ -6,10 +6,10 @@ sap.ui.define([
 	return BaseController.extend("sap.ciconnect.controller.Repositories", {
 		onInit: function() {
 			this._iSelectCount = 0;
-			this._oSelectRepoSourceFilter = undefined;
-			this._oSelectOrgFilter = undefined;
-			this._oSearchFilter = undefined;
 			this._initData();
+			var oRouter = this.getRouter();
+			this._oRouterArgs = null;
+			oRouter.getRoute("appHome").attachMatched(this._onRouterMatched, this);
 		},
 
 		_initData: function () {
@@ -24,13 +24,13 @@ sap.ui.define([
 				text: "Github",
 				count: 8
 			}, {
-				key: "GITHUB-O1",
+				key: "GITHUB-ciconnect",
 				source: "github",
 				org: "ciconnect",
 				text: "Github-ciconnect",
 				count: 5
 			}, {
-				key: "GITHUB-O2",
+				key: "GITHUB-i037379",
 				source: "github",
 				org: "i037379",
 				text: "Github-i037379",
@@ -44,53 +44,69 @@ sap.ui.define([
 			this.getView().setModel(oModel, "category");
 		},
 
-		onSelectChange: function (oEvent) {
+		_onRouterMatched: function (oEvent) {
+			// save the current query state
+			this._oRouterArgs = oEvent.getParameter("arguments");
+			if (this._oRouterArgs[["?query"]] && this._oRouterArgs[["?query"]].tab === "Repositories") {
+				this._applyAllSearchFilter(this._oRouterArgs["?query"].source, this._oRouterArgs["?query"].org, this._oRouterArgs["?query"].search);
+			}
+		},
+
+		_applyAllSearchFilter: function (sSource, sOrg, sSearch) { 
 			var aFilters = [];
 
-			if (this._oSearchFilter) {
-				aFilters.push(this._oSearchFilter);
+			if (sSource) {
+				aFilters.push(new Filter ("repo_source", sap.ui.model.FilterOperator.EQ, sSource));
+			}
+			if (sSource === "github" && sOrg) {
+				aFilters.push(new Filter ("org", sap.ui.model.FilterOperator.EQ, sOrg));
 			}
 
-			var oSelectData = this.getView().getModel("category").getProperty(
-				oEvent.getParameter("selectedItem").getBindingContext("category").getPath());
-
-			this._oSelectRepoSourceFilter = undefined;
-			this._oSelectOrgFilter = undefined;
-			if (oSelectData.key !== "ALL") {
-				this._oSelectRepoSourceFilter = new Filter("repo_source",
-					sap.ui.model.FilterOperator.EQ, oSelectData.source);
-				aFilters.push(this._oSelectRepoSourceFilter);
-				if (oSelectData.org) {
-					this._oSelectOrgFilter  = new Filter("org", sap.ui.model.FilterOperator.EQ, oSelectData.org);
-					aFilters.push(this._oSelectOrgFilter);
-				}
+			switch(sSource){
+			case "git":
+				this.getView().byId("categorySelect").setSelectedKey("GIT");
+				break;
+			case "github":
+				this.getView().byId("categorySelect").setSelectedKey("GITHUB" + sOrg ? "-" + sOrg : "");
+				break;
+			default:
+				this.getView().byId("categorySelect").setSelectedKey("ALL");
 			}
+
+			if (sSearch) {
+				aFilters.push(new Filter("full_name", sap.ui.model.FilterOperator.Contains, sSearch));
+			}
+			this.getView().byId("searchField").setValue(sSearch ? sSearch : "");
 
 			var oList = this.getView().byId("repoList");
 			var obinding = oList.getBinding("items");
 			obinding.filter(aFilters);
 		},
+
+		onSelectChange: function (oEvent) {
+			var oSelectData = this.getView().getModel("category").getProperty(
+				oEvent.getParameter("selectedItem").getBindingContext("category").getPath());
+			if (oSelectData.source) {
+				this._oRouterArgs["?query"].source = oSelectData.source;
+			} else {
+				delete this._oRouterArgs["?query"].source;
+			}
+			if (oSelectData.org) {
+				this._oRouterArgs["?query"].org = oSelectData.org;
+			} else {
+				delete this._oRouterArgs["?query"].org;
+			}
+			this.getRouter().navTo("appHome", {
+				query: this._oRouterArgs["?query"]
+			}, true /*no history*/)
+		},
 		
 		onSearch: function (oEvent) {
-			var aFilters = [];
-			if (this._oSelectRepoSourceFilter) {
-				aFilters.push(this._oSelectRepoSourceFilter);
-			}
-			if (this._oSelectOrgFilter) {
-				aFilters.push(this._oSelectOrgFilter);
-			}
-
 			var sQuery = oEvent.getSource().getValue();
-			
-			this._oSearchFilter = undefined;
-			if (sQuery && sQuery.length > 0) {
-				this._oSearchFilter = new Filter("full_name", sap.ui.model.FilterOperator.Contains, sQuery);
-				aFilters.push(this._oSearchFilter);
-			}
- 
-			var oList = this.getView().byId("repoList");
-			var obinding = oList.getBinding("items");
-			obinding.filter(aFilters);
+			this._oRouterArgs["?query"].search = sQuery;
+			this.getRouter().navTo("appHome", {
+				query: this._oRouterArgs["?query"]
+			}, true /*no history*/)
 		},
 
 		onSelectionChange: function (oEvent) {
