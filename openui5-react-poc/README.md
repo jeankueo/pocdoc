@@ -45,10 +45,10 @@ Todos
 - [x] add navigation function to pipeline page list items, a page to edit pipeline, and see more details about it
 - [x] add navigation function to repo page list items, a page to see more detail of running status
 - [x] add bookmarkable tab
-- [ ] add bookmarkable search
+- [x] add bookmarkable search
+- [x] event handling of BOControl in general
 - [ ] detail page of pipeline (use children data of BO pipelinegraph control)
 - [ ] detail page of repo (use BO control)
-- [ ] event handling of BOControl in general
 - [ ] legend page
 - [ ] adjust css to be more close to blue ocean theme
 - [ ] add db (json-based)

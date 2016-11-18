@@ -36,7 +36,11 @@
 							<Text text="{pipeline>description}"/>
 						</VBox>
 						<HBox alignItems="Center">
-							<ci:BOControl moduleName="PipelineGraph" controlName="PipelineGraph" props="{pipeline>abstract}" />
+							<ci:BOControl moduleName="PipelineGraph" controlName="PipelineGraph" props="{pipeline>abstract}">
+								<ci:boEvents>
+									<ci:BOEvent name="onNodeClick" handle="onPipelineNodeClick" />
+								</ci:boEvents>
+							</ci:BOControl>
 							<Button icon="sap-icon://feeder-arrow" type="Transparent" press="onNavDetail" tooltip="Show Pipeline Detail"/>
 						</HBox>
 					</HBox>

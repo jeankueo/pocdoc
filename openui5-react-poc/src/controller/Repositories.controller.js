@@ -1,6 +1,6 @@
 sap.ui.define([
-	"./BaseController", 'sap/ui/model/Filter', "sap/ui/model/json/JSONModel"
-], function (BaseController, Filter, JSONModel) {
+	"./BaseController", 'sap/ui/model/Filter', "sap/ui/model/json/JSONModel", "sap/m/MessageToast"
+], function (BaseController, Filter, JSONModel, MessageToast) {
 	"use strict";
 	
 	return BaseController.extend("sap.ciconnect.controller.Repositories", {
@@ -172,6 +172,11 @@ sap.ui.define([
 				//id: oBindingContext.getProperty("id")
 				index: sPath.substr(sPath.indexOf("/") + 1)
 			});
+		},
+
+		onPipelineNodeClick: function (oEvent) {
+			var oParam = oEvent.getParameter("params");
+			MessageToast.show("node " + oParam[0] + " clicked!");
 		}
 	});
 });

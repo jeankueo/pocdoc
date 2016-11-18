@@ -1,7 +1,7 @@
 sap.ui.define([
-	"../controller/BaseController", 'sap/ui/model/Filter', "sap/ui/model/json/JSONModel",
+	"../controller/BaseController", 'sap/ui/model/Filter', "sap/ui/model/json/JSONModel", "sap/m/MessageToast",
 	"../model/formatter"
-], function (BaseController, Filter, JSONModel, formatter) {
+], function (BaseController, Filter, JSONModel, MessageToast, formatter) {
 	"use strict";
 	
 	return BaseController.extend("sap.ciconnect.controller.Pipelines", {
@@ -129,6 +129,11 @@ sap.ui.define([
 				//key: oBindingContext.getProperty("key")
 				index: sPath.substr(sPath.indexOf("/") + 1)
 			});
+		},
+
+		onPipelineNodeClick: function (oEvent) {
+			var oParam = oEvent.getParameter("params");
+			MessageToast.show("node " + oParam[0] + " clicked!");
 		}
 	});
 });
