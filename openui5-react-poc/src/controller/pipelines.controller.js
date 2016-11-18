@@ -9,9 +9,9 @@ sap.ui.define([
 
 		onInit: function() {
 			this._initData();
-			this._oSelectFilter = undefined;
-			this._oSearchFilter = undefined;
-			this._aFilter = new Array(2);
+			var oRouter = this.getRouter();
+			this._oRouterArgs = null;
+			oRouter.getRoute("appHome").attachMatched(this._onRouterMatched, this);
 		},
 
 		_initData: function () {
@@ -40,43 +40,46 @@ sap.ui.define([
 			this.getView().setModel(oModel, "category");
 		},
 
-		onSelectChange: function (oEvent) {
+		_onRouterMatched: function (oEvent) {
+			// save the current query state
+			this._oRouterArgs = oEvent.getParameter("arguments");
+			if (this._oRouterArgs[["?query"]] && this._oRouterArgs[["?query"]].tab === "Pipelines") {
+				this._applyAllSearchFilter(this._oRouterArgs["?query"].category, this._oRouterArgs["?query"].search);
+			}
+		},
+
+		_applyAllSearchFilter: function (sCategory, sSearch) {
 			var aFilters = [];
 
-			if (this._oSearchFilter) {
-				aFilters.push(this._oSearchFilter);
+			if (sCategory && sCategory !== "ALL") {
+				aFilters.push(new Filter ("category", sap.ui.model.FilterOperator.EQ, sCategory));
 			}
+			this.getView().byId("categorySelect").setSelectedKey(sCategory ? sCategory : "ALL");
 
-			var sSelectKey = oEvent.getSource().getSelectedKey();
-
-			this._oSelectFilter = undefined;
-			if (sSelectKey !== "ALL") {
-				this._oSelectFilter = new Filter("category", sap.ui.model.FilterOperator.EQ, sSelectKey);
-				aFilters.push(this._oSelectFilter);
+			if (sSearch) {
+				aFilters.push(new Filter("name", sap.ui.model.FilterOperator.Contains, sSearch));
 			}
+			this.getView().byId("searchField").setValue(sSearch ? sSearch : "");
 
 			var oList = this.getView().byId("pipelineList");
 			var obinding = oList.getBinding("items");
 			obinding.filter(aFilters);
 		},
+
+		onSelectChange: function (oEvent) {
+			var sSelectKey = oEvent.getSource().getSelectedKey();
+			this._oRouterArgs["?query"].category = sSelectKey;
+			this.getRouter().navTo("appHome", {
+				query: this._oRouterArgs["?query"]
+			}, true /*no history*/)
+		},
 		
 		onSearch: function (oEvent) {
-			var aFilters = [];
-			if (this._oSelectFilter) {
-				aFilters.push(this._oSelectFilter);
-			}
-
 			var sQuery = oEvent.getSource().getValue();
-
-			this._oSearchFilter = undefined;
-			if (sQuery && sQuery.length > 0) {
-				this._oSearchFilter = new Filter("name", sap.ui.model.FilterOperator.Contains, sQuery);
-				aFilters.push(this._oSearchFilter);
-			}
- 
-			var oList = this.getView().byId("pipelineList");
-			var obinding = oList.getBinding("items");
-			obinding.filter(aFilters);
+			this._oRouterArgs["?query"].search = sQuery;
+			this.getRouter().navTo("appHome", {
+				query: this._oRouterArgs["?query"]
+			}, true /*no history*/)
 		},
 
 		onSelectionChange: function (oEvent) {

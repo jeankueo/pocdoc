@@ -3,6 +3,7 @@
 	<Toolbar>
 		<content>
 			<Select
+				id="categorySelect"
 				forceSelection="false"
 				selectedKey="ALL"
 				showSecondaryValues= "true"
@@ -14,7 +15,7 @@
 				change="onSelectChange">
 				<core:ListItem key="{category>key}" text="{category>text}" additionalText="{category>count}"/>
 			</Select>
-			<SearchField placeholder="Search"  width="100%" liveChange="onSearch" />
+			<SearchField id="searchField" placeholder="Search"  width="100%" liveChange="onSearch" />
 		</content>
 	</Toolbar>
 	<layout:Splitter width="100%" resize="onContainerResize">

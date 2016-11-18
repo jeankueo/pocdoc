@@ -15,16 +15,13 @@ sap.ui.define([
 			var oArgs, oView, oQuery;
 			oArgs = oEvent.getParameter("arguments");
 			oView = this.getView();
-			oQuery = oArgs["?query"];
-			if (oQuery && _aValidTabKeys.indexOf(oQuery.tab) > -1){
+			oQuery = oArgs["?query"] || {};
+			if (oQuery.tab && _aValidTabKeys.indexOf(oQuery.tab) > -1){
 				oView.getModel("setting").setProperty("/selectedTabKey", oQuery.tab);
 			} else {
 				// the default query param should be visible at all time
-				this.getRouter().navTo("appHome", {
-					query: {
-						tab : _aValidTabKeys[0]
-					}
-				}, true /*no history*/);
+				oQuery.tab =  _aValidTabKeys[0];
+				this.getRouter().navTo("appHome", {query: oQuery}, true /* no history */);
 			}
 		},
 
