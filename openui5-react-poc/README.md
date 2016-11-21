@@ -18,7 +18,8 @@ node server.js
 
 Design
 --------------
- * [Structure, Transition, Routing of views:]|(./diagram/01.view.PNG)
+ * Structure, Transition, Routing of views:
+ [![](./diagram/01.view.PNG)]
 
 Useful links
 --------------
