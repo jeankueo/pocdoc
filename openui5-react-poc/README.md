@@ -12,8 +12,8 @@ npm run gulp
 ```
 In this step, following things are performed in /dist folder:
 	1. build translate blue ocean control in REACT+ES6 to ES5 in amd module format
-	* translate blue ocean LESS to CSS, and wrap it with .jenkinsbo namespace
-	* copy blue ocean svg files
+	2. translate blue ocean LESS to CSS, and wrap it with .jenkinsbo namespace
+	3. copy blue ocean svg files
 
  * Run an HTTP server, middleware are installed in this js.
 ```sh
