@@ -4,9 +4,8 @@
 		"_version": "1.1.0",
 		"id": "sap.ciconnect",
 		"type": "application",
-		"i18n": "i18n/i18n.properties",
-		"title": "{{appTitle}}",
-		"description": "{{appDescription}}",
+		"title": "Pipeline PoC",
+		"description": "Pipeline PoC using Openui5 + Blue Ocean(React)",
 		"applicationVersion": {
 			"version": "1.0.0"
 		},
@@ -31,14 +30,7 @@
 				"sap.m": { }
 			}
 		},
-		"models": {
-			"i18n": {
-				"type": "sap.ui.model.resource.ResourceModel",
-				"settings": {
-					"bundleName": "sap.ciconnect.i18n.i18n"
-				}
-			}
-		},
+		"models": {},
 		"routing": {
 			"config": {
 				"routerClass": "sap.m.routing.Router",
