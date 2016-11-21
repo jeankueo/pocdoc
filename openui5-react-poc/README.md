@@ -16,6 +16,10 @@ node server.js
 ```
  * Access by link [http://localhost:76547/openui5-react-poc/public](http://localhost:7654/openui5-react-poc/public)
 
+Design
+--------------
+ * [Structure, Transition, Routing of views:]|(./diagram/01.view.PNG)
+
 Useful links
 --------------
 * Octicons list: [https://octicons.github.com/](https://octicons.github.com/)
