@@ -25,6 +25,14 @@ Design
 --------------
  * Structure, Transition and Routing of views:
  ![](./diagram/01.view.PNG)
+ * Wrapper of React control: sap.ciconnect.control.BOControl. This is a general wrapper. Any control provided by blue ocean can be used via this wrapper. Only specify following things:
+ 	* properties:
+ 		* **moduleName**: name of the module (file) under dist/bo/js. For example: PipelineGraph.
+ 		* **controlName**: name of the control. One module is possible to export several controls. For example: weather-icon module contains several controls.
+ 		* **props**: This is an object of react property. In general data is fed here.
+ 	* aggregations:
+ 		* **boEvents**:react control event is impelemented in here. Because BOControl is a general wrapper, event names cannot be predefined in event{} block. So this multiple aggregation is defined to wrap events. For each event defined by react control, add an aggregation instance of BOEvent, simply specify event name and provide handler would work.
+
 
 Useful links
 --------------
