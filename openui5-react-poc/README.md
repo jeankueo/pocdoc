@@ -29,7 +29,7 @@ Design
  	* properties:
  		* **moduleName**: name of the module (file) under dist/bo/js. For example: PipelineGraph.
  		* **controlName**: name of the control. One module is possible to export several controls. For example: weather-icon module contains several controls.
- 		* **props**: This is an object of react property. In general data is fed here.
+ 		* **props**: This is an object of react property. In general data is fed here. Please refer to blue ocean modules (under folder bower_components/jenkins-design-language/src/js/components) for props detail.
  	* aggregations:
  		* **boEvents**:react control event is impelemented in here. Because BOControl is a general wrapper, event names cannot be predefined in event{} block. So this multiple aggregation is defined to wrap events. For each event defined by react control, add an aggregation instance of BOEvent, simply specify event name and provide handler would work.
  	Example:
