@@ -25,7 +25,7 @@ Design
 --------------
  * Structure, Transition and Routing of views:
  ![](./diagram/01.view.PNG)
- * Wrapper of React control: sap.ciconnect.control.BOControl. This is a general wrapper. Any control provided by blue ocean can be used via this wrapper. Only specify following things:
+ * Wrapper of React control: **sap.ciconnect.control.BOControl**. This is a general wrapper. Any control provided by blue ocean can be used via this wrapper. Only specify following things:
  	* properties:
  		* **moduleName**: name of the module (file) under dist/bo/js. For example: PipelineGraph.
  		* **controlName**: name of the control. One module is possible to export several controls. For example: weather-icon module contains several controls.
