@@ -3,11 +3,11 @@ Steps to set up openui5-react PoC (4/4)
 Prerequisite: nodeJS is installed
 
  * Download dependencies. Blue ocean design language will be downloaded by bower while others are referenced as node module.
-```sh
+``` sh
 npm run installAll
 ```
  * Run gulp to generate folder /dist
-```sh
+``` sh
 npm run gulp
 ```
 In this step, following things are performed in /dist folder:
@@ -16,7 +16,7 @@ In this step, following things are performed in /dist folder:
 	3. copy blue ocean svg files
 
  * Run an HTTP server, middleware are installed in this js.
-```sh
+``` sh
 node server.js
 ```
  * Access by link [http://localhost:76547/openui5-react-poc/public](http://localhost:7654/openui5-react-poc/public)
@@ -32,7 +32,14 @@ Design
  		* **props**: This is an object of react property. In general data is fed here.
  	* aggregations:
  		* **boEvents**:react control event is impelemented in here. Because BOControl is a general wrapper, event names cannot be predefined in event{} block. So this multiple aggregation is defined to wrap events. For each event defined by react control, add an aggregation instance of BOEvent, simply specify event name and provide handler would work.
-
+ 	Example:
+ ``` xml
+<ci:BOControl moduleName="PipelineGraph" controlName="PipelineGraph" props="{pipeline>abstract}">
+	<ci:boEvents>
+		<ci:BOEvent name="onNodeClick" handle="onPipelineNodeClick" />
+	</ci:boEvents>
+</ci:BOControl>
+```	
 
 Useful links
 --------------
