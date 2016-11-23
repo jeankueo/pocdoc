@@ -1,6 +1,7 @@
 <mvc:View
    controllerName="sap.ciconnect.controller.Pipeline"
    xmlns="sap.m"
+   xmlns:ci="sap.ciconnect.control"
    xmlns:mvc="sap.ui.core.mvc">
    
    <Page title="Pipeline {pipeline>name}"
@@ -14,6 +15,11 @@
 		</headerContent>
 
 		<content>
+			<ci:BOControl moduleName="PipelineGraph" controlName="PipelineGraph" props="{pipeline>detail}">
+				<ci:boEvents>
+					<ci:BOEvent name="onNodeClick" handle="onPipelineNodeClick" />
+				</ci:boEvents>
+			</ci:BOControl>
 		</content>
 
 		<footer>

@@ -29,6 +29,7 @@ sap.ui.define([
 				
 			},
 			aggregations: {
+				children: {type: "sap.ciconnect.control.BOControl",multiple: true, visibility: "public", singularName: "child"},
 				boEvents: {type: "sap.ciconnect.control.BOEvent", multiple: true, visibility: "public", singularName: "boEvent"}
 			}
 		}

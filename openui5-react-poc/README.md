@@ -72,9 +72,10 @@ Todos
 - [x] add bookmarkable tab
 - [x] add bookmarkable search
 - [x] event handling of BOControl in general
-- [ ] detail page of pipeline (use children data of BO pipelinegraph control)
-- [ ] detail page of repo (use BO control)
+- [ ] embed BOControl in BOControl (use page & page-header controls)
+- [x] detail page of pipeline (use children data of BO pipelinegraph control)
+- [ ] detail page of repo (use BO control, more detailed execution status)
 - [ ] legend page
-- [ ] adjust css to be more close to blue ocean theme
 - [ ] add db (json-based)
-- [ ] integrate with real system
+- [ ] integrate with real system (odata ? json ?)
+- [ ] detail page of pipeline (use pipeline editor control, comming soon by jenkins DL)

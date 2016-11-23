@@ -194,7 +194,68 @@
 		}]
 	},
 	"detail": {
-
+		"stages": [{
+			"id": 9.1,
+			"type": "local",
+			"name": "Build",
+			"state": "not_built",
+			"short_desc": "Build"
+		}, {
+			"id": 10.1,
+			"type": "central",
+			"name": "Versioning",
+			"state": "not_built",
+			"short_desc": "versioning"
+		}, {
+			"id": 11.1,
+			"type": "local",
+			"name": "Validation",
+			"state": "not_built",
+			"short_desc": "validation",
+			"children": [{
+				"id": 11.11,
+				"type": "local",
+				"name": "IE",
+				"state": "not_built",
+				"short_desc": "validation"
+			}, {
+				"id": 11.12,
+				"type": "local",
+				"name": "Chrome",
+				"state": "not_built",
+				"short_desc": "validation"
+			}, {
+				"id": 11.13,
+				"type": "local",
+				"name": "Safari",
+				"state": "not_built",
+				"short_desc": "validation"
+			}, {
+				"id": 11.14,
+				"type": "local",
+				"name": "Edge",
+				"state": "not_built",
+				"short_desc": "validation"
+			}]
+		}, {
+			"id": 12.1,
+			"type": "central",
+			"name": "Staging",
+			"state": "not_built",
+			"short_desc": "staging"
+		}, {
+			"id": 13.1,
+			"type": "central",
+			"name": "Promotion",
+			"state": "not_built",
+			"short_desc": "promotion"
+		}, {
+			"id": 14.1,
+			"type": "local",
+			"name": "Deploy",
+			"state": "not_built",
+			"short_desc": "deploy"
+		}]
 	}
 }, {
 	"key": "p_i037379",
