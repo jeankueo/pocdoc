@@ -75,7 +75,7 @@ sap.ui.define([
 				}
 
 				// build composition - react controls
-				var aChildren = that.getChildren(),
+				var aChildren = that.getContents(),
 					aReactChildren;
 				if (aChildren && aChildren.length > 0) {
 					aReactChildren = [];

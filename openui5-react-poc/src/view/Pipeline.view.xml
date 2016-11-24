@@ -15,12 +15,16 @@
 		</headerContent>
 
 		<content>
-			<!--<ci:BOControl moduleName="page" controlName="Page"/>-->
-			<ci:BOControl moduleName="PipelineGraph" controlName="PipelineGraph" props="{pipeline>detail}">
-				<ci:boEvents>
-					<ci:BOEvent name="onNodeClick" handle="onPipelineNodeClick" />
-				</ci:boEvents>
-			</ci:BOControl>
+			<VBox>
+				<!--<ci:BOControl moduleName="page" controlName="Page"/>-->
+				<ci:BOControl moduleName="PipelineGraph" controlName="PipelineGraph" props="{pipeline>detail}">
+					<ci:boEvents>
+						<ci:BOEvent name="onNodeClick" handle="onPipelineNodeClick" />
+					</ci:boEvents>
+				</ci:BOControl>
+				<Text text="Comming soon..." />
+				<Image src="https://jenkins.io/images/post-images/blueocean/pipeline-editor.png" width="700px"/>
+			</VBox>
 		</content>
 
 		<footer>

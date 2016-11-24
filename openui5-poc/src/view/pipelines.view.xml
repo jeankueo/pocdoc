@@ -23,7 +23,7 @@
 							<ObjectNumber number="{pipeline>countOfRepoAssigned}" unit="Repo assigned" class="sapUiSmallMargin"
 								state="{path: 'pipeline>countOfRepoAssigned', formatter: '.formatter.pipeLineAssignedRepoState'}"/>
 						</HBox>
-						<ci:Pipeline type="{pipeline>type}" jobs="{path:'pipeline>stages', templateShareable: true}"
+						<ci:Pipeline type="{pipeline>type}" jobs="{path:'pipeline>abstract/stages', templateShareable: true}"
 							jobStyle="{setting>/jobStyle}" enableConnection="{setting>/enableConnection}" enableText="{setting>/enableText}"
 							enableTwoRow="{setting>/enableTwoRow}">
 							<ci:jobs>
