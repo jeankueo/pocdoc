@@ -72,6 +72,9 @@ Todos
 - [x] add bookmarkable tab
 - [x] add bookmarkable search
 - [x] event handling of BOControl in general
+- [ ] deploy to cf
+- [ ] knowledge transfer of poc 
+- [ ] know-how to department (19th Dec.  1h)
 - [ ] embed BOControl in BOControl (use page & page-header controls)
 - [x] detail page of pipeline (use children data of BO pipelinegraph control)
 - [ ] detail page of repo (use BO control, more detailed execution status)
