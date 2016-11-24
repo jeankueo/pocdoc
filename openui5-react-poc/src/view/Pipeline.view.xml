@@ -15,6 +15,7 @@
 		</headerContent>
 
 		<content>
+			<!--<ci:BOControl moduleName="page" controlName="Page"/>-->
 			<ci:BOControl moduleName="PipelineGraph" controlName="PipelineGraph" props="{pipeline>detail}">
 				<ci:boEvents>
 					<ci:BOEvent name="onNodeClick" handle="onPipelineNodeClick" />

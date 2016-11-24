@@ -29,7 +29,7 @@ sap.ui.define([
 				
 			},
 			aggregations: {
-				children: {type: "sap.ciconnect.control.BOControl",multiple: true, visibility: "public", singularName: "child"},
+				children: {type: "sap.ciconnect.control.BOElement",multiple: true, visibility: "public", singularName: "child"},
 				boEvents: {type: "sap.ciconnect.control.BOEvent", multiple: true, visibility: "public", singularName: "boEvent"}
 			}
 		}
@@ -54,14 +54,15 @@ sap.ui.define([
 			that = this;
 		
 		var	oProps = jQuery.extend({}, this.getProps(), {
-				key: sId + "_" + sModuleName + "_" + sControlName
+				key:  sModuleName + "_" + sControlName + "_" + sId
 			});
 		
 		requirejs([
 			'react', 'react-dom', 'bojs/' + sModuleName
 		], function (React, ReactDOM, Exporter) {
 			if (Exporter[sControlName]) {
-				// register event handlers
+
+				// register event handlers into props
 				var aBoEvents = that.getBoEvents();
 				if (aBoEvents && aBoEvents.length > 0) {
 					for (var i = 0; i < aBoEvents.length; i++) {
@@ -73,13 +74,28 @@ sap.ui.define([
 					}
 				}
 
+				// build composition - react controls
+				var aChildren = that.getChildren(),
+					aReactChildren;
+				if (aChildren && aChildren.length > 0) {
+					aReactChildren = [];
+					for (var i = 0; i < aChildren.length; i++) {
+						aReactChildren.push(aChildren[i].genReactElement());
+					}
+				}
+
+				// create DOM
 				ReactDOM.render(
-					React.createElement(Exporter[sControlName], oProps),
+					React.createElement(
+						Exporter[sControlName],
+						oProps,
+						aReactChildren),
 					document.getElementById(sId)
 				);
 
+				// add namespace of css to avoid conflict -- quick and dirty solution
 				var $bo = jQuery("#" + that.getId()).children();
-				that.addJenkinsboClass($bo); // add namespace of css -- quick and dirty solution
+				that.addJenkinsboClass($bo); 
 			}
 		});
 	};
