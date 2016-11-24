@@ -75,9 +75,10 @@ Todos
 - [ ] deploy to cf
 - [ ] knowledge transfer of poc 
 - [ ] know-how to department (19th Dec.  1h)
+- [x] detail page of repo (use children data of BO pipelinegraph control)
+- [x] detail page of repo (use control sap.uxap.ObjectPageLayout and forms)
 - [ ] embed BOControl in BOControl (use page & page-header controls)
-- [x] detail page of pipeline (use children data of BO pipelinegraph control)
-- [ ] detail page of repo (use BO control, more detailed execution status)
+- [ ] detail page of pipeline (use BOControl container features)
 - [ ] legend page
 - [ ] add db (json-based)
 - [ ] integrate with real system (odata ? json ?)
