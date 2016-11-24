@@ -18,10 +18,10 @@ sap.ui.define([
 				 */
 				props: {type: "any"}
 			}, aggregations: {
-				children: {type: "sap.ciconnect.control.BOElement",multiple: true, visibility: "public", singularName: "child"}
+				contents: {type: "sap.ciconnect.control.BOElement",multiple: true, visibility: "public", singularName: "content"}
 			}
-		}
-	});
+		
+}	});
 
 	BOElement.prototype.genReactElement = function () {
 		
