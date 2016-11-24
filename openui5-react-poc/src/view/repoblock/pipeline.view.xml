@@ -2,7 +2,7 @@
 	xmlns:core="sap.ui.core"
 	xmlns="sap.ciconnect.control">
 
-	<BOControl moduleName="PipelineGraph" controlName="PipelineGraph" props="{repo>pipeline}">
+	<BOControl moduleName="PipelineGraph" controlName="PipelineGraph" props="{repo>pipeline_detail}">
 		<boEvents>
 			<BOEvent name="onNodeClick" handle="onPipelineNodeClick" />
 		</boEvents>

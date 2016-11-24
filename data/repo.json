@@ -58,6 +58,65 @@
 			"state": "queued"
 		}]
 	},
+    "pipeline_detail": {
+      "id": "p_fiori",
+      "name": "Fiori pipeline",
+      "type": "mixed",
+      "stages": [{
+        "id": 51612.11,
+        "type": "local",
+        "name": "Build",
+        "state": "success"
+      }, {
+        "id": 51612.21,
+        "type": "central",
+        "name": "Version",
+        "state": "success",
+        "link": "http://www.google.com"
+      }, {
+        "id": 51612.31,
+        "type": "central",
+        "name": "Validation",
+        "state": "running",
+        "completePercent": 70,
+        "link": "http://www.google.com",
+        "children": [{
+          "id": 51612.311,
+          "type": "central",
+          "name": "IE",
+          "state": "running",
+          "completePercent": 40
+        }, {
+          "id": 51612.312,
+          "type": "central",
+          "name": "Chrome",
+          "state": "running",
+          "completePercent": 80
+        }, {
+          "id": 51612.313,
+          "type": "central",
+          "name": "Safari",
+          "state": "running",
+          "completePercent": 10
+        }]
+      }, {
+        "id": 51612.41,
+        "type": "local",
+        "name": "Deploy",
+        "state": "queued",
+        "children": [{
+          "id": 51612.411,
+          "type": "local",
+          "name": "HCP",
+          "state": "queued"
+        }, {
+          "id": 51612.412,
+          "type": "local",
+          "name": "CF",
+          "state": "queued"
+        }]
+      }]
+    },
     "private": false,
     "html_url": "https://github.wdf.sap.corp/I037379/bulletinboard-ads",
     "description": "This service manages the advertisements for the bulletinboard - used for the \"Implement Continuous Delivery & DevOps\" training",

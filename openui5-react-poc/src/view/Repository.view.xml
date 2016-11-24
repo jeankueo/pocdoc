@@ -29,6 +29,7 @@
 		   		</headerTitle>
 
 		   		<headerContent>
+					<m:Link text="{repo>html_url}" target="_blank" href="{repo>html_url}" />
 		   			<m:HBox><core:Fragment 
 		   				fragmentName="sap.ciconnect.fragment.RepoBadgeIcons" 
 		   				type="XML"
