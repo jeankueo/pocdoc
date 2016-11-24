@@ -1,0 +1,11 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	xmlns="sap.ciconnect.control">
+
+	<BOControl moduleName="PipelineGraph" controlName="PipelineGraph" props="{repo>pipeline}">
+		<boEvents>
+			<BOEvent name="onNodeClick" handle="onPipelineNodeClick" />
+		</boEvents>
+	</BOControl>
+
+</mvc:View>

@@ -19,12 +19,12 @@
 		<core:Icon id="fork" class="ciconnectBadge" 
 			visible="{= ${repo>repo_source} === 'github' &amp;&amp; ${repo>fork} ? true : false}"
 			src="sap-icon://oct/octicon-repo-forked"
-			color="rgb(94, 105, 110)"
+			color="#999"
 			tooltip="Forked" />
 		<core:Icon id="origin" class="ciconnectBadge" 
 			visible="{= ${repo>repo_source} === 'github' &amp;&amp; !${repo>fork} ? true : false}"
 			src="sap-icon://oct/octicon-repo"
-			color="rgb(94, 105, 110)"
+			color="#999"
 			tooltip="Origin" />
 		<core:Icon id="private" class="ciconnectBadge" 
 			visible="{= ${repo>private} ? true : false}"

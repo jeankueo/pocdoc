@@ -1,27 +1,83 @@
 <mvc:View
    controllerName="sap.ciconnect.controller.Repository"
-   xmlns="sap.m"
-   xmlns:mvc="sap.ui.core.mvc">
+   xmlns="sap.uxap"
+   xmlns:m="sap.m"
+   xmlns:layout="sap.ui.layout'"
+   xmlns:core="sap.ui.core"
+   xmlns:mvc="sap.ui.core.mvc"
+   xmlns:repoblock="sap.ciconnect.view.repoblock">
    
-   <Page title="Repository {repo>full_name}"
+   <m:Page title="Repository {repo>full_name}"
       text="aaa"
       description="bbb"
       showNavButton="true"
 	 navButtonPress="onNavBack">
    		
-   		<headerContent>
-			<Button icon="sap-icon://legend" enabled="false"/>
-		</headerContent>
+   		<m:headerContent>
+			<m:Button icon="sap-icon://legend" enabled="false"/>
+		</m:headerContent>
 
-		<content>
-		</content>
+		<m:content>
+			<ObjectPageLayout id="repoPageLayout"
+		   		showTitleInHeaderContent="false">
 
-		<footer>
-			<Toolbar>
-				<content>
+		   		<headerTitle>
+		   			<ObjectPageHeader id="repoHeaderTitle"
+		   				headerDesign="Light"
+		   				objectTitle="{repo>name}"
+		   				objectSubtitle="{repo>description}"/>
+		   		</headerTitle>
+
+		   		<headerContent>
+		   			<m:HBox><core:Fragment 
+		   				fragmentName="sap.ciconnect.fragment.RepoBadgeIcons" 
+		   				type="XML"
+						class="sapUiSmallMarginBegin" />
+					</m:HBox>
+		   		</headerContent>
+
+		   		<sections>
+					<ObjectPageSection title="Pipeline Status" >
+						<subSections>
+							<ObjectPageSubSection title=" ">
+								<blocks>
+									<repoblock:pipeline id="pipelineBlock" />
+								</blocks>
+							</ObjectPageSubSection>
+						</subSections>
+					</ObjectPageSection>
+
+					<ObjectPageSection title="Information" >
+						<subSections>
+							<ObjectPageSubSection title="Author">
+								<blocks>
+									<repoblock:sample id="authorBlock" />
+								</blocks>
+							</ObjectPageSubSection>
+							<ObjectPageSubSection title="Contributor">
+								<blocks>
+									<repoblock:sample id="contributorBlock" />
+								</blocks>
+							</ObjectPageSubSection>
+						</subSections>
+					</ObjectPageSection>
 					
-				</content>
-			</Toolbar>
-		</footer>
-   </Page>
+					<ObjectPageSection title="Services" >
+						<subSections>
+							<ObjectPageSubSection title="Build">
+								<blocks>
+									<repoblock:sample id="buldBlock" />
+								</blocks>
+							</ObjectPageSubSection>
+							<ObjectPageSubSection title="Deploy">
+								<blocks>
+									<repoblock:sample id="deployBlock" />
+								</blocks>
+							</ObjectPageSubSection>
+						</subSections>
+					</ObjectPageSection>
+		   		</sections>
+		   	</ObjectPageLayout>
+		</m:content>
+   </m:Page>
 </mvc:View>
