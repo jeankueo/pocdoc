@@ -278,6 +278,33 @@
 			"state": "not_built"
 		}]
 	},
+    "pipeline_detail": {
+      "id": "p_hcp_cl",
+      "name": "HCP Classic pipeline",
+      "type": "centralOnly",
+      "stages": [{
+        "id": "pipeline2.1_",
+        "type": "central",
+        "name": "Build",
+        "state": "not_built"
+      }, {
+        "id": "pipeline2.2_",
+        "type": "central",
+        "name": "Deploy",
+        "state": "not_built",
+        "children": [{
+          "id": "pipeline2.2_1",
+          "type": "central",
+          "name": "CF",
+          "state": "not_built"
+        }, {
+          "id": "pipeline2.2_2",
+          "type": "central",
+          "name": "XS2",
+          "state": "not_built"
+        }]
+      }]
+    },
     "private": true,
     "with_gerrit": false,
     "html_url": "https://github.wdf.sap.corp/I037379/cc-devops-coursematerial",
@@ -376,6 +403,23 @@
         "name": "Test",
         "state": "success"
       }]
+    },
+    "pipeline_detail": {
+      "id": "p_i037379",
+      "name": "i037379's Pipeline",
+      "type": "localOnly",
+      "stages": [{
+        "id": "pipeline123.11",
+        "type": "local",
+        "name": "Test",
+        "state": "success",
+        "children": [{
+           "id": "pipeline123.12",
+          "type": "local",
+          "name": "Dummy",
+          "state": "success"
+        }]
+      }]
     }
   },
     {
@@ -409,6 +453,40 @@
             "link": "http://www.google.com"
           }, {
             "id": 124.3,
+            "type": "central",
+            "name": "Deploy",
+            "state": "success",
+            "link": "http://www.google.com"
+          }]
+        },
+        "pipeline_detail": {
+        "id": "p_ui5",
+        "name": "SAPUI5 pipeline",
+        "type": "mixed",
+          "stages": [{
+            "id": 124.11,
+            "type": "local",
+            "name": "Build",
+            "state": "success",
+            "children": [{
+               "id": 124.111,
+              "type": "local",
+              "name": "ESLint",
+              "state": "unstable"
+            }, {
+               "id": 124.112,
+              "type": "local",
+              "name": "JUnit",
+              "state": "success"
+            }]
+          }, {
+            "id": 124.21,
+            "type": "central",
+            "name": "Version",
+            "state": "success",
+            "link": "http://www.google.com"
+          }, {
+            "id": 124.31,
             "type": "central",
             "name": "Deploy",
             "state": "success",
@@ -450,8 +528,44 @@
             "type": "central",
             "name": "Deploy",
             "state": "running",
-            "completePercent": 20,
+            "completePercent": 50,
             "link": "http://www.google.com"
+          }]
+        },
+        "pipeline_detail": {
+          "id": "p_ui5",
+          "name": "SAPUI5 pipeline",
+          "type": "mixed",
+          "stages": [{
+            "id": 125.1,
+            "type": "local",
+            "name": "Build",
+            "state": "success"
+          }, {
+            "id": 125.2,
+            "type": "central",
+            "name": "Version",
+            "state": "success",
+            "link": "http://www.google.com"
+          }, {
+            "id": 125.3,
+            "type": "central",
+            "name": "Deploy",
+            "state": "running",
+            "completePercent": 50,
+            "link": "http://www.google.com",
+            "children": [{
+              "id": 125.31,
+              "type": "central",
+              "name": "CF",
+              "state": "success"
+            }, {
+              "id": 125.32,
+              "type": "central",
+              "name": "HCP",
+              "completePercent": 10,
+              "state": "running"
+            }]
           }]
         }
   },
@@ -491,6 +605,29 @@
             "state": "unstable",
             "link": "http://www.google.com"
           }]
+        },
+        "pipeline_detail": {
+          "id": "p_ui5",
+          "name": "SAPUI5 pipeline",
+          "type": "mixed",
+          "stages": [{
+            "id": 126.1,
+            "type": "local",
+            "name": "Build",
+            "state": "success"
+          }, {
+            "id": 126.2,
+            "type": "central",
+            "name": "Version",
+            "state": "success",
+            "link": "http://www.google.com"
+          }, {
+            "id": 126.3,
+            "type": "central",
+            "name": "Deploy",
+            "state": "unstable",
+            "link": "http://www.google.com"
+          }]
         }
   },
    {
@@ -511,6 +648,47 @@
               "nodeSpacingV": 15,
               "nodeRadius": 10
           },
+          "stages": [{
+            "id": 127.1,
+            "type": "local",
+            "name": "Build",
+            "state": "success"
+          }, {
+            "id": 127.2,
+            "type": "central",
+            "name": "Versioning",
+            "state": "success",
+            "link": "http://www.google.com"
+          }, {
+            "id": 127.3,
+            "type": "central",
+            "name": "Validation",
+            "state": "unknown",
+            "link": "http://www.google.com"
+          }, {
+            "id": 127.4,
+            "type": "central",
+            "name": "Staging",
+            "state": "not_built",
+            "link": "http://www.google.com"
+          }, {
+            "id": 127.5,
+            "type": "central",
+            "name": "Promotion",
+            "state": "not_built",
+            "link": "http://www.google.com"
+          }, {
+            "id": 127.6,
+            "type": "central",
+            "name": "Deploy",
+            "state": "not_built",
+            "link": "http://www.google.com"
+          }]
+        },
+        "pipeline_detail": {
+          "id": "p_hcp_cf",
+          "name": "HCP CLoudfoundry pipeline",
+          "type": "mixed",
           "stages": [{
             "id": 127.1,
             "type": "local",
@@ -590,6 +768,33 @@
 			"state": "failure"
 		}]
 	},
+    "pipeline_detail": {
+      "id": "p_i037379",
+      "name": "i037379's pipeline",
+      "type": "localOnly",
+      "stages": [{
+        "id": "pipeline3.1",
+        "type": "local",
+        "name": "Test",
+        "state": "failure",
+        "children": [{
+          "id": "pipeline3.11",
+          "type": "local",
+          "name": "Chrome",
+          "state": "failure"
+        }, {
+          "id": "pipeline3.12",
+          "type": "local",
+          "name": "Edge",
+          "state": "failure"
+        }, {
+          "id": "pipeline3.13",
+          "type": "local",
+          "name": "IE",
+          "state": "success"
+        }]
+      }]
+    },
     "private": false,
     "html_url": "https://github.wdf.sap.corp/I037379/helloworld",
     "description": "This is dummy data for test",
@@ -804,6 +1009,33 @@
             "type": "local",
             "name": "Deploy",
             "state": "aborted"
+          }]
+    },
+    "pipeline_detail": {
+          "id": "p_hcp_cl",
+          "name": "HCP Classic pipeline",
+          "type": "localOnly",
+          "stages": [{
+            "id": "pipeline4.1",
+            "type": "local",
+            "name": "Build",
+            "state": "unstable"
+          }, {
+            "id": "pipeline4.2",
+            "type": "local",
+            "name": "Deploy",
+            "state": "aborted",
+            "children": [{
+              "id": "pipeline4.21",
+              "type": "local",
+              "name": "CF",
+              "state": "success"
+            }, {
+              "id": "pipeline4.22",
+              "type": "local",
+              "name": "HCP",
+              "state": "aborted"
+            }]
           }]
     },
     "private": false,
