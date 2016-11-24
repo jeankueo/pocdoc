@@ -52,7 +52,60 @@
 		}]
 	},
 	"detail": {
-
+		"stages": [{
+			"id": 1.111,
+			"type": "central",
+			"name": "Build",
+			"state": "not_built",
+			"short_desc": "Click to see document.",
+			"link": "https://github.wdf.sap.corp/production-services/build-service/blob/master/README.md"
+		}, {
+			"id": 1.12,
+			"type": "central",
+			"name": "Test",
+			"state": "not_built",
+			"short_desc": "Click to see document.",
+			"link": "https://github.wdf.sap.corp/production-services/build-service/blob/master/README.md"
+		}, {
+			"id": 2.11,
+			"type": "local",
+			"name": "Versioning",
+			"state": "not_built",
+			"short_desc": "Click to see document.",
+			"link": "https://github.wdf.sap.corp/production-services/demo-test-service/blob/master/README.md"
+		}, {
+			"id": 3.11,
+			"type": "local",
+			"name": "Validation",
+			"state": "not_built",
+			"short_desc": "Short description for validation job. Should be at most 2 sentences."
+		}, {
+			"id": 4.11,
+			"type": "central",
+			"name": "Deploy",
+			"state": "not_built",
+			"short_desc": "Click to see document.",
+			"link": "https://github.wdf.sap.corp/production-services/cf-deploy-service/blob/master/README.md",
+			"children": [{
+				"id": 21.11,
+				"type": "local",
+				"name": "CF",
+				"state": "not_built",
+				"short_desc": "validation"
+			}, {
+				"id": 21.12,
+				"type": "local",
+				"name": "HCP",
+				"state": "not_built",
+				"short_desc": "validation"
+			}, {
+				"id": 21.13,
+				"type": "local",
+				"name": "XS2",
+				"state": "not_built",
+				"short_desc": "validation"
+			}]
+		}]
 	}
 }, {
 	"key": "p_hcp_cl",
@@ -89,7 +142,19 @@
 		}]
 	},
 	"detail": {
-
+		"stages": [{
+			"id": 5.1,
+			"type": "central",
+			"name": "Build",
+			"state": "not_built",
+			"short_desc": "Short description for build job. Should be at most 2 sentences."
+		}, {
+			"id": 6.1,
+			"type": "central",
+			"name": "Deploy",
+			"state": "not_built",
+			"short_desc": "Short description for deploy job. Should be at most 2 sentences."
+		}]
 	}
 }, {
 	"key": "p_ui5",
@@ -135,7 +200,25 @@
 		}]
 	},
 	"detail": {
-
+		"stages": [{
+			"id": 7.111,
+			"type": "local",
+			"name": "Build",
+			"state": "not_built",
+			"short_desc": "Short description for build job. Should be at most 2 sentences."
+		}, {
+			"id": 7.122,
+			"type": "local",
+			"name": "Version",
+			"state": "not_built",
+			"short_desc": "Short description for build job. Should be at most 2 sentences."
+		}, {
+			"id": 8.111,
+			"type": "local",
+			"name": "Deploy",
+			"state": "not_built",
+			"short_desc": "Short description for deploy job. Should be at most 2 sentences."
+		}]
 	}
 }, {
 	"key": "p_hcp_cf",
@@ -284,7 +367,32 @@
 		}]
 	},
 	"detail": {
-
+		"stages": [{
+			"id": 15.222,
+			"type": "local",
+			"name": "Test",
+			"state": "not_built",
+			"short_desc": "Test",
+			"children": [{
+				"id": 15.1,
+				"type": "local",
+				"name": "IE",
+				"state": "not_built",
+				"short_desc": "Test"
+			}, {
+				"id": 15.2,
+				"type": "local",
+				"name": "Chrome",
+				"state": "not_built",
+				"short_desc": "Test"
+			}, {
+				"id": 15.3,
+				"type": "local",
+				"name": "Safari",
+				"state": "not_built",
+				"short_desc": "Test"
+			}]
+		}]
 	}
 }, {
 	"key": "p_tm",
@@ -323,5 +431,31 @@
 			"short_desc": "upload"
 		}]
 	},
-	"detail": {}
+	"detail": {
+		"stages": [{
+			"id": 17.1,
+			"type": "local",
+			"name": "Build",
+			"state": "not_built",
+			"short_desc": "Build"
+		}, {
+			"id": 18.1,
+			"type": "central",
+			"name": "Test",
+			"state": "not_built",
+			"short_desc": "Test"
+		}, {
+			"id": 19.1,
+			"type": "central",
+			"name": "Commit",
+			"state": "not_built",
+			"short_desc": "Commit"
+		}, {
+			"id": 20.1,
+			"type": "central",
+			"name": "Deploy",
+			"state": "not_built",
+			"short_desc": "upload"
+		}]
+	}
 }]
