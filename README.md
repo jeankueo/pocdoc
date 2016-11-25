@@ -11,7 +11,7 @@ Install
 ``` sh
 npm install
 ```
-If you are behind SAP Corporate network, proxies are all set already. If you try to install in other network, like SAP Internet, just remove proxy settings from file **'.npmrc'** and **'.bowerrc'**
+If you are behind SAP Corporate network, proxies are all set already. If you try to install in other network, like SAP Internet, just remove proxy settings from file **'.npmrc'** and **'.bowerrc'** before running the command.
 
  * Run an HTTP server
 ``` sh
