@@ -1,5 +1,5 @@
 {
-  "name": "pipeline-mix-poc",
+  "name": "pipeline-ui-poc",
   "version": "1.0.0",
   "description": "PoC",
   "main": "index.html",
@@ -11,7 +11,7 @@
   "license": "ISC",
   "private": true,
   "scripts": {
-    "installAll": "npm install && bower install jenkinsci/jenkins-design-language",
+    "postinstall": "bower install jenkinsci/jenkins-design-language && gulp",
     "babel": "./node_modules/.bin/babel bower_components/jenkins-design-language/src/js/components -d dist/bo/js --presets es2015,react,stage-0 --plugins transform-es2015-modules-amd",
     "gulp": "./node_modules/.bin/gulp"
   },

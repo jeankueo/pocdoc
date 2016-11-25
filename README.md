@@ -4,21 +4,20 @@ Prerequisite: nodeJS is installed
 
  * Download dependencies. Blue ocean design language will be downloaded by bower while others are referenced as node module.
 ``` sh
-npm run installAll
-```
- * Run gulp to generate folder /dist
-``` sh
-npm run gulp
+npm install
 ```
 In this step, following things are performed in /dist folder:
-	1. build translate blue ocean control in REACT+ES6 to ES5 in amd module format
-	2. translate blue ocean LESS to CSS, and wrap it with .jenkinsbo namespace
-	3. copy blue ocean svg files
+	1. npm install which install all dependencies.
+	2. download blue ocean design language project via bower
+	3. build translate blue ocean control in REACT+ES6 to ES5 in amd module format
+	4. translate blue ocean LESS to CSS, and wrap it with .jenkinsbo namespace
+	5. copy blue ocean svg files
 
  * Run an HTTP server, middleware are installed in this js.
 ``` sh
-node server.js
+npm start
 ```
+This command actually triggers command 'node server.js'
  * Access by link [http://localhost:76547/openui5-react-poc/public](http://localhost:7654/openui5-react-poc/public)
 
 Design
