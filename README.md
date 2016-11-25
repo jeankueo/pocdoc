@@ -11,7 +11,17 @@ Install
 ``` sh
 npm install
 ```
-If you are behind SAP Corporate network, proxies are all set already. If you try to install in other network, like SAP Internet, just remove proxy settings from file **'.npmrc'** and **'.bowerrc'** before running the command.
+If you are behind SAP Corporate network, set proxies in the .bowerrc like this:
+``` json
+"proxy": "http://proxy.wdf.sap.corp:8080",
+"https-proxy": "http://proxy.wdf.sap.corp:8080"
+```
+set proxies in the .npmrc like this:
+``` sh
+proxy=http://proxy.wdf.sap.corp:8080/
+https-proxy=https://proxy.wdf.sap.corp:8080
+```
+Note that do not commit these two proxy settings into git, because it would effect build service.
 
  * Run an HTTP server
 ``` sh
