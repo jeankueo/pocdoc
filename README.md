@@ -3,14 +3,15 @@
 Prerequisite: nodeJS is installed
 
  * Install this node project
+``` sh
+npm install
+```
  	* 'npm install' which install all dependencies.
 	* download blue ocean design language project via bower
 	* build translate blue ocean control in JSX+ES6 to ES5 in format of AMD module bundle
 	* translate blue ocean LESS to CSS, and wrap it with 'jenkinsbo' namespace
 	* copy blue ocean svg files
-``` sh
-npm install
-```
+
 
  * Run an HTTP server, middleware are installed in this js.
 ``` sh
