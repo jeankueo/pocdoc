@@ -12,11 +12,10 @@ Prerequisite: nodeJS is installed
 npm install
 ```
 
- * Run an HTTP server, middleware are installed in this js.
+ * Run an HTTP server
 ``` sh
 npm start
 ```
-This command actually triggers command 'node server.js'
  * Access by link [http://localhost:76547/openui5-react-poc/public](http://localhost:7654/openui5-react-poc/public)
 
 Design
