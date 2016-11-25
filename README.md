@@ -1,5 +1,7 @@
 # Pipeline-UI-PoC
 
+Install
+--------------
  * Install this node project, following things are triggered by this command
  	* install all dependencies in to folder **'/node_modules'**
 	* download blue ocean design language project via bower into folder **'/bower_components'**
