@@ -21,7 +21,7 @@ npm start
 
 Design
 --------------
- * Structure, Transition and Routing of views:
+ * View Structure, Transition and Routing of views:
  ![](./diagram/01.view.PNG)
  * Wrapper of React control: **sap.ciconnect.control.BOControl**. This is a general wrapper. Any control provided by blue ocean can be used via this wrapper. Only specify following things:
  	* properties:
