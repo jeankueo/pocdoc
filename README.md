@@ -2,6 +2,19 @@
 
 Install
 --------------
+ * This step if optional. If you are behind SAP Corporate network, adjust proxy settings in two files:
+ 	* **.bowerrc** like this:
+``` json
+"proxy": "http://proxy.wdf.sap.corp:8080",
+"https-proxy": "http://proxy.wdf.sap.corp:8080"
+```
+	* **.npmrc** like this:
+``` sh
+proxy=http://proxy.wdf.sap.corp:8080/
+https-proxy=https://proxy.wdf.sap.corp:8080
+```
+Note that do not commit these two proxy settings into git, because it would effect build service.
+
  * Install this node project, following things are triggered by this command
  	* install all dependencies in to folder **'/node_modules'**
 	* download blue ocean design language project via bower into folder **'/bower_components'**
@@ -11,17 +24,6 @@ Install
 ``` sh
 npm install
 ```
-If you are behind SAP Corporate network, set proxies in the .bowerrc like this:
-``` json
-"proxy": "http://proxy.wdf.sap.corp:8080",
-"https-proxy": "http://proxy.wdf.sap.corp:8080"
-```
-set proxies in the .npmrc like this:
-``` sh
-proxy=http://proxy.wdf.sap.corp:8080/
-https-proxy=https://proxy.wdf.sap.corp:8080
-```
-Note that do not commit these two proxy settings into git, because it would effect build service.
 
  * Run an HTTP server
 ``` sh
