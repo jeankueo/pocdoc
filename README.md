@@ -3,8 +3,8 @@
 Install
 --------------
  * This step if optional. If you are behind SAP Corporate network, adjust proxy settings in two files. Note that do not commit these two proxy settings into git, because it would effect build service.:
- 	* **.bowerrc**
- 	* **.npmrc**
+ 	* .bowerrc
+ 	* .npmrc
 ``` json
 "proxy": "http://proxy.wdf.sap.corp:8080",
 "https-proxy": "http://proxy.wdf.sap.corp:8080"
