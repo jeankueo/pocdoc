@@ -2,16 +2,15 @@
 
 Prerequisite: nodeJS is installed
 
- * Download dependencies. Blue ocean design language will be downloaded by bower while others are referenced as node module.
+ * Install this node project
+ 	* 'npm install' which install all dependencies.
+	* download blue ocean design language project via bower
+	* build translate blue ocean control in JSX+ES6 to ES5 in format of AMD module bundle
+	* translate blue ocean LESS to CSS, and wrap it with 'jenkinsbo' namespace
+	* copy blue ocean svg files
 ``` sh
 npm install
 ```
-In this step, following things are performed in /dist folder:
-	1. npm install which install all dependencies.
-	2. download blue ocean design language project via bower
-	3. build translate blue ocean control in REACT+ES6 to ES5 in amd module format
-	4. translate blue ocean LESS to CSS, and wrap it with .jenkinsbo namespace
-	5. copy blue ocean svg files
 
  * Run an HTTP server, middleware are installed in this js.
 ``` sh
