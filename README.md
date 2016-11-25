@@ -1,50 +1,85 @@
-# Pipeline-UI-PoC
-
-See steps inside each PoC to setup. The whole PoC is divided into 4 phase:
-* 1 openui5-poc. Setup a framework in openui5. Some self-written control is created to visualize pipeline.
-* 2 react-webpack-poc. Try out Jenkins blueocean controls written in React. In this PoC weather-icons and PipelineGraph is tried out in ES6. This PoC can be used to learn basic knowledge of react.
-* 3 react-babel-poc. Try out to transform Jekins Blueocean react module in to AMD (because openui5 follows AMD module bundle and ES5). This PoC can be usd to practise using React modules in ES5.
-* 4 openui5-react-poc. TBD.
-
-Proxy settings
+Steps to set up openui5-react PoC (4/4)
 --------------
- * for **npm**, these two lines for .npmrc in your user root folder:
+Prerequisite: nodeJS is installed
+
+ * Download dependencies. Blue ocean design language will be downloaded by bower while others are referenced as node module.
 ``` sh
-proxy=http://proxy.wdf.sap.corp:8080/
-https-proxy=https://proxy.wdf.sap.corp:8080
+npm run installAll
 ```
-
- * for **bower**, put these two lines in .bowerrc which is a JSON structure in your project root folder:
-``` json
-"proxy": "http://proxy.wdf.sap.corp:8080",
-"https-proxy": "http://proxy.wdf.sap.corp:8080"
+ * Run gulp to generate folder /dist
+``` sh
+npm run gulp
 ```
+In this step, following things are performed in /dist folder:
+	1. build translate blue ocean control in REACT+ES6 to ES5 in amd module format
+	2. translate blue ocean LESS to CSS, and wrap it with .jenkinsbo namespace
+	3. copy blue ocean svg files
 
- * for **mvn**, put these lines in your settings.xml in your user root folder /.m2:
-``` xml
-<proxies>
-	<proxy>
-		<id>http_proxy</id>
-		<active>true</active>
-		<protocol>http</protocol>
-		<host>proxy.wdf.sap.corp</host>
-		<port>8080</port>
-	</proxy>
-	<proxy>
-		<id>https_proxy</id>
-		<active>true</active>
-		<protocol>https</protocol>
-		<host>proxy.wdf.sap.corp</host>
-		<port>8080</port>
-	</proxy>
-</proxies>
+ * Run an HTTP server, middleware are installed in this js.
+``` sh
+node server.js
 ```
+ * Access by link [http://localhost:76547/openui5-react-poc/public](http://localhost:7654/openui5-react-poc/public)
 
-Upgrade node/npm via npm
+Design
 --------------
-``` sh
-sudo npm cache clean -f
-sudo npm install -g n
-sudo n stable
-```
-Only useful for **linux/mac**. For **windows** user you have to reinstall.
+ * Structure, Transition and Routing of views:
+ ![](./diagram/01.view.PNG)
+ * Wrapper of React control: **sap.ciconnect.control.BOControl**. This is a general wrapper. Any control provided by blue ocean can be used via this wrapper. Only specify following things:
+ 	* properties:
+ 		* **moduleName**: name of the module (file) under dist/bo/js. For example: PipelineGraph.
+ 		* **controlName**: name of the control. One module is possible to export several controls. For example: weather-icon module contains several controls.
+ 		* **props**: This is an object of react property. In general data is fed here. Please refer to blue ocean modules (under folder bower_components/jenkins-design-language/src/js/components) for props detail.
+ 	* aggregations:
+ 		* **boEvents**:react control event is impelemented in here. Because BOControl is a general wrapper, event names cannot be predefined in event{} block. So this multiple aggregation is defined to wrap events. For each event defined by react control, add an aggregation instance of BOEvent, simply specify event name and provide handler would work.
+ 	Example:
+ ``` xml
+<ci:BOControl moduleName="PipelineGraph" controlName="PipelineGraph" props="{pipeline>abstract}">
+	<ci:boEvents>
+		<ci:BOEvent name="onNodeClick" handle="onPipelineNodeClick" />
+	</ci:boEvents>
+</ci:BOControl>
+```	
+
+Useful links
+--------------
+* Octicons list: [https://octicons.github.com/](https://octicons.github.com/)
+* Fontawesome icon list: [http://fontawesome.io/icons/](http://fontawesome.io/icons/)
+* Jenkins Design Language controls: [http://jenkinsci.github.io/jenkins-design-language/docs](http://jenkinsci.github.io/jenkins-design-language/docs)
+
+Todos
+--------------
+- [x] use requirejs to integrate amd bo to ui5.
+- [x] Ref to this article: [http://www.ryadel.com/en/css-namespaces-avoid-conflict-style-sheets-files/](http://www.ryadel.com/en/css-namespaces-avoid-conflict-style-sheets-files/), create own LESS and add namespace to avoid conflict of BO css and UI5 css.
+- [x] adjust data to support both d3 pipeline and new bo pipeline control.
+- [x] adjust summary page, use weather icons instead of ui5 control.
+- [x] remove vscroll bar on app level (overflow: hidden)
+- [x] move vscroll bar from view level on to list level
+- [x] add a category dropdown in front of search on pipeline page (e.g. Fiori standard pipeline)
+- [x] enhance search function of pipeline page
+- [x] add an organization + git/gerrit + all selection dropdown in front of search on repo page.
+- [x] enhance search function of repo page
+- [x] finish delete git repo pop
+- [x] finish active button pop - consume the new models
+- [x] finish deactive button pop - consume the new models
+- [x] move add git input to a pop triggered by popover
+- [x] mix github/gitgerrit tables
+- [x] change repo view to bage style, line items become like link + bages + pipelinegraph
+- [x] change pipeline view to bage style, line items become like link + bages + pipelinegraph
+- [x] linkage / event navigation of repo/pipeline page
+- [x] add navigation function to pipeline page list items, a page to edit pipeline, and see more details about it
+- [x] add navigation function to repo page list items, a page to see more detail of running status
+- [x] add bookmarkable tab
+- [x] add bookmarkable search
+- [x] event handling of BOControl in general
+- [ ] deploy to cf
+- [ ] knowledge transfer of poc 
+- [ ] know-how to department (19th Dec.  1h)
+- [x] detail page of repo (use children data of BO pipelinegraph control)
+- [x] detail page of repo (use control sap.uxap.ObjectPageLayout and forms)
+- [ ] embed BOControl in BOControl (use page & page-header controls)
+- [ ] detail page of pipeline (use BOControl container features)
+- [ ] legend page
+- [ ] add db (json-based)
+- [ ] integrate with real system (odata ? json ?)
+- [ ] detail page of pipeline (use pipeline editor control, comming soon by jenkins DL)
