@@ -16,7 +16,7 @@ npm install
 ``` sh
 npm start
 ```
- * Access by link [http://localhost:76547/openui5-react-poc/public](http://localhost:7654/openui5-react-poc/public)
+ * Access by link [http://localhost:9876/public](http://localhost:9876/public)
 
 Design
 --------------
