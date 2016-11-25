@@ -8,27 +8,7 @@
 		<link rel="stylesheet" href="../src/less/control.css" />
 		<link rel="stylesheet" href="../src/less/view.css" />
 
-		<!-- 
-		<script id='sap-ui-bootstrap'
-			src='../bower_components/openui5-sap.ui.core/resources/sap-ui-core.js'
-			data-sap-ui-theme='sap_belize'
-			data-sap-ui-libs='sap.m'
-			data-sap-ui-compatVersion='edge'
-			data-sap-ui-preload='async'
-			data-sap-ui-theme-roots='{
-				"sap_bluecrystal" : "../bower_components/openui5-themelib_sap_bluecrystal/resources",
-				"sap_belize" : "../bower_components/openui5-themelib_sap_belize/resources",
-				"sap_belize_plus" : "../bower_components/openui5-themelib_sap_belize/resources"
-			}' 
-			data-sap-ui-resourceroots='{
-				"sap.m": "../bower_components/openui5-sap.m/resources/sap/m",
-				"sap.ciconnect.view": "./view",
-				"sap.ciconnect.control": "./control"
-			}'>
-		</script>
-		 -->
-		 <!-- http://vesapui5.dhcp.wdf.sap.corp:8080/sapui5-dist-1.42/resources/sap-ui-core.js -->
-		  <script id='sap-ui-bootstrap'
+		 <script id='sap-ui-bootstrap'
 			src='https://sapui5.hana.ondemand.com/resources/sap-ui-core.js'
 			data-sap-ui-theme='sap_belize_plus'
 			data-sap-ui-libs='sap.m'
@@ -54,7 +34,6 @@
 		<div id='content' style="overflow: hidden"/>	
 		<script>
 			sap.ui.getCore().attachInit(function () {
-				// this way of coding enables routing
 				sap.ui.require([
 					//"sap/ui/demo/nav/localService/mockserver",
 					"sap/m/Shell",
@@ -68,10 +47,6 @@
 						})
 					}).placeAt("content");
 				});
-				// this way of coding imbed view directly into html content div
-				/*sap.ui.xmlview({
-					viewName : "sap.ciconnect.view.App"
-				}).placeAt("content");*/
 			});
 		</script>
 	</body>
