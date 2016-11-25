@@ -1,7 +1,7 @@
 # Pipeline-UI-PoC
 
  * Install this node project, following things are triggered by this command
- 	* install all dependencies.
+ 	* install all dependencies
 	* download blue ocean design language project via bower
 	* build translate blue ocean control in JSX+ES6 to ES5 in format of AMD module bundle
 	* translate blue ocean LESS to CSS, and wrap it with 'jenkinsbo' namespace
