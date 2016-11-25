@@ -32,42 +32,47 @@ var config = {
 	}
 };
 
-gulp.task('default', ()=>{
+gulp.task('default', function () {
 	runSequence("clean", "build");
 });
 
-gulp.task("clean", () => 
+gulp.task("clean", function () {
 	gulp.src(config.clean, {read: false})
-		.pipe(clean()));
+		.pipe(clean());
+});
 
 gulp.task("build", ["compile-react", "less", "copy"]);
 
-gulp.task("compile-react", () =>
+gulp.task("compile-react", function () {
 	gulp.src(config.react.sources)
 		.pipe(sourcemaps.init())
 		.pipe(babel(config.react.babel))
 		.pipe(sourcemaps.write("."))
-		.pipe(gulp.dest(config.react.dest)));
+		.pipe(gulp.dest(config.react.dest));
+});
 
-gulp.task("less", () =>
+gulp.task("less", function () {
 	gulp.src(config.less.sources)
 		.pipe(sourcemaps.init())
 		.pipe(less())
 		.pipe(rename("jenkins-design-language.css"))
 		.pipe(sourcemaps.write("."))
-		.pipe(gulp.dest(config.less.dest)));
+		.pipe(gulp.dest(config.less.dest));
+});
 
 gulp.task("copy", ["copy-icons"/*"copy-icons-replace-space"*//*, "copy-octicons", "copy-normalize", "copy-fontsCSS", "copy-fonts",
 	"copy-componentDocFiles", "copy-licenses-octicons", "copy-licenses-ofl"*/]);
 
-gulp.task("copy-icons", () =>
+gulp.task("copy-icons", function () {
 	gulp.src(config.copy.icons.sources)
-		.pipe(copy(config.copy.icons.dest, {prefix: 3})));
+		.pipe(copy(config.copy.icons.dest, {prefix: 3}));
+});
 
-gulp.task("copy-icons-replace-space", () =>
+gulp.task("copy-icons-replace-space", function () {
 	gulp.src(config.copy.icons.sources)
 		.pipe(rename(function (path) {
 			path.basename = path.basename.replace(' ', '%20');
 			console.log(path.basename);
 		}))
-		.pipe(gulp.dest(config.copy.icons.dest)));
+		.pipe(gulp.dest(config.copy.icons.dest));
+});
