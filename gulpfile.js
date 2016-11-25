@@ -1,15 +1,15 @@
 "use strict";
 
-const gulp = require('gulp');
-const runSequence = require('run-sequence');
-const clean = require('gulp-clean');
-const sourcemaps = require('gulp-sourcemaps');
-const babel = require('gulp-babel');
-const less = require('gulp-less');
-const rename = require('gulp-rename');
-const copy = require('gulp-copy');
+var gulp = require('gulp');
+var runSequence = require('run-sequence');
+var clean = require('gulp-clean');
+var sourcemaps = require('gulp-sourcemaps');
+var babel = require('gulp-babel');
+var less = require('gulp-less');
+var rename = require('gulp-rename');
+var copy = require('gulp-copy');
 
-const config = {
+var config = {
 	clean: ["dist"],
 	react: {
 		sources: "bower_components/jenkins-design-language/src/js/components/**/*.{js,jsx}",
