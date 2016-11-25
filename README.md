@@ -1,7 +1,5 @@
 # Pipeline-UI-PoC
 
-Prerequisite: nodeJS is installed
-
  * Install this node project, following things happens by the single command
  	* install all dependencies.
 	* download blue ocean design language project via bower
