@@ -1,4 +1,4 @@
-Steps to set up openui5-react PoC (4/4)
+# Pipeline-UI-PoC
 --------------
 Prerequisite: nodeJS is installed
 
