@@ -5,7 +5,7 @@
 	* download blue ocean design language project via bower into folder **'/bower_components'**
 	* build translate blue ocean control in JSX+ES6 to ES5 in format of AMD module bundle into folder **'/dist'**
 	* translate blue ocean LESS to CSS, and wrap it with 'jenkinsbo' namespace into folder **'/dist'**
-	* copy blue ocean svg files into folder '/dist'
+	* copy blue ocean svg files into folder **'/dist'**
 ``` sh
 npm install
 ```
