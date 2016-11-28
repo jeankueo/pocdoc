@@ -1,29 +1,29 @@
 .ciConnectSvgGerrit {
-	 background-image: url("/openui5-react-poc/src/svg/Gerrit.svg");
+	 background-image: url("/src/svg/Gerrit.svg");
 }
 
 .ciConnectSvgGerritColor {
-	 background-image: url("/openui5-react-poc/src/svg/GerritColor.svg");
+	 background-image: url("/src/svg/GerritColor.svg");
 }
 
 .ciConnectSvgGit {
-	 background-image: url("/openui5-react-poc/src/svg/Git.svg");
+	 background-image: url("/src/svg/Git.svg");
 }
 
 .ciConnectSvgGitColor {
-	 background-image: url("/openui5-react-poc/src/svg/GitColor.svg");
+	 background-image: url("/src/svg/GitColor.svg");
 }
 
 .ciConnectSvgGitSquare {
-	 background-image: url("/openui5-react-poc/src/svg/GitSquare.svg");
+	 background-image: url("/src/svg/GitSquare.svg");
 }
 
 .ciConnectSvgGithub {
-	 background-image: url("/openui5-react-poc/src/svg/Github.svg");
+	 background-image: url("/src/svg/Github.svg");
 }
 
 .ciConnectSvgGithubSquare {
-	 background-image: url("/openui5-react-poc/src/svg/GithubSquare.svg");
+	 background-image: url("/src/svg/GithubSquare.svg");
 }
 
 .ciconnectPipelineSvgFrame {
