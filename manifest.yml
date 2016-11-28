@@ -1,0 +1,7 @@
+---
+applications:
+- name: ciconnect-pipeline-web
+  host: i037379-nciconnect-pipeline-web
+  domain: cfapps.sap.hana.ondemand.com
+  memory: 100M
+  path: web
