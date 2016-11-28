@@ -1,15 +1,15 @@
 @font-face {
 	font-family: 'oct';
-	src: url('../../node_modules/octicons/build/font/octicons.ttf'),
-		 url('../../node_modules/octicons/build/font/octicons.eot'); /* IE9+ */
+	src: url('../../dist/oct/octicons.ttf'),
+		 url('../../dist/oct/octicons.eot'); /* IE9+ */
 	font-weight: normal;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: 'awesome';
-	src: url('../../node_modules/font-awesome/fonts/fontawesome-webfont.ttf'),
-		 url('../../node_modules/font-awesome/fonts/fontawesome-webfont.eot'); /* IE9+ */
+	src: url('../../dist/fontawesome/fontawesome-webfont.ttf'),
+		 url('../../dist/fontawesome/fontawesome-webfont.eot'); /* IE9+ */
 	font-weight: normal;
 	font-style: normal;
 }

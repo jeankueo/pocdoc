@@ -8,24 +8,32 @@ var rename = require('gulp-rename');
 var copy = require('gulp-copy');
 
 var config = {
-	clean: ["dist"],
+	clean: ["webApp/dist"],
 	react: {
 		sources: "bower_components/jenkins-design-language/src/js/components/**/*.{js,jsx}",
-		dest: "dist/bo/js",
+		dest: "webApp/dist/bo/js",
 		babel: {
 			presets: ['es2015', 'react', 'stage-0'],
 			plugins: ['transform-es2015-modules-amd']
 		}
 	},
 	less: {
-		sources: "src/less/jenkinsbo.less",
+		sources: "webApp/src/less/jenkinsbo.less",
 		watch: "less/**/*.less", // Watch includes as well as main
-		dest: "dist/bo/assets/css"
+		dest: "webApp/dist/bo/assets/css"
 	},
 	copy: {
 		icons: {
 			sources: "bower_components/jenkins-design-language/icons/**/*",
-			dest: "dist/bo/assets/icons"
+			dest: "webApp/dist/bo/assets/icons"
+		},
+		oct: {
+			sources: "node_modules/octicons/build/font/*.{ttf,eot}",
+			dest: "webApp/dist/oct"
+		},
+		fontawesome: {
+			sources: "node_modules/font-awesome/fonts/*.{ttf,eot}",
+			dest: "webApp/dist/fontawesome"
 		}
 	}
 };
@@ -58,8 +66,7 @@ gulp.task("less", function () {
 		.pipe(gulp.dest(config.less.dest));
 });
 
-gulp.task("copy", ["copy-icons"/*"copy-icons-replace-space"*//*, "copy-octicons", "copy-normalize", "copy-fontsCSS", "copy-fonts",
-	"copy-componentDocFiles", "copy-licenses-octicons", "copy-licenses-ofl"*/]);
+gulp.task("copy", ["copy-icons", "copy-oct", "copy-fontawesome"]);
 
 gulp.task("copy-icons", function () {
 	gulp.src(config.copy.icons.sources)
@@ -73,4 +80,14 @@ gulp.task("copy-icons-replace-space", function () {
 			console.log(path.basename);
 		}))
 		.pipe(gulp.dest(config.copy.icons.dest));
+});
+
+gulp.task("copy-oct", function () {
+	gulp.src(config.copy.oct.sources)
+		.pipe(copy(config.copy.oct.dest, {prefix: 4}));
+});
+
+gulp.task("copy-fontawesome", function () {
+	gulp.src(config.copy.fontawesome.sources)
+		.pipe(copy(config.copy.fontawesome.dest, {prefix: 3}));
 });

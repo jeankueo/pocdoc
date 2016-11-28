@@ -52,14 +52,14 @@ sap.ui.define([
 
 		_loadPipelineData: function () {
 			var oModel = new JSONModel();
-			oModel.loadData("../../data/pipeline.json");
+			oModel.loadData("../data/pipeline.json");
 			this.getView().setModel(oModel, "pipeline");
 		},
 
 		_loadRepoData: function () {
 			// repo contains all repo from git/gerrit/github
 			var oModel = new JSONModel();
-			oModel.loadData("../../data/repo.json");
+			oModel.loadData("../data/repo.json");
 			this.getView().setModel(oModel, "repo");
 		},
 

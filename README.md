@@ -30,7 +30,8 @@ npm install
 ``` sh
 npm start
 ```
- * Access by link [http://localhost:9876/public](http://localhost:9876/public)
+ * Access by locally link [http://localhost:9876/webApp/public](http://localhost:9876/webApp/public)
+ * Access on CF by link [https://ciconnect-pipeline.cfapps.sap.hana.ondemand.com/public](https://ciconnect-pipeline.cfapps.sap.hana.ondemand.com/public/)
 
 Design
 --------------

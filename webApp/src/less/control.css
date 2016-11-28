@@ -1,29 +1,29 @@
 .ciConnectSvgGerrit {
-	 background-image: url("/src/svg/Gerrit.svg");
+	 background-image: url("../svg/Gerrit.svg");
 }
 
 .ciConnectSvgGerritColor {
-	 background-image: url("/src/svg/GerritColor.svg");
+	 background-image: url("../svg/GerritColor.svg");
 }
 
 .ciConnectSvgGit {
-	 background-image: url("/src/svg/Git.svg");
+	 background-image: url("../svg/Git.svg");
 }
 
 .ciConnectSvgGitColor {
-	 background-image: url("/src/svg/GitColor.svg");
+	 background-image: url("../svg/GitColor.svg");
 }
 
 .ciConnectSvgGitSquare {
-	 background-image: url("/src/svg/GitSquare.svg");
+	 background-image: url("../svg/GitSquare.svg");
 }
 
 .ciConnectSvgGithub {
-	 background-image: url("/src/svg/Github.svg");
+	 background-image: url("../svg/Github.svg");
 }
 
 .ciConnectSvgGithubSquare {
-	 background-image: url("/src/svg/GithubSquare.svg");
+	 background-image: url("../svg/GithubSquare.svg");
 }
 
 .ciconnectPipelineSvgFrame {
