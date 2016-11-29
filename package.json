@@ -37,8 +37,6 @@
   },
   "dependencies": {
     "font-awesome": "^4.6.3",
-    "octicons": "^4.4.0",
-    "react": "^15.3.2",
-    "react-dom": "^15.3.2"
+    "octicons": "^4.4.0"
   }
 }
