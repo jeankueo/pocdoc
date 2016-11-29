@@ -1,20 +1,23 @@
 # Pipeline-UI-PoC
 
+CF deployment
+--------------
+Access deployment on CF by link [https://ciconnect-pipeline.cfapps.sap.hana.ondemand.com/public](https://ciconnect-pipeline.cfapps.sap.hana.ondemand.com/public/)
+
 Install
 --------------
- * This step if optional. If you are behind SAP Corporate network, adjust proxy settings in two files. Note that do not commit these two proxy settings into git, because it would effect build service.:
- 	* .bowerrc
- 	* .npmrc
-``` json
-"proxy": "http://proxy.wdf.sap.corp:8080",
-"https-proxy": "http://proxy.wdf.sap.corp:8080"
-```
-
-``` sh
-proxy=http://proxy.wdf.sap.corp:8080/
-https-proxy=https://proxy.wdf.sap.corp:8080
-```
-
+ * This step if optional. If you are behind SAP Corporate network, please add settings as following. Note that do not commit these two proxy settings into git, because it would effect build service.:
+ 	* .bowerrc in root folder:
+	 	``` json
+	 	{
+	 		"proxy": "http://proxy.wdf.sap.corp:8080",
+			"https-proxy": "http://proxy.wdf.sap.corp:8080"
+	 	}
+		```
+ 	* .npmrc in root folder and /db folder:
+		``` sh
+		registry=http://nexus.wdf.sap.corp:8081/nexus/content/groups/build.releases.npm/
+		```
 
  * Install this node project, following things are triggered by this command
  	* install all dependencies in to folder **'/node_modules'**
@@ -27,12 +30,18 @@ https-proxy=https://proxy.wdf.sap.corp:8080
 npm install
 ```
 
- * Run an HTTP server
+ * Run a server for web module
 ``` sh
 npm start
 ```
- * Access by local link [http://localhost:3000/webApp/public](http://localhost:3000/webApp/public)
- * Access on CF by link [https://ciconnect-pipeline.cfapps.sap.hana.ondemand.com/public](https://ciconnect-pipeline.cfapps.sap.hana.ondemand.com/public/)
+ * Access by local link [http://localhost:3000/web/public](http://localhost:3000/web/public)
+
+* Run a server for db module
+``` sh
+cd db
+npm start
+```
+ * Access by local link [http://localhost:5000](http://localhost:5000)
 
 Design
 --------------
