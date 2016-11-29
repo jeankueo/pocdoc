@@ -19,9 +19,10 @@ https-proxy=https://proxy.wdf.sap.corp:8080
  * Install this node project, following things are triggered by this command
  	* install all dependencies in to folder **'/node_modules'**
 	* download blue ocean design language project via bower into folder **'/bower_components'**
-	* build translate blue ocean control in JSX+ES6 to ES5 in format of AMD module bundle into folder **'/dist'**
-	* translate blue ocean LESS to CSS, and wrap it with 'jenkinsbo' namespace into folder **'/dist'**
-	* copy blue ocean svg files into folder **'/dist'**
+	* build translate blue ocean control in JSX+ES6 to ES5 in format of AMD module bundle into folder **'/webApp/dist'**
+	* translate blue ocean LESS to CSS, and wrap it with 'jenkinsbo' namespace into folder **'/webApp/dist'**
+	* copy blue ocean svg files into folder **'/webApp/dist'**
+	* copy font files of oct + fontawsome to **'/webApp/dist'**
 ``` sh
 npm install
 ```
@@ -89,9 +90,9 @@ Todos
 - [x] detail page of repo (use control sap.uxap.ObjectPageLayout and forms)
 - [ ] embed BOControl in BOControl (use page & page-header controls)
 - [ ] detail page of pipeline (use BOControl container features)
-- [ ] legend page
 - [ ] add db (json-based)
 - [ ] integrate with real system (odata ? json ?)
-- [ ] detail page of pipeline (use pipeline editor control, comming soon by jenkins DL)
 - [ ] knowledge transfer of poc 
 - [ ] know-how to department (19th Dec.  1h)
+- [ ] detail page of pipeline (use pipeline editor control, comming soon by jenkins DL)
+- [ ] legend page
