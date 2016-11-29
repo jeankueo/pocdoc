@@ -13,6 +13,7 @@ node_modules
 tutorial
 npm-debug.log
 .npmrc
+.bowerrc
 
 # Ignore bower folder
 bower_components

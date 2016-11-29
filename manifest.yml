@@ -3,7 +3,7 @@ applications:
 - name: ciconnect-pipeline-web
   domain: cfapps.sap.hana.ondemand.com
   memory: 128M
-  path: webApp
+  path: web
   buildpack: https://github.com/cloudfoundry/staticfile-buildpack
 
 - name: ciconnect-pipeline-db

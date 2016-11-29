@@ -8,32 +8,32 @@ var rename = require('gulp-rename');
 var copy = require('gulp-copy');
 
 var config = {
-	clean: ["webApp/dist"],
+	clean: ["web/dist"],
 	react: {
 		sources: "bower_components/jenkins-design-language/src/js/components/**/*.{js,jsx}",
-		dest: "webApp/dist/bo/js",
+		dest: "web/dist/bo/js",
 		babel: {
 			presets: ['es2015', 'react', 'stage-0'],
 			plugins: ['transform-es2015-modules-amd']
 		}
 	},
 	less: {
-		sources: "webApp/src/less/jenkinsbo.less",
+		sources: "web/src/less/jenkinsbo.less",
 		watch: "less/**/*.less", // Watch includes as well as main
-		dest: "webApp/dist/bo/assets/css"
+		dest: "web/dist/bo/assets/css"
 	},
 	copy: {
 		icons: {
 			sources: "bower_components/jenkins-design-language/icons/**/*",
-			dest: "webApp/dist/bo/assets/icons"
+			dest: "web/dist/bo/assets/icons"
 		},
 		oct: {
 			sources: "node_modules/octicons/build/font/*.{ttf,eot}",
-			dest: "webApp/dist/oct"
+			dest: "web/dist/oct"
 		},
 		fontawesome: {
 			sources: "node_modules/font-awesome/fonts/*.{ttf,eot}",
-			dest: "webApp/dist/fontawesome"
+			dest: "web/dist/fontawesome"
 		}
 	}
 };
