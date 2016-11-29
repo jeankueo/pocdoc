@@ -31,13 +31,13 @@ npm install
 ``` sh
 npm start
 ```
- * Access by local link [http://localhost:9876/webApp/public](http://localhost:9876/webApp/public)
+ * Access by local link [http://localhost:3000/webApp/public](http://localhost:3000/webApp/public)
  * Access on CF by link [https://ciconnect-pipeline.cfapps.sap.hana.ondemand.com/public](https://ciconnect-pipeline.cfapps.sap.hana.ondemand.com/public/)
 
 Design
 --------------
  * View Structure, Transition and Routing of views:
- ![](./diagram/01.view.PNG)
+ ![](./doc/01.view.PNG)
  * Wrapper of React control: **sap.ciconnect.control.BOControl**. This is a general wrapper. Any control provided by blue ocean can be used via this wrapper. Only specify following things:
  	* properties:
  		* **moduleName**: name of the module (file) under dist/bo/js. For example: PipelineGraph.

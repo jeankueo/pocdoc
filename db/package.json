@@ -1,0 +1,17 @@
+{
+  "name": "pipeline-ui-poc",
+  "version": "1.0.0",
+  "description": "PoCdb",
+  "repository": {
+    "type": "git",
+    "url": "git@github.wdf.sap.corp:ci-connect/pipeline-ui-poc.git"
+  },
+  "author": "I037379",
+  "license": "ISC",
+  "private": true,
+  "dependencies": {
+    "cfenv": "^1.0.3",
+    "mongoose": "^4.7.0",
+    "restify": "^4.3.0"
+  }
+}
