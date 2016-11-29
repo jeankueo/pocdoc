@@ -6,11 +6,11 @@ applications:
   path: web
   buildpack: https://github.com/cloudfoundry/staticfile-buildpack
 
-- name: ciconnect-pipeline-db
-  command: node db/server.js
-  memory: 128M
-  path: db
-  instances: 1
-  buildpack: https://github.com/cloudfoundry/nodejs-buildpack
-  services:
-      - dump
+#- name: ciconnect-pipeline-db
+#  command: node db/server.js
+#  memory: 128M
+#  path: db
+#  instances: 1
+#  buildpack: https://github.com/cloudfoundry/nodejs-buildpack
+#  services:
+#      - dump
