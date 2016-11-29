@@ -84,9 +84,7 @@ Todos
 - [x] add bookmarkable tab
 - [x] add bookmarkable search
 - [x] event handling of BOControl in general
-- [ ] deploy to cf
-- [ ] knowledge transfer of poc 
-- [ ] know-how to department (19th Dec.  1h)
+- [x] deploy to cf
 - [x] detail page of repo (use children data of BO pipelinegraph control)
 - [x] detail page of repo (use control sap.uxap.ObjectPageLayout and forms)
 - [ ] embed BOControl in BOControl (use page & page-header controls)
@@ -95,3 +93,5 @@ Todos
 - [ ] add db (json-based)
 - [ ] integrate with real system (odata ? json ?)
 - [ ] detail page of pipeline (use pipeline editor control, comming soon by jenkins DL)
+- [ ] knowledge transfer of poc 
+- [ ] know-how to department (19th Dec.  1h)
