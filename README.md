@@ -88,9 +88,10 @@ Todos
 - [x] deploy to cf
 - [x] detail page of repo (use children data of BO pipelinegraph control)
 - [x] detail page of repo (use control sap.uxap.ObjectPageLayout and forms)
+- [ ] add db (json-based)
+- [ ] enable uaa service for authentication+sso
 - [ ] embed BOControl in BOControl (use page & page-header controls)
 - [ ] detail page of pipeline (use BOControl container features)
-- [ ] add db (json-based)
 - [ ] integrate with real system (odata ? json ?)
 - [ ] knowledge transfer of poc 
 - [ ] know-how to department (19th Dec.  1h)
