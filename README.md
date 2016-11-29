@@ -8,16 +8,16 @@ Install
 --------------
  * This step if optional. If you are behind SAP Corporate network, please add settings as following. Note that do not commit these two proxy settings into git, because it would effect build service.:
  	* .bowerrc in root folder:
-	 	``` json
+``` json
 	 	{
 	 		"proxy": "http://proxy.wdf.sap.corp:8080",
 			"https-proxy": "http://proxy.wdf.sap.corp:8080"
 	 	}
-		```
+```
  	* .npmrc in root folder and /db folder:
-		``` sh
+``` sh
 		registry=http://nexus.wdf.sap.corp:8081/nexus/content/groups/build.releases.npm/
-		```
+```
 
  * Install this node project, following things are triggered by this command
  	* install all dependencies in to folder **'/node_modules'**
