@@ -7,14 +7,16 @@ Access deployment on CF by link [https://ciconnect-pipeline.cfapps.sap.hana.onde
 Install
 --------------
  * This step if optional. If you are behind SAP Corporate network, please add settings as following. Note that do not commit these two proxy settings into git, because it would effect build service.:
- 	* .bowerrc in root folder:
+	* .bowerrc in root folder.
+	* .npmrc in root folder and /db folder.
+
 ``` json
 	 	{
 	 		"proxy": "http://proxy.wdf.sap.corp:8080",
 			"https-proxy": "http://proxy.wdf.sap.corp:8080"
 	 	}
 ```
- 	* .npmrc in root folder and /db folder:
+	
 ``` sh
 		registry=http://nexus.wdf.sap.corp:8081/nexus/content/groups/build.releases.npm/
 ```
