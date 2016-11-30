@@ -4,7 +4,7 @@ CF deployment
 --------------
 Access deployment on CF by link [https://ciconnect-pipeline.cfapps.sap.hana.ondemand.com/public](https://ciconnect-pipeline.cfapps.sap.hana.ondemand.com/public/)
 
-Local Environment Install
+Local Install
 --------------
 * This step if optional. If you are behind SAP Corporate network, please add settings as following. Note that do not commit these two proxy settings into git, because it would effect build service.:
 	* .bowerrc in root folder.
