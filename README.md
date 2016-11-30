@@ -2,7 +2,16 @@
 
 Cloudfoundry deployment
 --------------
-Access web module by link [https://ciconnect-pipeline-web.cfapps.sap.hana.ondemand.com/public](https://ciconnect-pipeline-web.cfapps.sap.hana.ondemand.com/public/)
+* As a precondition, mongodb backing service should be started on your cf space. Sample commands:
+```sh
+cf login -a-u-o-s-p....    // log on to your cf space
+cf marketplace // to see if mongodb is provided with which plan
+cf s  // to see running services
+cf a  // to se  running applications
+cf create-service mongodb v3.0-container pipeline-db  // creating backing service named 'pipeline-db' which is needed in our db module
+```
+
+* Access web module by link [https://ciconnect-pipeline-web.cfapps.sap.hana.ondemand.com/public](https://ciconnect-pipeline-web.cfapps.sap.hana.ondemand.com/public/)
 
 Local Install
 --------------
