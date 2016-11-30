@@ -1,6 +1,6 @@
 # Pipeline-UI-PoC
 
-Cloudfoundry deployment
+Cloudfoundry Deployment
 --------------
 * As a precondition, mongodb backing service should be started on your cf space. Sample commands:
 ```sh
