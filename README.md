@@ -1,6 +1,6 @@
 # Pipeline-UI-PoC
 
-CF deployment
+Cloudfoundry deployment
 --------------
 Access deployment on CF by link [https://ciconnect-pipeline.cfapps.sap.hana.ondemand.com/public](https://ciconnect-pipeline.cfapps.sap.hana.ondemand.com/public/)
 
@@ -36,7 +36,7 @@ npm install
 ``` sh
 npm start
 ```
-* Access by local link [http://localhost:3000/web/public](http://localhost:3000/web/public)
+* Access web module by link [http://localhost:3000/web/public](http://localhost:3000/web/public)
 
 * Install mongodb from [https://www.mongodb.com/download-center#community](https://www.mongodb.com/download-center#community)
 * Create your database folder like "c:\mongodata". Start mongo db by command:
@@ -49,7 +49,7 @@ mongod --dbpath "c:\mongodata"
 cd db
 npm start
 ```
- * Access by local link [http://localhost:5000](http://localhost:5000)
+ * Restful api of the database can be tested on local server at port 5000 [http://localhost:5000](http://localhost:5000)
 
 web Module Design
 --------------
