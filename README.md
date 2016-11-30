@@ -21,13 +21,13 @@ Local Install
 		registry=http://nexus.wdf.sap.corp:8081/nexus/content/groups/build.releases.npm/
 ```
 
-* Install this node project, following things are triggered by this command
+* Install this node project, following things are triggered to build web module by this command
  	* install all dependencies in to folder **'/node_modules'**
 	* download blue ocean design language project via bower into folder **'/bower_components'**
-	* build translate blue ocean control in JSX+ES6 to ES5 in format of AMD module bundle into folder **'/webApp/dist'**
-	* translate blue ocean LESS to CSS, and wrap it with 'jenkinsbo' namespace into folder **'/webApp/dist'**
-	* copy blue ocean svg files into folder **'/webApp/dist'**
-	* copy font files of oct + fontawsome to **'/webApp/dist'**
+	* build translate blue ocean control in JSX+ES6 to ES5 in format of AMD module bundle into folder **'/web/dist'**
+	* translate blue ocean LESS to CSS, and wrap it with 'jenkinsbo' namespace into folder **'/web/dist'**
+	* copy blue ocean svg files into folder **'/web/dist'**
+	* copy font files of oct + fontawsome to **'/web/dist'**
 ``` sh
 npm install
 ```
