@@ -2,20 +2,52 @@ var Model = require('../model/pipeline');
 
 module.exports = {
 	get: get,
-	post: post/*,
-	getById: getById,
+	post: post,
 	del: del,
-	put: put*/
+	getByKey: getByKey,
+	put: put
 };
 
 function get (request, response, next) {
-	var pipeline = Model.find({}, function (err, docs) {
+	Model.find({}, function (err, docs) {
 		if (err) {
 			return _errorResponse(response, 404, err, next);
 		}
 		response.send(200, docs);
 		return next();
 	});
+};
+
+function getByKey(request, response, next) {
+    Model.find(
+       { 'key': request.params.key },
+        function (err, docs) {
+            if (err) { 
+                return _errorResponse(response, 404, err, next);
+            }
+            if (docs.length === 0) {
+                response.send(404);
+            } else {
+                response.send(200, _docsToRepresentation(docs));
+            }
+            return next();
+    });
+};
+
+function put(request, response, next) {
+    Model.find(
+       { 'key': request.params.key },
+        function (err, docs) {
+            if (err) { 
+                return _errorResponse(response, 404, err, next);
+            }
+            if (docs.length === 0) {
+                response.send(404);
+            } else {
+                response.send(200, _docsToRepresentation(docs));
+            }
+            return next();
+    });
 };
 
 function post (request, response, next) {
@@ -42,8 +74,29 @@ function post (request, response, next) {
 	});
 };
 
+function del(request, response, next) {
+     Model.find(
+       { 'key': request.params.key },
+        function (err, docs) {
+            if (err) { 
+                return _errorResponse(response, 500, err, next);
+            }
+            
+    }).remove(function() {
+        response.send(204);
+        return next();
+    });
+}
+
 function _errorResponse(response, status, message, next) {
 	console.error("ERROR " + message);
 	response.send(status, message);
 	return next();
 };
+
+function _docsToRepresentation(docs) {
+    if (Array.isArray(docs) && docs.length === 1) {
+        return docs[0];
+    }
+    return docs;
+}

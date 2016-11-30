@@ -18,11 +18,11 @@ var schema = mongoose.Schema({
 			nodeRadius: {type: Number, default: 10}
 		},
 		stages: [{
-			id: String,
-			type: String,
-			name: String,
-			state: String,
-			short_desc: String,
+			id: {type: String},
+			type: {type: String},
+			name: {type: String},
+			state: {type: String},
+			short_desc: {type: String},
 			link: {type: String, trim: true, validate: /https/}
 		}]
 	},
@@ -33,11 +33,11 @@ var schema = mongoose.Schema({
 			nodeRadius: {type: Number, default: 10}
 		},
 		stages: [{
-			id: String,
-			type: String,
-			name: String,
-			state: String,
-			short_desc: String,
+			id: {type: String},
+			type: {type: String},
+			name: {type: String},
+			state: {type: String},
+			short_desc: {type: String},
 			link: {type: String, trim: true, validate: /https/}
 		}]
 	}

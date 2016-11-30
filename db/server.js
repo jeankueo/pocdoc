@@ -20,9 +20,9 @@ var PORT = process.env.PORT || 5000;
 
 var dbUri = env.isLocal ? 'mongodb://localhost/db' : env.getServices().dump.credentials.uri;
 mongoose.connect(dbUri);
+
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
-
 require('./src/routes')(server);
 
 server.listen(PORT, function () {
