@@ -4,9 +4,9 @@ CF deployment
 --------------
 Access deployment on CF by link [https://ciconnect-pipeline.cfapps.sap.hana.ondemand.com/public](https://ciconnect-pipeline.cfapps.sap.hana.ondemand.com/public/)
 
-Install
+Local Environment Install
 --------------
- * This step if optional. If you are behind SAP Corporate network, please add settings as following. Note that do not commit these two proxy settings into git, because it would effect build service.:
+* This step if optional. If you are behind SAP Corporate network, please add settings as following. Note that do not commit these two proxy settings into git, because it would effect build service.:
 	* .bowerrc in root folder.
 	* .npmrc in root folder and /db folder.
 
@@ -21,7 +21,7 @@ Install
 		registry=http://nexus.wdf.sap.corp:8081/nexus/content/groups/build.releases.npm/
 ```
 
- * Install this node project, following things are triggered by this command
+* Install this node project, following things are triggered by this command
  	* install all dependencies in to folder **'/node_modules'**
 	* download blue ocean design language project via bower into folder **'/bower_components'**
 	* build translate blue ocean control in JSX+ES6 to ES5 in format of AMD module bundle into folder **'/webApp/dist'**
@@ -32,11 +32,17 @@ Install
 npm install
 ```
 
- * Run a server for web module
+* Run a server for web module
 ``` sh
 npm start
 ```
- * Access by local link [http://localhost:3000/web/public](http://localhost:3000/web/public)
+* Access by local link [http://localhost:3000/web/public](http://localhost:3000/web/public)
+
+* Install mongodb from [https://www.mongodb.com/download-center#community](https://www.mongodb.com/download-center#community)
+* Create your database folder like "c:\mongodata". Start mongo db by command:
+``` sh
+mongod --dbpath "c:\mongodata"
+```
 
 * Run a server for db module
 ``` sh
