@@ -2,7 +2,7 @@
 
 Cloudfoundry deployment
 --------------
-Access deployment on CF by link [https://ciconnect-pipeline.cfapps.sap.hana.ondemand.com/public](https://ciconnect-pipeline.cfapps.sap.hana.ondemand.com/public/)
+Access web module by link [https://ciconnect-pipeline-web.cfapps.sap.hana.ondemand.com/public](https://ciconnect-pipeline-web.cfapps.sap.hana.ondemand.com/public/)
 
 Local Install
 --------------
