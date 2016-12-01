@@ -9,5 +9,5 @@ var server = odata(dbUri);
 require('./src/routes')(server);
 
 server.listen(PORT, function () {
-  console.log('Odata service has started on port ' + PORT + '.');
+  console.log('Odata service has started on port ' + PORT + '...');
 });

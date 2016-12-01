@@ -42,9 +42,9 @@ sap.ui.define([
 		},
 		
 		_loadData: function () {
+			this._initSettingData();
 			this._loadPipelineData();
 			this._loadRepoData();
-			this._initSettingData();
 
 			this.getView().setModel("selectedRepo", new JSONModel());
 			this.getView().setModel("selectedPipeline", new JSONModel());
@@ -53,6 +53,9 @@ sap.ui.define([
 		_loadPipelineData: function () {
 			var oModel = new JSONModel();
 			oModel.loadData("../data/pipeline.json");
+			// odata model  cannot be used now because node-odata is still in initial phase.
+			// does not support even $metadata yet. therefore still use JSON model here.
+			// oModel.loadData(this._determinOdataHost() + "/pipeline/"); 
 			this.getView().setModel(oModel, "pipeline");
 		},
 
@@ -87,6 +90,12 @@ sap.ui.define([
 				"repoTokenGitSelected": false
 			});
 			this.getView().setModel(oModel, "setting");
+		},
+
+		_determinOdataHost: function () {
+			return window.location.host.endsWith("cfapps.sap.hana.ondemand.com") ?
+				"https://ciconnect-pipeline-db.cfapps.sap.hana.ondemand.com" :
+				"http://localhost:5000";
 		}
 	});
 });
