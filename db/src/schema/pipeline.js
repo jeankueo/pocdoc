@@ -1,6 +1,4 @@
-var mongoose = require("mongoose");
-
-var schema = mongoose.Schema({
+module.exports = {
 	key: {type: String, unique: true, index: true},
 	name: String,
 	description: String,
@@ -41,8 +39,4 @@ var schema = mongoose.Schema({
 			link: {type: String, trim: true, validate: /https/}
 		}]
 	}
-});
-
-var model = mongoose.model("Pipeline", schema);
-
-module.exports = model;
+};
