@@ -68,7 +68,7 @@ function post (request, response, next) {
 		if (err) {
 			return _errorResponse(response, 500, err, next);
 		}
-		response.header("Location", "/" + body.name);
+		//response.header("Location", "/" + body.name);
 		response.send(201);
 		return next();
 	});
