@@ -1,4 +1,0 @@
-[2016-12-02 17:47:33.771] [INFO] odata - processing OData V2 request of type GET
-[2016-12-02 17:47:33.773] [DEBUG] odata - baseUrl = /odata/pipelines
-[2016-12-02 17:47:33.783] [DEBUG] odata - checkAccess passed successfully
-[2016-12-02 17:47:33.796] [INFO] console - filter: {"limit":1000}
