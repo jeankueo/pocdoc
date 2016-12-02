@@ -3,6 +3,7 @@
 .settings
 .project
 .externalToolBuilders
+.log
 
 # Ignore sublime
 **.sublime-workspace
