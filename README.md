@@ -126,6 +126,7 @@ TODO Tasks
 - [ ] HCP - Classic: open a new repo for hcp classic deployment or monsoon
 - [ ] HCP - Classic: integrate with github
 - [ ] HCP - Classic: integrate with git/gerrit
+- [ ] UI: try out [n-odata-server](https://blogs.sap.com/2015/11/14/odata-server-for-nodejs/)
 - [ ] UI: embed BOControl in BOControl (use page & page-header controls)
 - [ ] UI: detail page of pipeline (use BOControl container features)
 - [ ] UI: detail page of pipeline - has dependency: use pipeline editor control, comming soon by jenkins DL
@@ -133,8 +134,3 @@ TODO Tasks
 - [ ] UI: legend page
 - [ ] KT: knowledge transfer of poc 
 - [ ] KT: know-how to department (19th Dec.  1h)
-
-Conclusions:
---------------
-* Use JSONModel: OData was my first choice for UI model, but after some research, I see only Netweaver Gateway is the only component which support a full sap-enabled odata service, which can consumed by ui5 odata model. There is NO sofisticated odata service provided by xs2/node registry (both inside and outside). 
-	* see [SHINE ref](https://github.wdf.sap.corp/refapps/shine), so called odata service seems to be only restful service, and the ui component is using json model.
