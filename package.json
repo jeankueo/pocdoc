@@ -37,6 +37,7 @@
   },
   "dependencies": {
     "font-awesome": "^4.6.3",
+    "n-odata-server": "^0.4.1",
     "octicons": "^4.4.0"
   }
 }
