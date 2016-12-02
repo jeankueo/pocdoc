@@ -118,12 +118,24 @@ Todos
 - [x] deploy to cf
 - [x] detail page of repo (use children data of BO pipelinegraph control)
 - [x] detail page of repo (use control sap.uxap.ObjectPageLayout and forms)
-- [ ] add db (json-based)
-- [ ] enable uaa service for authentication+sso
+- [x] add db (json-based)
+
+- [ ] HCP - CF: add logic for CRUD data in mongodb by restful/odata.
+
+- [ ] open a new repo for HCP - Classic deployment.
+- [ ] HCP - Classic: integrate with github
+- [ ] HCP - Classic: integrate with git/gerrit
+
 - [ ] embed BOControl in BOControl (use page & page-header controls)
 - [ ] detail page of pipeline (use BOControl container features)
-- [ ] integrate with real system (odata ? json ?)
+- [ ] detail page of pipeline - has dependency: use pipeline editor control, comming soon by jenkins DL
+- [ ] detail page of repo -  think about an activation button on header, and more forms in body to provide sufficient information to really activate pipeline on the repo
+- [ ] legend page
+
 - [ ] knowledge transfer of poc 
 - [ ] know-how to department (19th Dec.  1h)
-- [ ] detail page of pipeline (use pipeline editor control, comming soon by jenkins DL)
-- [ ] legend page
+
+Conclusions:
+--------------
+* Use JSONModel: OData was my first choice for UI model, but after some research, I see only Netweaver Gateway is the only component which support a full sap-enabled odata service, which can consumed by ui5 odata model. There is NO sofisticated odata service provided by xs2/node registry (both inside and outside). 
+	* see [SHINE ref](https://github.wdf.sap.corp/refapps/shine), so called odata service seems to be only restful service, and the ui component is using json model.
