@@ -3,11 +3,29 @@
 var loopback = require('loopback');
 var boot = require('loopback-boot');
 var bodyParser = require('body-parser');
+var cfenv = require("cfenv");
 
+// determine mongodb url by environment
+var env = cfenv.getAppEnv();
+var dbUri = env.isLocal ? 'mongodb://localhost/db' : env.getServices()["pipeline-db"].credentials.uri;
+
+// create loopback
 var app = module.exports = loopback();
-
 // parse application/json
 app.use(bodyParser.json());
+
+// config port
+app.set("port", process.env.PORT || 5000);
+// config mongodb datasource
+app.dataSource('mongodb', {
+    "url": dbUri,
+    "connector": "mongodb"
+});
+// config model
+app.model(loopback.createModel(require('../schema/pipeline')), {
+  dataSource: 'mongodb',
+  public: true
+});
 
 app.start = function() {
   // start the web server
