@@ -127,7 +127,7 @@ sap.ui.define([
 			var sPath = oEvent.getSource().getBindingContext("pipeline").getPath();
 			this.getRouter().navTo("pipeline", {
 				//key: oBindingContext.getProperty("key")
-				index: sPath.substr(sPath.indexOf("/") + 1)
+				index: sPath.substr(sPath.lastIndexOf("/") + 1)
 			});
 		},
 

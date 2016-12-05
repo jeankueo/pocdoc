@@ -21,7 +21,7 @@
 	<layout:Splitter width="100%" resize="onContainerResize">
 		<layout:contentAreas>
 			<List id="pipelineList"
-				items="{pipeline>/}"
+				items="{pipeline>/d/results}"
 				mode="SingleSelectLeft"
 				includeItemInSelection="true"
 				selectionChange="onSelectionChange">

@@ -52,9 +52,10 @@ sap.ui.define([
 
 		_loadPipelineData: function () {
 			var oModel = new JSONModel();
-			oModel.loadData("../data/pipeline.json");
+			//oModel.loadData("../data/pipeline.json");
+			oModel.loadData(this._determinOdataHost() + "/odata/pipelines");
 			/*var oModel = new ODataModel({
-				serviceUrl: this._determinOdataHost() + "/odata/",
+				serviceUrl: this._determinOdataHost() + "/odata/pipelines",
 				synchronizationMode: "None",
 				useBatch: false
 			});*/

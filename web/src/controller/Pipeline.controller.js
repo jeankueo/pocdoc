@@ -16,7 +16,7 @@ sap.ui.define([
 				oView = this.getView();
 
 			oView.bindElement({
-				path: "pipeline>/" + oArgs.index,
+				path: "pipeline>/d/results/" + oArgs.index,
 				events: {
 					change: this._onBindingChange.bind(this),
 					dataRequested: function (oEvent) {
