@@ -1,6 +1,6 @@
 sap.ui.define([
-	"./BaseController", "sap/ui/model/json/JSONModel", "sap/ui/core/IconPool"
-], function (BaseController, JSONModel, IconPool) {
+	"./BaseController", "sap/ui/model/json/JSONModel", "sap/ui/model/odata/v2/ODataModel", "sap/ui/core/IconPool"
+], function (BaseController, JSONModel, ODataModel, IconPool) {
 	"use strict";
 	
 	return BaseController.extend("sap.ciconnect.controller.App", {
@@ -53,9 +53,11 @@ sap.ui.define([
 		_loadPipelineData: function () {
 			var oModel = new JSONModel();
 			oModel.loadData("../data/pipeline.json");
-			// odata model  cannot be used now because node-odata is still in initial phase.
-			// does not support even $metadata yet. therefore still use JSON model here.
-			// oModel.loadData(this._determinOdataHost() + "/pipeline/"); 
+			/*var oModel = new ODataModel({
+				serviceUrl: this._determinOdataHost() + "/odata/",
+				synchronizationMode: "None",
+				useBatch: false
+			});*/
 			this.getView().setModel(oModel, "pipeline");
 		},
 

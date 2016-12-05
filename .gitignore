@@ -3,25 +3,20 @@
 .settings
 .project
 .externalToolBuilders
-.log
 
-# Ignore sublime
+# Ignore in any folder
+**.log
 **.sublime-workspace
 **.sublime-project
+**node_modules
+**npm-debug.log
+**.npmrc
+**.bowerrc
+**bower_components
 
-# Ignore npm files/folders
-node_modules
-tutorial
-npm-debug.log
-.npmrc
-.bowerrc
-
-# Ignore bower folder
-bower_components
-
-# Ignore built file of webpack
+# Ignore built file of third party
 dist
 
 # Ignore Mac files
-.DS_Store
-.env
+**.DS_Store
+**.env
