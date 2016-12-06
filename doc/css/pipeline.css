@@ -1,0 +1,14 @@
+.reveal .slides section .fragment.highlight-sap,
+.reveal .slides section .fragment.highlight-bo,
+.reveal .slides section .fragment.highlight-react {
+  opacity: 1;
+  visibility: visible; }
+
+  .reveal .slides section .fragment.highlight-sap.visible {
+  color: #f5a623; }
+
+  .reveal .slides section .fragment.highlight-bo.visible {
+  color: #0071c4; }
+
+  .reveal .slides section .fragment.highlight-react.visible {
+  color: #8900c4; }
