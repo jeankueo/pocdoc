@@ -4,11 +4,11 @@
   opacity: 1;
   visibility: visible; }
 
-  .reveal .slides section .fragment.highlight-sap.visible {
+  .reveal .slides section .fragment.highlight-sap.visible, .highlight-sap-static {
   color: #f5a623; }
 
-  .reveal .slides section .fragment.highlight-bo.visible {
+  .reveal .slides section .fragment.highlight-bo.visible, .highlight-bo-static {
   color: #0071c4; }
 
-  .reveal .slides section .fragment.highlight-react.visible {
+  .reveal .slides section .fragment.highlight-react.visible, .highlight-react-static {
   color: #8900c4; }
