@@ -30,11 +30,13 @@
 						<h1>Pipeline Viz PoC</h1>
 						<h4>A PoC based on <span class="fragment highlight-sap">SAPUI5</span> + Jenkins <span class="fragment highlight-bo">Blue Ocean</span> on <span class="fragment highlight-react">React</span></h4>
 						<p>
-							<small><a href="https://github.wdf.sap.corp/ci-connect/pipeline-ui-poc">on Enterprise Github</a></small>
+							<small><a href="https://github.wdf.sap.corp/ci-connect/pipeline-ui-poc">Project on Enterprise Github</a></small>
+							<br/>
+							<small><a href="https://ciconnect-pipeline-web.cfapps.sap.hana.ondemand.com/public/">Deployment on Cloudfoundry</a></small>
 						</p>
 					</section>
 					<section>
-						<h2>One Sentence of the Technologies</h2>
+						<h2>One Sentence for each Technologies</h2>
 						<ul>
 							<li><span class="highlight-sap-static">SAPUI5</span>: Sophiscated MVC framework with rich and well-designed control library</li>
 							<li><span class="highlight-bo-static">Blue Ocean</span>: Jenkins-specific and well-designed Pipeline controls</li>
@@ -45,7 +47,7 @@
 
 				<section>
 					<section>
-						<h2><span class="highlight-sap-static">SAPUI5</span> Useful Links</h2>
+						<h2><span class="highlight-sap-static">SAPUI5</span>: Useful Links</h2>
 						<ul>
 							<li><a href="http://veui5infra.dhcp.wdf.sap.corp:8080/sapui5-sdk-internal/">SAPUI5 documents</a></li>
 							<li><a href="http://veui5infra.dhcp.wdf.sap.corp:8080/sapui5-sdk-internal/#docs/guide/91f233476f4d1014b6dd926db0e91070.html">MVC</a></li>
@@ -53,9 +55,65 @@
 							<li><a href="http://veui5infra.dhcp.wdf.sap.corp:8080/sapui5-sdk-internal/#docs/guide/1b6dcd39a6a74f528b27ddb22f15af0d.html">Navigation and Routing</a></li>
 						</ul>
 					</section>
+
 					<section>
-						<h2><span class="highlight-sap-static">SAPUI5</span> View Design</h2>
+						<h2><span class="highlight-sap-static">SAPUI5</span>: Folder Structure</h2>
+						<ul>
+							<li><span class="highlight-sap-static">/web/data/</span>: contains PoC test data in JSON <span class="fragment current-visible" style="color:#1b91ff">M</span></li>
+							<li><span class="highlight-sap-static">/web/public/</span>: contains bootstrap index.html</li>
+							<li><span class="highlight-sap-static">/web/src/control/</span>: contains reusable controls <span class="fragment current-visible" style="color:#1b91ff">V</span></li>
+							<li><span class="highlight-sap-static">/web/src/controller/</span>: contains controllers for data loading, event handling etc. <span class="fragment current-visible" style="color:#1b91ff">C</span></li>
+							<li><span class="highlight-sap-static">/web/src/fragment/</span>: contains reusable xml fragments <span class="fragment current-visible" style="color:#1b91ff">V</span></li>
+							<li><span class="highlight-sap-static">/web/src/less/</span>: contains style sheets in less and css <span class="fragment current-visible" style="color:#1b91ff">V</span></li>
+							<li><span class="highlight-sap-static">/web/src/model/</span>: contains model formatter class <span class="fragment current-visible" style="color:#1b91ff">M</span></li>
+							<li><span class="highlight-sap-static">/web/src/svg/</span>: contains svg artifacts <span class="fragment current-visible" style="color:#1b91ff">V</span></li>
+							<li><span class="highlight-sap-static">/web/src/view/</span>: contains xml views <span class="fragment current-visible" style="color:#1b91ff">V</span></li>
+						</ul>
+					</section>
+					
+					<section>
+						<h2><span class="highlight-sap-static">SAPUI5</span>: Bootstrap</h2>
+						<p><small>in File: /web/public/index.html</small></p>
+						<pre><code class="hlhtml" data-trim contenteditable>
+<script id='sap-ui-bootstrap'
+	src='https://sapui5.hana.ondemand.com/resources/sap-ui-core.js'
+	data-sap-ui-theme='sap_belize_plus'
+	data-sap-ui-libs='sap.m'
+	data-sap-ui-compatVersion='edge'
+	data-sap-ui-preload='async'
+	data-sap-ui-resourceroots='{
+	"sap.ciconnect": "./../src",
+	"sap.ciconnect.model": "./../src/model",
+	"sap.ciconnect.view": "./../src/view",
+	"sap.ciconnect.controller": "./../src/controller",
+	"sap.ciconnect.fragment": "./../src/fragment",
+	"sap.ciconnect.view.repoblock": "./../src/view/repoblock",
+	"sap.ciconnect.control": "./../src/control",
+	"require": "https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.2/require.min"
+	}'>
+</script>
+					</code></pre>
+					</section>
+
+					<section>
+						<h2><span class="highlight-sap-static">SAPUI5</span>: View & Routing</h2>
 						<img src="./vsd/02.view.PNG" />
+					</section>
+
+					<section>
+						<h2><span class="highlight-sap-static">SAPUI5</span>: Control</h2>
+						<ul>
+							<li>Control Name: <span class="highlight-sap-static">sap.ciconnect.SvgIcon</span></li>
+							<li>File List:<ul>
+								<li>/web/src/control/<span class="highlight-sap-static">SvgIcon.js</span></li>
+								<li>/web/src/control/<span class="highlight-sap-static">SvgIconRenderer.js</span></li>
+								<li>/web/src/less/<span class="highlight-sap-static">control.css</span></li>
+							</ul></li>
+							<li>How to use:<ul>
+								<li>/public/<span class="highlight-sap-static">index.html</span></li>
+								<li>/src/fragment/<span class="highlight-sap-static">RepoBadgeIcons.fragment.xml</span></li>
+							</ul></li>
+						</ul>
 					</section>
 				</section>
 
@@ -66,9 +124,16 @@
 					<h2><span class="highlight-bo-static">Blue Ocean</span></h2>
 				</section>
 				<section>
-					<h2>Integration of <span class="highlight-react-static">React</span> to <span class="highlight-sap-static">SAPUI5</span></h2>
+					<section>
+						<h2>Run <span class="highlight-react-static">React</span> in <span class="highlight-sap-static"> SAPUI5</span>: Useful Links</h2>
+						<ul>
+							<li><a href="https://babeljs.io/docs/plugins/transform-es2015-modules-amd/">AMD plugin of Babel</a></li>
+							<li><a href="https://facebook.github.io/react/docs/react-without-jsx.html">REACT without JSX</a></li>
+							<li><a href="https://facebook.github.io/react/docs/react-without-es6.html">REACT without ES6</a></li>
+							<li><a href="http://www.ryadel.com/en/css-namespaces-avoid-conflict-style-sheets-files/">CSS Namespace</a></li>
+						</ul>
+					</section>
 				</section>
-
 				<section>
 					<h2>Project Construct Tool</h2>
 				</section>
