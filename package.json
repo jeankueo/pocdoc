@@ -36,7 +36,6 @@
     "serve-static": "^1.11.1"
   },
   "dependencies": {
-    "babel-preset-stage-2": "^6.18.0",
     "font-awesome": "^4.6.3",
     "n-odata-server": "^0.4.1",
     "octicons": "^4.4.0"

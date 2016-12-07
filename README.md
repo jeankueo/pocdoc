@@ -12,6 +12,7 @@ cf create-service mongodb v3.0-container pipeline-db  // creating backing servic
 ```
 
 * Access web module by link [https://ciconnect-pipeline-web.cfapps.sap.hana.ondemand.com/public](https://ciconnect-pipeline-web.cfapps.sap.hana.ondemand.com/public/)
+* Chrome works well, IE has problem with undefined 'Object.assign' and 'Symbol undefined'. Hopefully polyfill feature of babel can solve it.
 
 Local Install
 --------------

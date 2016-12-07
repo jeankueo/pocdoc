@@ -13,7 +13,7 @@ var config = {
 		sources: "bower_components/jenkins-design-language/src/js/components/**/*.{js,jsx}",
 		dest: "web/dist/bo/js",
 		babel: {
-			presets: ['es2015', 'react', 'stage-2'],
+			presets: ['es2015', 'react', 'stage-0'],
 			plugins: ['transform-es2015-modules-amd']
 		}
 	},
