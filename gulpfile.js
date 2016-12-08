@@ -34,6 +34,10 @@ var config = {
 		fontawesome: {
 			sources: "node_modules/font-awesome/fonts/*.{ttf,eot}",
 			dest: "web/dist/fontawesome"
+		},
+		polyfill: {
+			sources: "node_modules/babel-polyfill/dist/polyfill.min.js",
+			dest: "web/dist/polyfill"
 		}
 	}
 };
@@ -66,7 +70,7 @@ gulp.task("less", function () {
 		.pipe(gulp.dest(config.less.dest));
 });
 
-gulp.task("copy", ["copy-icons", "copy-oct", "copy-fontawesome"]);
+gulp.task("copy", ["copy-icons", "copy-oct", "copy-fontawesome", "copy-polyfill"]);
 
 gulp.task("copy-icons", function () {
 	gulp.src(config.copy.icons.sources)
@@ -90,4 +94,9 @@ gulp.task("copy-oct", function () {
 gulp.task("copy-fontawesome", function () {
 	gulp.src(config.copy.fontawesome.sources)
 		.pipe(copy(config.copy.fontawesome.dest, {prefix: 3}));
+});
+
+gulp.task("copy-polyfill", function () {
+	gulp.src(config.copy.polyfill.sources)
+		.pipe(copy(config.copy.polyfill.dest, {prefix: 3}));
 });

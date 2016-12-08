@@ -7,7 +7,6 @@
 		<link rel="stylesheet" href="../dist/bo/assets/css/jenkins-design-language.css" />
 		<link rel="stylesheet" href="../src/less/control.css" />
 		<link rel="stylesheet" href="../src/less/view.css" />
-
 		<script id='sap-ui-bootstrap'
 			src='https://sapui5.hana.ondemand.com/resources/sap-ui-core.js'
 			data-sap-ui-theme='sap_belize_plus'
@@ -22,7 +21,8 @@
 				"sap.ciconnect.fragment": "./../src/fragment",
 				"sap.ciconnect.view.repoblock": "./../src/view/repoblock",
 				"sap.ciconnect.control": "./../src/control",
-				"require": "https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.2/require.min"
+				"require": "https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.2/require.min",
+				"polyfill": "../dist/polyfill/polyfill.min"
 			}'>
 		</script>
 	</head>
@@ -33,7 +33,8 @@
 				sap.ui.require([
 					//"sap/ui/demo/nav/localService/mockserver",
 					"sap/m/Shell",
-					"sap/ui/core/ComponentContainer"
+					"sap/ui/core/ComponentContainer",
+					"polyfill"
 				], function (Shell, ComponentContainer) { //mockserver, 
 					//mockserver.init();
 					new Shell({

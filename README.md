@@ -12,7 +12,6 @@ cf create-service mongodb v3.0-container pipeline-db  // creating backing servic
 ```
 
 * Access web module by link [https://ciconnect-pipeline-web.cfapps.sap.hana.ondemand.com/public](https://ciconnect-pipeline-web.cfapps.sap.hana.ondemand.com/public/)
-* Chrome works well, IE has problem with undefined 'Object.assign' and 'Symbol undefined'. Hopefully polyfill feature of babel can solve it.
 
 Local Install
 --------------
@@ -133,4 +132,4 @@ TODO Tasks
 - [ ] UI: legend page
 - [ ] KT: knowledge transfer of poc 
 - [ ] KT: know-how to department (19th Dec.  1h)
-- [ ] BUG: use babel polyfill to provide implementation for Object.assign(), Symbol for stupid IE.
+- [x] BUG: use babel polyfill to provide implementation for Object.assign(), Symbol for stupid IE.
