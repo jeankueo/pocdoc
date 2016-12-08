@@ -132,8 +132,25 @@ sap.ui.define([
 		},
 
 		onPipelineNodeClick: function (oEvent) {
-			var oParam = oEvent.getParameter("params");
+			var oParam = oEvent.getParameter("params"),
+				oContext = oEvent.getSource().getBindingContext("pipeline");
 			MessageToast.show("node " + oParam[0] + " clicked!");
+			var oPipelineData = oContext.getModel().getProperty(oContext.getPath()),
+				sJobId = oParam[1];
+
+			if (oPipelineData && oPipelineData.abstract &&
+				oPipelineData.abstract.stages &&
+				oPipelineData.abstract.stages.length > 0) {
+
+				var aStages = oPipelineData.abstract.stages
+				for (var i = 0; i < aStages.length; i++) {
+					if (aStages[i].id === sJobId && aStages[i].link) {
+						window.open(aStages[i].link, "_blank");
+						return;
+					}
+				}
+				window.open("https://github.wdf.sap.corp/ci-connect/pipeline-ui-poc", "_blank");
+			}
 		}
 	});
 });
