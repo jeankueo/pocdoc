@@ -123,11 +123,9 @@ Done Tasks
 
 TODO Tasks
 --------------
-- [ ] HCP - CF: add logic for CRUD data in mongodb by restful/odata
-- [ ] HCP - Classic: open a new repo for hcp classic deployment or monsoon
 - [ ] HCP - Classic: integrate with github
 - [ ] HCP - Classic: integrate with git/gerrit
-- [ ] UI: try out [n-odata-server](https://blogs.sap.com/2015/11/14/odata-server-for-nodejs/)
+- [x] UI: try out [n-odata-server](https://blogs.sap.com/2015/11/14/odata-server-for-nodejs/)
 - [ ] UI: embed BOControl in BOControl (use page & page-header controls)
 - [ ] UI: detail page of pipeline (use BOControl container features)
 - [ ] UI: detail page of pipeline - has dependency: use pipeline editor control, comming soon by jenkins DL
@@ -135,3 +133,4 @@ TODO Tasks
 - [ ] UI: legend page
 - [ ] KT: knowledge transfer of poc 
 - [ ] KT: know-how to department (19th Dec.  1h)
+- [ ] BUG: use babel polyfill to provide functions like Object.assign(), Symbol for stupid IE.
