@@ -133,4 +133,4 @@ TODO Tasks
 - [ ] UI: legend page
 - [ ] KT: knowledge transfer of poc 
 - [ ] KT: know-how to department (19th Dec.  1h)
-- [ ] BUG: use babel polyfill to provide functions like Object.assign(), Symbol for stupid IE.
+- [ ] BUG: use babel polyfill to provide implementation for Object.assign(), Symbol for stupid IE.
