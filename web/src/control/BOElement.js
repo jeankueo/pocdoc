@@ -1,6 +1,8 @@
 sap.ui.define([
-	"sap/ui/core/Element"
-], function (Element) {
+	"sap/ui/core/Element", "./RequireReact"
+], function (Element, RequireReact) {
+	"use strict";
+
 	var BOElement = Element.extend("sap.ciconnect.control.BOElement", {
 		metadata: {
 			properties: {
@@ -18,13 +20,18 @@ sap.ui.define([
 				 */
 				props: {type: "any"}
 			}, aggregations: {
-				contents: {type: "sap.ciconnect.control.BOElement",multiple: true, visibility: "public", singularName: "content"}
+				contents: {type: "sap.ciconnect.control.BOElement",multiple: true, visibility: "public", singularName: "content"},
+				boEvents: {type: "sap.ciconnect.control.BOEvent", multiple: true, visibility: "public", singularName: "boEvent"}
 			}
 		
 }	});
 
+	BOElement.prototype.init = function () {
+		RequireReact.configRequire();
+	};
+
 	BOElement.prototype.genReactElement = function () {
-		
+		RequireReact.renderReact(this);
 	};
 
 	return BOElement;
