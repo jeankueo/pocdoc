@@ -40,7 +40,7 @@ sap.ui.define([
 	};
 	
 	BOControl.prototype.onAfterRendering = function () {
-		RequireReact.renderReact(this);
+		RequireReact.renderReact(this, true);
 	};
 	
 	return BOControl;

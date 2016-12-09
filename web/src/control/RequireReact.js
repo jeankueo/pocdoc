@@ -14,7 +14,7 @@ sap.ui.define(["require"], function () {
 		});
 	};
 
-	RequireReact.renderReact = function (oBOControl) {
+	RequireReact.renderReact = function (oBOControl, bAddCssClass) {
 		var sId = oBOControl.getId(),
 			sModuleName = oBOControl.getModuleName(),
 			sControlName = oBOControl.getControlName(),
@@ -61,8 +61,10 @@ sap.ui.define(["require"], function () {
 				);
 
 				// add namespace of css to avoid conflict -- quick and dirty solution
-				var $bo = jQuery("#" + oBOControl.getId()).children();
-				that.addJenkinsboClass($bo); 
+				if (bAddCssClass) {
+					var $bo = jQuery("#" + oBOControl.getId()).children();
+					that.addJenkinsboClass($bo); 
+				}
 			}
 		});
 	};
