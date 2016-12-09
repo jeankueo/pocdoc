@@ -118,9 +118,9 @@ sap.ui.define([
 
 		_adjustHeightOfScrollContainerForList: function () {
 			var $bar = jQuery("#"+this.getView().getParent().getParent().getParent().getId()),
-				$container = jQuery("#" + this.getView().getContent()[1].getId());
+				$container = jQuery("#" + this.getView().byId("vBox").getItems()[1].getId());
 
-			this.getView().getContent()[1].setHeight(($bar.offset().top + $bar.height() - $container.offset().top) + "px");
+			this.getView().byId("vBox").getItems()[1].setHeight(($bar.offset().top + $bar.height() - $container.offset().top) + "px");
 		},
 
 		onNavDetail: function (oEvent) {
@@ -129,6 +129,22 @@ sap.ui.define([
 				//key: oBindingContext.getProperty("key")
 				index: sPath.substr(sPath.lastIndexOf("/") + 1)
 			});
+		},
+
+		onViewStyleChange: function (oEvent) {
+			var oVBox = this.getView().byId("vBox"),
+				oContent = oVBox.getItems()[1],
+				sKey = oEvent.getParameter("key");
+
+			oVBox.removeItem(oContent, true);
+			if (this._oContent) {
+				oVBox.addItem(this._oContent);
+			} else {
+				oVBox.addItem(new sap.ui.xmlfragment(
+				"sap.ciconnect.fragment.Pipelines" + sKey, this));
+			}
+			
+			this._oContent = oContent;
 		},
 
 		onPipelineNodeClick: function (oEvent) {
