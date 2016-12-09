@@ -16,6 +16,10 @@
 				<core:ListItem key="{category>key}" text="{category>text}" additionalText="{category>count}"/>
 			</Select>
 			<SearchField id="searchField" placeholder="Search"  width="100%" liveChange="onSearch" />
+			<SegmentedButton>
+				<Button icon="sap-icon://list" />
+				<Button icon="sap-icon://grid" />
+			</SegmentedButton>
 		</content>
 	</Toolbar>
 	<layout:Splitter width="100%" resize="onContainerResize">

@@ -42,12 +42,12 @@ sap.ui.define(["require"], function () {
 				}
 
 				// render inner react controls if this is a container element
-				var aChildren = oBOControl.getContents(),
+				var aContent = oBOControl.getContents(),
 					aReactChildren;
-				if (aChildren && aChildren.length > 0) {
+				if (aContent && aContent.length > 0) {
 					aReactChildren = [];
-					for (var i = 0; i < aChildren.length; i++) {
-						aReactChildren.push(aChildren[i].genReactElement());
+					for (var i = 0; i < aContent.length; i++) {
+						aReactChildren.push(aContent[i].genReactElement());
 					}
 				}
 

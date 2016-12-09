@@ -19,7 +19,8 @@ sap.ui.define([
 				 * JSON data property in control props definition
 				 */
 				props: {type: "any"}
-			}, aggregations: {
+			},
+			aggregations: {
 				contents: {type: "sap.ciconnect.control.BOElement",multiple: true, visibility: "public", singularName: "content"},
 				boEvents: {type: "sap.ciconnect.control.BOEvent", multiple: true, visibility: "public", singularName: "boEvent"}
 			}
@@ -31,7 +32,7 @@ sap.ui.define([
 	};
 
 	BOElement.prototype.genReactElement = function () {
-		RequireReact.renderReact(this);
+		return RequireReact.renderReact(this);
 	};
 
 	return BOElement;
