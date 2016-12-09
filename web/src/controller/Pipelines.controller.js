@@ -61,9 +61,13 @@ sap.ui.define([
 			}
 			this.getView().byId("searchField").setValue(sSearch ? sSearch : "");
 
-			var oList = this.getView().byId("pipelineList");
-			var obinding = oList.getBinding("items");
-			obinding.filter(aFilters);
+			var oCollection = this.getView().byId("splitter").getContentAreas()[0];
+			if (oCollection) {
+				var obinding = oCollection.getBinding(
+					oCollection.getMetadata().getName() === "sap.m.List" ?
+					"items" : "tiles");
+				obinding.filter(aFilters);
+			}
 		},
 
 		onSelectChange: function (oEvent) {
@@ -132,15 +136,15 @@ sap.ui.define([
 		},
 
 		onViewStyleChange: function (oEvent) {
-			var oVBox = this.getView().byId("vBox"),
-				oContent = oVBox.getItems()[1],
+			var oSplitter = this.getView().byId("splitter"),
+				oContent = oSplitter.getContentAreas()[0],
 				sKey = oEvent.getParameter("key");
 
-			oVBox.removeItem(oContent, true);
+			oSplitter.removeContentArea(oContent);
 			if (this._oContent) {
-				oVBox.addItem(this._oContent);
+				oSplitter.addContentArea(this._oContent);
 			} else {
-				oVBox.addItem(new sap.ui.xmlfragment(
+				oSplitter.addContentArea(new sap.ui.xmlfragment(
 				"sap.ciconnect.fragment.Pipelines" + sKey, this));
 			}
 			
