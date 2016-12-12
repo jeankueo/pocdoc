@@ -102,10 +102,10 @@ sap.ui.define([
 		},
 
 		removeAllSelection: function () {
-			var oRepoList = this.getView().byId("pipelineList"),
+			var oPipelineCollection = this.getCurrentContent(),
 				oModel= this.getView().getModel("setting");
 
-			oRepoList.removeSelections(true);
+			oPipelineCollection.removeSelections(true);
 			oModel.setProperty("/pipelineTokenHasRepoAssigned", false);
 			oModel.setProperty("/pipelineTokenVisible", false);
 			oModel.setProperty("/pipelineTokenText",  undefined);
@@ -137,7 +137,7 @@ sap.ui.define([
 
 		onViewStyleChange: function (oEvent) {
 			var oSplitter = this.getView().byId("splitter"),
-				oContent = oSplitter.getContentAreas()[0],
+				oContent = this.getCurrentContent(),
 				sKey = oEvent.getParameter("key");
 
 			oSplitter.removeContentArea(oContent);
@@ -148,7 +148,11 @@ sap.ui.define([
 				"sap.ciconnect.fragment.Pipelines" + sKey, this));
 			}
 			
-			this._oContent = oContent;
+			this._oContent = oContent; // keep the other style view on wild
+		},
+
+		getCurrentContent: function () {
+			return this.getView().byId("splitter").getContentAreas()[0];
 		},
 
 		onPipelineNodeClick: function (oEvent) {
