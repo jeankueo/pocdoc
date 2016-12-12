@@ -45,9 +45,9 @@ sap.ui.define([
 			// save the current query state
 			this._oRouterArgs = oEvent.getParameter("arguments");
 			if (this._oRouterArgs[["?query"]] && this._oRouterArgs[["?query"]].tab === "Pipelines") {
-				this._applyAllSearchFilter(this._oRouterArgs["?query"].category || "ALL",
-					this._oRouterArgs["?query"].search || "");
-				this._applyViewStyle(this._oRouterArgs["?query"].view || "Tile");
+				this._applyAllSearchFilter(this._oRouterArgs["?query"].pipelineCategory || "ALL",
+					this._oRouterArgs["?query"].pipelineSearch || "");
+				this._applyViewStyle(this._oRouterArgs["?query"].pipelineView || "Tile");
 			}
 		},
 
@@ -87,7 +87,7 @@ sap.ui.define([
 
 		onSelectChange: function (oEvent) {
 			var sSelectKey = oEvent.getSource().getSelectedKey();
-			this._oRouterArgs["?query"].category = sSelectKey;
+			this._oRouterArgs["?query"].pipelineCategory = sSelectKey;
 			this.getRouter().navTo("appHome", {
 				query: this._oRouterArgs["?query"]
 			}, true /*no history*/)
@@ -95,7 +95,7 @@ sap.ui.define([
 		
 		onSearch: function (oEvent) {
 			var sQuery = oEvent.getSource().getValue();
-			this._oRouterArgs["?query"].search = sQuery;
+			this._oRouterArgs["?query"].pipelineSearch = sQuery;
 			this.getRouter().navTo("appHome", {
 				query: this._oRouterArgs["?query"]
 			}, true /*no history*/)
@@ -152,7 +152,7 @@ sap.ui.define([
 
 		onViewStyleChange: function (oEvent) {
 			var sQuery = oEvent.getParameter("key");
-			this._oRouterArgs["?query"].view = sQuery;
+			this._oRouterArgs["?query"].pipelineView = sQuery;
 			this.getRouter().navTo("appHome", {
 				query: this._oRouterArgs["?query"]
 			}, true /*no history*/)

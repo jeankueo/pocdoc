@@ -48,7 +48,7 @@ sap.ui.define([
 			// save the current query state
 			this._oRouterArgs = oEvent.getParameter("arguments");
 			if (this._oRouterArgs[["?query"]] && this._oRouterArgs[["?query"]].tab === "Repositories") {
-				this._applyAllSearchFilter(this._oRouterArgs["?query"].source, this._oRouterArgs["?query"].org, this._oRouterArgs["?query"].search);
+				this._applyAllSearchFilter(this._oRouterArgs["?query"].repoSource, this._oRouterArgs["?query"].repoOrg, this._oRouterArgs["?query"].repoSearch);
 			}
 		},
 
@@ -87,14 +87,14 @@ sap.ui.define([
 			var oSelectData = this.getView().getModel("category").getProperty(
 				oEvent.getParameter("selectedItem").getBindingContext("category").getPath());
 			if (oSelectData.source) {
-				this._oRouterArgs["?query"].source = oSelectData.source;
+				this._oRouterArgs["?query"].repoSource = oSelectData.source;
 			} else {
-				delete this._oRouterArgs["?query"].source;
+				delete this._oRouterArgs["?query"].repoSource;
 			}
 			if (oSelectData.org) {
-				this._oRouterArgs["?query"].org = oSelectData.org;
+				this._oRouterArgs["?query"].repoOrg = oSelectData.org;
 			} else {
-				delete this._oRouterArgs["?query"].org;
+				delete this._oRouterArgs["?query"].repoOrg;
 			}
 			this.getRouter().navTo("appHome", {
 				query: this._oRouterArgs["?query"]
@@ -103,7 +103,7 @@ sap.ui.define([
 		
 		onSearch: function (oEvent) {
 			var sQuery = oEvent.getSource().getValue();
-			this._oRouterArgs["?query"].search = sQuery;
+			this._oRouterArgs["?query"].repoSearch = sQuery;
 			this.getRouter().navTo("appHome", {
 				query: this._oRouterArgs["?query"]
 			}, true /*no history*/)
