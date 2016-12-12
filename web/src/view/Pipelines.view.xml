@@ -3,7 +3,7 @@
 
 	<VBox id="vBox">
 		<core:Fragment fragmentName="sap.ciconnect.fragment.PipelinesToolbar" type="XML" />
-
+		<!--controller will decide what to be put into splitter, tile/list-->
 		<layout:Splitter id="splitter" width="100%" resize="onContainerResize" />
 	</VBox>
 </mvc:View>

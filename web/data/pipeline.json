@@ -51,6 +51,53 @@
 			"link": "https://github.wdf.sap.corp/production-services/cf-deploy-service/blob/master/README.md"
 		}]
 	},
+	"abstract2": {
+		"layout": {
+			"nodeSpacingH": 40,
+			"nodeSpacingV": 15,
+			"nodeRadius": 10
+		},
+		"stages": [{
+			"id": 1,
+			"type": "central",
+			"state": "running",
+			"name": "BLD",
+			"completePercent": 20,
+			"short_desc": "Click to see document.",
+			"link": "https://github.wdf.sap.corp/production-services/build-service/blob/master/README.md"
+		}, {
+			"id": 1.1,
+			"type": "central",
+			"state": "running",
+			"name": "TST",
+			"completePercent": 40,
+			"short_desc": "Click to see document.",
+			"link": "https://github.wdf.sap.corp/production-services/build-service/blob/master/README.md"
+		}, {
+			"id": 2,
+			"type": "local",
+			"state": "running",
+			"name": "VER",
+			"completePercent": 60,
+			"short_desc": "Click to see document.",
+			"link": "https://github.wdf.sap.corp/production-services/demo-test-service/blob/master/README.md"
+		}, {
+			"id": 3,
+			"type": "local",
+			"state": "running",
+			"name": "VAL",
+			"completePercent": 80,
+			"short_desc": "Short description for validation job. Should be at most 2 sentences."
+		}, {
+			"id": 4,
+			"type": "central",
+			"state": "running",
+			"name": "DEP",
+			"completePercent": 100,
+			"short_desc": "Click to see document.",
+			"link": "https://github.wdf.sap.corp/production-services/cf-deploy-service/blob/master/README.md"
+		}]
+	},
 	"detail": {
 		"stages": [{
 			"id": 1.111,
@@ -141,6 +188,28 @@
 			"short_desc": "Short description for deploy job. Should be at most 2 sentences."
 		}]
 	},
+	"abstract2": {
+		"layout": {
+			"nodeSpacingH": 40,
+			"nodeSpacingV": 15,
+			"nodeRadius": 10
+		},
+		"stages": [{
+			"id": 5,
+			"type": "central",
+			"name": "BLD",
+			"state": "running",
+			"completePercent": 50,
+			"short_desc": "Short description for build job. Should be at most 2 sentences."
+		}, {
+			"id": 6,
+			"type": "central",
+			"name": "DEP",
+			"state": "running",
+			"completePercent": 100,
+			"short_desc": "Short description for deploy job. Should be at most 2 sentences."
+		}]
+	},
 	"detail": {
 		"stages": [{
 			"id": 5.1,
@@ -196,6 +265,35 @@
 			"type": "local",
 			"name": "Deploy",
 			"state": "not_built",
+			"short_desc": "Short description for deploy job. Should be at most 2 sentences."
+		}]
+	},
+	"abstract2": {
+		"layout": {
+			"nodeSpacingH": 40,
+			"nodeSpacingV": 15,
+			"nodeRadius": 10
+		},
+		"stages": [{
+			"id": 7,
+			"type": "local",
+			"name": "BLD",
+			"state": "running",
+			"completePercent": 33,
+			"short_desc": "Short description for build job. Should be at most 2 sentences."
+		}, {
+			"id": 7.1,
+			"type": "local",
+			"name": "VER",
+			"state": "running",
+			"completePercent": 66,
+			"short_desc": "Short description for build job. Should be at most 2 sentences."
+		}, {
+			"id": 8,
+			"type": "local",
+			"name": "DEP",
+			"state": "running",
+			"completePercent": 100,
 			"short_desc": "Short description for deploy job. Should be at most 2 sentences."
 		}]
 	},
@@ -273,6 +371,56 @@
 			"type": "local",
 			"name": "Deploy",
 			"state": "not_built",
+			"short_desc": "deploy"
+		}]
+	},
+	"abstract2": {
+		"layout": {
+			"nodeSpacingH": 40,
+			"nodeSpacingV": 15,
+			"nodeRadius": 10
+		},
+		"stages": [{
+			"id": 9,
+			"type": "local",
+			"name": "BLD",
+			"state": "running",
+			"completePercent": 16.7,
+			"short_desc": "Build"
+		}, {
+			"id": 10,
+			"type": "central",
+			"name": "VER",
+			"state": "running",
+			"completePercent": 33,
+			"short_desc": "versioning"
+		}, {
+			"id": 11,
+			"type": "local",
+			"name": "VAL",
+			"state": "running",
+			"completePercent": 50,
+			"short_desc": "validation"
+		}, {
+			"id": 12,
+			"type": "central",
+			"name": "STG",
+			"state": "running",
+			"completePercent": 66.7,
+			"short_desc": "staging"
+		}, {
+			"id": 13,
+			"type": "central",
+			"name": "PRM",
+			"state": "running",
+			"completePercent": 83,
+			"short_desc": "promotion"
+		}, {
+			"id": 14,
+			"type": "local",
+			"name": "DEP",
+			"state": "running",
+			"completePercent": 100,
 			"short_desc": "deploy"
 		}]
 	},
@@ -366,6 +514,21 @@
 			"short_desc": "Test"
 		}]
 	},
+	"abstract2": {
+		"layout": {
+			"nodeSpacingH": 40,
+			"nodeSpacingV": 15,
+			"nodeRadius": 10
+		},
+		"stages": [{
+			"id": 15,
+			"type": "local",
+			"name": "TEST",
+			"state": "running",
+			"completePercent": 100,
+			"short_desc": "Test"
+		}]
+	},
 	"detail": {
 		"stages": [{
 			"id": 15.222,
@@ -428,6 +591,42 @@
 			"type": "central",
 			"name": "Deploy",
 			"state": "not_built",
+			"short_desc": "upload"
+		}]
+	},
+	"abstract2": {
+		"layout": {
+			"nodeSpacingH": 40,
+			"nodeSpacingV": 15,
+			"nodeRadius": 10
+		},
+		"stages": [{
+			"id": 17,
+			"type": "local",
+			"name": "BLD",
+			"state": "running",
+			"completePercent": 25,
+			"short_desc": "Build"
+		}, {
+			"id": 18,
+			"type": "central",
+			"name": "TST",
+			"state": "running",
+			"completePercent": 50,
+			"short_desc": "Test"
+		}, {
+			"id": 19,
+			"type": "central",
+			"name": "CMT",
+			"state": "running",
+			"completePercent": 75,
+			"short_desc": "Commit"
+		}, {
+			"id": 20,
+			"type": "central",
+			"name": "DEP",
+			"state": "running",
+			"completePercent": 100,
 			"short_desc": "upload"
 		}]
 	},
