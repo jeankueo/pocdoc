@@ -18,7 +18,7 @@
 				<core:ListItem key="{category>key}" text="{category>text}" additionalText="{category>count}"/>
 			</Select>
 			<SearchField id="searchField" placeholder="Search"  width="100%" liveChange="onSearch" />
-			<SegmentedButton select="onViewStyleChange">
+			<SegmentedButton id="segButton" select="onViewStyleChange">
 				<items>
 					<SegmentedButtonItem icon="sap-icon://list" key="List" />
 					<SegmentedButtonItem icon="sap-icon://grid" key="Tile" />

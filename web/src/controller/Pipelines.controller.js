@@ -12,6 +12,7 @@ sap.ui.define([
 			var oRouter = this.getRouter();
 			this._oRouterArgs = null;
 			oRouter.getRoute("appHome").attachMatched(this._onRouterMatched, this);
+			this._oContent = {};
 		},
 
 		_initData: function () {
@@ -44,7 +45,9 @@ sap.ui.define([
 			// save the current query state
 			this._oRouterArgs = oEvent.getParameter("arguments");
 			if (this._oRouterArgs[["?query"]] && this._oRouterArgs[["?query"]].tab === "Pipelines") {
-				this._applyAllSearchFilter(this._oRouterArgs["?query"].category, this._oRouterArgs["?query"].search);
+				this._applyAllSearchFilter(this._oRouterArgs["?query"].category || "ALL",
+					this._oRouterArgs["?query"].search || "");
+				this._applyViewStyle(this._oRouterArgs["?query"].view || "Tile");
 			}
 		},
 
@@ -65,9 +68,21 @@ sap.ui.define([
 			if (oCollection) {
 				var obinding = oCollection.getBinding(
 					oCollection.getMetadata().getName() === "sap.m.List" ?
-					"items" : "tiles");
+					"items" : "content");
 				obinding.filter(aFilters);
 			}
+		},
+
+		_applyViewStyle: function (sViewStyle) {
+			var oSplitter = this.getView().byId("splitter");
+
+			this._oContent[sViewStyle] = this._oContent[sViewStyle] ||
+				new sap.ui.xmlfragment("sap.ciconnect.fragment.Pipelines" + sViewStyle, this);
+
+			oSplitter.removeContentArea(this.getCurrentContent());
+			oSplitter.addContentArea(this._oContent[sViewStyle]);
+
+			this.getView().byId("segButton").setSelectedKey(sViewStyle);
 		},
 
 		onSelectChange: function (oEvent) {
@@ -136,19 +151,11 @@ sap.ui.define([
 		},
 
 		onViewStyleChange: function (oEvent) {
-			var oSplitter = this.getView().byId("splitter"),
-				oContent = this.getCurrentContent(),
-				sKey = oEvent.getParameter("key");
-
-			oSplitter.removeContentArea(oContent);
-			if (this._oContent) {
-				oSplitter.addContentArea(this._oContent);
-			} else {
-				oSplitter.addContentArea(new sap.ui.xmlfragment(
-				"sap.ciconnect.fragment.Pipelines" + sKey, this));
-			}
-			
-			this._oContent = oContent; // keep the other style view on wild
+			var sQuery = oEvent.getParameter("key");
+			this._oRouterArgs["?query"].view = sQuery;
+			this.getRouter().navTo("appHome", {
+				query: this._oRouterArgs["?query"]
+			}, true /*no history*/)
 		},
 
 		getCurrentContent: function () {

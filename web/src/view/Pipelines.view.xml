@@ -4,10 +4,6 @@
 	<VBox id="vBox">
 		<core:Fragment fragmentName="sap.ciconnect.fragment.PipelinesToolbar" type="XML" />
 
-		<layout:Splitter id="splitter" width="100%" resize="onContainerResize">
-			<layout:contentAreas>
-				<core:Fragment fragmentName="sap.ciconnect.fragment.PipelinesList" type="XML" />
-			</layout:contentAreas>
-		</layout:Splitter>
+		<layout:Splitter id="splitter" width="100%" resize="onContainerResize" />
 	</VBox>
 </mvc:View>
