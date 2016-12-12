@@ -68,7 +68,7 @@ sap.ui.define([
 
 		_buildAssignModel: function () {
 			var aSelectedRepoContext = this.getView().byId("repoView").byId("repoList").getSelectedContexts(true),
-				aSelectedPipelineContext = this.getView().byId("pipelineView").byId("pipelineList").getSelectedContexts(true),
+				aSelectedPipelineContext = this.getView().byId("pipelineView").getController().getCurrentContent().getSelectedContexts(true),
 				aAssignData = [],
 				aChangeData = [],
 				aNoChangeData = [],
@@ -104,7 +104,7 @@ sap.ui.define([
 		},
 
 		_buildUnassignModel: function (oEvent) {
-			var aSelectedPipelineContext = this.getView().byId("pipelineView").byId("pipelineList").getSelectedContexts(true),
+			var aSelectedPipelineContext = this.getView().byId("pipelineView").getController().getCurrentContent().getSelectedContexts(true),
 				aSelectedRepoContext = this.getView().byId("repoView").byId("repoList").getSelectedContexts(true),
 				aUnassignFromSelectedPipeline = [],
 				oPipelineData,
