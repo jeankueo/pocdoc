@@ -66,9 +66,7 @@ sap.ui.define([
 
 			var oCollection = this.getView().byId("splitter").getContentAreas()[0];
 			if (oCollection) {
-				var obinding = oCollection.getBinding(
-					oCollection.getMetadata().getName() === "sap.m.List" ?
-					"items" : "content");
+				var obinding = oCollection.getBinding("items");
 				obinding.filter(aFilters);
 			}
 		},
@@ -83,6 +81,22 @@ sap.ui.define([
 			oSplitter.addContentArea(this._oContent[sViewStyle]);
 
 			this.getView().byId("segButton").setSelectedKey(sViewStyle);
+			// sync selection between Tile and List view if selection context exist
+			if (this._oSelectedBindingContext) {
+				switch(sViewStyle) {
+				case "List":
+					var aListItem = this._oContent.List.getItems();
+					for (var i = 0; i < aListItem.length; i++) {
+						if (aListItem[i].getBindingContext("pipeline").getPath() === this._oSelectedBindingContext.getPath()){
+							this._oContent.List.setSelectedItem(aListItem[i]);
+							break;
+						}
+					}
+					break;
+				default: // Tile
+					this._changeTileHeadImage();
+				}
+			}
 		},
 
 		onSelectChange: function (oEvent) {
@@ -101,18 +115,43 @@ sap.ui.define([
 			}, true /*no history*/)
 		},
 
+		onTilePress: function (oEvent) {
+			this._oSelectedBindingContext = oEvent.getSource().getBindingContext("pipeline");
+			this._changeTileHeadImage();
+			this._applyPipelineSelectionChange();
+		},
+
+		_changeTileHeadImage: function (bRemoveAll) {
+			var aTiles = this.getCurrentContent().getItems();
+			for (var i = 0; i < aTiles.length; i++) {
+				if (bRemoveAll) {
+					aTiles[i].setHeaderImage();
+				} else if (aTiles[i].getBindingContext("pipeline").getPath() === this._oSelectedBindingContext.getPath()) {
+					aTiles[i].setHeaderImage("sap-icon://accept");
+				} else {
+					aTiles[i].setHeaderImage();
+				}
+			}
+		},
+
 		onSelectionChange: function (oEvent) {
 			var oList = oEvent.getSource(),
-				oListItem = oEvent.getParameter('listItem'),
-				oModel= this.getView().getModel("setting");
-			
-			var aSelectedContexts = oList.getSelectedContexts(true);
-			var bSelected = aSelectedContexts && aSelectedContexts.length > 0;
-			var aRepoAssigned = oListItem.getBindingContext("pipeline").getProperty("reposAssigned");
+				oListItem = oEvent.getParameter('listItem');
+			this._oSelectedBindingContext = oListItem.getBindingContext("pipeline");
+			this._applyPipelineSelectionChange();
+		},
+
+		getSelectedBindingContext: function () {
+			return this._oSelectedBindingContext;
+		},	
+
+		_applyPipelineSelectionChange: function (oContext) {
+			var oModel= this.getView().getModel("setting"),
+				aRepoAssigned = this._oSelectedBindingContext.getProperty("reposAssigned");;
 
 			oModel.setProperty("/pipelineTokenHasRepoAssigned", aRepoAssigned && aRepoAssigned.length > 0);
 			oModel.setProperty("/pipelineTokenVisible", true);
-			oModel.setProperty("/pipelineTokenText",  oListItem.getBindingContext("pipeline").getProperty("name"));
+			oModel.setProperty("/pipelineTokenText",  this._oSelectedBindingContext.getProperty("name"));
 			oModel.updateBindings(true);
 		},
 
@@ -120,7 +159,14 @@ sap.ui.define([
 			var oPipelineCollection = this.getCurrentContent(),
 				oModel= this.getView().getModel("setting");
 
-			oPipelineCollection.removeSelections(true);
+			if (oPipelineCollection.removeSelections) {
+				oPipelineCollection.removeSelections(true);
+			} else {
+				this._changeTileHeadImage(true);
+			}
+			
+			this._oSelectedBindingContext = undefined;
+
 			oModel.setProperty("/pipelineTokenHasRepoAssigned", false);
 			oModel.setProperty("/pipelineTokenVisible", false);
 			oModel.setProperty("/pipelineTokenText",  undefined);

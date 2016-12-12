@@ -68,13 +68,13 @@ sap.ui.define([
 
 		_buildAssignModel: function () {
 			var aSelectedRepoContext = this.getView().byId("repoView").byId("repoList").getSelectedContexts(true),
-				aSelectedPipelineContext = this.getView().byId("pipelineView").getController().getCurrentContent().getSelectedContexts(true),
+				oSelectedPipelineContext = this.getView().byId("pipelineView").getController().getSelectedBindingContext(),
 				aAssignData = [],
 				aChangeData = [],
 				aNoChangeData = [],
 				oData;
 
-			var oSelectedPipelineData = aSelectedPipelineContext[0].getModel().getProperty(aSelectedPipelineContext[0].getPath());
+			var oSelectedPipelineData = oSelectedPipelineContext.getModel().getProperty(oSelectedPipelineContext.getPath());
 			for (var i = 0; i < aSelectedRepoContext.length; i++) {
 				oData = aSelectedRepoContext[i].getModel().getProperty(aSelectedRepoContext[i].getPath());
 				if (oData.pipeline) {
@@ -104,15 +104,15 @@ sap.ui.define([
 		},
 
 		_buildUnassignModel: function (oEvent) {
-			var aSelectedPipelineContext = this.getView().byId("pipelineView").getController().getCurrentContent().getSelectedContexts(true),
+			var oSelectedPipelineContext = this.getView().byId("pipelineView").getController().getSelectedBindingContext(),
 				aSelectedRepoContext = this.getView().byId("repoView").byId("repoList").getSelectedContexts(true),
 				aUnassignFromSelectedPipeline = [],
 				oPipelineData,
 				oRepoData,
 				aRepoData = [];
 
-			if (aSelectedPipelineContext.length > 0) { // pipeline is selected
-				oPipelineData = aSelectedPipelineContext[0].getModel().getProperty(aSelectedPipelineContext[0].getPath());
+			if (oSelectedPipelineContext) { // pipeline is selected
+				oPipelineData = oSelectedPipelineContext.getModel().getProperty(oSelectedPipelineContext.getPath());
 			}
 
 			if (aSelectedRepoContext.length > 0) {

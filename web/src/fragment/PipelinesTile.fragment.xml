@@ -1,19 +1,19 @@
 <core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:ci="sap.ciconnect.control" xmlns:layout="sap.ui.layout" >
-	<layout:Grid content="{pipeline>/}">
-			
-		<GenericTile header="{pipeline>name}" frameType="Auto" mode="LineMode">
-			<tileContent>
-				<TileContent frameType="Auto" scope="Actions">
-					<content>
-						<ci:BOControl moduleName="PipelineGraph" controlName="PipelineGraph" props="{pipeline>abstract2}">
-							<ci:boEvents>
-								<ci:BOEvent name="onNodeClick" handle="onPipelineNodeClick" />
-							</ci:boEvents>
-						</ci:BOControl>
-					</content>
-				</TileContent>
-			</tileContent>
-		</GenericTile>
-
-	</layout:Grid>
+	<ci:Container items="{pipeline>/}" class="sapUiSmallMarginTop" width="100%" height="100%">
+		<ci:items>
+			<GenericTile header="{pipeline>name}" frameType="Auto" press="onTilePress">
+				<tileContent>
+					<TileContent frameType="Auto" scope="Actions">
+						<content>
+							<ci:BOControl moduleName="PipelineGraph" controlName="PipelineGraph" props="{pipeline>abstract2}">
+								<ci:boEvents>
+									<ci:BOEvent name="onNodeClick" handle="onPipelineNodeClick" />
+								</ci:boEvents>
+							</ci:BOControl>
+						</content>
+					</TileContent>
+				</tileContent>
+			</GenericTile>
+		</ci:items>
+	</ci:Container>
 </core:FragmentDefinition>

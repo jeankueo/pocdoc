@@ -25,3 +25,13 @@
 .ciConnectSvgGithubSquare {
 	 background-image: url("../svg/GithubSquare.svg");
 }
+
+.ciconnectContainerItemFloatLeft {
+	float: left;
+	margin: 5px;
+}
+
+.ciconnectContainerItemFlexColumn {
+	float: left;
+	margin: 5px;
+}
