@@ -45,7 +45,6 @@ sap.ui.define([
 		_onRouterMatched: function (oEvent) {
 			// save the current query state
 			this._oRouterArgs = oEvent.getParameter("arguments");
-
 			this._sRouteName = oEvent.getParameter("name");
 
 			if (this._sRouteName === "one" ||
