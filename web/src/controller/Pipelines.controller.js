@@ -12,6 +12,7 @@ sap.ui.define([
 			var oRouter = this.getRouter();
 			this._oRouterArgs = null;
 			oRouter.getRoute("appHome").attachMatched(this._onRouterMatched, this);
+			oRouter.getRoute("one").attachMatched(this._onRouterMatched, this);
 			this._oContent = {};
 		},
 
@@ -44,10 +45,23 @@ sap.ui.define([
 		_onRouterMatched: function (oEvent) {
 			// save the current query state
 			this._oRouterArgs = oEvent.getParameter("arguments");
-			if (this._oRouterArgs[["?query"]] && this._oRouterArgs[["?query"]].tab === "Pipelines") {
-				this._applyAllSearchFilter(this._oRouterArgs["?query"].pipelineCategory || "ALL",
-					this._oRouterArgs["?query"].pipelineSearch || "");
-				this._applyViewStyle(this._oRouterArgs["?query"].pipelineView || "Tile");
+
+			this._sRouteName = oEvent.getParameter("name");
+
+			if (this._sRouteName === "one" ||
+				this._sRouteName === "appHome" &&
+				this._oRouterArgs[["?query"]] &&
+				this._oRouterArgs[["?query"]].tab === "Pipelines") {
+
+				if (this._oRouterArgs["?query"]) {
+					this._applyAllSearchFilter(
+						this._oRouterArgs["?query"].pipelineCategory || "ALL",
+						this._oRouterArgs["?query"].pipelineSearch || "");
+					this._applyViewStyle(this._oRouterArgs["?query"].pipelineView || "Tile");
+				} else {
+					this._applyAllSearchFilter("ALL", "");
+					this._applyViewStyle("Tile");
+				}
 			}
 		},
 
@@ -101,16 +115,18 @@ sap.ui.define([
 
 		onSelectChange: function (oEvent) {
 			var sSelectKey = oEvent.getSource().getSelectedKey();
+			this._oRouterArgs["?query"] = this._oRouterArgs["?query"] || {};
 			this._oRouterArgs["?query"].pipelineCategory = sSelectKey;
-			this.getRouter().navTo("appHome", {
+			this.getRouter().navTo(this._sRouteName || "appHome", {
 				query: this._oRouterArgs["?query"]
 			}, true /*no history*/)
 		},
 		
 		onSearch: function (oEvent) {
 			var sQuery = oEvent.getSource().getValue();
+			this._oRouterArgs["?query"] = this._oRouterArgs["?query"] || {};
 			this._oRouterArgs["?query"].pipelineSearch = sQuery;
-			this.getRouter().navTo("appHome", {
+			this.getRouter().navTo(this._sRouteName || "appHome", {
 				query: this._oRouterArgs["?query"]
 			}, true /*no history*/)
 		},
@@ -174,18 +190,11 @@ sap.ui.define([
 		},
 
 		onAfterRendering: function () {
-			this._adjustHeightOfScrollContainerForList();
+			this._adjustHeightOfScrollContainerForList("pipelinesVBox");
 		},
 
 		onContainerResize: function () {
-			this._adjustHeightOfScrollContainerForList();
-		},
-
-		_adjustHeightOfScrollContainerForList: function () {
-			var $bar = jQuery("#"+this.getView().getParent().getParent().getParent().getId()),
-				$container = jQuery("#" + this.getView().byId("vBox").getItems()[1].getId());
-
-			this.getView().byId("vBox").getItems()[1].setHeight(($bar.offset().top + $bar.height() - $container.offset().top) + "px");
+			this._adjustHeightOfScrollContainerForList("pipelinesVBox");
 		},
 
 		onNavDetail: function (oEvent) {
@@ -198,8 +207,9 @@ sap.ui.define([
 
 		onViewStyleChange: function (oEvent) {
 			var sQuery = oEvent.getParameter("key");
+			this._oRouterArgs["?query"] = this._oRouterArgs["?query"] || {};
 			this._oRouterArgs["?query"].pipelineView = sQuery;
-			this.getRouter().navTo("appHome", {
+			this.getRouter().navTo(this._sRouteName || "appHome", {
 				query: this._oRouterArgs["?query"]
 			}, true /*no history*/)
 		},

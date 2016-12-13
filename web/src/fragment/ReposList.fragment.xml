@@ -1,0 +1,33 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+
+	<List
+		id="repoList"
+		items="{repo>/}"
+		mode="MultiSelect"
+		includeItemInSelection="true" 
+		selectionChange="onSelectionChange">
+		<CustomListItem>
+			<HBox alignItems="Start" justifyContent="SpaceBetween">
+				<VBox  class="sapUiSmallMarginTopBottom" >
+					<HBox>
+						<Link text="{repo>full_name}" target="_blank" href="{repo>html_url}"/>
+						<core:Fragment fragmentName="sap.ciconnect.fragment.RepoBadgeIcons" type="XML"
+							class="sapUiSmallMarginBegin" />
+					</HBox>
+					<Text text="{repo>description}"/>
+				</VBox>
+				<!--<HBox alignItems="Center">
+					<ci:BOControl moduleName="PipelineGraph" controlName="PipelineGraph" props="{repo>pipeline}">
+						<ci:boEvents>
+							<ci:BOEvent name="onNodeClick" handle="onPipelineNodeClick" />
+						</ci:boEvents>
+					</ci:BOControl>-->
+					<Button icon="sap-icon://feeder-arrow" type="Transparent" press="onNavDetail" tooltip="Show Repository Detail"/>
+				<!-- </HBox> -->
+			</HBox>
+		</CustomListItem>
+	</List>
+	
+</core:FragmentDefinition>

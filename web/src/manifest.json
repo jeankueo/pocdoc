@@ -55,6 +55,10 @@
 				"pattern": "repository/{index}",
 				"name": "repository",
 				"target": "repository"
+			}, {
+				"pattern": "one/:?query:",
+				"name": "one",
+				"target": "one"
 			}],
 			"targets": {
 				"home": {
@@ -68,6 +72,10 @@
 				"repository": {
 					"viewName": "Repository",
 					"viewLevel": 2
+				},
+				"one": {
+					"viewName": "One",
+					"viewLevel": 1
 				},
 				"notFound": {
 					"viewName": "NotFound",
