@@ -176,7 +176,7 @@ sap.ui.define([
 
 		onNavDetail: function (oEvent) {
 			var sPath = oEvent.getSource().getBindingContext("repo").getPath();
-			this.getRouter().navTo(this._sRouteName || "appHome", {
+			this.getRouter().navTo("repository", {
 				//id: oBindingContext.getProperty("id")
 				index: sPath.substr(sPath.indexOf("/") + 1)
 			});
