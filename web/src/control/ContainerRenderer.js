@@ -11,9 +11,9 @@ sap.ui.define([], function () {
 		if (oContainer.getHeight()) {
 			oRenderManager.addStyle("height", oContainer.getHeight());
 		}
-		//oRenderManager.addStyle("display", "flex");
-		//oRenderManager.addStyle("flex-flow", "row wrap");
 		oRenderManager.writeStyles();
+		oRenderManager.addClass("ciconnectContainer" +  oContainer.getDisplay());
+		oRenderManager.writeClasses();
 		oRenderManager.writeControlData(oContainer);
 		oRenderManager.write(">");
 
