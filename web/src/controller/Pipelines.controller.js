@@ -53,13 +53,13 @@ sap.ui.define([
 				this._oRouterArgs[["?query"]].tab === "Pipelines") {
 
 				if (this._oRouterArgs["?query"]) {
+					this._applyViewStyle(this._oRouterArgs["?query"].pipelineView || "Tile");
 					this._applyAllSearchFilter(
 						this._oRouterArgs["?query"].pipelineCategory || "ALL",
 						this._oRouterArgs["?query"].pipelineSearch || "");
-					this._applyViewStyle(this._oRouterArgs["?query"].pipelineView || "Tile");
 				} else {
-					this._applyAllSearchFilter("ALL", "");
 					this._applyViewStyle("Tile");
+					this._applyAllSearchFilter("ALL", "");
 				}
 			}
 		},
