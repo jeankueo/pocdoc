@@ -42,16 +42,16 @@
 				<Button icon="sap-icon://add" 
 					tooltip="Add a git repository via url" 
 					press="onAddGitRepo"/>
-				<Button icon="sap-icon://less"
-					tooltip="Delete selected git repositories" 
-					enabled="{= ${setting>/repoTokenGitSelected}}"
-					press="onPopDelete" />
 				<Button icon="sap-icon://multiselect-all"
 					tooltip="Select All"
 					press="onSelectAll"/>
 				<Button icon="sap-icon://multiselect-none"
 					tooltip="Deselect All"
 					press="onDeselectAll"/>
+				<Button icon="sap-icon://less"
+					tooltip="Delete selected git repositories" 
+					enabled="{= ${setting>/repoTokenGitSelected}}"
+					press="onPopDelete" />
 			</Toolbar>
 		</Carousel>
 	</Toolbar>

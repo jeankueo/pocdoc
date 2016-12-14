@@ -31,7 +31,11 @@
 	margin: 5px;
 }
 
+.ciconnectContainerFlexColumn {
+	display: -webkit-flex;
+  	display: flex;
+}
+
 .ciconnectContainerItemFlexColumn {
-	float: left;
-	margin: 5px;
+	width: 100%;
 }
