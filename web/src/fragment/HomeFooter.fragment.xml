@@ -1,0 +1,23 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+
+	<Toolbar>
+		<content>
+			<Token text="{setting>/pipelineTokenText}" visible="{setting>/pipelineTokenVisible}" 
+				press="onPipelineTokenPressed" delete="onPipelineTokenDelete"/>
+			<Token text="{setting>/repoTokenNumber} repos" visible="{setting>/repoTokenVisible}" 
+				press="onRepoTokenPressed" delete="onRepoTokenDelete"/>
+			<ToolbarSpacer />
+			<Button icon="sap-icon://connected"
+				tooltip="Assign pipeline to repository"
+				enabled="{= ${setting>/pipelineTokenVisible} &amp;&amp; ${setting>/repoTokenVisible}}"
+				press="onPopAssign"/>
+			<Button icon="sap-icon://disconnected"
+				tooltip="Unassign pipeline from repository"
+				enabled="{= ${setting>/pipelineTokenVisible} &amp;&amp; ${setting>/pipelineTokenHasRepoAssigned} || ${setting>/repoTokenVisible} &amp;&amp; ${setting>/repoTokenHasPipelineAssigned}}"
+				press="onPopUnassign"/>
+		</content>
+	</Toolbar>
+
+</core:FragmentDefinition>

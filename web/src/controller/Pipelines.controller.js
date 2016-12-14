@@ -137,14 +137,16 @@ sap.ui.define([
 		},
 
 		_changeTileHeadImage: function (bRemoveAll) {
-			var aTiles = this.getCurrentContent().getItems();
-			for (var i = 0; i < aTiles.length; i++) {
-				if (bRemoveAll) {
-					aTiles[i].setHeaderImage();
-				} else if (aTiles[i].getBindingContext("pipeline").getPath() === this._oSelectedBindingContext.getPath()) {
-					aTiles[i].setHeaderImage("sap-icon://accept");
-				} else {
-					aTiles[i].setHeaderImage();
+			if (this._oContent.Tile) {
+				var aTiles = this._oContent.Tile.getItems();
+				for (var i = 0; i < aTiles.length; i++) {
+					if (bRemoveAll) {
+						aTiles[i].setHeaderImage();
+					} else if (aTiles[i].getBindingContext("pipeline").getPath() === this._oSelectedBindingContext.getPath()) {
+						aTiles[i].setHeaderImage("sap-icon://accept");
+					} else {
+						aTiles[i].setHeaderImage();
+					}
 				}
 			}
 		},
@@ -170,13 +172,17 @@ sap.ui.define([
 			oModel.updateBindings(true);
 		},
 
-		removeAllSelection: function () {
-			var oPipelineCollection = this.getCurrentContent(),
-				oModel= this.getView().getModel("setting");
+		onDeselectAll: function () {
+			this.removeAllSelection();
+		},
 
-			if (oPipelineCollection.removeSelections) {
-				oPipelineCollection.removeSelections(true);
-			} else {
+		removeAllSelection: function () {
+			var oModel= this.getView().getModel("setting");
+
+			if (this._oContent.List) {
+				this._oContent.List.removeSelections(true);
+			}
+			if (this._oContent.Tile) {
 				this._changeTileHeadImage(true);
 			}
 			

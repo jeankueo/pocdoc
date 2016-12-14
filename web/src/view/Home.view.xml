@@ -1,17 +1,9 @@
-<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:core="sap.ui.core"
 		controllerName="sap.ciconnect.controller.Home" xmlns:html="http://www.w3.org/1999/xhtml">
 
-	<Page id="ciconnect" title="Viz Pipeline PoC" enableScrolling="false">
+	<Page title="Viz Pipeline PoC" enableScrolling="false">
 		<headerContent>
-			<Button icon="sap-icon://multiselect-all"
-				tooltip="Select All"
-				enabled="{= ${setting>/selectedTabKey} === 'Repositories'}"
-				press="onSelectAll"/>
-			<Button icon="sap-icon://multiselect-none"
-				tooltip="Deselect All"
-				enabled="{= ${setting>/selectedTabKey} !== 'Summary'}"
-				press="onDeselectAll"/>
-			<Button icon="sap-icon://legend" press="onPopLegend" enabled="false" />
+			<core:Fragment fragmentName="sap.ciconnect.fragment.HomeHeader" type="XML" />
 		</headerContent>
 		<content>
 			<IconTabBar stretchContentHeight="true"
@@ -48,30 +40,7 @@
 			</IconTabBar>
 		</content>
 		<footer>
-			<Toolbar>
-				<content>
-					<Token text="{setting>/pipelineTokenText}" visible="{setting>/pipelineTokenVisible}" 
-						press="onPipelineTokenPressed" delete="onPipelineTokenDelete"/>
-					<Token text="{setting>/repoTokenNumber} repos" visible="{setting>/repoTokenVisible}" 
-						press="onRepoTokenPressed" delete="onRepoTokenDelete"/>
-					<ToolbarSpacer />
-					<OverflowToolbarButton icon="sap-icon://add" 
-						tooltip="Add a git repository via url" 
-						press="onPopAdd"/>
-					<OverflowToolbarButton icon="sap-icon://less"
-						tooltip="Delete selected git repositories" 
-						enabled="{= ${setting>/repoTokenGitSelected}}"
-						press="onPopDelete" />
-					<OverflowToolbarButton icon="sap-icon://connected"
-						tooltip="Assign pipeline to repository"
-						enabled="{= ${setting>/pipelineTokenVisible} &amp;&amp; ${setting>/repoTokenVisible}}"
-						press="onPopAssign"/>
-					<OverflowToolbarButton icon="sap-icon://disconnected"
-						tooltip="Unassign pipeline from repository"
-						enabled="{= ${setting>/pipelineTokenVisible} &amp;&amp; ${setting>/pipelineTokenHasRepoAssigned} || ${setting>/repoTokenVisible} &amp;&amp; ${setting>/repoTokenHasPipelineAssigned}}"
-						press="onPopUnassign"/>
-				</content>
-			</Toolbar>
+			<core:Fragment fragmentName="sap.ciconnect.fragment.HomeFooter" type="XML" />
 		</footer>
 	</Page>
 </mvc:View>

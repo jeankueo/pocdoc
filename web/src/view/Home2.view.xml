@@ -2,17 +2,9 @@
 	xmlns="sap.m" xmlns:ci="sap.ciconnect.control" xmlns:layout="sap.ui.layout"
 	controllerName="sap.ciconnect.controller.Home2" xmlns:html="http://www.w3.org/1999/xhtml">
 	
-	<Page id="ciconnect2" title="Viz Pipeline PoC 2" enableScrolling="false">
+	<Page title="Viz Pipeline PoC 2" enableScrolling="false">
 		<headerContent>
-			<Button icon="sap-icon://multiselect-all"
-				tooltip="Select All"
-				enabled="{= ${setting>/selectedTabKey} === 'Repositories'}"
-				press="onSelectAll"/>
-			<Button icon="sap-icon://multiselect-none"
-				tooltip="Deselect All"
-				enabled="{= ${setting>/selectedTabKey} !== 'Summary'}"
-				press="onDeselectAll"/>
-			<Button icon="sap-icon://legend" press="onPopLegend" enabled="false" />
+			<core:Fragment fragmentName="sap.ciconnect.fragment.HomeHeader" type="XML" />
 		</headerContent>
 
 		<layout:Splitter id="splitter" width="100%" resize="onResize">
@@ -21,26 +13,7 @@
 		</layout:Splitter>
 
 		<footer>
-			<Toolbar>
-				<content>
-					<ToolbarSpacer />
-					<OverflowToolbarButton icon="sap-icon://add" 
-						tooltip="Add a git repository via url" 
-						press="onPopAdd"/>
-					<OverflowToolbarButton icon="sap-icon://less"
-						tooltip="Delete selected git repositories" 
-						enabled="{= ${setting>/repoTokenGitSelected}}"
-						press="onPopDelete" />
-					<OverflowToolbarButton icon="sap-icon://connected"
-						tooltip="Assign pipeline to repository"
-						enabled="{= ${setting>/pipelineTokenVisible} &amp;&amp; ${setting>/repoTokenVisible}}"
-						press="onPopAssign"/>
-					<OverflowToolbarButton icon="sap-icon://disconnected"
-						tooltip="Unassign pipeline from repository"
-						enabled="{= ${setting>/pipelineTokenVisible} &amp;&amp; ${setting>/pipelineTokenHasRepoAssigned} || ${setting>/repoTokenVisible} &amp;&amp; ${setting>/repoTokenHasPipelineAssigned}}"
-						press="onPopUnassign"/>
-				</content>
-			</Toolbar>
+			<core:Fragment fragmentName="sap.ciconnect.fragment.HomeFooter" type="XML" />
 		</footer>
 	</Page>
 </mvc:View>

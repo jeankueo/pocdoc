@@ -20,7 +20,6 @@ sap.ui.define([
 			}
 		},
 
-		// for Pipelines.controller and Repositories.controller only
 		_adjustHeightOfScrollContainerForContentInsidePage: function (sContentId) {
 			// the page finding logic base on an assumption, that there must be a page on the parent path of current view
 			var oPage = this.getView();
@@ -35,5 +34,36 @@ sap.ui.define([
 				this.getView().byId(sContentId).getItems()[1].setHeight(($page.offsetTop + $page.offsetHeight - $content.offset().top) + "px");
 			}
 		},
+
+		// for any view which need a popOver
+		_showPopOverFragment: function (oHolder, sPopOverFragmentName, oModel) {
+			if (this._oPopover) {
+				this._oPopover.destroy();
+			}
+			this._oPopover = new sap.ui.xmlfragment("sap.ciconnect.fragment." + sPopOverFragmentName, this);
+			if (oModel) {
+				this._oPopover.setModel(oModel);
+			}
+			//this.getView().addDependent(this._oPopover);
+			jQuery.sap.delayedCall(0, this, function () {
+				this._oPopover.openBy(oHolder);
+			})
+		},
+
+		onPopoverClose: function () {
+			this._closePopover();
+		},
+
+		_closePopover: function () {
+			if (this._oPopover) {
+				this._oPopover.close();
+			}
+		},
+
+		onExit: function () {
+			if (this._oPopover) {
+				this._oPopover.destroy();
+			}
+		}
 	});
 });

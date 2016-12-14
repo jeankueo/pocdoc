@@ -72,10 +72,10 @@ sap.ui.define([
 		_initSettingData: function () {
 			var oModel = new JSONModel();
 			oModel.setData({
-				// tab selection
+				// tab selection - for home.view
 				"selectedTabKey": "Summary",
 				
-				// pipeline&job control related
+				// pipeline&job control related - for poc01
 				"jobStyle": "CircleWithTextAbove",
 				"enableConnection": true,
 				"enableText": true,

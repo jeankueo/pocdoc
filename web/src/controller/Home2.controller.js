@@ -1,9 +1,9 @@
 sap.ui.define([
-	"../controller/BaseController"
-], function (BaseController) {
+	"../controller/HomeBaseController"
+], function (HomeBaseController) {
 	"use strict";
 	
-	return BaseController.extend("sap.ciconnect.controller.Home2", {
+	return HomeBaseController.extend("sap.ciconnect.controller.Home2", {
 		onResize: function (oEvent) {
 			this.getView().invalidate(); // to trigger recalculation of scroll bars
 		}

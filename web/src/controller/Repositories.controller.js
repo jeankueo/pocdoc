@@ -156,9 +156,17 @@ sap.ui.define([
 			oModel.updateBindings(true);
 		},
 
+		onDeselectAll: function () {
+			this.removeAllSelection();
+		},
+
 		removeAllSelection: function () {
 			this.getView().byId("repoList").removeSelections(true);
 			this._updateRepoToken();
+		},
+
+		onSelectAll: function () {
+			this.selectAll();
 		},
 
 		selectAll: function () {
@@ -185,6 +193,66 @@ sap.ui.define([
 		onPipelineNodeClick: function (oEvent) {
 			var oParam = oEvent.getParameter("params");
 			MessageToast.show("node " + oParam[0] + " clicked!");
+		},
+
+		onAddGitRepo: function (oEvent) {
+			// both button and input field works in this way
+			var sURL = oEvent.getSource().getParent().getContent()[1].getValue();
+			//TODO: url validity check
+			this._addGitRepoData(sURL);
+		},
+
+		_addGitRepoData: function (sURL) {
+			if (sURL) {
+				var oModel = this.getView().getModel("repo");
+				var oData = oModel.getData();
+				oData.push({
+					"name": "new rep",
+					"full_name": "new git repository " + sURL,
+					"repo_source": "git",
+					"with_gerrit": (Math.random() > 0.5 ? true : false),
+					"pipeline": {
+						"id": "pipeline4",
+						"name": "Some Team's Pipeline",
+						"type": "mixed",
+						"jobs": [{
+							"type": "local",
+							"goal": "BLD",
+							"status": "None"
+						}]
+					},
+					"private": (Math.random() > 0.5 ? true : false),
+					"folked": (Math.random() > 0.5 ? true : false)
+				});
+				oModel.setData(oData);
+				oModel.updateBindings(true); // force counter in tab to update
+			}
+		},
+
+		onPopDelete: function (oEvent) {
+			this.getView().getModel("setting").setProperty("/selectedTabKey", "Repositories");
+			this._showPopOverFragment(
+				oEvent.getSource(),
+				"DeleteGitPopover", 
+				this._buildSelectedGitListModel());
+		},
+
+		_buildSelectedGitListModel: function () {
+			var oRetModel = new JSONModel(),
+				oRepoModel = this.getView().getModel("repo"),
+				aData = [], oData,
+				oRepoList = this.getView().byId("repoView").byId("repoList");
+
+			var aSelectedContexts = oRepoList.getSelectedContexts(true);
+			for (var i = 0; i < aSelectedContexts.length; i++) {
+				oData = oRepoModel.getProperty(aSelectedContexts[i].getPath());
+				if (oData.repo_source === "git") {
+					aData.push(oData);
+				}
+			}
+			oRetModel.setData(aData);
+
+			return oRetModel;
 		}
 	});
 });

@@ -1,7 +1,7 @@
 <mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:ci="sap.ciconnect.control" xmlns:layout="sap.ui.layout"
 		controllerName="sap.ciconnect.controller.Pipelines" xmlns:html="http://www.w3.org/1999/xhtml">
 
-	<VBox id="pipelinesVBox">
+	<VBox id="pipelinesVBox" >
 		<core:Fragment fragmentName="sap.ciconnect.fragment.PipelinesToolbar" type="XML" />
 		<!--controller will decide what to be put into splitter, tile/list-->
 		<layout:Splitter id="splitter" width="100%" resize="onContainerResize" />
