@@ -32,21 +32,6 @@ sap.ui.define([
 			};
 		},
 
-		_adjustHeightOfScrollContainerForContentInsidePage: function (sContentId) {
-			// the page finding logic base on an assumption, that there must be a page on the parent path of current view
-			var oPage = this.getView();
-			while(oPage.getMetadata().getName() !== "sap.m.Page" && oPage.getParent()) {
-				oPage = oPage.getParent();
-			};
-			// adjust height only if find nearest page control
-			if (oPage.getMetadata().getName() === "sap.m.Page") {
-				var $page = oPage.getDomRef("cont"),
-					$content = jQuery("#" + this.getView().byId(sContentId).getItems()[1].getId());
-
-				this.getView().byId(sContentId).getItems()[1].setHeight(($page.offsetTop + $page.offsetHeight - $content.offset().top) + "px");
-			}
-		},
-
 		// for any view which need a popOver
 		_showPopOverFragment: function (oHolder, sPopOverFragmentName, oModel) {
 			if (this._oPopover) {

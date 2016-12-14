@@ -1,6 +1,7 @@
 sap.ui.define([
-	"./BaseController", 'sap/ui/model/Filter', "sap/ui/model/json/JSONModel", "sap/m/MessageToast"
-], function (BaseController, Filter, JSONModel, MessageToast) {
+	"./BaseController", 'sap/ui/model/Filter', "sap/ui/model/json/JSONModel", "sap/m/MessageToast",
+	"sap/m/Dialog", "sap/m/Button", "sap/m/Text"
+], function (BaseController, Filter, JSONModel, MessageToast, Dialog, Button, Text) {
 	"use strict";
 	
 	return BaseController.extend("sap.ciconnect.controller.Repositories", {
@@ -226,29 +227,56 @@ sap.ui.define([
 		},
 
 		onPopDelete: function (oEvent) {
-			this.getView().getModel("setting").setProperty("/selectedTabKey", "Repositories");
-			this._showPopOverFragment(
-				oEvent.getSource(),
-				"DeleteGitPopover", 
-				this._buildSelectedGitListModel());
+			var oRepoModel = this.getView().getModel("repo"),
+				oSettingModel = this.getView().getModel("setting"),
+				oRepoList = this.getView().byId("repoList");
+			var aSelectedGitContext = this._buildSelectedGitContext(oRepoModel, oRepoList);
+
+			if (aSelectedGitContext.length > 0) {
+				var oDialog = new Dialog({
+					title: "Confirm to Delete Git Repository",
+					type: "Message",
+					content: new Text({
+						text: aSelectedGitContext.length + " of the selected repositories are git repository. Are you sure youwant to delete?"
+					}),
+					beginButton: new Button({
+						text: "Confirm",
+						press: function () {// mocking deletion, TODO: replace with real logic
+							var aData = oRepoModel.getData();
+							for (var i =aSelectedGitContext.length - 1; i >=0; i-- ) {
+								aData.splice(aData.indexOf(oRepoModel.getProperty(aSelectedGitContext[i].getPath())), 1)
+							}
+							oRepoModel.setData(aData);
+							oDialog.destroy();
+							oSettingModel.setProperty("/repoTokenVisible", oSettingModel.getProperty("/repoTokenNumber") > aSelectedGitContext.length);
+							oSettingModel.setProperty("/repoTokenNumber",  aData.length);
+							oSettingModel.setProperty("/repoTokenGitSelected",  false);
+						}
+					}),
+					endButton: new Button({
+						text: "Cancel",
+						press: function () {
+							oDialog.destroy();
+						}
+					}),
+					afterClose: function () {
+						oDialog.destroy();
+					}
+				});
+				oDialog.open();
+			}
 		},
 
-		_buildSelectedGitListModel: function () {
-			var oRetModel = new JSONModel(),
-				oRepoModel = this.getView().getModel("repo"),
-				aData = [], oData,
-				oRepoList = this.getView().byId("repoView").byId("repoList");
-
+		_buildSelectedGitContext: function (oRepoModel, oRepoList) {
+			var aRetVal = [], oData;
 			var aSelectedContexts = oRepoList.getSelectedContexts(true);
 			for (var i = 0; i < aSelectedContexts.length; i++) {
 				oData = oRepoModel.getProperty(aSelectedContexts[i].getPath());
 				if (oData.repo_source === "git") {
-					aData.push(oData);
+					aRetVal.push(aSelectedContexts[i]);
 				}
 			}
-			oRetModel.setData(aData);
-
-			return oRetModel;
+			return aRetVal;
 		}
 	});
 });
