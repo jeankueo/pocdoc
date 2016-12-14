@@ -80,7 +80,7 @@ sap.ui.define([
 				this.getView().byId("categorySelect").setSelectedKey("GIT");
 				break;
 			case "github":
-				this.getView().byId("categorySelect").setSelectedKey("GITHUB" + sOrg ? "-" + sOrg : "");
+				this.getView().byId("categorySelect").setSelectedKey("GITHUB" + (sOrg ? "-" + sOrg : ""));
 				break;
 			default:
 				this.getView().byId("categorySelect").setSelectedKey("ALL");
