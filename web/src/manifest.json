@@ -58,7 +58,7 @@
 			}, {
 				"pattern": "one/:?query:",
 				"name": "one",
-				"target": "one"
+				"target": "home2"
 			}],
 			"targets": {
 				"home": {
@@ -73,8 +73,8 @@
 					"viewName": "Repository",
 					"viewLevel": 2
 				},
-				"one": {
-					"viewName": "One",
+				"home2": {
+					"viewName": "Home2",
 					"viewLevel": 1
 				},
 				"notFound": {

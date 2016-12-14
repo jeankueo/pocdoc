@@ -167,11 +167,11 @@ sap.ui.define([
 		},
 
 		onAfterRendering: function () {
-			this._adjustHeightOfScrollContainerForList("repoVBox");
+			this._adjustHeightOfScrollContainerForContentInsidePage("repoVBox");
 		},
 
 		onContainerResize: function () {
-			this._adjustHeightOfScrollContainerForList("repoVBox");
+			this._adjustHeightOfScrollContainerForContentInsidePage("repoVBox");
 		},
 
 		onNavDetail: function (oEvent) {

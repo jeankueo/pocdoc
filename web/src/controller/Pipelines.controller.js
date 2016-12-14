@@ -189,11 +189,11 @@ sap.ui.define([
 		},
 
 		onAfterRendering: function () {
-			this._adjustHeightOfScrollContainerForList("pipelinesVBox");
+			this._adjustHeightOfScrollContainerForContentInsidePage("pipelinesVBox");
 		},
 
 		onContainerResize: function () {
-			this._adjustHeightOfScrollContainerForList("pipelinesVBox");
+			this._adjustHeightOfScrollContainerForContentInsidePage("pipelinesVBox");
 		},
 
 		onNavDetail: function (oEvent) {

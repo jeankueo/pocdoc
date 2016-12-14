@@ -20,7 +20,8 @@ sap.ui.define([
 			}
 		},
 
-		_adjustHeightOfScrollContainerForList: function (sContentId) {
+		// for Pipelines.controller and Repositories.controller only
+		_adjustHeightOfScrollContainerForContentInsidePage: function (sContentId) {
 			// the page finding logic base on an assumption, that there must be a page on the parent path of current view
 			var oPage = this.getView();
 			while(oPage.getMetadata().getName() !== "sap.m.Page" && oPage.getParent()) {
