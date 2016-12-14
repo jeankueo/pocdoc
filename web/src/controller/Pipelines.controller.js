@@ -77,7 +77,7 @@ sap.ui.define([
 			}
 			this.getView().byId("searchField").setValue(sSearch ? sSearch : "");
 
-			var oCollection = this.getView().byId("splitter").getContentAreas()[0];
+			var oCollection = this.getCurrentContent();
 			if (oCollection) {
 				var obinding = oCollection.getBinding("items");
 				obinding.filter(aFilters);
@@ -85,13 +85,13 @@ sap.ui.define([
 		},
 
 		_applyViewStyle: function (sViewStyle) {
-			var oSplitter = this.getView().byId("splitter");
+			var oPanel = this.getView().byId("pipelinesPanel");
 
 			this._oContent[sViewStyle] = this._oContent[sViewStyle] ||
 				new sap.ui.xmlfragment("sap.ciconnect.fragment.Pipelines" + sViewStyle, this);
 
-			oSplitter.removeContentArea(this.getCurrentContent());
-			oSplitter.addContentArea(this._oContent[sViewStyle]);
+			oPanel.removeContent(this.getCurrentContent());
+			oPanel.addContent(this._oContent[sViewStyle]);
 
 			this.getView().byId("segButton").setSelectedKey(sViewStyle);
 			// sync selection between Tile and List view if selection context exist
@@ -195,11 +195,7 @@ sap.ui.define([
 		},
 
 		onAfterRendering: function () {
-			this._adjustHeightOfScrollContainerForContentInsidePage("pipelinesVBox");
-		},
-
-		onContainerResize: function () {
-			this._adjustHeightOfScrollContainerForContentInsidePage("pipelinesVBox");
+			this._setPanelHeightByPageContainer("pipelinesPanel");
 		},
 
 		onNavDetail: function (oEvent) {
@@ -220,7 +216,7 @@ sap.ui.define([
 		},
 
 		getCurrentContent: function () {
-			return this.getView().byId("splitter").getContentAreas()[0];
+			return this.getView().byId("pipelinesPanel").getContent()[0];
 		},
 
 		onPipelineNodeClick: function (oEvent) {

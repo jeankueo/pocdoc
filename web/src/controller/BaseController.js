@@ -20,6 +20,18 @@ sap.ui.define([
 			}
 		},
 
+		_setPanelHeightByPageContainer: function (sPanelId) {
+			// the page finding logic base on an assumption, that there must be a page on the parent path of current view
+			var oPage = this.getView();
+			while(oPage.getMetadata().getName() !== "sap.m.Page" && oPage.getParent()) {
+				oPage = oPage.getParent();
+			};
+			// adjust height only if find nearest page control
+			if (oPage.getMetadata().getName() === "sap.m.Page") {
+				this.getView().byId(sPanelId).setHeight(oPage.getDomRef("cont").offsetHeight - 4 + "px");
+			};
+		},
+
 		_adjustHeightOfScrollContainerForContentInsidePage: function (sContentId) {
 			// the page finding logic base on an assumption, that there must be a page on the parent path of current view
 			var oPage = this.getView();

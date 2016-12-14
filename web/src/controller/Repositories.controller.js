@@ -175,11 +175,7 @@ sap.ui.define([
 		},
 
 		onAfterRendering: function () {
-			this._adjustHeightOfScrollContainerForContentInsidePage("repoVBox");
-		},
-
-		onContainerResize: function () {
-			this._adjustHeightOfScrollContainerForContentInsidePage("repoVBox");
+			this._setPanelHeightByPageContainer("repoPanel");
 		},
 
 		onNavDetail: function (oEvent) {

@@ -7,10 +7,16 @@
 			<core:Fragment fragmentName="sap.ciconnect.fragment.HomeHeader" type="XML" />
 		</headerContent>
 
-		<layout:Splitter id="splitter" width="100%" resize="onResize">
-			<mvc:XMLView id="pipelineView" viewName="sap.ciconnect.view.Pipelines" />
-			<mvc:XMLView id="repoView" viewName="sap.ciconnect.view.Repositories" />
-		</layout:Splitter>
+		<layout:ResponsiveSplitter id="splitter">
+			<layout:PaneContainer>
+				<layout:SplitPane>
+					<mvc:XMLView id="pipelineView" viewName="sap.ciconnect.view.Pipelines" />
+				</layout:SplitPane>
+				<layout:SplitPane>
+					<mvc:XMLView id="repoView" viewName="sap.ciconnect.view.Repositories" />
+				</layout:SplitPane>
+			</layout:PaneContainer>
+		</layout:ResponsiveSplitter>
 
 		<footer>
 			<core:Fragment fragmentName="sap.ciconnect.fragment.HomeFooter" type="XML" />
