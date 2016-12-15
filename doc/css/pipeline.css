@@ -13,23 +13,24 @@
   .reveal .slides section .fragment.highlight-react.visible, .highlight-react-static {
   color: #d998cb; }
 
+  .mockGreen {
+ 	border: solid  #6AC5AC 3px !important; 
+ }
 
-  .box {
-  border: solid  #6AC5AC 3px !important; 
+   .mockDash {
+ 	border: dashed  #eee 1px !important; 
+ }
+
+  .mockBox {
   display: flex !important;
   flex-wrap: wrap !important;
+  padding: 15px !important;
 }
 
-.row{
-  border: solid  #6AC5AC 3px !important; 
+.mockRow{
   flex-basis: 100% !important;
   display:flex !important;
 }
 
-.row:nth-child(2){
-  justify-content: center !important;
-}
-
-.row:nth-child(3){
-  justify-content: space-between !important;
+.mockItem{
 }
