@@ -1,4 +1,4 @@
-.reveal .slides section .fragment.highlight-sap,
+/* high-light styles */
 .reveal .slides section .fragment.highlight-bo,
 .reveal .slides section .fragment.highlight-react {
   opacity: 1;
@@ -13,24 +13,28 @@
   .reveal .slides section .fragment.highlight-react.visible, .highlight-react-static {
   color: #d998cb; }
 
-  .mockGreen {
- 	border: solid  #6AC5AC 3px !important; 
- }
+    .reveal .slides section .fragment.highlight-requirement.visible, .highlight-requirement-static {
+  color: #6AC5AC; }
 
-   .mockDash {
- 	border: dashed  #eee 1px !important; 
- }
-
-  .mockBox {
-  display: flex !important;
-  flex-wrap: wrap !important;
-  padding: 15px !important;
+/* mocking ui styles */
+.mockGreen {
+  border: solid  #6AC5AC 3px !important; 
 }
 
-.mockRow{
-  flex-basis: 100% !important;
-  display:flex !important;
+.mockDash {
+  border: dashed  #eee 1px !important; 
+}
+
+.mockRowBox {
+  display: flex !important;
+  flex-flow: row wrap !important;
 }
 
 .mockItem{
+  flex-basis: 100% !important;
+}
+
+.mockColumnBox {
+  display: flex !important;
+  flex-flow: row wrap !important;
 }
