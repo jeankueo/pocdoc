@@ -12,3 +12,24 @@
 
   .reveal .slides section .fragment.highlight-react.visible, .highlight-react-static {
   color: #d998cb; }
+
+
+  .box {
+  border: solid  #6AC5AC 3px !important; 
+  display: flex !important;
+  flex-wrap: wrap !important;
+}
+
+.row{
+  border: solid  #6AC5AC 3px !important; 
+  flex-basis: 100% !important;
+  display:flex !important;
+}
+
+.row:nth-child(2){
+  justify-content: center !important;
+}
+
+.row:nth-child(3){
+  justify-content: space-between !important;
+}

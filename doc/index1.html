@@ -1,0 +1,215 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Pipeline PoC Presentation</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+		<link rel="stylesheet" href="css/pipeline.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<section>
+						<h1>Pipeline Viz PoC</h1>
+						<h4>A PoC based on <span class="fragment highlight-sap">SAPUI5</span> + Jenkins <span class="fragment highlight-bo">Blue Ocean</span> on <span class="fragment highlight-react">React</span></h4>
+						<p>
+							<small><a href="https://github.wdf.sap.corp/ci-connect/pipeline-ui-poc">Project on Enterprise Github</a></small>
+							<br/>
+							<small><a href="https://ciconnect-pipeline-web.cfapps.sap.hana.ondemand.com/public/">Deployment on Cloudfoundry</a></small>
+						</p>
+					</section>
+					<section>
+						<h2>One Sentence for each Technologies</h2>
+						<ul>
+							<li><span class="highlight-sap-static">SAPUI5</span>: Sophiscated MVC framework with rich and well-designed control library</li>
+							<li><span class="highlight-bo-static">Blue Ocean</span>: Jenkins-specific and well-designed Pipeline controls</li>
+							<li><span class="highlight-react-static">React</span>: a populate 'V' framework on which <span class="highlight-bo-static">Blue Ocean</span> is built</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2><span class="highlight-sap-static">SAPUI5</span>: UI Design</h2>
+					</section>
+					<section>
+						<h2><span class="highlight-sap-static">SAPUI5</span>: Useful Links</h2>
+						<ul>
+							<li><a href="http://veui5infra.dhcp.wdf.sap.corp:8080/sapui5-sdk-internal/">SAPUI5 documents</a></li>
+							<li><a href="http://veui5infra.dhcp.wdf.sap.corp:8080/sapui5-sdk-internal/#docs/guide/91f233476f4d1014b6dd926db0e91070.html">MVC</a></li>
+							<li><a href="http://veui5infra.dhcp.wdf.sap.corp:8080/sapui5-sdk-internal/#docs/guide/91f1703b6f4d1014b6dd926db0e91070.html">Control Deveopment</a></li>
+							<li><a href="http://veui5infra.dhcp.wdf.sap.corp:8080/sapui5-sdk-internal/#docs/guide/1b6dcd39a6a74f528b27ddb22f15af0d.html">Navigation and Routing</a></li>
+						</ul>
+					</section>
+
+					<section>
+						<h2><span class="highlight-sap-static">SAPUI5</span>: Folder Structure</h2>
+						<ul>
+							<li><span class="highlight-sap-static">/web/data/</span>: contains PoC test data in JSON <span class="fragment current-visible" style="color:#1b91ff">M</span></li>
+							<li><span class="highlight-sap-static">/web/public/</span>: contains bootstrap index.html</li>
+							<li><span class="highlight-sap-static">/web/src/control/</span>: contains reusable controls <span class="fragment current-visible" style="color:#1b91ff">V</span></li>
+							<li><span class="highlight-sap-static">/web/src/controller/</span>: contains controllers for data loading, event handling etc. <span class="fragment current-visible" style="color:#1b91ff">C</span></li>
+							<li><span class="highlight-sap-static">/web/src/fragment/</span>: contains reusable xml fragments <span class="fragment current-visible" style="color:#1b91ff">V</span></li>
+							<li><span class="highlight-sap-static">/web/src/less/</span>: contains style sheets in less and css <span class="fragment current-visible" style="color:#1b91ff">V</span></li>
+							<li><span class="highlight-sap-static">/web/src/model/</span>: contains model formatter class <span class="fragment current-visible" style="color:#1b91ff">M</span></li>
+							<li><span class="highlight-sap-static">/web/src/svg/</span>: contains svg artifacts <span class="fragment current-visible" style="color:#1b91ff">V</span></li>
+							<li><span class="highlight-sap-static">/web/src/view/</span>: contains xml views <span class="fragment current-visible" style="color:#1b91ff">V</span></li>
+						</ul>
+					</section>
+					
+					<section>
+						<h2><span class="highlight-sap-static">SAPUI5</span>: Bootstrap</h2>
+						<p><small>in File: /web/public/index.html</small></p>
+						<pre><code class="hlhtml" data-trim contenteditable>
+<script id='sap-ui-bootstrap'
+	src='https://sapui5.hana.ondemand.com/resources/sap-ui-core.js'
+	data-sap-ui-theme='sap_belize_plus'
+	data-sap-ui-libs='sap.m'
+	data-sap-ui-compatVersion='edge'
+	data-sap-ui-preload='async'
+	data-sap-ui-resourceroots='{
+	"sap.ciconnect": "./../src",
+	"sap.ciconnect.model": "./../src/model",
+	"sap.ciconnect.view": "./../src/view",
+	"sap.ciconnect.controller": "./../src/controller",
+	"sap.ciconnect.fragment": "./../src/fragment",
+	"sap.ciconnect.view.repoblock": "./../src/view/repoblock",
+	"sap.ciconnect.control": "./../src/control",
+	"require": "https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.2/require.min"
+	}'>
+</script>
+					</code></pre>
+					</section>
+
+					<section>
+						<h2><span class="highlight-sap-static">SAPUI5</span>: View & Routing</h2>
+						<img src="./vsd/02.view.PNG" />
+					</section>
+
+					<section>
+						<h2><span class="highlight-sap-static">SAPUI5</span>: Control</h2>
+						<ul>
+							<li>Control Name: <span class="highlight-sap-static">sap.ciconnect.SvgIcon</span></li>
+							<li>File List:<ul>
+								<li>/web/src/control/<span class="highlight-sap-static">SvgIcon.js</span></li>
+								<li>/web/src/control/<span class="highlight-sap-static">SvgIconRenderer.js</span></li>
+								<li>/web/src/less/<span class="highlight-sap-static">control.css</span></li>
+							</ul></li>
+							<li>How to use:<ul>
+								<li>/public/<span class="highlight-sap-static">index.html</span></li>
+								<li>/src/fragment/<span class="highlight-sap-static">RepoBadgeIcons.fragment.xml</span></li>
+							</ul></li>
+						</ul>
+					</section>
+
+					<section>
+						<h2><span class="highlight-sap-static">SAPUI5</span>: Control</h2>
+						<ul>
+							<li>Control Name: <span class="highlight-sap-static">sap.ciconnect.Pipeline</span></li>
+							<li>Branch: <a href="https://github.wdf.sap.corp/ci-connect/pipeline-ui-poc/tree/poc/01/openui5-d3">poc/01/openui5-d3</a></li>
+							<li>File List:<ul>
+								<li>/src/control/<span class="highlight-sap-static">Pipeline.js</span></li>
+								<li>/src/control/<span class="highlight-sap-static">PipelineRenderer.js</span></li>
+								<li>/src/control/<span class="highlight-sap-static">Job.js</span></li>
+								<li>/src/control/<span class="highlight-sap-static">style.css</span></li>
+							</ul></li>
+							<li>How to use:<ul>
+								<li>/public/<span class="highlight-sap-static">index.html</span></li>
+								<li>/src/fragment/<span class="highlight-sap-static">RepoBadgeIcons.fragment.xml</span></li>
+							</ul></li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<h2><span class="highlight-react-static">React</span>: Usueful Links</h2>
+					<ul>
+						<li><a href="https://facebook.github.io/react/tutorial/tutorial.html#getting-started">Get Start Tutorial</a></li>
+					</ul>
+				</section>
+
+				<section>
+					<h2><span class="highlight-bo-static">Blue Ocean</span>: Useful Links</h2>
+					<ul>
+						<li><a href="https://jenkins.io/projects/blueocean/">Introduction of Jenkins Blue Ocean Theme</a></li>
+						<li><a href="https://github.com/jenkinsci/jenkins-design-language">Github Project as a Node Module</a></li>
+					</ul>
+				</section>
+				<section>
+					<section>
+						<h2>Run <span class="highlight-react-static">React</span> in <span class="highlight-sap-static"> SAPUI5</span>: Useful Links</h2>
+						<ul>
+							<li><a href="http://davidbcalhoun.com/2014/what-is-amd-commonjs-and-umd/">What is CommonJS AMD and UMD</a></li>
+							<li><a href="https://babeljs.io/docs/plugins/transform-es2015-modules-amd/">AMD plugin of Babel</a></li>
+							<li><a href="https://facebook.github.io/react/docs/react-without-jsx.html">REACT without JSX</a></li>
+							<li><a href="https://facebook.github.io/react/docs/react-without-es6.html">REACT without ES6</a></li>
+							<li><a href="http://www.ryadel.com/en/css-namespaces-avoid-conflict-style-sheets-files/">CSS Namespace</a></li>
+						</ul>
+					</section>
+					<section>
+						<h2>Run <span class="highlight-react-static">React</span> in <span class="highlight-sap-static"> SAPUI5</span>: PoCs</h2>
+						<ul>
+							<li><a href="https://github.wdf.sap.corp/ci-connect/pipeline-ui-poc/tree/poc/02/react-webpack-es6-jsx">PoC to consume BO controls in ES6+JSX</a></li>
+							<li><a href="https://github.wdf.sap.corp/ci-connect/pipeline-ui-poc/tree/poc/03/react-babel-es5">PoC to consume BO controls in ES5</a></li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<h2>Project Construct Tool</h2>
+					<ul>
+						<li><a href="http://gulpjs.com/">Gulp - task runner</a></li>
+						<li><a href="https://babeljs.io/">Babel - JS compiler</a></li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Build Automation</h2>
+				</section>
+
+				<section>
+					<h2>Deploy Automation</h2>
+				</section>
+
+				<section>
+					<h2>OData Module on NodeJS</h2>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>

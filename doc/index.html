@@ -7,8 +7,9 @@
 		<title>Pipeline PoC Presentation</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+		<link rel="stylesheet" href="css/theme/blood.css">
 		<link rel="stylesheet" href="css/pipeline.css">
+		<link rel="stylesheet" href="lib/bo/css/jenkins-design-language.css">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -28,27 +29,104 @@
 				<section>
 					<section>
 						<h1>Pipeline Viz PoC</h1>
-						<h4>A PoC based on <span class="fragment highlight-sap">SAPUI5</span> + Jenkins <span class="fragment highlight-bo">Blue Ocean</span> on <span class="fragment highlight-react">React</span></h4>
+						<h4>A PoC based on <span class="highlight-sap-static">SAPUI5</span> + Jenkins <span class="highlight-bo-static">Blue Ocean</span> on <span class="highlight-react-static">React</span></h4>
 						<p>
 							<small><a href="https://github.wdf.sap.corp/ci-connect/pipeline-ui-poc">Project on Enterprise Github</a></small>
 							<br/>
-							<small><a href="https://ciconnect-pipeline-web.cfapps.sap.hana.ondemand.com/public/">Deployment on Cloudfoundry</a></small>
+							<small><a href="https://ciconnect-pipeline-web.cfapps.sap.hana.ondemand.com/public/">Tab layout on Cloudfoundry</a></small>
+							<br/>
+							<small><a href="https://ciconnect-pipeline-web.cfapps.sap.hana.ondemand.com/public/#/one">Side-by-Side layout on Cloudfoundry</a></small>
 						</p>
+						<aside class="notes"><ul>Opening
+							<li>self introduce</li>
+							<li>highlight 3 colored words as mainly used techs</li>
+							<li>explain 3 linkages</li>
+						</ul></aside>
 					</section>
 					<section>
-						<h2>One Sentence for each Technologies</h2>
+						<h2><span class="highlight-sap-static">SAPUI5</span></h2>
+						<p>Sophiscated and open MVC framework with rich and well-designed <a href="http://veui5infra.dhcp.wdf.sap.corp:8080/sapui5-sdk-internal/explored.html">control library</a></p>
+						<img src="./img/sapui5.png" /><br/>
 						<ul>
-							<li><span class="highlight-sap-static">SAPUI5</span>: Sophiscated MVC framework with rich and well-designed control library</li>
-							<li><span class="highlight-bo-static">Blue Ocean</span>: Jenkins-specific and well-designed Pipeline controls</li>
-							<li><span class="highlight-react-static">React</span>: a populate 'V' framework on which <span class="highlight-bo-static">Blue Ocean</span> is built</li>
+						<span class="fragment highlight-current"><li>Easy to <a href="http://veui5infra.dhcp.wdf.sap.corp:8080/sapui5-sdk-internal/#docs/guide/91f1703b6f4d1014b6dd926db0e91070.html">extend Control Library</a>: Container, Button, Composite Control ...</li></span>
+						<span class="fragment highlight-current"><li>Build-in third-party libraries: <a href="http://jquery.com/">jQuery</a>, <a href="http://d3js.org">d3</a>, ...</li></span>
+						<span class="fragment highlight-current"><li>Open Icon Pool: <a href="https://github.com/primer/octicons">octicons</a>, <a href="https://github.com/FortAwesome/Font-Awesome">fontawsome</a>, ...</li></span>
+						<span class="fragment highlight-current"><li>Open to AMD/UMD: <a href="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.2/require.min.js">requireJS</a>, <a href="https://unpkg.com/react@15.3.2/dist/react.js">react</a>, <a href="https://unpkg.com/react-dom@15.3.2/dist/react-dom.js">reactDOM</a> ...</li></span>
+						<span class="fragment highlight-current"><li>Open to CommonJS with help of <a href="https://babeljs.io/">Babel</a>: <a href="https://github.com/jenkinsci/jenkins-design-language">jenkins-design-language</a>, ...</li></span>
 						</ul>
+						<aside class="notes"><ul>Explain why UI5
+							<li>emphasize on 'open', 'rich control'</li>
+							<li>click through items and explain</li>
+							<li>item 1: explain 'control'</li>
+							<li>item 2: their function, no need to import</li>
+							<li>item 4: open 'reactDOM' to explain modeul bundle, most popular libs are UMD, ui5 is "sap-made-amd"</li>
+							<li>item 5: babel is compiler, flex to compile ES6 -> AMD for using un-matured modules</li>
+							<li>conclude: all js, that's why open</li>
+						</ul></aside>
+					</aside>
+					</section>
+					<section>
+						<h2><span class="highlight-bo-static">Blue Ocean</span></h2>
+						<p>Jenkins-specific and well-designed Pipeline controls</p>
+						<div style="position: relative; width: 720px; height: 500px">
+
+							<svg style="position: absolute; top: 0px; left: 150px" width="600" height="260" class="jenkinsbo"><line class="pipeline-connector jenkinsbo" stroke-width="3.5" x1="70.25" y1="50" x2="169.75" y2="50"></line><line class="pipeline-connector jenkinsbo" stroke-width="3.5" x1="190.25" y1="50" x2="289.75" y2="50"></line><line class="pipeline-connector jenkinsbo" stroke-width="3.5" x1="310.25" y1="50" x2="409.75" y2="50"></line><line class="pipeline-connector jenkinsbo" stroke-width="3.5" x1="430.25" y1="50" x2="529.75" y2="50"></line><path class="pipeline-connector jenkinsbo" stroke-width="3.5" d="M 430.25 50 l 49.75 0 c 12 0 12 12 12 12 l 0 46 c 0 12 12 12 12 12 l 25.75 0" fill="none"></path><path class="pipeline-connector jenkinsbo" stroke-width="3.5" d="M 430.25 50 l 49.75 0 c 12 0 12 12 12 12 l 0 116 c 0 12 12 12 12 12 l 25.75 0" fill="none"></path><g transform="translate(60,50)" class="pipeline-node jenkinsbo"><g class="progress-spinner not_built jenkinsbo"><circle cx="0" cy="0" r="10.25" stroke-width="3.5" class="jenkinsbo"></circle><circle class="inner jenkinsbo" cx="0" cy="0" r="3.4166666666666665"></circle></g><circle r="19" cursor="pointer" class="pipeline-node-hittarget jenkinsbo" fill-opacity="0" stroke="none"></circle></g><g transform="translate(180,50)" class="pipeline-node jenkinsbo"><g class="progress-spinner not_built jenkinsbo"><circle cx="0" cy="0" r="10.25" stroke-width="3.5" class="jenkinsbo"></circle><circle class="inner jenkinsbo" cx="0" cy="0" r="3.4166666666666665"></circle></g><circle r="19" cursor="pointer" class="pipeline-node-hittarget jenkinsbo" fill-opacity="0" stroke="none"></circle></g><g transform="translate(300,50)" class="pipeline-node jenkinsbo"><g class="progress-spinner not_built jenkinsbo"><circle cx="0" cy="0" r="10.25" stroke-width="3.5" class="jenkinsbo"></circle><circle class="inner jenkinsbo" cx="0" cy="0" r="3.4166666666666665"></circle></g><circle r="19" cursor="pointer" class="pipeline-node-hittarget jenkinsbo" fill-opacity="0" stroke="none"></circle></g><g transform="translate(420,50)" class="pipeline-node jenkinsbo"><g class="progress-spinner not_built jenkinsbo"><circle cx="0" cy="0" r="10.25" stroke-width="3.5" class="jenkinsbo"></circle><circle class="inner jenkinsbo" cx="0" cy="0" r="3.4166666666666665"></circle></g><circle r="19" cursor="pointer" class="pipeline-node-hittarget jenkinsbo" fill-opacity="0" stroke="none"></circle></g><g transform="translate(540,50)" class="pipeline-node jenkinsbo"><g class="progress-spinner not_built jenkinsbo"><circle cx="0" cy="0" r="10.25" stroke-width="3.5" class="jenkinsbo"></circle><circle class="inner jenkinsbo" cx="0" cy="0" r="3.4166666666666665"></circle></g><circle r="19" cursor="pointer" class="pipeline-node-hittarget jenkinsbo" fill-opacity="0" stroke="none"></circle></g><g transform="translate(540,120)" class="pipeline-node jenkinsbo"><g class="progress-spinner not_built jenkinsbo"><circle cx="0" cy="0" r="10.25" stroke-width="3.5" class="jenkinsbo"></circle><circle class="inner jenkinsbo" cx="0" cy="0" r="3.4166666666666665"></circle></g><circle r="19" cursor="pointer" class="pipeline-node-hittarget jenkinsbo" fill-opacity="0" stroke="none"></circle></g><g transform="translate(540,190)" class="pipeline-node jenkinsbo"><g class="progress-spinner not_built jenkinsbo"><circle cx="0" cy="0" r="10.25" stroke-width="3.5" class="jenkinsbo"></circle><circle class="inner jenkinsbo" cx="0" cy="0" r="3.4166666666666665"></circle></g><circle r="19" cursor="pointer" class="pipeline-node-hittarget jenkinsbo" fill-opacity="0" stroke="none"></circle></g></svg>
+							
+							<svg style="position: absolute; top: 100px; left: 250px" width="200" height="65" class="jenkinsbo"><line class="pipeline-connector jenkinsbo" stroke-width="3.5" x1="28.25" y1="50" x2="51.75" y2="50"></line><line class="pipeline-connector jenkinsbo" stroke-width="3.5" x1="68.25" y1="50" x2="91.75" y2="50"></line><line class="pipeline-connector jenkinsbo" stroke-width="3.5" x1="108.25" y1="50" x2="131.75" y2="50"></line><line class="pipeline-connector jenkinsbo" stroke-width="3.5" x1="148.25" y1="50" x2="171.75" y2="50"></line><g transform="translate(20,50)" class="pipeline-node jenkinsbo"><g class="progress-spinner running jenkinsbo"><circle cx="0" cy="0" r="8.25" stroke-width="3.5" class="jenkinsbo"></circle><circle class="inner jenkinsbo" cx="0" cy="0" r="2.75"></circle><path class="running jenkinsbo" fill="none" stroke-width="3.5" d="M 7.846216259435017 -2.549390203593316 A 8.25 8.25 0 0 0 5.051668046482832e-16 -8.25"></path></g><circle r="17" cursor="pointer" class="pipeline-node-hittarget jenkinsbo" fill-opacity="0" stroke="none"></circle></g><g transform="translate(60,50)" class="pipeline-node jenkinsbo"><g class="progress-spinner running jenkinsbo"><circle cx="0" cy="0" r="8.25" stroke-width="3.5" class="jenkinsbo"></circle><circle class="inner jenkinsbo" cx="0" cy="0" r="2.75"></circle><path class="running jenkinsbo" fill="none" stroke-width="3.5" d="M 4.849228331412903 6.674390203593316 A 8.25 8.25 0 0 0 5.051668046482832e-16 -8.25"></path></g><circle r="17" cursor="pointer" class="pipeline-node-hittarget jenkinsbo" fill-opacity="0" stroke="none"></circle></g><g transform="translate(100,50)" class="pipeline-node jenkinsbo"><g class="progress-spinner running jenkinsbo"><circle cx="0" cy="0" r="8.25" stroke-width="3.5" class="jenkinsbo"></circle><circle class="inner jenkinsbo" cx="0" cy="0" r="2.75"></circle><path class="running jenkinsbo" fill="none" stroke-width="3.5" d="M -4.8492283314129025 6.674390203593316 A 8.25 8.25 0 1 0 5.051668046482832e-16 -8.25"></path></g><circle r="17" cursor="pointer" class="pipeline-node-hittarget jenkinsbo" fill-opacity="0" stroke="none"></circle></g><g transform="translate(140,50)" class="pipeline-node jenkinsbo"><g class="progress-spinner running jenkinsbo"><circle cx="0" cy="0" r="8.25" stroke-width="3.5" class="jenkinsbo"></circle><circle class="inner jenkinsbo" cx="0" cy="0" r="2.75"></circle><path class="running jenkinsbo" fill="none" stroke-width="3.5" d="M -7.846216259435017 -2.549390203593319 A 8.25 8.25 0 1 0 5.051668046482832e-16 -8.25"></path></g><circle r="17" cursor="pointer" class="pipeline-node-hittarget jenkinsbo" fill-opacity="0" stroke="none"></circle></g><g transform="translate(180,50)" class="pipeline-node jenkinsbo"><g class="progress-spinner running pc-over-100 jenkinsbo"><circle cx="0" cy="0" r="8.25" stroke-width="3.5" class="jenkinsbo"></circle><circle class="inner jenkinsbo" cx="0" cy="0" r="2.75"></circle></g><circle r="17" cursor="pointer" class="pipeline-node-hittarget jenkinsbo" fill-opacity="0" stroke="none"></circle></g></svg>
+
+							<svg style="position: absolute; top: 200px; left: 100px" width="720" height="330" class="jenkinsbo"><line class="pipeline-connector jenkinsbo" stroke-width="3.5" x1="70.25" y1="50" x2="169.75" y2="50"></line><line class="pipeline-connector jenkinsbo" stroke-width="3.5" x1="190.25" y1="50" x2="289.75" y2="50"></line><path class="pipeline-connector jenkinsbo" stroke-width="3.5" d="M 190.25 50 l 49.75 0 c 12 0 12 12 12 12 l 0 46 c 0 12 12 12 12 12 l 25.75 0" fill="none"></path><path class="pipeline-connector jenkinsbo" stroke-width="3.5" d="M 190.25 50 l 49.75 0 c 12 0 12 12 12 12 l 0 116 c 0 12 12 12 12 12 l 25.75 0" fill="none"></path><path class="pipeline-connector jenkinsbo" stroke-width="3.5" d="M 190.25 50 l 49.75 0 c 12 0 12 12 12 12 l 0 186 c 0 12 12 12 12 12 l 25.75 0" fill="none"></path><line class="pipeline-connector jenkinsbo" stroke-width="3.5" x1="310.25" y1="50" x2="409.75" y2="50"></line><path class="pipeline-connector jenkinsbo" stroke-width="3.5" d="M 310.25 120 l 25.75 0 c 12 0 12 -12 12 -12 l 0 -46 c 0 -12 12 -12 12 -12 l 49.75 0" fill="none"></path><path class="pipeline-connector jenkinsbo" stroke-width="3.5" d="M 310.25 190 l 25.75 0 c 12 0 12 -12 12 -12 l 0 -116 c 0 -12 12 -12 12 -12 l 49.75 0" fill="none"></path><path class="pipeline-connector jenkinsbo" stroke-width="3.5" d="M 310.25 260 l 25.75 0 c 12 0 12 -12 12 -12 l 0 -186 c 0 -12 12 -12 12 -12 l 49.75 0" fill="none"></path><line class="pipeline-connector jenkinsbo" stroke-width="3.5" x1="430.25" y1="50" x2="529.75" y2="50"></line><line class="pipeline-connector jenkinsbo" stroke-width="3.5" x1="550.25" y1="50" x2="649.75" y2="50"></line><g transform="translate(60,50)" class="pipeline-node jenkinsbo"><g class="progress-spinner not_built jenkinsbo"><circle cx="0" cy="0" r="10.25" stroke-width="3.5" class="jenkinsbo"></circle><circle class="inner jenkinsbo" cx="0" cy="0" r="3.4166666666666665"></circle></g><circle r="19" cursor="pointer" class="pipeline-node-hittarget jenkinsbo" fill-opacity="0" stroke="none"></circle></g><g transform="translate(180,50)" class="pipeline-node jenkinsbo"><g class="progress-spinner not_built jenkinsbo"><circle cx="0" cy="0" r="10.25" stroke-width="3.5" class="jenkinsbo"></circle><circle class="inner jenkinsbo" cx="0" cy="0" r="3.4166666666666665"></circle></g><circle r="19" cursor="pointer" class="pipeline-node-hittarget jenkinsbo" fill-opacity="0" stroke="none"></circle></g><g transform="translate(300,50)" class="pipeline-node jenkinsbo"><g class="progress-spinner not_built jenkinsbo"><circle cx="0" cy="0" r="10.25" stroke-width="3.5" class="jenkinsbo"></circle><circle class="inner jenkinsbo" cx="0" cy="0" r="3.4166666666666665"></circle></g><circle r="19" cursor="pointer" class="pipeline-node-hittarget jenkinsbo" fill-opacity="0" stroke="none"></circle></g><g transform="translate(300,120)" class="pipeline-node jenkinsbo"><g class="progress-spinner not_built jenkinsbo"><circle cx="0" cy="0" r="10.25" stroke-width="3.5" class="jenkinsbo"></circle><circle class="inner jenkinsbo" cx="0" cy="0" r="3.4166666666666665"></circle></g><circle r="19" cursor="pointer" class="pipeline-node-hittarget jenkinsbo" fill-opacity="0" stroke="none"></circle></g><g transform="translate(300,190)" class="pipeline-node jenkinsbo"><g class="progress-spinner not_built jenkinsbo"><circle cx="0" cy="0" r="10.25" stroke-width="3.5" class="jenkinsbo"></circle><circle class="inner jenkinsbo" cx="0" cy="0" r="3.4166666666666665"></circle></g><circle r="19" cursor="pointer" class="pipeline-node-hittarget jenkinsbo" fill-opacity="0" stroke="none"></circle></g><g transform="translate(300,260)" class="pipeline-node jenkinsbo"><g class="progress-spinner not_built jenkinsbo"><circle cx="0" cy="0" r="10.25" stroke-width="3.5" class="jenkinsbo"></circle><circle class="inner jenkinsbo" cx="0" cy="0" r="3.4166666666666665"></circle></g><circle r="19" cursor="pointer" class="pipeline-node-hittarget jenkinsbo" fill-opacity="0" stroke="none"></circle></g><g transform="translate(420,50)" class="pipeline-node jenkinsbo"><g class="progress-spinner not_built jenkinsbo"><circle cx="0" cy="0" r="10.25" stroke-width="3.5" class="jenkinsbo"></circle><circle class="inner jenkinsbo" cx="0" cy="0" r="3.4166666666666665"></circle></g><circle r="19" cursor="pointer" class="pipeline-node-hittarget jenkinsbo" fill-opacity="0" stroke="none"></circle></g><g transform="translate(540,50)" class="pipeline-node jenkinsbo"><g class="progress-spinner not_built jenkinsbo"><circle cx="0" cy="0" r="10.25" stroke-width="3.5" class="jenkinsbo"></circle><circle class="inner jenkinsbo" cx="0" cy="0" r="3.4166666666666665"></circle></g><circle r="19" cursor="pointer" class="pipeline-node-hittarget jenkinsbo" fill-opacity="0" stroke="none"></circle></g><g transform="translate(660,50)" class="pipeline-node jenkinsbo"><g class="progress-spinner not_built jenkinsbo"><circle cx="0" cy="0" r="10.25" stroke-width="3.5" class="jenkinsbo"></circle><circle class="inner jenkinsbo" cx="0" cy="0" r="3.4166666666666665"></circle></g><circle r="19" cursor="pointer" class="pipeline-node-hittarget jenkinsbo" fill-opacity="0" stroke="none"></circle></g></svg>
+						</div>
+						<aside class="notes"><ul>Explain why bo
+							<li>specific for jenkins pipelines</li>
+							<li>editor to come</li>
+							<li>SVG</li>
+						</ul></aside>
+					</section>
+					<section>
+						<h2><span class="highlight-react-static">React</span></h2>
+						<p>a facebook 'V' framework on which <span class="highlight-bo-static">Blue Ocean</span> is built</p>
+						<img src="./img/react.svg" width="100px"/>
+						<p>Since it's only 'v', simply write a control wrapper to integrate to UI5 MVC</p>
+						</ul>
+						<aside class="notes"><ul>Explain a little about REACT
+							<li>facebook has Redux to cover M and C part</li>
+							<li>only 'v', wrapper is just a control, similar to the way to integrate jQuery and D3</li>
+						</ul></aside>
 					</section>
 				</section>
 
 				<section>
 					<section>
-						<h2><span class="highlight-sap-static">SAPUI5</span>: UI Design</h2>
+						<h2>Requirements</h2>
+						<ul>
+							<li>A Marketplace for Pipelines</li>
+							<li>An editable list of repositories, data source from enterprise Github and Git/Gerrit</li>
+							<li>Pipeline to Repository assignment</li>
+							<li>Easy to Use</li>
+							<li>Rich Information per Item</li>
+						</ul>
 					</section>
+					<section>
+						<h3>Pipelines Marketplace</h3>
+						<div class="box" style="height: 500px">
+						  <div class="row">
+						    <span class="item"></span>
+						    <span class="item"></span>
+						    <span class="item"></span>
+						  </div>
+						  <div class="row">
+						    <span class="item"></span>
+						  </div>
+						</div>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2><span class="highlight-sap-static">SAPUI5</span>: Page Design</h2>
+						<img src="" />
+					</section>
+
 					<section>
 						<h2><span class="highlight-sap-static">SAPUI5</span>: Useful Links</h2>
 						<ul>
@@ -58,100 +136,8 @@
 							<li><a href="http://veui5infra.dhcp.wdf.sap.corp:8080/sapui5-sdk-internal/#docs/guide/1b6dcd39a6a74f528b27ddb22f15af0d.html">Navigation and Routing</a></li>
 						</ul>
 					</section>
-
-					<section>
-						<h2><span class="highlight-sap-static">SAPUI5</span>: Folder Structure</h2>
-						<ul>
-							<li><span class="highlight-sap-static">/web/data/</span>: contains PoC test data in JSON <span class="fragment current-visible" style="color:#1b91ff">M</span></li>
-							<li><span class="highlight-sap-static">/web/public/</span>: contains bootstrap index.html</li>
-							<li><span class="highlight-sap-static">/web/src/control/</span>: contains reusable controls <span class="fragment current-visible" style="color:#1b91ff">V</span></li>
-							<li><span class="highlight-sap-static">/web/src/controller/</span>: contains controllers for data loading, event handling etc. <span class="fragment current-visible" style="color:#1b91ff">C</span></li>
-							<li><span class="highlight-sap-static">/web/src/fragment/</span>: contains reusable xml fragments <span class="fragment current-visible" style="color:#1b91ff">V</span></li>
-							<li><span class="highlight-sap-static">/web/src/less/</span>: contains style sheets in less and css <span class="fragment current-visible" style="color:#1b91ff">V</span></li>
-							<li><span class="highlight-sap-static">/web/src/model/</span>: contains model formatter class <span class="fragment current-visible" style="color:#1b91ff">M</span></li>
-							<li><span class="highlight-sap-static">/web/src/svg/</span>: contains svg artifacts <span class="fragment current-visible" style="color:#1b91ff">V</span></li>
-							<li><span class="highlight-sap-static">/web/src/view/</span>: contains xml views <span class="fragment current-visible" style="color:#1b91ff">V</span></li>
-						</ul>
-					</section>
-					
-					<section>
-						<h2><span class="highlight-sap-static">SAPUI5</span>: Bootstrap</h2>
-						<p><small>in File: /web/public/index.html</small></p>
-						<pre><code class="hlhtml" data-trim contenteditable>
-<script id='sap-ui-bootstrap'
-	src='https://sapui5.hana.ondemand.com/resources/sap-ui-core.js'
-	data-sap-ui-theme='sap_belize_plus'
-	data-sap-ui-libs='sap.m'
-	data-sap-ui-compatVersion='edge'
-	data-sap-ui-preload='async'
-	data-sap-ui-resourceroots='{
-	"sap.ciconnect": "./../src",
-	"sap.ciconnect.model": "./../src/model",
-	"sap.ciconnect.view": "./../src/view",
-	"sap.ciconnect.controller": "./../src/controller",
-	"sap.ciconnect.fragment": "./../src/fragment",
-	"sap.ciconnect.view.repoblock": "./../src/view/repoblock",
-	"sap.ciconnect.control": "./../src/control",
-	"require": "https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.2/require.min"
-	}'>
-</script>
-					</code></pre>
-					</section>
-
-					<section>
-						<h2><span class="highlight-sap-static">SAPUI5</span>: View & Routing</h2>
-						<img src="./vsd/02.view.PNG" />
-					</section>
-
-					<section>
-						<h2><span class="highlight-sap-static">SAPUI5</span>: Control</h2>
-						<ul>
-							<li>Control Name: <span class="highlight-sap-static">sap.ciconnect.SvgIcon</span></li>
-							<li>File List:<ul>
-								<li>/web/src/control/<span class="highlight-sap-static">SvgIcon.js</span></li>
-								<li>/web/src/control/<span class="highlight-sap-static">SvgIconRenderer.js</span></li>
-								<li>/web/src/less/<span class="highlight-sap-static">control.css</span></li>
-							</ul></li>
-							<li>How to use:<ul>
-								<li>/public/<span class="highlight-sap-static">index.html</span></li>
-								<li>/src/fragment/<span class="highlight-sap-static">RepoBadgeIcons.fragment.xml</span></li>
-							</ul></li>
-						</ul>
-					</section>
-
-					<section>
-						<h2><span class="highlight-sap-static">SAPUI5</span>: Control</h2>
-						<ul>
-							<li>Control Name: <span class="highlight-sap-static">sap.ciconnect.Pipeline</span></li>
-							<li>Branch: <a href="https://github.wdf.sap.corp/ci-connect/pipeline-ui-poc/tree/poc/01/openui5-d3">poc/01/openui5-d3</a></li>
-							<li>File List:<ul>
-								<li>/src/control/<span class="highlight-sap-static">Pipeline.js</span></li>
-								<li>/src/control/<span class="highlight-sap-static">PipelineRenderer.js</span></li>
-								<li>/src/control/<span class="highlight-sap-static">Job.js</span></li>
-								<li>/src/control/<span class="highlight-sap-static">style.css</span></li>
-							</ul></li>
-							<li>How to use:<ul>
-								<li>/public/<span class="highlight-sap-static">index.html</span></li>
-								<li>/src/fragment/<span class="highlight-sap-static">RepoBadgeIcons.fragment.xml</span></li>
-							</ul></li>
-						</ul>
-					</section>
 				</section>
 
-				<section>
-					<h2><span class="highlight-react-static">React</span>: Usueful Links</h2>
-					<ul>
-						<li><a href="https://facebook.github.io/react/tutorial/tutorial.html#getting-started">Get Start Tutorial</a></li>
-					</ul>
-				</section>
-
-				<section>
-					<h2><span class="highlight-bo-static">Blue Ocean</span>: Useful Links</h2>
-					<ul>
-						<li><a href="https://jenkins.io/projects/blueocean/">Introduction of Jenkins Blue Ocean Theme</a></li>
-						<li><a href="https://github.com/jenkinsci/jenkins-design-language">Github Project as a Node Module</a></li>
-					</ul>
-				</section>
 				<section>
 					<section>
 						<h2>Run <span class="highlight-react-static">React</span> in <span class="highlight-sap-static"> SAPUI5</span>: Useful Links</h2>

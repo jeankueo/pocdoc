@@ -1,0 +1,2101 @@
+.jenkinsbo {
+  /*!
+* Jenkins Design Language CSS Theme
+*
+* Licensed under MIT
+*/
+  /*
+    Styles for the pipeline result status displays used in both build/branch lists, and
+    within the PipelineGraph component.
+*/
+}
+.jenkinsbo .weather-icon {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.jenkinsbo .weather-icon.large-icon {
+  width: 60px;
+  height: 60px;
+}
+.jenkinsbo .jdl-table td .weather-icon {
+  vertical-align: middle;
+}
+.jenkinsbo.weather-sunny {
+  background-image: url("../icons/weather/Sunny.svg");
+}
+.jenkinsbo.weather-partially-sunny {
+  background-image: url("../icons/weather/Partially%20Sunny.svg");
+}
+.jenkinsbo.weather-cloudy {
+  background-image: url("../icons/weather/Cloudy.svg");
+}
+.jenkinsbo.weather-raining {
+  background-image: url("../icons/weather/Raining.svg");
+}
+.jenkinsbo.weather-storm {
+  background-image: url("../icons/weather/Storm.svg");
+}
+.jenkinsbo .empty-state {
+  display: flex;
+  justify-content: center;
+}
+.jenkinsbo .empty-state .empty-state-container {
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+  min-width: 40rem;
+  max-width: 80rem;
+  padding: 4rem 4rem;
+  margin: 4rem 4rem;
+  border-radius: 2px;
+  background-image: linear-gradient(90deg, #49A3E0 0%, #4AC2E2 100%);
+}
+.jenkinsbo .empty-state .empty-state-container .empty-state-icon {
+  margin-right: 3rem;
+  display: block;
+  width: 150px;
+  height: 150px;
+  padding-left: 150px;
+}
+.jenkinsbo .empty-state .empty-state-container .empty-state-icon.branch {
+  background: url("../icons/nounproject/branch.svg") no-repeat right center;
+}
+.jenkinsbo .empty-state .empty-state-container .empty-state-icon.goat {
+  background: url("../icons/nounproject/goat.svg") no-repeat right center;
+}
+.jenkinsbo .empty-state .empty-state-container .empty-state-icon.shoes {
+  background: url("../icons/nounproject/shoes.svg") no-repeat right center;
+}
+.jenkinsbo .empty-state .empty-state-container .empty-state-content {
+  color: white;
+  max-width: 40rem;
+}
+.jenkinsbo .empty-state .empty-state-container .empty-state-content h1 {
+  font-size: 2.4rem;
+}
+.jenkinsbo .empty-state .empty-state-container .empty-state-content button,
+.jenkinsbo .empty-state .empty-state-container .empty-state-content a {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  font-family: "LatoLatinWebSemibold", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  border: solid 1px white;
+  border-radius: 3px;
+  text-align: center;
+  text-decoration: none;
+  background-color: white;
+  color: #49A3E0;
+  cursor: pointer;
+  min-width: 130px;
+}
+.jenkinsbo .empty-state .empty-state-container .empty-state-content button:hover,
+.jenkinsbo .empty-state .empty-state-container .empty-state-content a:hover,
+.jenkinsbo .empty-state .empty-state-container .empty-state-content button:focus,
+.jenkinsbo .empty-state .empty-state-container .empty-state-content a:focus,
+.jenkinsbo .empty-state .empty-state-container .empty-state-content button:active,
+.jenkinsbo .empty-state .empty-state-container .empty-state-content a:active,
+.jenkinsbo .empty-state .empty-state-container .empty-state-content button.active,
+.jenkinsbo .empty-state .empty-state-container .empty-state-content a.active {
+  background-color: white;
+  border-color: #e0e0e0;
+  color: #49A3E0;
+  text-decoration: none;
+}
+.jenkinsbo .empty-state .empty-state-container .empty-state-content button.disabled,
+.jenkinsbo .empty-state .empty-state-container .empty-state-content a.disabled,
+.jenkinsbo .empty-state .empty-state-container .empty-state-content button[disabled],
+.jenkinsbo .empty-state .empty-state-container .empty-state-content a[disabled],
+fieldset[disabled] .jenkinsbo .empty-state .empty-state-container .empty-state-content button,
+fieldset[disabled] .jenkinsbo .empty-state .empty-state-container .empty-state-content a,
+.jenkinsbo .empty-state .empty-state-container .empty-state-content button.disabled:hover,
+.jenkinsbo .empty-state .empty-state-container .empty-state-content a.disabled:hover,
+.jenkinsbo .empty-state .empty-state-container .empty-state-content button[disabled]:hover,
+.jenkinsbo .empty-state .empty-state-container .empty-state-content a[disabled]:hover,
+fieldset[disabled] .jenkinsbo .empty-state .empty-state-container .empty-state-content button:hover,
+fieldset[disabled] .jenkinsbo .empty-state .empty-state-container .empty-state-content a:hover,
+.jenkinsbo .empty-state .empty-state-container .empty-state-content button.disabled:focus,
+.jenkinsbo .empty-state .empty-state-container .empty-state-content a.disabled:focus,
+.jenkinsbo .empty-state .empty-state-container .empty-state-content button[disabled]:focus,
+.jenkinsbo .empty-state .empty-state-container .empty-state-content a[disabled]:focus,
+fieldset[disabled] .jenkinsbo .empty-state .empty-state-container .empty-state-content button:focus,
+fieldset[disabled] .jenkinsbo .empty-state .empty-state-container .empty-state-content a:focus,
+.jenkinsbo .empty-state .empty-state-container .empty-state-content button.disabled.focus,
+.jenkinsbo .empty-state .empty-state-container .empty-state-content a.disabled.focus,
+.jenkinsbo .empty-state .empty-state-container .empty-state-content button[disabled].focus,
+.jenkinsbo .empty-state .empty-state-container .empty-state-content a[disabled].focus,
+fieldset[disabled] .jenkinsbo .empty-state .empty-state-container .empty-state-content button.focus,
+fieldset[disabled] .jenkinsbo .empty-state .empty-state-container .empty-state-content a.focus,
+.jenkinsbo .empty-state .empty-state-container .empty-state-content button.disabled:active,
+.jenkinsbo .empty-state .empty-state-container .empty-state-content a.disabled:active,
+.jenkinsbo .empty-state .empty-state-container .empty-state-content button[disabled]:active,
+.jenkinsbo .empty-state .empty-state-container .empty-state-content a[disabled]:active,
+fieldset[disabled] .jenkinsbo .empty-state .empty-state-container .empty-state-content button:active,
+fieldset[disabled] .jenkinsbo .empty-state .empty-state-container .empty-state-content a:active,
+.jenkinsbo .empty-state .empty-state-container .empty-state-content button.disabled.active,
+.jenkinsbo .empty-state .empty-state-container .empty-state-content a.disabled.active,
+.jenkinsbo .empty-state .empty-state-container .empty-state-content button[disabled].active,
+.jenkinsbo .empty-state .empty-state-container .empty-state-content a[disabled].active,
+fieldset[disabled] .jenkinsbo .empty-state .empty-state-container .empty-state-content button.active,
+fieldset[disabled] .jenkinsbo .empty-state .empty-state-container .empty-state-content a.active {
+  opacity: 0.4;
+}
+.jenkinsbo .empty-state .empty-state-container.tight-spacing {
+  padding: 0.5rem 0;
+}
+.jenkinsbo .result-status-glyph {
+  stroke: none;
+  fill: #fff;
+}
+.jenkinsbo .svgResultStatus.no-background .circle-bg {
+  opacity: 0;
+}
+.jenkinsbo .svgResultStatus circle.success {
+  stroke: none;
+  fill: #8CC04F;
+}
+.jenkinsbo .svgResultStatus circle.aborted,
+.jenkinsbo .svgResultStatus circle.failure {
+  stroke: none;
+  fill: #D54C53;
+}
+.jenkinsbo .svgResultStatus circle.unstable {
+  stroke: none;
+  fill: #F6B44B;
+}
+.jenkinsbo .svgResultStatus circle.not_built {
+  stroke: none;
+  fill: #949393;
+}
+.jenkinsbo .svgResultStatus circle.unknown {
+  stroke: none;
+  fill: #D54CC4;
+}
+.jenkinsbo .jdl-table td .svgResultStatus {
+  vertical-align: middle;
+}
+.jenkinsbo .progress-spinner.running circle {
+  fill: none;
+  stroke: #a7c7f2;
+}
+.jenkinsbo .progress-spinner.running path {
+  fill: none;
+  stroke: #1D7DCF;
+}
+.jenkinsbo .progress-spinner.pc-over-100 circle {
+  fill: none;
+  stroke: #1D7DCF;
+}
+.jenkinsbo .progress-spinner.pc-over-100 path {
+  fill: none;
+  stroke: #F6B44B;
+}
+.jenkinsbo .inverse .progress-spinner.running circle {
+  fill: none;
+  stroke: #4C9BD5;
+}
+.jenkinsbo .inverse .progress-spinner.running path {
+  fill: none;
+  stroke: white;
+}
+.jenkinsbo .inverse .progress-spinner.running circle.inner {
+  fill: #4C9BD5;
+  stroke: #4C9BD5;
+}
+.jenkinsbo .progress-spinner circle.inner,
+.jenkinsbo .progress-spinner.running.spin circle.inner {
+  display: none;
+  animation: progress-spinner-pulsate 1.2s ease-out;
+  animation-iteration-count: infinite;
+  opacity: 0;
+}
+.jenkinsbo .progress-spinner.running circle.inner {
+  display: block;
+  fill: #4C9BD5;
+  stroke: #4C9BD5;
+}
+@keyframes progress-spinner-pulsate {
+  0% {
+    transform: scale(0.1, 0.1);
+    opacity: 0.0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.2, 1.2);
+    opacity: 0.0;
+  }
+}
+.jenkinsbo .progress-spinner.queued circle {
+  fill: none;
+  stroke: #949393;
+}
+.jenkinsbo .progress-spinner.queued circle.inner {
+  display: block;
+  fill: #949393;
+  stroke: #949393;
+}
+.jenkinsbo .pipeline-result .progress-spinner.queued circle {
+  fill: none;
+  stroke: #fff;
+}
+.jenkinsbo .pipeline-result .progress-spinner.queued circle.inner {
+  display: block;
+  fill: #fff;
+  stroke: #fff;
+}
+.jenkinsbo .pipeline-result .svgResultStatus {
+  width: 70px;
+  height: 70px;
+}
+.jenkinsbo .empty-state-content svg {
+  vertical-align: middle;
+}
+.jenkinsbo .empty-state-content > span {
+  padding-left: 15px;
+}
+.jenkinsbo .progress-spinner.queued path {
+  fill: none;
+  stroke: none;
+}
+.jenkinsbo .progress-spinner.not_built circle {
+  fill: none;
+  stroke: #949393;
+}
+.jenkinsbo .progress-spinner.not_built path {
+  fill: none;
+  stroke: none;
+}
+.jenkinsbo .result-bg.success {
+  background: #8CC04F;
+  border-bottom: 1px solid rgba(114, 162, 58, 0.5);
+}
+.jenkinsbo .result-bg.aborted,
+.jenkinsbo .result-bg.failure {
+  background: #D54C53;
+  border-bottom: 1px solid rgba(193, 45, 53, 0.5);
+}
+.jenkinsbo .result-bg.not_built,
+.jenkinsbo .result-bg.queued {
+  background: #949393;
+  border-bottom: 1px solid rgba(123, 121, 121, 0.5);
+}
+.jenkinsbo .result-bg.running {
+  background: #1D7DCF;
+  border-bottom: 1px solid rgba(23, 98, 162, 0.5);
+}
+.jenkinsbo .result-bg.unstable {
+  background: #F6B44B;
+  border-bottom: 1px solid rgba(244, 160, 26, 0.5);
+}
+.jenkinsbo .result-bg.unknown {
+  background: #D54CC4;
+  border-bottom: 1px solid rgba(193, 45, 174, 0.5);
+}
+.jenkinsbo .result-item + .result-item .result-item-head {
+  border-top: 0;
+}
+.jenkinsbo .result-item-head {
+  display: flex;
+  align-items: stretch;
+  cursor: pointer;
+  border: solid 1px #eeeeee;
+}
+.jenkinsbo .result-item-icon {
+  display: flex;
+  align-items: flex-start;
+  margin: -1px 0 -1px -1px;
+}
+.jenkinsbo .result-item-title {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+}
+.jenkinsbo .result-item-extra-info {
+  padding-right: 0.6em;
+}
+.jenkinsbo .result-item-label {
+  flex: 1 1 auto;
+  font-family: "LatoLatinWeb", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.jenkinsbo .result-item-head:hover {
+  background: #f8f8f8;
+}
+.jenkinsbo .result-item-expando {
+  cursor: pointer;
+}
+.jenkinsbo .expando-glyph {
+  transform: rotate(0deg);
+  transition: transform 150ms ease-in;
+  fill: #4A4A4A;
+}
+.jenkinsbo .result-item-expando.expanded .expando-glyph {
+  transform: rotate(90deg);
+  transition: transform 150ms ease-in;
+}
+.jenkinsbo .result-item-expando.disabled .expando-glyph {
+  opacity: 0.3;
+}
+.jenkinsbo .result-item-children {
+  background-color: #333333;
+  color: #f5f5f5;
+  padding: 0.5em;
+  margin-bottom: 1px;
+  border-left: solid 28px #262626;
+}
+.jenkinsbo .slide-down-enter,
+.jenkinsbo .slide-down-appear {
+  max-height: 0;
+  overflow: hidden;
+}
+.jenkinsbo .slide-down-enter.slide-down-enter-active,
+.jenkinsbo .slide-down-appear.slide-down-appear-active {
+  max-height: 600px;
+  transition: all 300ms ease-in;
+}
+.jenkinsbo .slide-down-leave {
+  max-height: 600px;
+  overflow: hidden;
+}
+.jenkinsbo .slide-down-leave.slide-down-leave-active {
+  max-height: 0;
+  transition: all 300ms ease-out;
+}
+.jenkinsbo .pipeline-connector {
+  stroke: #949393;
+}
+.jenkinsbo .pipeline-small-label {
+  font-size: 80%;
+}
+.jenkinsbo .pipeline-big-label.selected,
+.jenkinsbo .pipeline-small-label.selected {
+  font-weight: bold;
+}
+.jenkinsbo .pipeline-selection-highlight circle {
+  fill: none;
+  stroke: #949393;
+}
+.jenkinsbo .favorite {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  overflow: hidden;
+  cursor: pointer;
+}
+.jenkinsbo .favorite input[type="checkbox"] {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+.jenkinsbo .favorite .star-icon {
+  display: block;
+}
+.jenkinsbo .favorite input[type="checkbox"]:checked + .star-icon {
+  transform: translate(-264px, 0px);
+  transition: 0.3s steps(11);
+}
+.jenkinsbo .favorite:hover .star-empty {
+  fill: #1b5dab;
+}
+.jenkinsbo .favorite:hover .star-filled {
+  fill: #aa6d08;
+}
+.jenkinsbo .favorite.dark-yellow .star-empty {
+  fill: #FFF;
+}
+.jenkinsbo .favorite.dark-yellow:hover .star-empty {
+  fill: #cccccc;
+}
+.jenkinsbo .favorite.dark-yellow:hover .start-filled {
+  fill: #aa6d08;
+}
+.jenkinsbo .favorite.dark-white path[fill='#4a90e2'],
+.jenkinsbo .favorite.dark-white path[fill='#4A90E2'],
+.jenkinsbo .favorite.dark-white path[fill='#f5a623'],
+.jenkinsbo .favorite.dark-white path[fill='#F5A623'] {
+  fill: #FFF;
+}
+.jenkinsbo .favorite.dark-white circle[stroke='#f5a623'],
+.jenkinsbo .favorite.dark-white circle[stroke='#F5A623'] {
+  stroke: #FFF;
+}
+.jenkinsbo .favorite.dark-white:hover .star-empty {
+  fill: #cccccc;
+}
+.jenkinsbo .favorite.dark-white:hover .star-filled {
+  fill: #cccccc;
+}
+.jenkinsbo .pipeline-result {
+  width: 100%;
+  display: flex;
+  font-family: "LatoLatinWeb", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #ffffff;
+}
+.jenkinsbo .pipeline-result h4 {
+  font-size: 1.8rem;
+  margin: 10px 0;
+}
+.jenkinsbo .pipeline-result h4 a {
+  color: white;
+  cursor: pointer;
+}
+.jenkinsbo .pipeline-result .status {
+  align-items: center;
+  display: flex;
+  margin: 10px 25px 0 0;
+}
+.jenkinsbo .pipeline-result .table {
+  flex-grow: 1;
+}
+.jenkinsbo .pipeline-result .row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.jenkinsbo .pipeline-result .commons {
+  min-width: 0;
+  flex-basis: 75%;
+}
+.jenkinsbo .pipeline-result .commons div {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.jenkinsbo .pipeline-result .commons label {
+  display: inline-block;
+  width: 100px;
+}
+.jenkinsbo .pipeline-result .commit {
+  font-family: "Source Code Pro", Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+.jenkinsbo .pipeline-result .authors {
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+}
+.jenkinsbo .pipeline-result .times {
+  margin-left: auto;
+  width: 25%;
+}
+.jenkinsbo .pipeline-result .times svg {
+  margin-right: 10px;
+}
+.jenkinsbo .pipeline-result .times span,
+.jenkinsbo .pipeline-result .times time {
+  vertical-align: top;
+}
+.jenkinsbo .jdl-table.fixed {
+  table-layout: fixed;
+}
+.jenkinsbo .jdl-table th,
+.jenkinsbo .jdl-table td {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-right: 0.8em;
+}
+.jenkinsbo .toaster {
+  width: 100%;
+  height: 100%;
+}
+.jenkinsbo .toaster .toast {
+  margin-bottom: 10px;
+}
+.jenkinsbo .toaster > span {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-start;
+  align-items: flex-start;
+  overflow-y: hidden;
+}
+.jenkinsbo .toast {
+  display: inline-flex;
+  max-width: 350px;
+  flex-shrink: 0;
+  padding: 20px;
+  background-color: #4A4A4A;
+  border-radius: 4px;
+  /* TODO: get proper values from updated sketch file */
+  -webkit-box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.5);
+  box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.5);
+}
+.jenkinsbo .toast .text,
+.jenkinsbo .toast .action,
+.jenkinsbo .toast .dismiss {
+  align-self: center;
+}
+.jenkinsbo .toast .text {
+  font-family: "LatoLatinWebMedium", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: white;
+  max-height: 85px;
+  overflow: hidden;
+}
+.jenkinsbo .toast .action,
+.jenkinsbo .toast .dismiss {
+  cursor: pointer;
+}
+.jenkinsbo .toast .action:hover,
+.jenkinsbo .toast .dismiss:hover {
+  text-decoration: none;
+}
+.jenkinsbo .toast .action {
+  margin: 0 20px;
+  text-transform: uppercase;
+}
+.jenkinsbo .toast .dismiss {
+  color: white;
+}
+.jenkinsbo .toast .dismiss svg {
+  vertical-align: middle;
+}
+.jenkinsbo .toast-enter,
+.jenkinsbo .toast-appear {
+  opacity: 0.01;
+}
+.jenkinsbo .toast-enter.toast-enter-active,
+.jenkinsbo .toast-appear.toast-appear-active {
+  opacity: 1;
+  transition: all 300ms ease-in;
+}
+.jenkinsbo .toast-leave {
+  opacity: 1;
+  max-height: 150px;
+}
+.jenkinsbo .toast-leave.toast-leave-active {
+  opacity: 0.01;
+  max-height: 0;
+  transition: all 300ms ease-in;
+}
+.jenkinsbo .progress-container {
+  width: 100%;
+  height: 5px;
+}
+.jenkinsbo .progress-container line {
+  stroke-width: 5px;
+}
+.jenkinsbo .progress-container line.progress-bg {
+  stroke: #a7c7f2;
+  z-index: 0;
+}
+.jenkinsbo .progress-container line.progress-bar {
+  stroke: #4A90E2;
+}
+@keyframes slidein {
+  from {
+    transform: translate(0, 0) scale(2, 1);
+    -webkit-transform: translate(0, 0) scale(2, 1);
+    -o-transform: translate(0, 0) scale(2, 1);
+    -moz-transform: translate(0, 0) scale(2, 1);
+  }
+  100% {
+    transform: translate(100px, 0) scale(1);
+    -webkit-transform: translate(100px, 0) scale(1);
+    -o-transform: translate(100px, 0) scale(1);
+    -moz-transform: translate(100px, 0) scale(1);
+  }
+}
+@keyframes bounce {
+  from {
+    transform: translate(0, 0);
+    -webkit-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+    -moz-transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(90px, 0) scale(1);
+    -webkit-transform: translate(90px, 0) scale(1);
+    -o-transform: translate(90px, 0) scale(1);
+    -moz-transform: translate(90px, 0) scale(1);
+  }
+  to {
+    transform: translate(0, 0);
+    -webkit-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+    -moz-transform: translate(0, 0);
+  }
+}
+.jenkinsbo .progress-container.indeterminate line.progress-bar {
+  z-index: 10;
+  animation-duration: 1s;
+  animation-name: slidein;
+  animation-iteration-count: infinite;
+}
+.jenkinsbo .progress-container.bounce line.progress-bar {
+  z-index: 10;
+  animation-duration: 3s;
+  animation-name: bounce;
+  animation-iteration-count: infinite;
+}
+.jenkinsbo html {
+  font-size: 62.5%;
+}
+.jenkinsbo #root {
+  font-size: 1.4rem;
+}
+.jenkinsbo body {
+  color: #4A4A4A;
+  text-rendering: optimizeSpeed;
+  font-feature-settings: "kern" on, "liga" off;
+  -moz-font-feature-settings: "kern" on, "liga" off;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.jenkinsbo * {
+  box-sizing: border-box;
+}
+.jenkinsbo h1,
+.jenkinsbo h2,
+.jenkinsbo h3,
+.jenkinsbo h4,
+.jenkinsbo h5,
+.jenkinsbo h6 {
+  font-size: 100%;
+  font-family: "LatoLatinWebLight", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+.jenkinsbo h1 {
+  font-size: 36px;
+  font-family: "LatoLatinWeb", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  letter-spacing: 1.1px;
+}
+.jenkinsbo h2 {
+  font-size: 30px;
+}
+.jenkinsbo h3 {
+  font-size: 24px;
+}
+.jenkinsbo h4 {
+  font-size: 18px;
+}
+.jenkinsbo h5 {
+  font-size: 14px;
+}
+.jenkinsbo h6 {
+  font-size: 12px;
+}
+.jenkinsbo .success-bg {
+  background-color: #4A9900;
+}
+.jenkinsbo .success-bg-lite {
+  background-color: #8CC04F;
+}
+.jenkinsbo .success-fill {
+  fill: #4A9900;
+}
+.jenkinsbo .success-fill-lite {
+  fill: #8CC04F;
+}
+.jenkinsbo .success-color {
+  color: #4A9900;
+}
+.jenkinsbo .success-color-lite {
+  color: #8CC04F;
+}
+.jenkinsbo .info-bg {
+  background-color: #0071C4;
+}
+.jenkinsbo .info-bg-lite {
+  background-color: #4C9BD5;
+}
+.jenkinsbo .info-fill {
+  fill: #0071C4;
+}
+.jenkinsbo .info-fill-lite {
+  fill: #4C9BD5;
+}
+.jenkinsbo .info-color {
+  color: #0071C4;
+}
+.jenkinsbo .info-color-lite {
+  color: #4C9BD5;
+}
+.jenkinsbo .running-bg {
+  background-color: #0071C4;
+}
+.jenkinsbo .running-bg-lite {
+  background-color: #4C9BD5;
+}
+.jenkinsbo .running-fill {
+  fill: #0071C4;
+}
+.jenkinsbo .running-fill-lite {
+  fill: #4C9BD5;
+}
+.jenkinsbo .running-color {
+  color: #0071C4;
+}
+.jenkinsbo .running-color-lite {
+  color: #4C9BD5;
+}
+.jenkinsbo .failure-bg {
+  background-color: #C4000A;
+}
+.jenkinsbo .failure-bg-lite {
+  background-color: #D54C53;
+}
+.jenkinsbo .failure-fill {
+  fill: #C4000A;
+}
+.jenkinsbo .failure-fill-lite {
+  fill: #D54C53;
+}
+.jenkinsbo .failure-color {
+  color: #C4000A;
+}
+.jenkinsbo .failure-color-lite {
+  color: #D54C53;
+}
+.jenkinsbo .aborted-bg {
+  background-color: #C4000A;
+}
+.jenkinsbo .aborted-bg-lite {
+  background-color: #D54C53;
+}
+.jenkinsbo .aborted-fill {
+  fill: #C4000A;
+}
+.jenkinsbo .aborted-fill-lite {
+  fill: #D54C53;
+}
+.jenkinsbo .aborted-color {
+  color: #C4000A;
+}
+.jenkinsbo .aborted-color-lite {
+  color: #D54C53;
+}
+.jenkinsbo .unstable-bg {
+  background-color: #F5A623;
+}
+.jenkinsbo .unstable-bg-lite {
+  background-color: #F6B44B;
+}
+.jenkinsbo .unstable-fill {
+  fill: #F5A623;
+}
+.jenkinsbo .unstable-fill-lite {
+  fill: #F6B44B;
+}
+.jenkinsbo .unstable-color {
+  color: #F5A623;
+}
+.jenkinsbo .unstable-color-lite {
+  color: #F6B44B;
+}
+.jenkinsbo .not_built-bg {
+  background-color: #4A4A4A;
+}
+.jenkinsbo .not_built-bg-lite {
+  background-color: #949393;
+}
+.jenkinsbo .not_built-fill {
+  fill: #4A4A4A;
+}
+.jenkinsbo .not_built-fill-lite {
+  fill: #949393;
+}
+.jenkinsbo .not_built-color {
+  color: #4A4A4A;
+}
+.jenkinsbo .not_built-color-lite {
+  color: #949393;
+}
+.jenkinsbo .queued-bg {
+  background-color: #4A4A4A;
+}
+.jenkinsbo .queued-bg-lite {
+  background-color: #949393;
+}
+.jenkinsbo .queued-fill {
+  fill: #4A4A4A;
+}
+.jenkinsbo .queued-fill-lite {
+  fill: #949393;
+}
+.jenkinsbo .queued-color {
+  color: #4A4A4A;
+}
+.jenkinsbo .queued-color-lite {
+  color: #949393;
+}
+.jenkinsbo .unknown-bg {
+  background-color: #8900C4;
+}
+.jenkinsbo .unknown-bg-lite {
+  background-color: #D54CC4;
+}
+.jenkinsbo .unknown-fill {
+  fill: #8900C4;
+}
+.jenkinsbo .unknown-fill-lite {
+  fill: #D54CC4;
+}
+.jenkinsbo .unknown-color {
+  color: #8900C4;
+}
+.jenkinsbo .unknown-color-lite {
+  color: #D54CC4;
+}
+.jenkinsbo .label-danger {
+  background-color: #C4000A;
+}
+.jenkinsbo .label-warning {
+  background-color: #F5A623;
+}
+.jenkinsbo .label-info {
+  background-color: #0071C4;
+}
+.jenkinsbo .label-success {
+  background-color: #4A9900;
+}
+.jenkinsbo .label-primary {
+  background-color: #4A90E2;
+}
+.jenkinsbo .btn-link {
+  color: #4A90E2;
+}
+.jenkinsbo a {
+  text-decoration: none;
+}
+.jenkinsbo .list-group-item.active > .badge,
+.jenkinsbo .nav-pills > .active > a > .badge,
+.jenkinsbo a {
+  color: #4A90E2;
+}
+.jenkinsbo a:hover {
+  color: #1f69c1;
+  text-decoration: underline;
+}
+.jenkinsbo a.inverse {
+  color: white;
+}
+.jenkinsbo a.inverse:hover {
+  color: white;
+}
+.jenkinsbo .list-group-item.active .list-group-item-text,
+.jenkinsbo .list-group-item.active:focus .list-group-item-text,
+.jenkinsbo .list-group-item.active:hover .list-group-item-text {
+  color: white;
+}
+.jenkinsbo .nav-pills > li.active > a,
+.jenkinsbo .nav-pills > li.active > a:focus {
+  background-color: #4A90E2;
+}
+.jenkinsbo .nav-pills > li.active > a:hover {
+  background-color: #1f69c1;
+}
+.jenkinsbo .progress-bar {
+  background-color: #4A90E2;
+}
+.jenkinsbo body {
+  font-family: "LatoLatinWeb", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: #FFF;
+}
+.jenkinsbo code,
+.jenkinsbo pre,
+.jenkinsbo kbd {
+  font-family: "Source Code Pro", Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+.jenkinsbo .btn-default,
+.jenkinsbo .btn,
+.jenkinsbo button,
+.jenkinsbo .btn-primary {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  font-family: "LatoLatinWebSemibold", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  border: solid 1px #4A90E2;
+  border-radius: 3px;
+  text-align: center;
+  text-decoration: none;
+  background-color: #4A90E2;
+  color: #fff;
+  cursor: pointer;
+  min-width: 130px;
+}
+.jenkinsbo .btn-default:hover,
+.jenkinsbo .btn:hover,
+.jenkinsbo button:hover,
+.jenkinsbo .btn-primary:hover,
+.jenkinsbo .btn-default:focus,
+.jenkinsbo .btn:focus,
+.jenkinsbo button:focus,
+.jenkinsbo .btn-primary:focus,
+.jenkinsbo .btn-default:active,
+.jenkinsbo .btn:active,
+.jenkinsbo button:active,
+.jenkinsbo .btn-primary:active,
+.jenkinsbo .btn-default.active,
+.jenkinsbo .btn.active,
+.jenkinsbo button.active,
+.jenkinsbo .btn-primary.active {
+  background-color: #4A90E2;
+  border-color: #2171ce;
+  color: #fff;
+  text-decoration: none;
+}
+.jenkinsbo .btn-default.disabled,
+.jenkinsbo .btn.disabled,
+.jenkinsbo button.disabled,
+.jenkinsbo .btn-primary.disabled,
+.jenkinsbo .btn-default[disabled],
+.jenkinsbo .btn[disabled],
+.jenkinsbo button[disabled],
+.jenkinsbo .btn-primary[disabled],
+fieldset[disabled] .jenkinsbo .btn-default,
+fieldset[disabled] .jenkinsbo .btn,
+fieldset[disabled] .jenkinsbo button,
+fieldset[disabled] .jenkinsbo .btn-primary,
+.jenkinsbo .btn-default.disabled:hover,
+.jenkinsbo .btn.disabled:hover,
+.jenkinsbo button.disabled:hover,
+.jenkinsbo .btn-primary.disabled:hover,
+.jenkinsbo .btn-default[disabled]:hover,
+.jenkinsbo .btn[disabled]:hover,
+.jenkinsbo button[disabled]:hover,
+.jenkinsbo .btn-primary[disabled]:hover,
+fieldset[disabled] .jenkinsbo .btn-default:hover,
+fieldset[disabled] .jenkinsbo .btn:hover,
+fieldset[disabled] .jenkinsbo button:hover,
+fieldset[disabled] .jenkinsbo .btn-primary:hover,
+.jenkinsbo .btn-default.disabled:focus,
+.jenkinsbo .btn.disabled:focus,
+.jenkinsbo button.disabled:focus,
+.jenkinsbo .btn-primary.disabled:focus,
+.jenkinsbo .btn-default[disabled]:focus,
+.jenkinsbo .btn[disabled]:focus,
+.jenkinsbo button[disabled]:focus,
+.jenkinsbo .btn-primary[disabled]:focus,
+fieldset[disabled] .jenkinsbo .btn-default:focus,
+fieldset[disabled] .jenkinsbo .btn:focus,
+fieldset[disabled] .jenkinsbo button:focus,
+fieldset[disabled] .jenkinsbo .btn-primary:focus,
+.jenkinsbo .btn-default.disabled.focus,
+.jenkinsbo .btn.disabled.focus,
+.jenkinsbo button.disabled.focus,
+.jenkinsbo .btn-primary.disabled.focus,
+.jenkinsbo .btn-default[disabled].focus,
+.jenkinsbo .btn[disabled].focus,
+.jenkinsbo button[disabled].focus,
+.jenkinsbo .btn-primary[disabled].focus,
+fieldset[disabled] .jenkinsbo .btn-default.focus,
+fieldset[disabled] .jenkinsbo .btn.focus,
+fieldset[disabled] .jenkinsbo button.focus,
+fieldset[disabled] .jenkinsbo .btn-primary.focus,
+.jenkinsbo .btn-default.disabled:active,
+.jenkinsbo .btn.disabled:active,
+.jenkinsbo button.disabled:active,
+.jenkinsbo .btn-primary.disabled:active,
+.jenkinsbo .btn-default[disabled]:active,
+.jenkinsbo .btn[disabled]:active,
+.jenkinsbo button[disabled]:active,
+.jenkinsbo .btn-primary[disabled]:active,
+fieldset[disabled] .jenkinsbo .btn-default:active,
+fieldset[disabled] .jenkinsbo .btn:active,
+fieldset[disabled] .jenkinsbo button:active,
+fieldset[disabled] .jenkinsbo .btn-primary:active,
+.jenkinsbo .btn-default.disabled.active,
+.jenkinsbo .btn.disabled.active,
+.jenkinsbo button.disabled.active,
+.jenkinsbo .btn-primary.disabled.active,
+.jenkinsbo .btn-default[disabled].active,
+.jenkinsbo .btn[disabled].active,
+.jenkinsbo button[disabled].active,
+.jenkinsbo .btn-primary[disabled].active,
+fieldset[disabled] .jenkinsbo .btn-default.active,
+fieldset[disabled] .jenkinsbo .btn.active,
+fieldset[disabled] .jenkinsbo button.active,
+fieldset[disabled] .jenkinsbo .btn-primary.active {
+  opacity: 0.4;
+}
+.jenkinsbo .btn-default.inverse,
+.jenkinsbo .btn.inverse,
+.jenkinsbo button.inverse,
+.jenkinsbo .btn-primary.inverse {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  font-family: "LatoLatinWebSemibold", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  border: solid 1px #4A90E2;
+  border-radius: 3px;
+  text-align: center;
+  text-decoration: none;
+  background-color: white;
+  color: #4A90E2;
+  cursor: pointer;
+  min-width: 130px;
+}
+.jenkinsbo .btn-default.inverse:hover,
+.jenkinsbo .btn.inverse:hover,
+.jenkinsbo button.inverse:hover,
+.jenkinsbo .btn-primary.inverse:hover,
+.jenkinsbo .btn-default.inverse:focus,
+.jenkinsbo .btn.inverse:focus,
+.jenkinsbo button.inverse:focus,
+.jenkinsbo .btn-primary.inverse:focus,
+.jenkinsbo .btn-default.inverse:active,
+.jenkinsbo .btn.inverse:active,
+.jenkinsbo button.inverse:active,
+.jenkinsbo .btn-primary.inverse:active,
+.jenkinsbo .btn-default.inverse.active,
+.jenkinsbo .btn.inverse.active,
+.jenkinsbo button.inverse.active,
+.jenkinsbo .btn-primary.inverse.active {
+  background-color: white;
+  border-color: #2171ce;
+  color: #4A90E2;
+  text-decoration: none;
+}
+.jenkinsbo .btn-default.inverse.disabled,
+.jenkinsbo .btn.inverse.disabled,
+.jenkinsbo button.inverse.disabled,
+.jenkinsbo .btn-primary.inverse.disabled,
+.jenkinsbo .btn-default.inverse[disabled],
+.jenkinsbo .btn.inverse[disabled],
+.jenkinsbo button.inverse[disabled],
+.jenkinsbo .btn-primary.inverse[disabled],
+fieldset[disabled] .jenkinsbo .btn-default.inverse,
+fieldset[disabled] .jenkinsbo .btn.inverse,
+fieldset[disabled] .jenkinsbo button.inverse,
+fieldset[disabled] .jenkinsbo .btn-primary.inverse,
+.jenkinsbo .btn-default.inverse.disabled:hover,
+.jenkinsbo .btn.inverse.disabled:hover,
+.jenkinsbo button.inverse.disabled:hover,
+.jenkinsbo .btn-primary.inverse.disabled:hover,
+.jenkinsbo .btn-default.inverse[disabled]:hover,
+.jenkinsbo .btn.inverse[disabled]:hover,
+.jenkinsbo button.inverse[disabled]:hover,
+.jenkinsbo .btn-primary.inverse[disabled]:hover,
+fieldset[disabled] .jenkinsbo .btn-default.inverse:hover,
+fieldset[disabled] .jenkinsbo .btn.inverse:hover,
+fieldset[disabled] .jenkinsbo button.inverse:hover,
+fieldset[disabled] .jenkinsbo .btn-primary.inverse:hover,
+.jenkinsbo .btn-default.inverse.disabled:focus,
+.jenkinsbo .btn.inverse.disabled:focus,
+.jenkinsbo button.inverse.disabled:focus,
+.jenkinsbo .btn-primary.inverse.disabled:focus,
+.jenkinsbo .btn-default.inverse[disabled]:focus,
+.jenkinsbo .btn.inverse[disabled]:focus,
+.jenkinsbo button.inverse[disabled]:focus,
+.jenkinsbo .btn-primary.inverse[disabled]:focus,
+fieldset[disabled] .jenkinsbo .btn-default.inverse:focus,
+fieldset[disabled] .jenkinsbo .btn.inverse:focus,
+fieldset[disabled] .jenkinsbo button.inverse:focus,
+fieldset[disabled] .jenkinsbo .btn-primary.inverse:focus,
+.jenkinsbo .btn-default.inverse.disabled.focus,
+.jenkinsbo .btn.inverse.disabled.focus,
+.jenkinsbo button.inverse.disabled.focus,
+.jenkinsbo .btn-primary.inverse.disabled.focus,
+.jenkinsbo .btn-default.inverse[disabled].focus,
+.jenkinsbo .btn.inverse[disabled].focus,
+.jenkinsbo button.inverse[disabled].focus,
+.jenkinsbo .btn-primary.inverse[disabled].focus,
+fieldset[disabled] .jenkinsbo .btn-default.inverse.focus,
+fieldset[disabled] .jenkinsbo .btn.inverse.focus,
+fieldset[disabled] .jenkinsbo button.inverse.focus,
+fieldset[disabled] .jenkinsbo .btn-primary.inverse.focus,
+.jenkinsbo .btn-default.inverse.disabled:active,
+.jenkinsbo .btn.inverse.disabled:active,
+.jenkinsbo button.inverse.disabled:active,
+.jenkinsbo .btn-primary.inverse.disabled:active,
+.jenkinsbo .btn-default.inverse[disabled]:active,
+.jenkinsbo .btn.inverse[disabled]:active,
+.jenkinsbo button.inverse[disabled]:active,
+.jenkinsbo .btn-primary.inverse[disabled]:active,
+fieldset[disabled] .jenkinsbo .btn-default.inverse:active,
+fieldset[disabled] .jenkinsbo .btn.inverse:active,
+fieldset[disabled] .jenkinsbo button.inverse:active,
+fieldset[disabled] .jenkinsbo .btn-primary.inverse:active,
+.jenkinsbo .btn-default.inverse.disabled.active,
+.jenkinsbo .btn.inverse.disabled.active,
+.jenkinsbo button.inverse.disabled.active,
+.jenkinsbo .btn-primary.inverse.disabled.active,
+.jenkinsbo .btn-default.inverse[disabled].active,
+.jenkinsbo .btn.inverse[disabled].active,
+.jenkinsbo button.inverse[disabled].active,
+.jenkinsbo .btn-primary.inverse[disabled].active,
+fieldset[disabled] .jenkinsbo .btn-default.inverse.active,
+fieldset[disabled] .jenkinsbo .btn.inverse.active,
+fieldset[disabled] .jenkinsbo button.inverse.active,
+fieldset[disabled] .jenkinsbo .btn-primary.inverse.active {
+  opacity: 0.4;
+}
+.jenkinsbo .btn-secondary {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  font-family: "LatoLatinWebSemibold", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  border: solid 1px #4A90E2;
+  border-radius: 3px;
+  text-align: center;
+  text-decoration: none;
+  background-color: transparent;
+  color: #4A90E2;
+  cursor: pointer;
+  min-width: 130px;
+}
+.jenkinsbo .btn-secondary:hover,
+.jenkinsbo .btn-secondary:focus,
+.jenkinsbo .btn-secondary:active,
+.jenkinsbo .btn-secondary.active {
+  background-color: transparent;
+  border-color: #2171ce;
+  color: #4A90E2;
+  text-decoration: none;
+}
+.jenkinsbo .btn-secondary.disabled,
+.jenkinsbo .btn-secondary[disabled],
+fieldset[disabled] .jenkinsbo .btn-secondary,
+.jenkinsbo .btn-secondary.disabled:hover,
+.jenkinsbo .btn-secondary[disabled]:hover,
+fieldset[disabled] .jenkinsbo .btn-secondary:hover,
+.jenkinsbo .btn-secondary.disabled:focus,
+.jenkinsbo .btn-secondary[disabled]:focus,
+fieldset[disabled] .jenkinsbo .btn-secondary:focus,
+.jenkinsbo .btn-secondary.disabled.focus,
+.jenkinsbo .btn-secondary[disabled].focus,
+fieldset[disabled] .jenkinsbo .btn-secondary.focus,
+.jenkinsbo .btn-secondary.disabled:active,
+.jenkinsbo .btn-secondary[disabled]:active,
+fieldset[disabled] .jenkinsbo .btn-secondary:active,
+.jenkinsbo .btn-secondary.disabled.active,
+.jenkinsbo .btn-secondary[disabled].active,
+fieldset[disabled] .jenkinsbo .btn-secondary.active {
+  opacity: 0.4;
+}
+.jenkinsbo .btn-secondary.inverse {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  font-family: "LatoLatinWebSemibold", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  border: solid 1px white;
+  border-radius: 3px;
+  text-align: center;
+  text-decoration: none;
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+  min-width: 130px;
+}
+.jenkinsbo .btn-secondary.inverse:hover,
+.jenkinsbo .btn-secondary.inverse:focus,
+.jenkinsbo .btn-secondary.inverse:active,
+.jenkinsbo .btn-secondary.inverse.active {
+  background-color: transparent;
+  border-color: #e0e0e0;
+  color: white;
+  text-decoration: none;
+}
+.jenkinsbo .btn-secondary.inverse.disabled,
+.jenkinsbo .btn-secondary.inverse[disabled],
+fieldset[disabled] .jenkinsbo .btn-secondary.inverse,
+.jenkinsbo .btn-secondary.inverse.disabled:hover,
+.jenkinsbo .btn-secondary.inverse[disabled]:hover,
+fieldset[disabled] .jenkinsbo .btn-secondary.inverse:hover,
+.jenkinsbo .btn-secondary.inverse.disabled:focus,
+.jenkinsbo .btn-secondary.inverse[disabled]:focus,
+fieldset[disabled] .jenkinsbo .btn-secondary.inverse:focus,
+.jenkinsbo .btn-secondary.inverse.disabled.focus,
+.jenkinsbo .btn-secondary.inverse[disabled].focus,
+fieldset[disabled] .jenkinsbo .btn-secondary.inverse.focus,
+.jenkinsbo .btn-secondary.inverse.disabled:active,
+.jenkinsbo .btn-secondary.inverse[disabled]:active,
+fieldset[disabled] .jenkinsbo .btn-secondary.inverse:active,
+.jenkinsbo .btn-secondary.inverse.disabled.active,
+.jenkinsbo .btn-secondary.inverse[disabled].active,
+fieldset[disabled] .jenkinsbo .btn-secondary.inverse.active {
+  opacity: 0.4;
+}
+.jenkinsbo .btn-success {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  font-family: "LatoLatinWebSemibold", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  border: solid 1px #4A9900;
+  border-radius: 3px;
+  text-align: center;
+  text-decoration: none;
+  background-color: #4A9900;
+  color: #fff;
+  cursor: pointer;
+  min-width: 130px;
+}
+.jenkinsbo .btn-success:hover,
+.jenkinsbo .btn-success:focus,
+.jenkinsbo .btn-success:active,
+.jenkinsbo .btn-success.active {
+  background-color: #4A9900;
+  border-color: #2c5c00;
+  color: #fff;
+  text-decoration: none;
+}
+.jenkinsbo .btn-success.disabled,
+.jenkinsbo .btn-success[disabled],
+fieldset[disabled] .jenkinsbo .btn-success,
+.jenkinsbo .btn-success.disabled:hover,
+.jenkinsbo .btn-success[disabled]:hover,
+fieldset[disabled] .jenkinsbo .btn-success:hover,
+.jenkinsbo .btn-success.disabled:focus,
+.jenkinsbo .btn-success[disabled]:focus,
+fieldset[disabled] .jenkinsbo .btn-success:focus,
+.jenkinsbo .btn-success.disabled.focus,
+.jenkinsbo .btn-success[disabled].focus,
+fieldset[disabled] .jenkinsbo .btn-success.focus,
+.jenkinsbo .btn-success.disabled:active,
+.jenkinsbo .btn-success[disabled]:active,
+fieldset[disabled] .jenkinsbo .btn-success:active,
+.jenkinsbo .btn-success.disabled.active,
+.jenkinsbo .btn-success[disabled].active,
+fieldset[disabled] .jenkinsbo .btn-success.active {
+  opacity: 0.4;
+}
+.jenkinsbo .btn-info {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  font-family: "LatoLatinWebSemibold", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  border: solid 1px #0071C4;
+  border-radius: 3px;
+  text-align: center;
+  text-decoration: none;
+  background-color: #0071C4;
+  color: #fff;
+  cursor: pointer;
+  min-width: 130px;
+}
+.jenkinsbo .btn-info:hover,
+.jenkinsbo .btn-info:focus,
+.jenkinsbo .btn-info:active,
+.jenkinsbo .btn-info.active {
+  background-color: #0071C4;
+  border-color: #004e87;
+  color: #fff;
+  text-decoration: none;
+}
+.jenkinsbo .btn-info.disabled,
+.jenkinsbo .btn-info[disabled],
+fieldset[disabled] .jenkinsbo .btn-info,
+.jenkinsbo .btn-info.disabled:hover,
+.jenkinsbo .btn-info[disabled]:hover,
+fieldset[disabled] .jenkinsbo .btn-info:hover,
+.jenkinsbo .btn-info.disabled:focus,
+.jenkinsbo .btn-info[disabled]:focus,
+fieldset[disabled] .jenkinsbo .btn-info:focus,
+.jenkinsbo .btn-info.disabled.focus,
+.jenkinsbo .btn-info[disabled].focus,
+fieldset[disabled] .jenkinsbo .btn-info.focus,
+.jenkinsbo .btn-info.disabled:active,
+.jenkinsbo .btn-info[disabled]:active,
+fieldset[disabled] .jenkinsbo .btn-info:active,
+.jenkinsbo .btn-info.disabled.active,
+.jenkinsbo .btn-info[disabled].active,
+fieldset[disabled] .jenkinsbo .btn-info.active {
+  opacity: 0.4;
+}
+.jenkinsbo .btn-warning {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  font-family: "LatoLatinWebSemibold", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  border: solid 1px #F5A623;
+  border-radius: 3px;
+  text-align: center;
+  text-decoration: none;
+  background-color: #F5A623;
+  color: #fff;
+  cursor: pointer;
+  min-width: 130px;
+}
+.jenkinsbo .btn-warning:hover,
+.jenkinsbo .btn-warning:focus,
+.jenkinsbo .btn-warning:active,
+.jenkinsbo .btn-warning.active {
+  background-color: #F5A623;
+  border-color: #d1860a;
+  color: #fff;
+  text-decoration: none;
+}
+.jenkinsbo .btn-warning.disabled,
+.jenkinsbo .btn-warning[disabled],
+fieldset[disabled] .jenkinsbo .btn-warning,
+.jenkinsbo .btn-warning.disabled:hover,
+.jenkinsbo .btn-warning[disabled]:hover,
+fieldset[disabled] .jenkinsbo .btn-warning:hover,
+.jenkinsbo .btn-warning.disabled:focus,
+.jenkinsbo .btn-warning[disabled]:focus,
+fieldset[disabled] .jenkinsbo .btn-warning:focus,
+.jenkinsbo .btn-warning.disabled.focus,
+.jenkinsbo .btn-warning[disabled].focus,
+fieldset[disabled] .jenkinsbo .btn-warning.focus,
+.jenkinsbo .btn-warning.disabled:active,
+.jenkinsbo .btn-warning[disabled]:active,
+fieldset[disabled] .jenkinsbo .btn-warning:active,
+.jenkinsbo .btn-warning.disabled.active,
+.jenkinsbo .btn-warning[disabled].active,
+fieldset[disabled] .jenkinsbo .btn-warning.active {
+  opacity: 0.4;
+}
+.jenkinsbo .btn-danger {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  font-family: "LatoLatinWebSemibold", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  border: solid 1px #C4000A;
+  border-radius: 3px;
+  text-align: center;
+  text-decoration: none;
+  background-color: #C4000A;
+  color: #fff;
+  cursor: pointer;
+  min-width: 130px;
+}
+.jenkinsbo .btn-danger:hover,
+.jenkinsbo .btn-danger:focus,
+.jenkinsbo .btn-danger:active,
+.jenkinsbo .btn-danger.active {
+  background-color: #C4000A;
+  border-color: #870007;
+  color: #fff;
+  text-decoration: none;
+}
+.jenkinsbo .btn-danger.disabled,
+.jenkinsbo .btn-danger[disabled],
+fieldset[disabled] .jenkinsbo .btn-danger,
+.jenkinsbo .btn-danger.disabled:hover,
+.jenkinsbo .btn-danger[disabled]:hover,
+fieldset[disabled] .jenkinsbo .btn-danger:hover,
+.jenkinsbo .btn-danger.disabled:focus,
+.jenkinsbo .btn-danger[disabled]:focus,
+fieldset[disabled] .jenkinsbo .btn-danger:focus,
+.jenkinsbo .btn-danger.disabled.focus,
+.jenkinsbo .btn-danger[disabled].focus,
+fieldset[disabled] .jenkinsbo .btn-danger.focus,
+.jenkinsbo .btn-danger.disabled:active,
+.jenkinsbo .btn-danger[disabled]:active,
+fieldset[disabled] .jenkinsbo .btn-danger:active,
+.jenkinsbo .btn-danger.disabled.active,
+.jenkinsbo .btn-danger[disabled].active,
+fieldset[disabled] .jenkinsbo .btn-danger.active {
+  opacity: 0.4;
+}
+.jenkinsbo a.small,
+.jenkinsbo button.small,
+.jenkinsbo .btn.small,
+.jenkinsbo .btn-default.small,
+.jenkinsbo .btn-primary.small,
+.jenkinsbo .btn-secondary.small,
+.jenkinsbo .btn-success.small,
+.jenkinsbo .btn-info.small,
+.jenkinsbo .btn-warning.small,
+.jenkinsbo .btn-danger.small {
+  font-size: 12px;
+  height: 24px;
+  min-width: 75px;
+  padding: 3px 10px;
+}
+.jenkinsbo .thumbnail,
+.jenkinsbo .img-thumbnail {
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.075);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.075);
+}
+.jenkinsbo .dropdown-menu > li > a:hover,
+.jenkinsbo .dropdown-menu > li > a:focus {
+  background-image: -webkit-linear-gradient(top, #f5f5f5 0%, #e8e8e8 100%);
+  background-image: -o-linear-gradient(top, #f5f5f5 0%, #e8e8e8 100%);
+  background-image: linear-gradient(to bottom, #f5f5f5 0%, #e8e8e8 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff5f5f5', endColorstr='#ffe8e8e8', GradientType=0);
+  background-color: #e8e8e8;
+}
+.jenkinsbo .dropdown-menu > .active > a,
+.jenkinsbo .dropdown-menu > .active > a:hover,
+.jenkinsbo .dropdown-menu > .active > a:focus {
+  background-image: -webkit-linear-gradient(top, #4A90E2 0%, #3483de 100%);
+  background-image: -o-linear-gradient(top, #4A90E2 0%, #3483de 100%);
+  background-image: linear-gradient(to bottom, #4A90E2 0%, #3483de 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff4a90e2', endColorstr='#ff3483de', GradientType=0);
+  background-color: #3483de;
+}
+@media (max-width: 767px) {
+  .jenkinsbo .navbar .navbar-nav .open .dropdown-menu > .active > a,
+  .jenkinsbo .navbar .navbar-nav .open .dropdown-menu > .active > a:hover,
+  .jenkinsbo .navbar .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #fff;
+    background-image: -webkit-linear-gradient(top, #4A90E2 0%, #3483de 100%);
+    background-image: -o-linear-gradient(top, #4A90E2 0%, #3483de 100%);
+    background-image: linear-gradient(to bottom, #4A90E2 0%, #3483de 100%);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff4a90e2', endColorstr='#ff3483de', GradientType=0);
+  }
+}
+.jenkinsbo .alert {
+  border: none;
+}
+.jenkinsbo .alert-success {
+  background-color: #8CC04F;
+  color: white;
+  border-radius: 3px;
+}
+.jenkinsbo .alert-info {
+  background-color: #4C9BD5;
+  color: white;
+  border-radius: 3px;
+}
+.jenkinsbo .alert-warning {
+  background-color: #F6B44B;
+  color: white;
+  border-radius: 3px;
+}
+.jenkinsbo .alert-danger {
+  background-color: #D54C53;
+  color: white;
+  border-radius: 3px;
+}
+.jenkinsbo .progress {
+  background-image: -webkit-linear-gradient(top, #95bcef 0%, #a7c7f2 100%);
+  background-image: -o-linear-gradient(top, #95bcef 0%, #a7c7f2 100%);
+  background-image: linear-gradient(to bottom, #95bcef 0%, #a7c7f2 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff95bcef', endColorstr='#ffa7c7f2', GradientType=0);
+}
+.jenkinsbo .progress-bar {
+  background-image: -webkit-linear-gradient(top, #4A90E2 0%, #2275d7 100%);
+  background-image: -o-linear-gradient(top, #4A90E2 0%, #2275d7 100%);
+  background-image: linear-gradient(to bottom, #4A90E2 0%, #2275d7 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff4a90e2', endColorstr='#ff2275d7', GradientType=0);
+}
+.jenkinsbo .progress-bar-success {
+  background-image: -webkit-linear-gradient(top, #4A9900 0%, #316600 100%);
+  background-image: -o-linear-gradient(top, #4A9900 0%, #316600 100%);
+  background-image: linear-gradient(to bottom, #4A9900 0%, #316600 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff4a9900', endColorstr='#ff316600', GradientType=0);
+}
+.jenkinsbo .progress-bar-info {
+  background-image: -webkit-linear-gradient(top, #0071C4 0%, #005491 100%);
+  background-image: -o-linear-gradient(top, #0071C4 0%, #005491 100%);
+  background-image: linear-gradient(to bottom, #0071C4 0%, #005491 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0071c4', endColorstr='#ff005491', GradientType=0);
+}
+.jenkinsbo .progress-bar-warning {
+  background-image: -webkit-linear-gradient(top, #F5A623 0%, #db8c0a 100%);
+  background-image: -o-linear-gradient(top, #F5A623 0%, #db8c0a 100%);
+  background-image: linear-gradient(to bottom, #F5A623 0%, #db8c0a 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff5a623', endColorstr='#ffdb8c0a', GradientType=0);
+}
+.jenkinsbo .progress-bar-danger {
+  background-image: -webkit-linear-gradient(top, #C4000A 0%, #910007 100%);
+  background-image: -o-linear-gradient(top, #C4000A 0%, #910007 100%);
+  background-image: linear-gradient(to bottom, #C4000A 0%, #910007 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffc4000a', endColorstr='#ff910007', GradientType=0);
+}
+.jenkinsbo .progress-bar-striped {
+  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+}
+.jenkinsbo .list-group {
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.075);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.075);
+}
+.jenkinsbo .list-group-item.active,
+.jenkinsbo .list-group-item.active:hover,
+.jenkinsbo .list-group-item.active:focus {
+  text-shadow: 0 -1px 0 #2275d7;
+  background-image: -webkit-linear-gradient(top, #4A90E2 0%, #297cdd 100%);
+  background-image: -o-linear-gradient(top, #4A90E2 0%, #297cdd 100%);
+  background-image: linear-gradient(to bottom, #4A90E2 0%, #297cdd 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff4a90e2', endColorstr='#ff297cdd', GradientType=0);
+  border-color: #297cdd;
+}
+.jenkinsbo .list-group-item.active .badge,
+.jenkinsbo .list-group-item.active:hover .badge,
+.jenkinsbo .list-group-item.active:focus .badge {
+  text-shadow: none;
+}
+.jenkinsbo .panel {
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+.jenkinsbo .panel-default > .panel-heading {
+  background-color: #f5f5f5;
+  background-image: -webkit-linear-gradient(top, #f5f5f5 0%, #e8e8e8 100%);
+  background-image: -o-linear-gradient(top, #f5f5f5 0%, #e8e8e8 100%);
+  background-image: linear-gradient(to bottom, #f5f5f5 0%, #e8e8e8 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff5f5f5', endColorstr='#ffe8e8e8', GradientType=0);
+  color: white;
+  border: inherit;
+}
+.jenkinsbo .panel-primary > .panel-heading {
+  background-color: #4A90E2;
+  background-image: -webkit-linear-gradient(top, #4A90E2 0%, #3483de 100%);
+  background-image: -o-linear-gradient(top, #4A90E2 0%, #3483de 100%);
+  background-image: linear-gradient(to bottom, #4A90E2 0%, #3483de 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff4a90e2', endColorstr='#ff3483de', GradientType=0);
+  color: white;
+  border: inherit;
+}
+.jenkinsbo .panel-success > .panel-heading {
+  background-color: #8CC04F;
+  background-image: -webkit-linear-gradient(top, #8CC04F 0%, #7fb541 100%);
+  background-image: -o-linear-gradient(top, #8CC04F 0%, #7fb541 100%);
+  background-image: linear-gradient(to bottom, #8CC04F 0%, #7fb541 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff8cc04f', endColorstr='#ff7fb541', GradientType=0);
+  color: white;
+  border: inherit;
+}
+.jenkinsbo .panel-info > .panel-heading {
+  background-color: #4C9BD5;
+  background-image: -webkit-linear-gradient(top, #4C9BD5 0%, #378fd0 100%);
+  background-image: -o-linear-gradient(top, #4C9BD5 0%, #378fd0 100%);
+  background-image: linear-gradient(to bottom, #4C9BD5 0%, #378fd0 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff4c9bd5', endColorstr='#ff378fd0', GradientType=0);
+  color: white;
+  border: inherit;
+}
+.jenkinsbo .panel-warning > .panel-heading {
+  background-color: #F6B44B;
+  background-image: -webkit-linear-gradient(top, #F6B44B 0%, #f5aa33 100%);
+  background-image: -o-linear-gradient(top, #F6B44B 0%, #f5aa33 100%);
+  background-image: linear-gradient(to bottom, #F6B44B 0%, #f5aa33 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff6b44b', endColorstr='#fff5aa33', GradientType=0);
+  color: white;
+  border: inherit;
+}
+.jenkinsbo .panel-danger > .panel-heading {
+  background-color: #D54C53;
+  background-image: -webkit-linear-gradient(top, #D54C53 0%, #d0373f 100%);
+  background-image: -o-linear-gradient(top, #D54C53 0%, #d0373f 100%);
+  background-image: linear-gradient(to bottom, #D54C53 0%, #d0373f 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffd54c53', endColorstr='#ffd0373f', GradientType=0);
+  color: white;
+  border: inherit;
+}
+.jenkinsbo .panel-default {
+  border-color: #ddd;
+}
+.jenkinsbo .panel-primary {
+  border-color: #4A90E2;
+}
+.jenkinsbo .panel-success {
+  border-color: #93b541;
+}
+.jenkinsbo .panel-info {
+  border-color: #30a5cd;
+}
+.jenkinsbo .panel-warning {
+  border-color: #f58a33;
+}
+.jenkinsbo .panel-danger {
+  border-color: #d03759;
+}
+.jenkinsbo .well {
+  background-image: -webkit-linear-gradient(top, #e8e8e8 0%, #f5f5f5 100%);
+  background-image: -o-linear-gradient(top, #e8e8e8 0%, #f5f5f5 100%);
+  background-image: linear-gradient(to bottom, #e8e8e8 0%, #f5f5f5 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffe8e8e8', endColorstr='#fff5f5f5', GradientType=0);
+  border-color: #dcdcdc;
+  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+.jenkinsbo table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.jenkinsbo table a {
+  color: #4A4A4A;
+}
+.jenkinsbo thead tr:last-child {
+  border-bottom: solid 1px;
+}
+.jenkinsbo thead tr:last-child th {
+  padding-bottom: 1.5rem;
+}
+.jenkinsbo tbody tr:first-child td {
+  padding-top: 1rem;
+}
+.jenkinsbo th {
+  font-family: "LatoLatinWebSemibold", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+}
+.jenkinsbo td,
+.jenkinsbo th {
+  padding: 0.5em 0;
+  text-align: left;
+}
+.jenkinsbo th:first-child,
+.jenkinsbo td:first-child {
+  padding-left: 1em;
+}
+.jenkinsbo .log-header {
+  font-family: "LatoLatinWeb", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+.jenkinsbo .log-header__section {
+  display: flex;
+  align-items: center;
+}
+.jenkinsbo .log-header__section a {
+  padding-left: 10px;
+}
+.jenkinsbo .download-log-button {
+  cursor: pointer;
+  opacity: 0.87000002;
+}
+.jenkinsbo code {
+  font-family: "Source Code Pro", Menlo, Monaco, Consolas, "Courier New", monospace;
+  width: 100%;
+  min-height: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  position: relative;
+  counter-reset: line;
+  font-size: 1.2rem;
+}
+.jenkinsbo code p:hover {
+  background-color: #444 !important;
+}
+.jenkinsbo code p {
+  counter-increment: line;
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+}
+.jenkinsbo code p::nth-line {
+  color: yellow !important;
+}
+.jenkinsbo code p a {
+  margin: 0;
+  padding: 0 15px 0 20px;
+  word-break: break-all;
+  display: inline;
+  color: #f5f5f5;
+}
+.jenkinsbo code a:hover {
+  color: #f5f5f5;
+  text-decoration: none;
+}
+.jenkinsbo code p::before {
+  color: #777777;
+  content: counter(line);
+  min-width: 35px;
+  white-space: nowrap;
+  padding-right: 1em;
+  padding-left: 10px;
+  text-align: right;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.jenkinsbo code.block {
+  background-color: #333333;
+  color: #f5f5f5;
+  display: block;
+  padding: 0.5rem;
+  border: solid 1px #000000;
+}
+.jenkinsbo code.inline {
+  display: inline-block;
+  padding: inherit;
+  white-space: pre-wrap;
+}
+.jenkinsbo code.hash {
+  border: 0;
+  font-size: 1.4rem;
+}
+.jenkinsbo .material-icons {
+  color: #4A90E2;
+}
+.jenkinsbo .material-icons.selected {
+  color: #F5A623;
+}
+.jenkinsbo .content-width {
+  min-width: 70rem;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+@media screen and (max-width: 1000px) {
+  .jenkinsbo .content-width {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.jenkinsbo .global-header {
+  position: relative;
+  font-size: 1.5rem;
+  letter-spacing: 1.1px;
+  background-color: #4A90E2;
+  color: white;
+}
+.jenkinsbo .global-header a {
+  color: white;
+}
+.jenkinsbo .global-header nav {
+  text-align: center;
+  padding: 1rem 0;
+}
+.jenkinsbo .global-header nav a {
+  color: white;
+  font-weight: normal;
+  text-decoration: none;
+  display: inline-block;
+  padding: 0.5rem 2rem;
+  font-family: "LatoLatinWeb", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.jenkinsbo .global-header a:hover {
+  color: #333333;
+}
+.jenkinsbo .global-header .button-bar {
+  position: absolute;
+  top: 0;
+  right: 100px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+}
+.jenkinsbo .sub-header {
+  background-color: #4A90E2;
+  color: #4A4A4A;
+  padding: 0;
+  letter-spacing: 1.1px;
+}
+.jenkinsbo .sub-header nav.page-title {
+  min-width: 70rem;
+  margin-left: 100px;
+  margin-right: 100px;
+  color: white;
+  display: flex;
+  height: 6rem;
+  align-items: center;
+}
+@media screen and (max-width: 1000px) {
+  .jenkinsbo .sub-header nav.page-title {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.jenkinsbo .sub-header nav.page-title > * {
+  margin-right: 1rem;
+}
+.jenkinsbo .sub-header nav.page-title > *:last-child {
+  margin-right: 0;
+}
+.jenkinsbo .sub-header nav.page-title a {
+  color: white;
+}
+.jenkinsbo .sub-header nav.page-title h1 {
+  font-size: 1.8rem;
+}
+.jenkinsbo .sub-header nav.page-tabs {
+  min-width: 70rem;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+@media screen and (max-width: 1000px) {
+  .jenkinsbo .sub-header nav.page-tabs {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.jenkinsbo .page-tabs a {
+  color: white;
+  display: inline-block;
+  min-width: 133px;
+  padding: 1rem 1rem 0;
+  height: 40px;
+  text-align: center;
+  text-decoration: none;
+  position: relative;
+  transform: translateZ(0);
+}
+.jenkinsbo .page-tabs a:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: white;
+  height: 3px;
+  transition-timing-function: ease-out;
+  transition-duration: 0.2s;
+  transform: translateY(3px);
+  transition-property: transform;
+}
+.jenkinsbo .page-tabs a.selected:before,
+.jenkinsbo .page-tabs:hover a.selected:hover:before,
+.jenkinsbo .page-tabs a:hover:before {
+  transform: translateY(0);
+}
+.jenkinsbo .page-tabs:hover a.selected:before {
+  transform: translateY(3px);
+}
+.jenkinsbo main article {
+  min-width: 70rem;
+  margin-left: 100px;
+  margin-right: 100px;
+  padding: 1rem 0;
+}
+@media screen and (max-width: 1000px) {
+  .jenkinsbo main article {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.jenkinsbo .container-fluid {
+  padding: 0;
+}
+.jenkinsbo footer {
+  text-align: center;
+  margin: 1em;
+}
+.jenkinsbo .overlayStyles {
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  zIndex: 99;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.jenkinsbo .dialog {
+  width: 100%;
+  height: 100%;
+  min-width: 640px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 2px;
+  z-index: 100;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28);
+}
+.jenkinsbo .expand-in-appear {
+  -webkit-transition: all ease-out 0.15s;
+  -o-transition: all ease-out 0.15s;
+  transition: all ease-out 0.15s;
+  top: 4%;
+  opacity: 0.01;
+  transform: scale(0.96);
+}
+.jenkinsbo .expand-in-appear.expand-in-appear-active {
+  top: 0;
+  opacity: 1;
+  transform: scale(1);
+}
+.jenkinsbo .expand-in-leave {
+  -webkit-transition: all ease-out 0.1s;
+  -o-transition: all ease-out 0.1s;
+  transition: all ease-out 0.1s;
+  top: 0;
+  opacity: 1;
+  transform: scale(1);
+}
+.jenkinsbo .expand-in-leave.expand-in-leave-active {
+  top: 4%;
+  opacity: 0.01;
+  transform: scale(0.96);
+}
+.jenkinsbo .slideup-appear {
+  -webkit-transition: all ease-out 0.3s;
+  -o-transition: all ease-out 0.3s;
+  transition: all ease-out 0.3s;
+  top: 75%;
+  opacity: 0.01;
+}
+.jenkinsbo .slideup-appear.slideup-appear-active {
+  top: 0;
+  opacity: 1;
+}
+.jenkinsbo .slideup-leave {
+  -webkit-transition: all ease-out 0.3s;
+  -o-transition: all ease-out 0.3s;
+  transition: all ease-out 0.3s;
+  top: 0;
+  opacity: 1;
+}
+.jenkinsbo .slideup-leave.slideup-leave-active {
+  top: 75%;
+  opacity: 0.01;
+}
+.jenkinsbo .fadein-appear {
+  -webkit-transition: opacity ease-out 1s;
+  -o-transition: opacity ease-out 1s;
+  transition: opacity ease-out 1s;
+  opacity: 0.01;
+}
+.jenkinsbo .fadein-appear.fadein-appear-active {
+  opacity: 1;
+}
+.jenkinsbo .dialog .header {
+  color: #ffffff;
+  font-weight: normal;
+  line-height: 20px;
+  font-size: 1.6rem;
+}
+.jenkinsbo .dialog .header-content {
+  padding: 0 50px 0 50px;
+}
+.jenkinsbo .dialog .header .page-tabs {
+  font-size: 1.5rem;
+}
+.jenkinsbo .dialog .header .page-tabs a {
+  letter-spacing: 1.1px;
+}
+@supports (overflow:-webkit-marquee) and (justify-content:inherit) {
+  .jenkinsbo .dialog .header .page-tabs {
+    margin-bottom: 22px;
+  }
+}
+.jenkinsbo .dialog .header.success {
+  background-color: #4A9900;
+}
+.jenkinsbo .dialog .header.failure,
+.jenkinsbo .dialog .header.aborted {
+  background-color: #C4000A;
+}
+.jenkinsbo .dialog .header.unstable {
+  background-color: #F5A623;
+}
+.jenkinsbo .dialog .header.info,
+.jenkinsbo .dialog .header.running {
+  background-color: #0071C4;
+}
+.jenkinsbo .dialog .header.not_built {
+  background-color: #4A4A4A;
+}
+.jenkinsbo .dialog .header.queued {
+  background-color: #949393;
+}
+.jenkinsbo .dialog .header.unknown {
+  background-color: #8900C4;
+}
+.jenkinsbo .dialog .content {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  padding: 25px 50px 25px 50px;
+  background-color: #fff;
+}
+.jenkinsbo .header .title {
+  margin-top: 0;
+}
+.jenkinsbo .header .closeButton {
+  cursor: pointer;
+  text-decoration: none;
+  position: absolute;
+  font-size: 3em;
+  color: #ffffff;
+  right: 10px;
+  top: 10px;
+}
+.jenkinsbo .spin {
+  -webkit-animation-name: spin;
+  -webkit-animation-duration: 4000ms;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-name: spin;
+  -moz-animation-duration: 4000ms;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-timing-function: linear;
+  -ms-animation-name: spin;
+  -ms-animation-duration: 4000ms;
+  -ms-animation-iteration-count: infinite;
+  -ms-animation-timing-function: linear;
+  animation-name: spin;
+  animation-duration: 4000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+@-ms-keyframes spin {
+  from {
+    -ms-transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+  }
+}
+@-moz-keyframes spin {
+  from {
+    -moz-transform: rotate(0deg);
+  }
+  to {
+    -moz-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.jenkinsbo .left {
+  float: left;
+}
+.jenkinsbo .right {
+  float: right;
+}
+.jenkinsbo .clickIndicator {
+  cursor: pointer;
+}
+.jenkinsbo .activity-table tbody tr:hover,
+.jenkinsbo .multibranch-table tbody tr:hover,
+.jenkinsbo .pr-table tbody tr:hover {
+  cursor: pointer;
+  background-color: rgba(148, 147, 147, 0.1);
+}
+.jenkinsbo .Site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+.jenkinsbo #outer {
+  flex: 1;
+}
+.jenkinsbo .development-footer {
+  padding-bottom: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #777777;
+}
+
+/*# sourceMappingURL=jenkins-design-language.css.map */
