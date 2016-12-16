@@ -21,21 +21,13 @@
 			link.type = 'text/css';
 			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
-			var _leftHtml;
-			function tbShowRight (svg) {
-				_leftHtml = svg.parentNode.innerHTML;
-				svg.parentNode.innerHTML = 
-					"<svg class='mockItem' width='40px' height='100%'' onClick='tbShowLeft(this)'>" +
-						"<path class='mockArrow' d='M 10 28 l 25 -18 v 36 z'  />" +
-					"</svg>" +
-					"<input class='mockGreen mockItem mockInput' style='width: 760px' placeholder='ssh://xxxx.git' />" +
-					"<span class='mockGreen mockItem' style='width: 40px'>+</span>" +
-					"<span class='mockGreen mockItem' style='width: 40px'>-</span>"
-					;
-			};
-
-			function tbShowLeft (svg) {
-				svg.parentNode.innerHTML = _leftHtml;
+			
+			function switchToolbar (svg) {
+				var id1 = svg.parentElement.id;
+				var idBody = id1.substring(0, id1.length -1);
+				var id2 = idBody + (id1.endsWith("1") ? "2" : "1");
+				document.getElementById(id1).className = "mockNone";
+				document.getElementById(id2).className = "mockItem mockColumnBox mockDash";
 			};
 		</script>
 	</head>
@@ -122,6 +114,7 @@
 							<li><span class="highlight-requirement-static">Rich Information per Item</span></li>
 						</ul>
 					</section>
+
 					<section>
 						<h3>Pipelines Marketplace</h3>
 
@@ -140,20 +133,20 @@
 						    <span class="mockGreen mockItem fragment" style="width: 40px"></span>
 						  </div>
 						  <div class="mockItem mockRowBox mockDash mockScroll fragment" style="height: 400px; justify-content: flex-start; padding: 10px">
-						    <span class="mockGreen" style="width: 150px; height: 150px; margin: 10px"></span>
-						    <span class="mockGreen" style="width: 150px; height: 150px; margin: 10px"></span>
-						    <span class="mockGreen" style="width: 150px; height: 150px; margin: 10px"></span>
-						    <span class="mockGreen" style="width: 150px; height: 150px; margin: 10px"></span>
-						    <span class="mockGreen" style="width: 150px; height: 150px; margin: 10px"></span>
-						    <span class="mockGreen" style="width: 150px; height: 150px; margin: 10px"></span>
-						    <span class="mockGreen" style="width: 150px; height: 150px; margin: 10px"></span>
-						    <span class="mockGreen" style="width: 150px; height: 150px; margin: 10px"></span>
-						    <span class="mockGreen" style="width: 150px; height: 150px; margin: 10px"></span>
-						    <span class="mockGreen" style="width: 150px; height: 150px; margin: 10px"></span>
-						    <span class="mockGreen" style="width: 150px; height: 150px; margin: 10px"></span>
-						    <span class="mockGreen" style="width: 150px; height: 150px; margin: 10px"></span>
-						    <span class="mockGreen" style="width: 150px; height: 150px; margin: 10px"></span>
-						    <span class="mockGreen" style="width: 150px; height: 150px; margin: 10px"></span>
+						    <span class="mockGreen mockTile"></span>
+						    <span class="mockGreen mockTile"></span>
+						    <span class="mockGreen mockTile"></span>
+						    <span class="mockGreen mockTile"></span>
+						    <span class="mockGreen mockTile"></span>
+						    <span class="mockGreen mockTile"></span>
+						    <span class="mockGreen mockTile"></span>
+						    <span class="mockGreen mockTile"></span>
+						    <span class="mockGreen mockTile"></span>
+						    <span class="mockGreen mockTile"></span>
+						    <span class="mockGreen mockTile"></span>
+						    <span class="mockGreen mockTile"></span>
+						    <span class="mockGreen mockTile"></span>
+						    <span class="mockGreen mockTile"></span>
 						  </div>
 						</div>
 
@@ -163,7 +156,7 @@
 						<h3>List of Repositories</h3>
 
 						<div class="mockRowBox mockGreen" style="height: 500px; padding: 10px">
-						  <div class="mockItem mockColumnBox mockDash" style="height: 55px; padding: 2px; 
+						  <div id="listOfRepoTb1" class="mockItem mockColumnBox mockDash" style="height: 55px; padding: 2px; 
   justify-content: space-between;">
 						    <select class="mockGreen mockItem mockSelect" style="width: 170px;">
   						    		<option class="mockOption" selected>All</option> 
@@ -174,36 +167,58 @@
   						    </select>
   						    <input class="mockGreen mockItem mockInput" style="width: 620px" placeholder="Search" />
 						    <span class="mockGreen mockItem" style="width: 40px"></span>
-						    <svg class="mockItem fragment" width="40px" height="100%" onClick="tbShowRight(this)">
+						    <svg class="mockItem fragment" width="40px" height="100%" onClick="switchToolbar(this)">
 						    		<path class="mockArrow" d="M 10 10 l 25 18 l -25 18 z"  />
 						    </svg>
 						  </div>
+						  <div id="listOfRepoTb2" class="mockNone" style="height: 55px; padding: 2px; 
+  justify-content: space-between;">
+  						  	<svg class='mockItem' width='40px' height='100%'' onClick='switchToolbar(this)'>
+								<path class='mockArrow' d='M 10 28 l 25 -18 v 36 z'  />
+						 	</svg>
+						 	<input class='mockGreen mockItem mockInput' style='width: 760px' placeholder='ssh://xxxx.git' />
+						 	<span class='mockGreen mockItem' style='width: 40px'>+</span>
+							<span class='mockGreen mockItem' style='width: 40px'>--</span>
+						  </div>
 						  <div class="mockItem mockRowBox mockDash mockScroll fragment" style="height: 390px; justify-content: flex-start; padding: 20px">
-						    <span class="mockGreen" style="width: 100%; height: 50px;"></span>
-						    <span class="mockGreen" style="width: 100%; height: 50px;"></span>
-						    <span class="mockGreen" style="width: 100%; height: 50px;"></span>
-						    <span class="mockGreen" style="width: 100%; height: 50px;"></span>
-						    <span class="mockGreen" style="width: 100%; height: 50px;"></span>
-						    <span class="mockGreen" style="width: 100%; height: 50px;"></span>
-						    <span class="mockGreen" style="width: 100%; height: 50px;"></span>
-						    <span class="mockGreen" style="width: 100%; height: 50px;"></span>
-						    <span class="mockGreen" style="width: 100%; height: 50px;"></span>
-						    <span class="mockGreen" style="width: 100%; height: 50px;"></span>
-						    <span class="mockGreen" style="width: 100%; height: 50px;"></span>
-						    <span class="mockGreen" style="width: 100%; height: 50px;"></span>
-						    <span class="mockGreen" style="width: 100%; height: 50px;"></span>
-						    <span class="mockGreen" style="width: 100%; height: 50px;"></span>
+						    <span class="mockGreen mockList"></span>
+						    <span class="mockGreen mockList"></span>
+						    <span class="mockGreen mockList"></span>
+						    <span class="mockGreen mockList"></span>
+						    <span class="mockGreen mockList"></span>
+						    <span class="mockGreen mockList"></span>
+						    <span class="mockGreen mockList"></span>
+						    <span class="mockGreen mockList"></span>
+						    <span class="mockGreen mockList"></span>
+						    <span class="mockGreen mockList"></span>
 						  </div>
 						</div>
 
 					</section>
 
 					<section>
-						<h3>Tile-2-List Assignment</h3>
-						<div class="mockColumnBox mockGreen" style="height: 500px; padding: 10px">
-							<div class="mockItem mockDash fragment" style="width:30%">
+						<h4>Tile-2-List Assignment - <span class="highlight-requirement-static">Tab Layout</span></h4>
+						<div class="mockColumnBox" style="height: 50px; padding: 4px; align-content: flex-start;">
+							<span class="mockItem mockDash" style="width: 170px; margin-right: 5px">Pipelines</span>
+							<span class="mockItem mockDash" style="width: 225px;">Repositories</span>
+						</div>
+						<div class="mockColumnBox mockWhite" style="height: 450px; padding: 10px">
+						</div>
+						<div class="mockColumnBox mockGreen fragment" style="height: 40px; justify-content: space-between; padding: 4px">
+							<span class="mockItem fragment" style="align-self: flex-start;">Selection Status...</span>
+							<div class="mockColumnBox mockItem fragment" style=" align-self: flex-end; width: 90px">
+								<span class="mockWhite mockItem" style="width: 35px"></span>
+								<span class="mockWhite mockItem" style="width: 35px"></span>
+							</div>
+						</div>
+					</section>
+
+					<section>
+						<h4>Tile-2-List Assignment - <span class="highlight-requirement-static">Splitter Layout</span></h4>
+						<div class="mockColumnBox mockWhite" style="height: 500px; padding: 10px">
+							<div class="mockItem mockDash" style="width:30%">
 								<div class="mockRowBox mockItem mockGreen fragment" style="width: 100%; padding: 10px">
-								  <div class="mockItem mockColumnBox mockDash" style="height: 55px; padding: 2px; 
+								  <div class="mockItem mockColumnBox mockDash mockHide" style="height: 55px; padding: 2px; 
 		  justify-content: space-between;">
 								    <select class="mockGreen mockItem mockSelect" style="width: 50px;">
 		  						    		<option class="mockOption">All</option> 
@@ -217,17 +232,16 @@
 								    <span class="mockGreen mockItem" style="width: 40px"></span>
 								  </div>
 								  <div class="mockItem mockRowBox mockDash mockScroll" style="height: 380px; justify-content: flex-start; padding: 10px;">
-								    <span class="mockGreen" style="width: 150px; height: 150px; margin: 10px"></span>
-								    <span class="mockGreen" style="width: 150px; height: 150px; margin: 10px"></span>
-								    <span class="mockGreen" style="width: 150px; height: 150px; margin: 10px"></span>
-								    <span class="mockGreen" style="width: 150px; height: 150px; margin: 10px"></span>
-								    <span class="mockGreen" style="width: 150px; height: 150px; margin: 10px"></span>
-								    <span class="mockGreen" style="width: 150px; height: 150px; margin: 10px"></span>
-								    <span class="mockGreen" style="width: 150px; height: 150px; margin: 10px"></span>
+								    <span class="mockGreen mockTile"></span>
+								    <span class="mockGreen mockTile"></span>
+								    <span class="mockGreen mockTile"></span>
+								    <span class="mockGreen mockTile"></span>
+								    <span class="mockGreen mockTile"></span>
+								    <span class="mockGreen mockTile"></span>
 								  </div>
 								</div>
 							</div>
-							<div class="mockItem mockDash fragment" style="width:69%">
+							<div class="mockItem mockDash" style="width:69%">
 								<div class="mockRowBox mockGreen fragment" style="width: 100%; padding: 10px">
 								  <div class="mockItem mockColumnBox mockDash" style="height: 55px; padding: 2px; 
 		  justify-content: space-between;">
@@ -245,22 +259,27 @@
 								    </svg>
 								  </div>
 								  <div class="mockItem mockRowBox mockDash mockScroll" style="height: 380px; justify-content: flex-start; padding: 10px">
-								    <span class="mockGreen" style="width: 100%; height: 50px;"></span>
-								    <span class="mockGreen" style="width: 100%; height: 50px;"></span>
-								    <span class="mockGreen" style="width: 100%; height: 50px;"></span>
-								    <span class="mockGreen" style="width: 100%; height: 50px;"></span>
-								    <span class="mockGreen" style="width: 100%; height: 50px;"></span>
-								    <span class="mockGreen" style="width: 100%; height: 50px;"></span>
-								    <span class="mockGreen" style="width: 100%; height: 50px;"></span>
-								    <span class="mockGreen" style="width: 100%; height: 50px;"></span>
-								    <span class="mockGreen" style="width: 100%; height: 50px;"></span>
-								    <span class="mockGreen" style="width: 100%; height: 50px;"></span>
-								    <span class="mockGreen" style="width: 100%; height: 50px;"></span>
-								    <span class="mockGreen" style="width: 100%; height: 50px;"></span>
-								    <span class="mockGreen" style="width: 100%; height: 50px;"></span>
-								    <span class="mockGreen" style="width: 100%; height: 50px;"></span>
+								    <span class="mockGreen mockList"></span>
+								    <span class="mockGreen mockList"></span>
+								    <span class="mockGreen mockList"></span>
+								    <span class="mockGreen mockList"></span>
+								    <span class="mockGreen mockList"></span>
+								    <span class="mockGreen mockList"></span>
+								    <span class="mockGreen mockList"></span>
+								    <span class="mockGreen mockList"></span>
+								    <span class="mockGreen mockList"></span>
+								    <span class="mockGreen mockList"></span>
+								    <span class="mockGreen mockList"></span>
+								    <span class="mockGreen mockList"></span>
 								  </div>
 								</div>
+							</div>
+						</div>
+						<div class="mockColumnBox mockGreen fragment" style="height: 40px; justify-content: space-between; padding: 4px">
+							<span class="mockItem" style="align-self: flex-start;">Selection Status...</span>
+							<div class="mockColumnBox mockItem" style=" align-self: flex-end; width: 90px">
+								<span class="mockWhite mockItem" style="width: 35px"></span>
+								<span class="mockWhite mockItem" style="width: 35px"></span>
 							</div>
 						</div>
 					</section>
@@ -270,7 +289,6 @@
 				<section>
 					<section>
 						<h2><span class="highlight-sap-static">SAPUI5</span>: Offerings</h2>
-						<img src="" />
 					</section>
 
 					<section>

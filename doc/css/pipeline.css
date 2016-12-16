@@ -21,6 +21,10 @@
   border: solid  #6AC5AC 3px !important; 
 }
 
+.mockWhite {
+  border: solid  #FFFFFF 3px !important; 
+}
+
 .mockDash {
   border: dashed  #eee 1px !important; 
 }
@@ -41,6 +45,10 @@
   flex-flow: column wrap !important;
 }
 
+.mockNone {
+	display: none !important;
+}
+
 .mockInput {
   background: transparent !important;
   font: inherit !important;
@@ -51,6 +59,7 @@
 .mockArrow {
 	stroke: #6AC5AC;
 	stroke-width: 2;
+	fill: #222;
 }
 
 .mockArrow:hover {
@@ -67,6 +76,21 @@
   background-color: #222 !important;
   font: inherit !important;
   color: #fff !important;
+}
+
+.mockHide {
+	overflow: hidden !important;
+}
+
+.mockTile {
+	width: 150px !important; 
+	height: 150px !important; 
+	margin: 10px !important;
+}
+
+.mockList {
+	width: 100% !important; 
+	height: 50px !important;
 }
 
 .mockScroll {
