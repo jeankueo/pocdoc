@@ -16,11 +16,11 @@
 
 		<!-- Printing and PDF exports -->
 		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
+			var link = document.createElement( "link" );
+			link.rel = "stylesheet";
+			link.type = "text/css";
+			link.href = window.location.search.match( /print-pdf/gi ) ? "css/print/pdf.css" : "css/print/paper.css";
+			document.getElementsByTagName( "head" )[0].appendChild( link );
 			
 			function switchToolbar (svg) {
 				var id1 = svg.parentElement.id;
@@ -28,6 +28,21 @@
 				var id2 = idBody + (id1.endsWith("1") ? "2" : "1");
 				document.getElementById(id1).className = "mockNone";
 				document.getElementById(id2).className = "mockItem mockColumnBox mockDash";
+			};
+
+			function showInTab (span) {
+				if (span.textContent === "Pipelines") {
+					span.className = "mockItem mockGreen";
+					document.getElementById("repositoryTabSpan").className = "mockItem mockDash";
+					document.getElementById("pipelineTabContent").className = "mockRowBox mockGreen";
+					document.getElementById("repositoryTabContent").className = "mockNone";
+				} else {
+					span.className = "mockItem mockGreen";
+					document.getElementById("pipelineTabSpan").className = "mockItem mockDash";
+					document.getElementById("repositoryTabContent").className = "mockRowBox mockGreen";
+					document.getElementById("pipelineTabContent").className = "mockNone";
+				}
+				
 			};
 		</script>
 	</head>
@@ -63,13 +78,13 @@
 						<span class="fragment highlight-current"><li>Open to CommonJS with help of <a href="https://babeljs.io/">Babel</a>: <a href="https://github.com/jenkinsci/jenkins-design-language">jenkins-design-language</a>, ...</li></span>
 						</ul>
 						<aside class="notes"><ul>Explain why UI5
-							<li>emphasize on 'open', 'rich control'</li>
+							<li>emphasize on "open", "rich control"</li>
 							<li>click through items and explain</li>
-							<li>item 1: explain 'control'</li>
+							<li>item 1: explain "control"</li>
 							<li>item 2: their function, no need to import</li>
-							<li>item 4: open 'reactDOM' to explain modeul bundle, most popular libs are UMD, ui5 is "sap-made-amd"</li>
+							<li>item 4: open "reactDOM" to explain modeul bundle, most popular libs are UMD, ui5 is "sap-made-amd"</li>
 							<li>item 5: babel is compiler, flex to compile ES6 -> AMD for using un-matured modules</li>
-							<li>conclude: all js, that's why open</li>
+							<li>conclude: all js, that"s why open</li>
 						</ul></aside>
 					</aside>
 					</section>
@@ -92,13 +107,13 @@
 					</section>
 					<section>
 						<h2><span class="highlight-react-static">React</span></h2>
-						<p>a facebook 'V' framework on which <span class="highlight-bo-static">Blue Ocean</span> is built</p>
+						<p>a facebook "V" framework on which <span class="highlight-bo-static">Blue Ocean</span> is built</p>
 						<img src="./img/react.svg" width="100px"/>
-						<p>Since it's only 'v', simply write a control wrapper to integrate to UI5 MVC</p>
+						<p>Since it"s only "v", simply write a control wrapper to integrate to UI5 MVC</p>
 						</ul>
 						<aside class="notes"><ul>Explain a little about REACT
 							<li>facebook has Redux to cover M and C part</li>
-							<li>only 'v', wrapper is just a control, similar to the way to integrate jQuery and D3</li>
+							<li>only "v", wrapper is just a control, similar to the way to integrate jQuery and D3</li>
 						</ul></aside>
 					</section>
 				</section>
@@ -173,12 +188,12 @@
 						  </div>
 						  <div id="listOfRepoTb2" class="mockNone" style="height: 55px; padding: 2px; 
   justify-content: space-between;">
-  						  	<svg class='mockItem' width='40px' height='100%'' onClick='switchToolbar(this)'>
-								<path class='mockArrow' d='M 10 28 l 25 -18 v 36 z'  />
+  						  	<svg class="mockItem" width="40px" height="100%"" onClick="switchToolbar(this)">
+								<path class="mockArrow" d="M 10 28 l 25 -18 v 36 z"  />
 						 	</svg>
-						 	<input class='mockGreen mockItem mockInput' style='width: 760px' placeholder='ssh://xxxx.git' />
-						 	<span class='mockGreen mockItem' style='width: 40px'>+</span>
-							<span class='mockGreen mockItem' style='width: 40px'>--</span>
+						 	<input class="mockGreen mockItem mockInput" style="width: 760px" placeholder="ssh://xxxx.git" />
+						 	<span class="mockGreen mockItem" style="width: 40px">+</span>
+							<span class="mockGreen mockItem" style="width: 40px">--</span>
 						  </div>
 						  <div class="mockItem mockRowBox mockDash mockScroll fragment" style="height: 390px; justify-content: flex-start; padding: 20px">
 						    <span class="mockGreen mockList"></span>
@@ -199,10 +214,79 @@
 					<section>
 						<h4>Tile-2-List Assignment - <span class="highlight-requirement-static">Tab Layout</span></h4>
 						<div class="mockColumnBox" style="height: 50px; padding: 4px; align-content: flex-start;">
-							<span class="mockItem mockDash" style="width: 170px; margin-right: 5px">Pipelines</span>
-							<span class="mockItem mockDash" style="width: 225px;">Repositories</span>
+							<span id="pipelineTabSpan" class="mockItem mockDash" style="width: 170px; margin-right: 5px" onClick="showInTab(this)">Pipelines</span>
+							<span id="repositoryTabSpan" class="mockItem mockDash" style="width: 225px;" onClick="showInTab(this)">Repositories</span>
 						</div>
 						<div class="mockColumnBox mockWhite" style="height: 450px; padding: 10px">
+							<div id="pipelineTabContent" class="mockNone" style="height: 450px; padding: 10px">
+							  <div class="mockItem mockColumnBox mockDash" style="height: 55px; padding: 2px; 
+	  justify-content: space-between;">
+	  						    <select class="mockGreen mockItem mockSelect" style="width: 170px;">
+	  						    		<option class="mockOption">All</option> 
+									<option class="mockOption" selected>Fiori</option>
+									<option class="mockOption">HCP Classic</option>
+									<option class="mockOption">HCP Cloudfoundry</option>
+									<option class="mockOption">UI5</option>
+	  						    </select>
+	  						    <input class="mockGreen mockItem mockInput" style="width: 620px" placeholder="Search" />
+							    <span class="mockGreen mockItem" style="width: 40px"></span>
+							    <span class="mockGreen mockItem" style="width: 40px"></span>
+							  </div>
+							  <div class="mockItem mockRowBox mockDash mockScroll" style="height: 340px; justify-content: flex-start; padding: 10px">
+							    <span class="mockGreen mockTile"></span>
+							    <span class="mockGreen mockTile"></span>
+							    <span class="mockGreen mockTile"></span>
+							    <span class="mockGreen mockTile"></span>
+							    <span class="mockGreen mockTile"></span>
+							    <span class="mockGreen mockTile"></span>
+							    <span class="mockGreen mockTile"></span>
+							    <span class="mockGreen mockTile"></span>
+							    <span class="mockGreen mockTile"></span>
+							    <span class="mockGreen mockTile"></span>
+							    <span class="mockGreen mockTile"></span>
+							    <span class="mockGreen mockTile"></span>
+							    <span class="mockGreen mockTile"></span>
+							    <span class="mockGreen mockTile"></span>
+							  </div>
+							</div>
+							<div id="repositoryTabContent" class="mockNone" style="height: 500px; padding: 10px">
+							  <div id="tabTb1" class="mockItem mockColumnBox mockDash" style="height: 55px; padding: 2px; 
+	  justify-content: space-between;">
+							    <select class="mockGreen mockItem mockSelect" style="width: 170px;">
+	  						    		<option class="mockOption" selected>All</option> 
+									<option class="mockOption">Git</option>
+									<option class="mockOption">Github</option>
+									<option class="mockOption">Github/Org1</option>
+									<option class="mockOption">Github/Org2</option>
+	  						    </select>
+	  						    <input class="mockGreen mockItem mockInput" style="width: 620px" placeholder="Search" />
+							    <span class="mockGreen mockItem" style="width: 40px"></span>
+							    <svg class="mockItem" width="40px" height="100%" onClick="switchToolbar(this)">
+							    		<path class="mockArrow" d="M 10 10 l 25 18 l -25 18 z"  />
+							    </svg>
+							  </div>
+							  <div id="tabTb2" class="mockNone" style="height: 55px; padding: 2px; 
+	  justify-content: space-between;">
+	  						  	<svg class="mockItem" width="40px" height="100%"" onClick="switchToolbar(this)">
+									<path class="mockArrow" d="M 10 28 l 25 -18 v 36 z"  />
+							 	</svg>
+							 	<input class="mockGreen mockItem mockInput" style="width: 760px" placeholder="ssh://xxxx.git" />
+							 	<span class="mockGreen mockItem" style="width: 40px">+</span>
+								<span class="mockGreen mockItem" style="width: 40px">--</span>
+							  </div>
+							  <div class="mockItem mockRowBox mockDash mockScroll" style="height: 300px; justify-content: flex-start; padding: 20px">
+							    <span class="mockGreen mockList"></span>
+							    <span class="mockGreen mockList"></span>
+							    <span class="mockGreen mockList"></span>
+							    <span class="mockGreen mockList"></span>
+							    <span class="mockGreen mockList"></span>
+							    <span class="mockGreen mockList"></span>
+							    <span class="mockGreen mockList"></span>
+							    <span class="mockGreen mockList"></span>
+							    <span class="mockGreen mockList"></span>
+							    <span class="mockGreen mockList"></span>
+							  </div>
+							</div>
 						</div>
 						<div class="mockColumnBox mockGreen fragment" style="height: 40px; justify-content: space-between; padding: 4px">
 							<span class="mockItem fragment" style="align-self: flex-start;">Selection Status...</span>
@@ -243,7 +327,7 @@
 							</div>
 							<div class="mockItem mockDash" style="width:69%">
 								<div class="mockRowBox mockGreen fragment" style="width: 100%; padding: 10px">
-								  <div class="mockItem mockColumnBox mockDash" style="height: 55px; padding: 2px; 
+								  <div id="splitterTb1" class="mockItem mockColumnBox mockDash" style="height: 55px; padding: 2px; 
 		  justify-content: space-between;">
 								     <select class="mockGreen mockItem mockSelect" style="width: 50px;">
 		  						    		<option class="mockOption" selected>All</option> 
@@ -254,9 +338,18 @@
 		  						    </select>
 								   <input class="mockGreen mockItem mockInput" style="width: 440px" placeholder="Search" />
 								    <span class="mockGreen mockItem" style="width: 40px"></span>
-								    <svg class="mockItem" width="40px" height="100%">
+								    <svg class="mockItem" width="40px" height="100%" onClick="switchToolbar(this)">
 								    		<path class="mockArrow" d="M 10 10 l 25 18 l -25 18 z"  />
 								    </svg>
+								  </div>
+								  <div id="splitterTb2" class="mockNone" style="height: 55px; padding: 2px; 
+  justify-content: space-between;">
+		  						  	<svg class="mockItem" width="40px" height="100%"" onClick="switchToolbar(this)">
+										<path class="mockArrow" d="M 10 28 l 25 -18 v 36 z"  />
+								 	</svg>
+								 	<input class="mockGreen mockItem mockInput" style="width: 450px" placeholder="ssh://xxxx.git" />
+								 	<span class="mockGreen mockItem" style="width: 40px">+</span>
+									<span class="mockGreen mockItem" style="width: 40px">--</span>
 								  </div>
 								  <div class="mockItem mockRowBox mockDash mockScroll" style="height: 380px; justify-content: flex-start; padding: 10px">
 								    <span class="mockGreen mockList"></span>
@@ -353,11 +446,11 @@
 
 				// More info https://github.com/hakimel/reveal.js#dependencies
 				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/zoom-js/zoom.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+					{ src: "plugin/markdown/marked.js" },
+					{ src: "plugin/markdown/markdown.js" },
+					{ src: "plugin/notes/notes.js", async: true },
+					{ src: "plugin/zoom-js/zoom.js", async: true },
+					{ src: "plugin/highlight/highlight.js", async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
 				]
 			});
 		</script>
