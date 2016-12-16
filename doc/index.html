@@ -21,6 +21,22 @@
 			link.type = 'text/css';
 			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
+			var _leftHtml;
+			function tbShowRight (svg) {
+				_leftHtml = svg.parentNode.innerHTML;
+				svg.parentNode.innerHTML = 
+					"<svg class='mockItem' width='40px' height='100%'' onClick='tbShowLeft(this)'>" +
+						"<path class='mockArrow' d='M 10 28 l 25 -18 v 36 z'  />" +
+					"</svg>" +
+					"<input class='mockGreen mockItem mockInput' style='width: 760px' placeholder='ssh://xxxx.git' />" +
+					"<span class='mockGreen mockItem' style='width: 40px'>+</span>" +
+					"<span class='mockGreen mockItem' style='width: 40px'>-</span>"
+					;
+			};
+
+			function tbShowLeft (svg) {
+				svg.parentNode.innerHTML = _leftHtml;
+			};
 		</script>
 	</head>
 	<body>
@@ -110,21 +126,34 @@
 						<h3>Pipelines Marketplace</h3>
 
 						<div class="mockRowBox mockGreen fragment" style="height: 500px; padding: 10px">
-						  <div class="mockItem mockColumnBox mockDash fragment" style="height: 50px; padding: 2px; 
+						  <div class="mockItem mockColumnBox mockDash fragment" style="height: 55px; padding: 2px; 
   justify-content: space-between;">
-						    <span class="mockGreen fragment" style="width: 170px">Category</span>
-						    <span class="mockGreen fragment" style="width: 620px; text-align: left; text-indent: 6px">Search</span>
-						    <span class="mockGreen fragment" style="width: 40px"></span>
-						    <span class="mockGreen fragment" style="width: 40px"></span>
+  						    <select class="mockGreen mockItem mockSelect fragment" style="width: 170px;">
+  						    		<option class="mockOption">All</option> 
+								<option class="mockOption" selected>Fiori</option>
+								<option class="mockOption">HCP Classic</option>
+								<option class="mockOption">HCP Cloudfoundry</option>
+								<option class="mockOption">UI5</option>
+  						    </select>
+  						    <input class="mockGreen mockItem mockInput fragment" style="width: 620px" placeholder="Search" />
+						    <span class="mockGreen mockItem fragment" style="width: 40px"></span>
+						    <span class="mockGreen mockItem fragment" style="width: 40px"></span>
 						  </div>
-						  <div class="mockItem mockRowBox mockDash fragment" style="height: 400px; justify-content: flex-start; padding: 10px">
-						    <span class="mockGreen fragment" style="width: 150px; height: 150px; margin: 10px"></span>
-						    <span class="mockGreen fragment" style="width: 150px; height: 150px; margin: 10px"></span>
-						    <span class="mockGreen fragment" style="width: 150px; height: 150px; margin: 10px"></span>
-						    <span class="mockGreen fragment" style="width: 150px; height: 150px; margin: 10px"></span>
-						    <span class="mockGreen fragment" style="width: 150px; height: 150px; margin: 10px"></span>
-						    <span class="mockGreen fragment" style="width: 150px; height: 150px; margin: 10px"></span>
-						    <span class="mockGreen fragment" style="width: 150px; height: 150px; margin: 10px"></span>
+						  <div class="mockItem mockRowBox mockDash mockScroll fragment" style="height: 400px; justify-content: flex-start; padding: 10px">
+						    <span class="mockGreen" style="width: 150px; height: 150px; margin: 10px"></span>
+						    <span class="mockGreen" style="width: 150px; height: 150px; margin: 10px"></span>
+						    <span class="mockGreen" style="width: 150px; height: 150px; margin: 10px"></span>
+						    <span class="mockGreen" style="width: 150px; height: 150px; margin: 10px"></span>
+						    <span class="mockGreen" style="width: 150px; height: 150px; margin: 10px"></span>
+						    <span class="mockGreen" style="width: 150px; height: 150px; margin: 10px"></span>
+						    <span class="mockGreen" style="width: 150px; height: 150px; margin: 10px"></span>
+						    <span class="mockGreen" style="width: 150px; height: 150px; margin: 10px"></span>
+						    <span class="mockGreen" style="width: 150px; height: 150px; margin: 10px"></span>
+						    <span class="mockGreen" style="width: 150px; height: 150px; margin: 10px"></span>
+						    <span class="mockGreen" style="width: 150px; height: 150px; margin: 10px"></span>
+						    <span class="mockGreen" style="width: 150px; height: 150px; margin: 10px"></span>
+						    <span class="mockGreen" style="width: 150px; height: 150px; margin: 10px"></span>
+						    <span class="mockGreen" style="width: 150px; height: 150px; margin: 10px"></span>
 						  </div>
 						</div>
 
@@ -134,21 +163,36 @@
 						<h3>List of Repositories</h3>
 
 						<div class="mockRowBox mockGreen" style="height: 500px; padding: 10px">
-						  <div class="mockItem mockColumnBox mockDash" style="height: 50px; padding: 2px; 
+						  <div class="mockItem mockColumnBox mockDash" style="height: 55px; padding: 2px; 
   justify-content: space-between;">
-						    <span class="mockGreen" style="width: 170px">Category</span>
-						    <span class="mockGreen" style="width: 620px; text-align: left; text-indent: 6px">Search</span>
-						    <span class="mockGreen" style="width: 40px"></span>
-						    <span class="mockGreen" style="width: 40px"></span>
+						    <select class="mockGreen mockItem mockSelect" style="width: 170px;">
+  						    		<option class="mockOption" selected>All</option> 
+								<option class="mockOption">Git</option>
+								<option class="mockOption">Github</option>
+								<option class="mockOption">Github/Org1</option>
+								<option class="mockOption">Github/Org2</option>
+  						    </select>
+  						    <input class="mockGreen mockItem mockInput" style="width: 620px" placeholder="Search" />
+						    <span class="mockGreen mockItem" style="width: 40px"></span>
+						    <svg class="mockItem fragment" width="40px" height="100%" onClick="tbShowRight(this)">
+						    		<path class="mockArrow" d="M 10 10 l 25 18 l -25 18 z"  />
+						    </svg>
 						  </div>
-						  <div class="mockItem mockRowBox mockDash" style="height: 400px; justify-content: flex-start; padding: 20px">
-						    <span class="mockGreen fragment" style="width: 100%; height: 50px;"></span>
-						    <span class="mockGreen fragment" style="width: 100%; height: 50px;"></span>
-						    <span class="mockGreen fragment" style="width: 100%; height: 50px;"></span>
-						    <span class="mockGreen fragment" style="width: 100%; height: 50px;"></span>
-						    <span class="mockGreen fragment" style="width: 100%; height: 50px;"></span>
-						    <span class="mockGreen fragment" style="width: 100%; height: 50px;"></span>
-						    <span class="mockGreen fragment" style="width: 100%; height: 50px;"></span>
+						  <div class="mockItem mockRowBox mockDash mockScroll fragment" style="height: 390px; justify-content: flex-start; padding: 20px">
+						    <span class="mockGreen" style="width: 100%; height: 50px;"></span>
+						    <span class="mockGreen" style="width: 100%; height: 50px;"></span>
+						    <span class="mockGreen" style="width: 100%; height: 50px;"></span>
+						    <span class="mockGreen" style="width: 100%; height: 50px;"></span>
+						    <span class="mockGreen" style="width: 100%; height: 50px;"></span>
+						    <span class="mockGreen" style="width: 100%; height: 50px;"></span>
+						    <span class="mockGreen" style="width: 100%; height: 50px;"></span>
+						    <span class="mockGreen" style="width: 100%; height: 50px;"></span>
+						    <span class="mockGreen" style="width: 100%; height: 50px;"></span>
+						    <span class="mockGreen" style="width: 100%; height: 50px;"></span>
+						    <span class="mockGreen" style="width: 100%; height: 50px;"></span>
+						    <span class="mockGreen" style="width: 100%; height: 50px;"></span>
+						    <span class="mockGreen" style="width: 100%; height: 50px;"></span>
+						    <span class="mockGreen" style="width: 100%; height: 50px;"></span>
 						  </div>
 						</div>
 
@@ -156,7 +200,68 @@
 
 					<section>
 						<h3>Tile-2-List Assignment</h3>
-						<div class="mockRowBox mockGreen" style="height: 500px; padding: 10px">
+						<div class="mockColumnBox mockGreen" style="height: 500px; padding: 10px">
+							<div class="mockItem mockDash fragment" style="width:30%">
+								<div class="mockRowBox mockItem mockGreen fragment" style="width: 100%; padding: 10px">
+								  <div class="mockItem mockColumnBox mockDash" style="height: 55px; padding: 2px; 
+		  justify-content: space-between;">
+								    <select class="mockGreen mockItem mockSelect" style="width: 50px;">
+		  						    		<option class="mockOption">All</option> 
+										<option class="mockOption" selected>Fiori</option>
+										<option class="mockOption">HCP Classic</option>
+										<option class="mockOption">HCP Cloudfoundry</option>
+										<option class="mockOption">UI5</option>
+		  						    </select>
+								    <input class="mockGreen mockItem mockInput" style="width: 90px" placeholder="Search" />
+								    <span class="mockGreen mockItem" style="width: 40px"></span>
+								    <span class="mockGreen mockItem" style="width: 40px"></span>
+								  </div>
+								  <div class="mockItem mockRowBox mockDash mockScroll" style="height: 380px; justify-content: flex-start; padding: 10px;">
+								    <span class="mockGreen" style="width: 150px; height: 150px; margin: 10px"></span>
+								    <span class="mockGreen" style="width: 150px; height: 150px; margin: 10px"></span>
+								    <span class="mockGreen" style="width: 150px; height: 150px; margin: 10px"></span>
+								    <span class="mockGreen" style="width: 150px; height: 150px; margin: 10px"></span>
+								    <span class="mockGreen" style="width: 150px; height: 150px; margin: 10px"></span>
+								    <span class="mockGreen" style="width: 150px; height: 150px; margin: 10px"></span>
+								    <span class="mockGreen" style="width: 150px; height: 150px; margin: 10px"></span>
+								  </div>
+								</div>
+							</div>
+							<div class="mockItem mockDash fragment" style="width:69%">
+								<div class="mockRowBox mockGreen fragment" style="width: 100%; padding: 10px">
+								  <div class="mockItem mockColumnBox mockDash" style="height: 55px; padding: 2px; 
+		  justify-content: space-between;">
+								     <select class="mockGreen mockItem mockSelect" style="width: 50px;">
+		  						    		<option class="mockOption" selected>All</option> 
+										<option class="mockOption">Git</option>
+										<option class="mockOption">Github</option>
+										<option class="mockOption">Github/Org1</option>
+										<option class="mockOption">Github/Org2</option>
+		  						    </select>
+								   <input class="mockGreen mockItem mockInput" style="width: 440px" placeholder="Search" />
+								    <span class="mockGreen mockItem" style="width: 40px"></span>
+								    <svg class="mockItem" width="40px" height="100%">
+								    		<path class="mockArrow" d="M 10 10 l 25 18 l -25 18 z"  />
+								    </svg>
+								  </div>
+								  <div class="mockItem mockRowBox mockDash mockScroll" style="height: 380px; justify-content: flex-start; padding: 10px">
+								    <span class="mockGreen" style="width: 100%; height: 50px;"></span>
+								    <span class="mockGreen" style="width: 100%; height: 50px;"></span>
+								    <span class="mockGreen" style="width: 100%; height: 50px;"></span>
+								    <span class="mockGreen" style="width: 100%; height: 50px;"></span>
+								    <span class="mockGreen" style="width: 100%; height: 50px;"></span>
+								    <span class="mockGreen" style="width: 100%; height: 50px;"></span>
+								    <span class="mockGreen" style="width: 100%; height: 50px;"></span>
+								    <span class="mockGreen" style="width: 100%; height: 50px;"></span>
+								    <span class="mockGreen" style="width: 100%; height: 50px;"></span>
+								    <span class="mockGreen" style="width: 100%; height: 50px;"></span>
+								    <span class="mockGreen" style="width: 100%; height: 50px;"></span>
+								    <span class="mockGreen" style="width: 100%; height: 50px;"></span>
+								    <span class="mockGreen" style="width: 100%; height: 50px;"></span>
+								    <span class="mockGreen" style="width: 100%; height: 50px;"></span>
+								  </div>
+								</div>
+							</div>
 						</div>
 					</section>
 
