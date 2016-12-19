@@ -390,9 +390,10 @@
 				</section>
 
 				<section>
-					<section>
-						<h1><span class="highlight-sap-static">Demo</span></h1>
-					</section>
+					<h1><span class="highlight-sap-static">Demo</span></h1>
+				</section>
+
+				<section>
 					<section>
 						<h2><span class="highlight-sap-static">SAPUI5</span>: Offerings</h2>
 						<ul>
@@ -540,8 +541,8 @@
 					<section>
 						<h2>Project <span class="pocprocess">Construction</span></h2>
 						<ul>
-							<li><a href="http://gulpjs.com/">Gulp - task runner</a></li>
-							<li><a href="https://babeljs.io/">Babel - JS compiler</a></li>
+							<li><a href="http://gulpjs.com/" target="_blank">Gulp - task runner</a></li>
+							<li><a href="https://babeljs.io/" target="_blank">Babel - JS compiler</a></li>
 						</ul>
 						<aside class="notes">
 							open gulpfile.js to explain in detail both.
@@ -550,20 +551,26 @@
 
 					<section>
 						<h2><span class="pocprocess">Build</span> Automation</h2>
-						<ul> <span class="pocprocess">Beside the routing packing task, an important target is to generate dist folder automatically in build process</span>
-							<li>.gitignore dist folder</li>
+						<ul> <span class="pocprocess">Beside the routing packing task, an important task is to generate '/dist' folder automatically in build process</span>
+							<li>add '/dist' folder to '.gitignore'</li>
 							<li>Register to ciconnect central build service</li>
-							<li>Configure for node module build</li>
-							<li>Used a special slave to access outside node module registry</li>
-							<li>May consider to use a config to access internal module registry to replace work around</li>
-							<li>Be careful of configuration files which are not in gitignore. (.npmrc, .bowerrc, with webpack more configuration file)</li>
+							<li><a href="https://github.wdf.sap.corp/ci-connect/pipeline-ui-poc/blob/config/services/production-services/build-service/config.yml" target="_blank">Configure</a> in dedicated branch and folder (use a special slave to access outside node module registry)</li>
+							<li>May consider to use a configuration file <span class="pocprocess">'.npmrc'</span> to access internal module registry to replace the work around</li>
+							
 						</ul>
+						<aside class="notes">
+							<ul>
+								<li>Be careful of configuration files which are not in gitignore. (.npmrc, .bowerrc, with webpack more configuration file)</li>
+							</ul>
+						</aside>
 					</section>
 
 					<section>
 						<h2><span class="pocprocess">Deploy</span> Automation</h2>
 						<ul>
 							<li>Register to ciconnect central HCP CF deploy service</li>
+							<li><a href="https://github.wdf.sap.corp/ci-connect/pipeline-ui-poc/blob/config/services/production-services/cf-deploy-service/config.yml" target="_blank">Configure</a> in dedicated branch and folder</li>
+							<li><span class="pocprocess">Restructure project</span>: move '/dist' folder from root to under '/web' folder. In order to minimize the package to be deployed. <a href="https://github.wdf.sap.corp/ci-connect/pipeline-ui-poc/blob/master/manifest.yml" target="_blank">manifest.yml</a></li>
 							<li>Deploy as a static buildpack</li>
 						</ul>
 					</section>
@@ -572,8 +579,9 @@
 				<section>
 					<h2><span style="color:#b30000">OData Service</span> Module on NodeJS</h2>
 					<ul>
-						<li>todo add link</li>
-						<li>todo add link</li>
+						<li><a href="https://blogs.sap.com/2015/11/14/odata-server-for-nodejs/" target="_blank">n-odata-server</a> provided by a partner</li>
+						<li><a href=" https://github.wdf.sap.corp/xs2/xsodata">odata v2</a> provided by gateway team</li>
+						<li><a href="https://github.wdf.sap.corp/xs2/odata-v4" target="_blank">odata v4</a> provided by gateway team</li>
 					</ul>
 				</section>
 
