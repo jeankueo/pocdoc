@@ -118,7 +118,7 @@
 					</section>
 
 					<section>
-						<h2><span class="highlight-bo-static">Challenges</span></h2>
+						<h2><span class="pocchallenge">Challenges</span></h2>
 						<ul>
 							<li>Different team, different culture</li>
 							<li>Understand requirements</li>
@@ -410,7 +410,7 @@
 
 					<section>
 						<h2><span class="highlight-sap-static">Control Explorer</span></h2>
-						<p><span class="highlight-sap-static">Control Explorer</span> is API + demo of SAPUI5 controls<a href="http://veui5infra.dhcp.wdf.sap.corp:8080/sapui5-sdk-internal/explored.html" target="_blank">Link</a></p>
+						<p><span class="highlight-sap-static">Control Explorer</span> is API + demo of SAPUI5 controls <a href="http://veui5infra.dhcp.wdf.sap.corp:8080/sapui5-sdk-internal/explored.html" target="_blank">Link</a></p>
 						<aside class="notes"	>
 							take Carousel as an example.
 						</aside>
@@ -433,25 +433,56 @@
 
 					<section>
 						<h2><span class="highlight-sap-static">App and Routing</span></h2>
+						<small>organization of views</small>
 						<ul>
-							<li>When more and more views are created and need to be organized, you need App and component to navigate among them</li>
-							<li>One extra benefit of routing is bookmarkable view status, like searh results</li>
+							<li>When more and more views are created, they need to be organized. It's time you use App and component for routing</li>
+							<li>One extra benefit of routing is <span class="highlight-sap-static">bookmarkable</span> view status, like searh results</li>
 						</ul>
+						<aside class="notes">
+							explain 'sharp routing'
+						</aside>
 					</section>
 
 					<section>
 						<h2><span class="highlight-sap-static">Page</span></h2>
-					    very typical design with a header + body + toolbar. Open explorer to show some sample.
-					</section>
-
-					<section>
-						<h2><span class="highlight-sap-static">Icon Tab and Splitter</span></h2>
-					    Just different flavor of layouts, inside views are reused.
+						<small>layout for internal structure of a view</small>
+						<ul>
+							<li>Very typical design with a <span class="highlight-sap-static">header</span> + a <span class="highlight-sap-static">body</span> + a <span class="highlight-sap-static">footer</span></li>
+							<li>Build-in support for routing</li>
+						</ul>
+					    
+					    <aside class="notes">
+					    <ul>
+					    		<li>I use it as a basic layout for each view. Open demo to show some sample.</li>
+					    		<li>introduce the 'viewLevel' config in manifest.json file</li>
+					    </ul>
+					    </aside>
 					</section>
 
 					<section>
 						<h2><span class="highlight-sap-static">Panel</span></h2>
-					    Innerview is using Panel to layout search tool and content. height of content should be calculated.
+						<small>layout for view body</small>
+						<ul>
+							<li><span class="highlight-sap-static">Multiple Panel</span>: Stackable body</li>
+							<li><span class="highlight-sap-static">Single Panle</span>: layout for toolbar + body<ul>
+								<li>'headerToolbar' aggregation to place carousel and toolbar</li>
+								<li>'content' for collection like list or tile</li>
+							</ul></li>
+						</ul>
+					    	<aside class="notes">
+					    		It is a little like old 'accordian' in commons lib.
+					    		I use this to orgainize body: top search bar + buttons and real body
+					    	</aside>
+					</section>
+
+					<section>
+						<h2><span class="highlight-sap-static">Icon Tab and Splitter</span></h2>
+					     <small>Differnt flavor of layouts</small>
+					     <ul>
+							<li><span class="highlight-sap-static">Icon Tab</span>: Switchable views.</li>
+							<li><span class="highlight-sap-static">Splitter</span>: Side-by-side views.</li>
+							<li>I would recommend to use Icon Tab to handle 2+ views, and splitter for 2 views</li>
+						</ul>
 					</section>
 
 					<section>
@@ -477,21 +508,31 @@
 							</tr>
 							<tr>
 								<td>Selection Support</td>
-								<td>N.A. yet</td>
+								<td><span class="highlight-sap-static">N.A. yet</span></td>
 								<td>sufficient</td>
 							</tr>
 						</tbody>
 					</table>
+					<aside class="notes">
+						may talk about selection is a state, should be bind to control, instead of model.
+					</aside>
 					</section>
 
 					<section>
-						<h3><span class="highlight-sap-static">Assignment Popovers</span></h3>
-						introduce it.
+						<h2><span class="highlight-sap-static">Assignment Popovers</span></h2>
+						<ul>
+							<li><a href="http://veui5infra.dhcp.wdf.sap.corp:8080/sapui5-sdk-internal/explored.html#/entity/sap.m.NotificationListGroup/samples" target="_blank">NotificationListGroup</a></li>
+							<li><a href="http://veui5infra.dhcp.wdf.sap.corp:8080/sapui5-sdk-internal/explored.html#/entity/sap.m.NotificationListItem/samples" target="_blank">NotificationListItem</a></li>
+						</ul>
 					</section>
 
 					<section>
 						<h2><span class="highlight-sap-static">Activation View</span></h2>
-						introduce it. -- it's not in open ui5 lib
+						<ul>
+							<li>A lib with namespace 'sap.uxap'</li>
+							<li>Rich Page Header</li>
+							<li>Tabbed and auto scroll form</li>
+						</ul>
 					</section>
 
 					<section>
@@ -577,9 +618,13 @@
 				</section>
 
 				<section>
-					<h2><span style="color:#b30000">OData Service</span> Module on NodeJS</h2>
+					<h2><span class="pocchallenge">OData Service</span> Module on NodeJS</h2>
 					<ul>
-						<li><a href="https://blogs.sap.com/2015/11/14/odata-server-for-nodejs/" target="_blank">n-odata-server</a> provided by a partner</li>
+						<li><a href="https://blogs.sap.com/2015/11/14/odata-server-for-nodejs/" target="_blank">n-odata-server</a> provided by a partner <ul>
+							<li><a href="https://ciconnect-pipeline-db.cfapps.sap.hana.ondemand.com/odata/?$metadata" target="_blank">$metadata</a></li>
+							<li><a href="https://ciconnect-pipeline-db.cfapps.sap.hana.ondemand.com/odata/pipelines" target="_blank">Pipelines</a></li>
+							<li><a href="https://ciconnect-pipeline-db.cfapps.sap.hana.ondemand.com/odata/pipelines?$count" target="_blank">Pipeline?$count</a></li>
+						</ul></li>
 						<li><a href=" https://github.wdf.sap.corp/xs2/xsodata">odata v2</a> provided by gateway team</li>
 						<li><a href="https://github.wdf.sap.corp/xs2/odata-v4" target="_blank">odata v4</a> provided by gateway team</li>
 					</ul>

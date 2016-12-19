@@ -20,6 +20,10 @@
   color: #009999;
 }
 
+.pocchallenge {
+  color: #b30000;
+}
+
 /* mocking ui styles */
 .mockGreen {
   border: solid  #6AC5AC 3px !important; 
