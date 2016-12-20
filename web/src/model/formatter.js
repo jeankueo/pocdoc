@@ -15,9 +15,9 @@ sap.ui.define([], function () {
 
 		pipelineTileWidth: function (oAbstract) {
 			if (!oAbstract || !oAbstract.stages || oAbstract.stages.length < 5) {
-				return "170px";
+				return "160px";
 			} else {
-				return (170 + 40 * (oAbstract.stages.length - 4)) + "px";
+				return (160 + 40 * (oAbstract.stages.length - 4)) + "px";
 			}
 		}
 	};
