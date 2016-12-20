@@ -5,7 +5,7 @@
 				<tileContent>
 					<TileContent frameType="Auto" scope="Actions">
 						<content>
-							<ci:BOControl moduleName="PipelineGraph" controlName="PipelineGraph" props="{pipeline>abstract2}">
+							<ci:BOControl moduleName="PipelineGraph" controlName="PipelineGraph" props="{pipeline>abstract2}" width="{path: 'pipeline>abstract', formatter: '.formatter.pipelineTileWidth'}">
 								<ci:boEvents>
 									<ci:BOEvent name="onNodeClick" handle="onPipelineNodeClick" />
 								</ci:boEvents>

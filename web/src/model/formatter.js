@@ -11,6 +11,14 @@ sap.ui.define([], function () {
 			} else {
 				return "Success";
 			}
+		},
+
+		pipelineTileWidth: function (oAbstract) {
+			if (!oAbstract || !oAbstract.stages || oAbstract.stages.length < 5) {
+				return "170px";
+			} else {
+				return (170 + 40 * (oAbstract.stages.length - 4)) + "px";
+			}
 		}
 	};
 })
