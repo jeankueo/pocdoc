@@ -175,10 +175,6 @@ sap.ui.define([
 			this._updateRepoToken();
 		},
 
-		onAfterRendering: function () {
-			this._setPanelHeightByPageContainer("repoPanel");
-		},
-
 		onNavDetail: function (oEvent) {
 			var sPath = oEvent.getSource().getBindingContext("repo").getPath();
 			this.getRouter().navTo("repository", {

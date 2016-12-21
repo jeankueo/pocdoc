@@ -10,10 +10,10 @@
 		<layout:ResponsiveSplitter id="splitter">
 			<layout:PaneContainer>
 				<layout:SplitPane>
-					<mvc:XMLView id="pipelineView" viewName="sap.ciconnect.view.Pipelines" />
+					<mvc:XMLView id="pipelineView" viewName="sap.ciconnect.view.Pipelines" height="100%" />
 				</layout:SplitPane>
 				<layout:SplitPane>
-					<mvc:XMLView id="repoView" viewName="sap.ciconnect.view.Repositories" />
+					<mvc:XMLView id="repoView" viewName="sap.ciconnect.view.Repositories"  height="100%" />
 				</layout:SplitPane>
 			</layout:PaneContainer>
 		</layout:ResponsiveSplitter>

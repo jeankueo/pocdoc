@@ -194,10 +194,6 @@ sap.ui.define([
 			oModel.updateBindings(true);
 		},
 
-		onAfterRendering: function () {
-			this._setPanelHeightByPageContainer("pipelinesPanel");
-		},
-
 		onNavDetail: function (oEvent) {
 			var sPath = oEvent.getSource().getBindingContext("pipeline").getPath();
 			this.getRouter().navTo("pipeline", {
