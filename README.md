@@ -21,13 +21,13 @@ Local Install
 
 ``` json
 	 	{
-	 		"proxy": "http://proxy.wdf.sap.corp:8080",
-			"https-proxy": "http://proxy.wdf.sap.corp:8080"
+	 		"proxy": "http://proxy.xxx.xxx.corp:8080",
+			"https-proxy": "http://proxy.xxx.xxx.corp:8080"
 	 	}
 ```
 	
 ``` sh
-		registry=http://nexus.wdf.sap.corp:8081/nexus/content/groups/build.releases.npm/
+		registry=http://nexus.wdf.xxx.corp:8081/nexus/content/groups/build.releases.npm/
 ```
 
 * Install this node project, following things are triggered to build web module by this command
