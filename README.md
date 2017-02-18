@@ -15,7 +15,7 @@ cf create-service mongodb v3.0-container pipeline-db  // creating backing servic
 
 Local Install
 --------------
-* This step if optional. If you are behind SAP Corporate network, please add settings as following. Note that do not commit these two proxy settings into git, because it would effect build service.:
+* This step if optional. If you are behind Corporate network, please add settings as following. Note that do not commit these two proxy settings into git, because it would effect build service.:
 	* .bowerrc in root folder.
 	* .npmrc in root folder and /db folder.
 
